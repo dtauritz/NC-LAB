@@ -1,0 +1,35 @@
+2018/12/06 17:47:30| INFO: Using config file config/base_config/basicEA5-10.cfg
+2018/12/06 17:47:30| INFO: Using random seed 1544140050
+2018/12/06 17:47:30| INFO: Starting evolution
+2018/12/06 17:48:46| INFO: Finished generation 0
+2018/12/06 17:50:21| INFO: Finished generation 1
+2018/12/06 17:52:12| INFO: Finished generation 2
+2018/12/06 17:53:43| INFO: Finished generation 3
+2018/12/06 17:56:05| INFO: Finished generation 4
+2018/12/06 17:57:43| INFO: Finished generation 5
+2018/12/06 17:59:21| INFO: Finished generation 6
+2018/12/06 18:01:40| INFO: Finished generation 7
+2018/12/06 18:03:54| INFO: Finished generation 8
+2018/12/06 18:05:26| INFO: Finished generation 9
+2018/12/06 18:06:46| INFO: Finished generation 10
+2018/12/06 18:08:03| INFO: Finished generation 11
+2018/12/06 18:09:52| INFO: Finished generation 12
+2018/12/06 18:10:49| INFO: Finished generation 13
+2018/12/06 18:11:46| INFO: Finished generation 14
+2018/12/06 18:13:11| INFO: Finished generation 15
+2018/12/06 18:14:33| INFO: Finished generation 16
+2018/12/06 18:15:43| INFO: Finished generation 17
+2018/12/06 18:17:19| INFO: Finished generation 18
+2018/12/06 18:18:27| INFO: Finished generation 19
+2018/12/06 18:19:29| INFO: Finished generation 20
+2018/12/06 18:20:49| INFO: Finished generation 21
+2018/12/06 18:22:25| INFO: Finished generation 22
+2018/12/06 18:23:44| INFO: Finished generation 23
+2018/12/06 18:25:14| INFO: Finished generation 24
+2018/12/06 18:26:12| INFO: Finished generation 25
+2018/12/06 18:27:11| INFO: Finished generation 26
+2018/12/06 18:28:23| INFO: Finished generation 27
+2018/12/06 18:29:55| INFO: Finished generation 28
+2018/12/06 18:29:55| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/06 18:29:56| INFO: String form of best Popi: (fitness + sum_fitness) | selection type: tournament_replacement |  | tournament size: 5 |||| ((fitness min ((relative_fitness * generation_number) / (fitness + fitness_rank))) max ((fitness_rank step (fitness step min_fitness)) / (fitness_rank - fitness))) | selection type: truncation | 
+2018/12/06 18:29:56| INFO: Time elapsed: 2545.9054532051086

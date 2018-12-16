@@ -1,0 +1,36 @@
+2018/12/06 23:41:57| INFO: Using config file config/base_config/basicEA5-23.cfg
+2018/12/06 23:41:57| INFO: Using random seed 1544161317
+2018/12/06 23:41:57| INFO: Starting evolution
+2018/12/06 23:42:25| INFO: Finished generation 0
+2018/12/06 23:42:44| INFO: Finished generation 1
+2018/12/06 23:42:59| INFO: Finished generation 2
+2018/12/06 23:43:15| INFO: Finished generation 3
+2018/12/06 23:43:33| INFO: Finished generation 4
+2018/12/06 23:43:53| INFO: Finished generation 5
+2018/12/06 23:44:10| INFO: Finished generation 6
+2018/12/06 23:44:28| INFO: Finished generation 7
+2018/12/06 23:44:45| INFO: Finished generation 8
+2018/12/06 23:45:03| INFO: Finished generation 9
+2018/12/06 23:45:23| INFO: Finished generation 10
+2018/12/06 23:45:40| INFO: Finished generation 11
+2018/12/06 23:45:56| INFO: Finished generation 12
+2018/12/06 23:46:54| INFO: Finished generation 13
+2018/12/06 23:47:09| INFO: Finished generation 14
+2018/12/06 23:47:32| INFO: Finished generation 15
+2018/12/06 23:47:48| INFO: Finished generation 16
+2018/12/06 23:48:04| INFO: Finished generation 17
+2018/12/06 23:48:18| INFO: Finished generation 18
+2018/12/06 23:48:32| INFO: Finished generation 19
+2018/12/06 23:48:49| INFO: Finished generation 20
+2018/12/06 23:49:01| INFO: Finished generation 21
+2018/12/06 23:49:17| INFO: Finished generation 22
+2018/12/06 23:49:29| INFO: Finished generation 23
+2018/12/06 23:49:57| INFO: Finished generation 24
+2018/12/06 23:50:12| INFO: Finished generation 25
+2018/12/06 23:50:26| INFO: Finished generation 26
+2018/12/06 23:50:41| INFO: Finished generation 27
+2018/12/06 23:51:03| INFO: Finished generation 28
+2018/12/06 23:51:21| INFO: Finished generation 29
+2018/12/06 23:51:21| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/06 23:51:21| INFO: String form of best Popi: relative_fitness | selection type: proportional_replacement |  |||| (absolute(relative_fitness) * (fitness_rank min generation_number)) | selection type: truncation | 
+2018/12/06 23:51:21| INFO: Time elapsed: 563.8138101100922

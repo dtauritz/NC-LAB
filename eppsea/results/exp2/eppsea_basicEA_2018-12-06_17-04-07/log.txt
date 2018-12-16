@@ -1,0 +1,89 @@
+Running Postprocessing
+Postprocess results:
+String form of fitness_proportional_replacement__truncation: None
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610396616_2109a094-7284-48fd-a6d0-ad3e349c92b3 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 81.06034, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 62.17019, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 18.89015 higher than Evolved Selection Function 0, p=2.3117758958673197e-07
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397288_f5992fe8-3c41-46ab-81bf-40d0d8e54b3b ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 19.31015, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 9.09059, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 10.21956 higher than Evolved Selection Function 0, p=7.201524994888323e-05
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397344_376d40ab-080e-46c5-a2ad-38c00a4027b7 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: -36.59894, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -48.20393, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 11.60499 higher than Evolved Selection Function 0, p=3.304785484425468e-05
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397400_7d5edb87-a12f-4006-bf2f-6769b5eb91d0 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 24.08808, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 16.88429, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 7.20379 higher than Evolved Selection Function 0, p=0.001746999152168904
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397512_098bace9-6cf8-419d-9a8c-a0cdce83268c ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 86.65567, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 74.90776, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 11.74791 higher than Evolved Selection Function 0, p=1.8664556265935674e-05
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610396560_c6bf9a90-5ca6-4f8d-a829-f3f0862ff623 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 81.3394, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 68.40252, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 12.93688 higher than Evolved Selection Function 0, p=4.429981034802612e-06
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610396504_3d9bb0da-98fb-4977-9217-8cd28f2978c8 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: -62.39743, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -74.4247, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 12.02727 higher than Evolved Selection Function 0, p=1.0200645158343974e-06
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610396056_986a1d06-080a-4b68-825c-4fa3a3d5f47a ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 86.90086, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 78.00219, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 8.89867 higher than Evolved Selection Function 0, p=4.9289272571709366e-05
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397064_135b1959-4460-4ac9-a74f-6bb276c67384 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: -40.87167, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -48.32661, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 7.45494 higher than Evolved Selection Function 0, p=0.0014033338120140305
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397120_4cc7cc57-534c-4bbf-a752-fa38064bbeb9 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 1025.27368, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 1013.55265, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 11.72103 higher than Evolved Selection Function 0, p=3.0465211211007e-06
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397176_cebb8fd9-5798-4162-b56f-6e2e2ada55ee ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 55.14495, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 49.43563, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 5.70932 higher than Evolved Selection Function 0, p=0.039490150267504714
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610397232_67e032a2-65e6-4329-8693-d731df1c7525 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_proportional_replacement__truncation: 81.35732, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 71.63907, reaching target fitness in 0.0% of runs
+	fitness_proportional_replacement__truncation performed 9.71825 higher than Evolved Selection Function 0, p=7.151198274309282e-05
+
+Total time elapsed: 4127.307405471802

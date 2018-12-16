@@ -1,0 +1,62 @@
+2018/12/06 21:15:30| INFO: Using config file config/base_config/basicEA5-21.cfg
+2018/12/06 21:15:30| INFO: Using random seed 1544152530
+2018/12/06 21:15:30| INFO: Starting evolution
+2018/12/06 21:17:14| INFO: Finished generation 0
+2018/12/06 21:18:22| INFO: Finished generation 1
+2018/12/06 21:20:18| INFO: Finished generation 2
+2018/12/06 21:21:58| INFO: Finished generation 3
+2018/12/06 21:24:39| INFO: Finished generation 4
+2018/12/06 21:26:46| INFO: Finished generation 5
+2018/12/06 21:30:01| INFO: Finished generation 6
+2018/12/06 21:32:03| INFO: Finished generation 7
+2018/12/06 21:33:27| INFO: Finished generation 8
+2018/12/06 21:35:30| INFO: Finished generation 9
+2018/12/06 21:36:59| INFO: Finished generation 10
+2018/12/06 21:38:49| INFO: Finished generation 11
+2018/12/06 21:41:58| INFO: Finished generation 12
+2018/12/06 21:43:23| INFO: Finished generation 13
+2018/12/06 21:44:47| INFO: Finished generation 14
+2018/12/06 21:47:00| INFO: Finished generation 15
+2018/12/06 21:48:30| INFO: Finished generation 16
+2018/12/06 21:50:00| INFO: Finished generation 17
+2018/12/06 21:51:45| INFO: Finished generation 18
+2018/12/06 21:53:49| INFO: Finished generation 19
+2018/12/06 21:55:06| INFO: Finished generation 20
+2018/12/06 21:56:32| INFO: Finished generation 21
+2018/12/06 21:58:28| INFO: Finished generation 22
+2018/12/06 21:59:44| INFO: Finished generation 23
+2018/12/06 22:01:24| INFO: Finished generation 24
+2018/12/06 22:03:06| INFO: Finished generation 25
+2018/12/06 22:05:15| INFO: Finished generation 26
+2018/12/06 22:06:26| INFO: Finished generation 27
+2018/12/06 22:07:48| INFO: Finished generation 28
+2018/12/06 22:09:10| INFO: Finished generation 29
+2018/12/06 22:10:23| INFO: Finished generation 30
+2018/12/06 22:11:38| INFO: Finished generation 31
+2018/12/06 22:13:03| INFO: Finished generation 32
+2018/12/06 22:14:34| INFO: Finished generation 33
+2018/12/06 22:15:53| INFO: Finished generation 34
+2018/12/06 22:16:49| INFO: Finished generation 35
+2018/12/06 22:18:15| INFO: Finished generation 36
+2018/12/06 22:19:24| INFO: Finished generation 37
+2018/12/06 22:20:38| INFO: Finished generation 38
+2018/12/06 22:21:51| INFO: Finished generation 39
+2018/12/06 22:23:04| INFO: Finished generation 40
+2018/12/06 22:24:20| INFO: Finished generation 41
+2018/12/06 22:25:38| INFO: Finished generation 42
+2018/12/06 22:26:56| INFO: Finished generation 43
+2018/12/06 22:28:08| INFO: Finished generation 44
+2018/12/06 22:29:30| INFO: Finished generation 45
+2018/12/06 22:30:50| INFO: Finished generation 46
+2018/12/06 22:31:57| INFO: Finished generation 47
+2018/12/06 22:32:59| INFO: Finished generation 48
+2018/12/06 22:34:30| INFO: Finished generation 49
+2018/12/06 22:35:38| INFO: Finished generation 50
+2018/12/06 22:36:48| INFO: Finished generation 51
+2018/12/06 22:38:31| INFO: Finished generation 52
+2018/12/06 22:39:38| INFO: Finished generation 53
+2018/12/06 22:41:03| INFO: Finished generation 54
+2018/12/06 22:42:12| INFO: Finished generation 55
+2018/12/06 22:42:12| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/06 22:42:12| INFO: String form of best Popi: relative_uniqueness | selection type: proportional_replacement |  |||| (fitness + (fitness + -19.560612495395645)) | selection type: truncation | 
+2018/12/06 22:42:12| INFO: Time elapsed: 5201.825170755386

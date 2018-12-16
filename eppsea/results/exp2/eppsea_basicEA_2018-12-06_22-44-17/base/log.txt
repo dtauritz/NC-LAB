@@ -1,0 +1,40 @@
+2018/12/06 22:44:17| INFO: Using config file config/base_config/basicEA5-22.cfg
+2018/12/06 22:44:17| INFO: Using random seed 1544157857
+2018/12/06 22:44:17| INFO: Starting evolution
+2018/12/06 22:46:47| INFO: Finished generation 0
+2018/12/06 22:49:05| INFO: Finished generation 1
+2018/12/06 22:51:47| INFO: Finished generation 2
+2018/12/06 22:54:06| INFO: Finished generation 3
+2018/12/06 22:56:13| INFO: Finished generation 4
+2018/12/06 22:58:19| INFO: Finished generation 5
+2018/12/06 23:00:07| INFO: Finished generation 6
+2018/12/06 23:02:19| INFO: Finished generation 7
+2018/12/06 23:04:07| INFO: Finished generation 8
+2018/12/06 23:05:43| INFO: Finished generation 9
+2018/12/06 23:06:48| INFO: Finished generation 10
+2018/12/06 23:07:33| INFO: Finished generation 11
+2018/12/06 23:08:54| INFO: Finished generation 12
+2018/12/06 23:10:17| INFO: Finished generation 13
+2018/12/06 23:11:59| INFO: Finished generation 14
+2018/12/06 23:13:30| INFO: Finished generation 15
+2018/12/06 23:14:49| INFO: Finished generation 16
+2018/12/06 23:15:06| INFO: Finished generation 17
+2018/12/06 23:16:42| INFO: Finished generation 18
+2018/12/06 23:18:11| INFO: Finished generation 19
+2018/12/06 23:19:07| INFO: Finished generation 20
+2018/12/06 23:20:44| INFO: Finished generation 21
+2018/12/06 23:22:10| INFO: Finished generation 22
+2018/12/06 23:23:42| INFO: Finished generation 23
+2018/12/06 23:25:07| INFO: Finished generation 24
+2018/12/06 23:26:28| INFO: Finished generation 25
+2018/12/06 23:27:48| INFO: Finished generation 26
+2018/12/06 23:29:28| INFO: Finished generation 27
+2018/12/06 23:31:07| INFO: Finished generation 28
+2018/12/06 23:32:34| INFO: Finished generation 29
+2018/12/06 23:33:35| INFO: Finished generation 30
+2018/12/06 23:35:14| INFO: Finished generation 31
+2018/12/06 23:37:00| INFO: Finished generation 32
+2018/12/06 23:38:47| INFO: Finished generation 33
+2018/12/06 23:38:47| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/06 23:38:47| INFO: String form of best Popi: (fitness + (absolute(fitness) + (max_fitness + (fitness_rank max fitness)))) | selection type: tournament_replacement |  | tournament size: 4 |||| ((sum_fitness step (random step (absolute(((sum_fitness / ((relative_fitness * (birth_generation * fitness)) min min_fitness)) min max_fitness)) + ((sum_fitness step (((birth_generation step population_size) - (min_fitness / sum_fitness)) max generation_number)) + ((min_fitness + min_fitness) * ((10.573340787817969 / fitness_rank) min relative_fitness)))))) + fitness_rank) | selection type: truncation | 
+2018/12/06 23:38:47| INFO: Time elapsed: 3270.1204285621643

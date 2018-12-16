@@ -1,0 +1,43 @@
+2018/12/06 01:58:35| INFO: Using config file config/base_config/cmaes_d2.cfg
+2018/12/06 01:58:35| INFO: Using random seed 1544083115
+2018/12/06 01:58:35| INFO: Starting evolution
+2018/12/06 01:58:45| INFO: Finished generation 0
+2018/12/06 01:58:56| INFO: Finished generation 1
+2018/12/06 01:59:05| INFO: Finished generation 2
+2018/12/06 01:59:15| INFO: Finished generation 3
+2018/12/06 01:59:23| INFO: Finished generation 4
+2018/12/06 01:59:34| INFO: Finished generation 5
+2018/12/06 01:59:45| INFO: Finished generation 6
+2018/12/06 01:59:55| INFO: Finished generation 7
+2018/12/06 02:00:06| INFO: Finished generation 8
+2018/12/06 02:00:15| INFO: Finished generation 9
+2018/12/06 02:00:25| INFO: Finished generation 10
+2018/12/06 02:00:34| INFO: Finished generation 11
+2018/12/06 02:00:45| INFO: Finished generation 12
+2018/12/06 02:00:56| INFO: Finished generation 13
+2018/12/06 02:01:06| INFO: Finished generation 14
+2018/12/06 02:01:16| INFO: Finished generation 15
+2018/12/06 02:01:26| INFO: Finished generation 16
+2018/12/06 02:01:37| INFO: Finished generation 17
+2018/12/06 02:01:47| INFO: Finished generation 18
+2018/12/06 02:01:58| INFO: Finished generation 19
+2018/12/06 02:02:08| INFO: Finished generation 20
+2018/12/06 02:02:18| INFO: Finished generation 21
+2018/12/06 02:02:29| INFO: Finished generation 22
+2018/12/06 02:02:39| INFO: Finished generation 23
+2018/12/06 02:02:49| INFO: Finished generation 24
+2018/12/06 02:02:59| INFO: Finished generation 25
+2018/12/06 02:03:12| INFO: Finished generation 26
+2018/12/06 02:03:21| INFO: Finished generation 27
+2018/12/06 02:03:31| INFO: Finished generation 28
+2018/12/06 02:03:41| INFO: Finished generation 29
+2018/12/06 02:03:53| INFO: Finished generation 30
+2018/12/06 02:04:03| INFO: Finished generation 31
+2018/12/06 02:04:15| INFO: Finished generation 32
+2018/12/06 02:04:25| INFO: Finished generation 33
+2018/12/06 02:04:36| INFO: Finished generation 34
+2018/12/06 02:04:47| INFO: Finished generation 35
+2018/12/06 02:04:57| INFO: Finished generation 36
+2018/12/06 02:04:57| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/06 02:04:57| INFO: String form of best Popi: ((min_fitness max (sum_fitness step generation_number)) + relative_fitness) | selection type: tournament_replacement |  | tournament size: 6
+2018/12/06 02:04:57| INFO: Time elapsed: 382.8830051422119

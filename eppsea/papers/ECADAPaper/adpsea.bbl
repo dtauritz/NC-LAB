@@ -1,0 +1,239 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{17}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Burke, Gendreau, Hyde, Kendall, Ochoa,
+  {\"O}zcan, and Qu}{Burke et~al\mbox{.}}{2013}]%
+        {burke2013HHstateoftheart}
+\bibfield{author}{\bibinfo{person}{Edmund~K Burke}, \bibinfo{person}{Michel
+  Gendreau}, \bibinfo{person}{Matthew Hyde}, \bibinfo{person}{Graham Kendall},
+  \bibinfo{person}{Gabriela Ochoa}, \bibinfo{person}{Ender {\"O}zcan}, {and}
+  \bibinfo{person}{Rong Qu}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Hyper-heuristics: A survey of the state of the
+  art}.
+\newblock \bibinfo{journal}{{\em Journal of the Operational Research
+  Society\/}} \bibinfo{volume}{64}, \bibinfo{number}{12}
+  (\bibinfo{year}{2013}), \bibinfo{pages}{1695--1724}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Burke, Hyde, and Kendall}{Burke
+  et~al\mbox{.}}{2012}]%
+        {burke2012localHeuristics}
+\bibfield{author}{\bibinfo{person}{Edmund~K Burke}, \bibinfo{person}{Matthew~R
+  Hyde}, {and} \bibinfo{person}{Graham Kendall}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Grammatical evolution of local search heuristics}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Evolutionary
+  Computation\/}} \bibinfo{volume}{16}, \bibinfo{number}{3}
+  (\bibinfo{year}{2012}), \bibinfo{pages}{406--417}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Goldman and Tauritz}{Goldman and
+  Tauritz}{2011}]%
+        {goldman2011scc}
+\bibfield{author}{\bibinfo{person}{Brian~W Goldman} {and}
+  \bibinfo{person}{Daniel~R Tauritz}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Self-configuring crossover}. In
+  \bibinfo{booktitle}{{\em Proceedings of the 13th annual conference companion
+  on Genetic and evolutionary computation}}. ACM, \bibinfo{pages}{575--582}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Guntly and Tauritz}{Guntly and
+  Tauritz}{2011}]%
+        {guntly2011limp}
+\bibfield{author}{\bibinfo{person}{Lisa~M Guntly} {and}
+  \bibinfo{person}{Daniel~R Tauritz}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Learning individual mating preferences}. In
+  \bibinfo{booktitle}{{\em Proceedings of the 13th annual conference on Genetic
+  and evolutionary computation}}. ACM, \bibinfo{pages}{1069--1076}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hong, Woodward, Li, and {\"O}zcan}{Hong
+  et~al\mbox{.}}{2013}]%
+        {hong2013probMutation}
+\bibfield{author}{\bibinfo{person}{Libin Hong}, \bibinfo{person}{John
+  Woodward}, \bibinfo{person}{Jingpeng Li}, {and} \bibinfo{person}{Ender
+  {\"O}zcan}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Automated design of probability distributions as
+  mutation operators for evolutionary programming using genetic programming}.
+  In \bibinfo{booktitle}{{\em European Conference on Genetic Programming}}.
+  Springer, \bibinfo{pages}{85--96}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kaufmann}{Kaufmann}{1993}]%
+        {kaufmann1993origins}
+\bibfield{author}{\bibinfo{person}{SA Kaufmann}.}
+  \bibinfo{year}{1993}\natexlab{}.
+\newblock \bibinfo{title}{The origins of order}.
+\newblock   (\bibinfo{year}{1993}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{KhudaBukhsh, Xu, Hoos, and
+  Leyton-Brown}{KhudaBukhsh et~al\mbox{.}}{2009}]%
+        {khudabukhsh2009satenstein}
+\bibfield{author}{\bibinfo{person}{Ashiqur~R KhudaBukhsh}, \bibinfo{person}{Lin
+  Xu}, \bibinfo{person}{Holger~H Hoos}, {and} \bibinfo{person}{Kevin
+  Leyton-Brown}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{SATenstein: Automatically Building Local Search SAT
+  Solvers from Components.}. In \bibinfo{booktitle}{{\em IJCAI}},
+  Vol.~\bibinfo{volume}{9}. \bibinfo{pages}{517--524}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Koza}{Koza}{1994}]%
+        {koza1994genetic}
+\bibfield{author}{\bibinfo{person}{John~R Koza}.}
+  \bibinfo{year}{1994}\natexlab{}.
+\newblock \showarticletitle{Genetic programming as a means for programming
+  computers by natural selection}.
+\newblock \bibinfo{journal}{{\em Statistics and computing\/}}
+  \bibinfo{volume}{4}, \bibinfo{number}{2} (\bibinfo{year}{1994}),
+  \bibinfo{pages}{87--112}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Lopez-Ibanez and Stutzle}{Lopez-Ibanez and
+  Stutzle}{2012}]%
+        {lopez2012antcol}
+\bibfield{author}{\bibinfo{person}{Manuel Lopez-Ibanez} {and}
+  \bibinfo{person}{Thomas Stutzle}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{The automatic design of multiobjective ant colony
+  optimization algorithms}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Evolutionary
+  Computation\/}} \bibinfo{volume}{16}, \bibinfo{number}{6}
+  (\bibinfo{year}{2012}), \bibinfo{pages}{861--875}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Louren{\c{c}}o, Pereira, and
+  Costa}{Louren{\c{c}}o et~al\mbox{.}}{2013}]%
+        {lourencco2013selection}
+\bibfield{author}{\bibinfo{person}{Nuno Louren{\c{c}}o},
+  \bibinfo{person}{Francisco Pereira}, {and} \bibinfo{person}{Ernesto Costa}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Learning selection strategies for evolutionary
+  algorithms}. In \bibinfo{booktitle}{{\em International Conference on
+  Artificial Evolution (Evolution Artificielle)}}. Springer,
+  \bibinfo{pages}{197--208}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Martin and Tauritz}{Martin and
+  Tauritz}{2013}]%
+        {martin2013evolvingBBSA}
+\bibfield{author}{\bibinfo{person}{Matthew~A Martin} {and}
+  \bibinfo{person}{Daniel~R Tauritz}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Evolving black-box search algorithms employing
+  genetic programming}. In \bibinfo{booktitle}{{\em Proceedings of the 15th
+  annual conference companion on Genetic and evolutionary computation}}. ACM,
+  \bibinfo{pages}{1497--1504}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Scott and Bassett}{Scott and Bassett}{2015}]%
+        {scott2015geneticRepresentations}
+\bibfield{author}{\bibinfo{person}{Eric~O Scott} {and}
+  \bibinfo{person}{Jeffrey~K Bassett}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Learning genetic representations for classes of
+  real-valued optimization problems}. In \bibinfo{booktitle}{{\em Proceedings
+  of the Companion Publication of the 2015 Annual Conference on Genetic and
+  Evolutionary Computation}}. ACM, \bibinfo{pages}{1075--1082}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wolpert, Macready, et~al\mbox{.}}{Wolpert
+  et~al\mbox{.}}{1995}]%
+        {wolpert1995noFreeLunch}
+\bibfield{author}{\bibinfo{person}{David~H Wolpert}, \bibinfo{person}{William~G
+  Macready}, {et~al\mbox{.}}} \bibinfo{year}{1995}\natexlab{}.
+\newblock \bibinfo{booktitle}{{\em No free lunch theorems for search}}.
+\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Technical
+  Report SFI-TR-95-02-010, Santa Fe Institute}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Woodward}{Woodward}{2010}]%
+        {woodward2010metaBias}
+\bibfield{author}{\bibinfo{person}{John~R Woodward}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{The necessity of meta bias in search algorithms}.
+  In \bibinfo{booktitle}{{\em Computational Intelligence and Software
+  Engineering (CiSE), 2010 International Conference on}}. IEEE,
+  \bibinfo{pages}{1--4}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Woodward and Bai}{Woodward and Bai}{2009}]%
+        {woodward2009GPNotGood}
+\bibfield{author}{\bibinfo{person}{John~R Woodward} {and}
+  \bibinfo{person}{Ruibin Bai}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{Why evolution is not a good paradigm for program
+  induction: a critique of genetic programming}. In \bibinfo{booktitle}{{\em
+  Proceedings of the first ACM/SIGEVO Summit on Genetic and Evolutionary
+  Computation}}. ACM, \bibinfo{pages}{593--600}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Woodward and Swan}{Woodward and Swan}{2011}]%
+        {woodward2011selection}
+\bibfield{author}{\bibinfo{person}{John~Robert Woodward} {and}
+  \bibinfo{person}{Jerry Swan}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Automatically designing selection heuristics}. In
+  \bibinfo{booktitle}{{\em Proceedings of the 13th annual conference companion
+  on Genetic and evolutionary computation}}. ACM, \bibinfo{pages}{583--590}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Woodward and Swan}{Woodward and Swan}{2012}]%
+        {woodward2012mutationGeneration}
+\bibfield{author}{\bibinfo{person}{John~R Woodward} {and}
+  \bibinfo{person}{Jerry Swan}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{The automatic generation of mutation operators for
+  genetic algorithms}. In \bibinfo{booktitle}{{\em Proceedings of the 14th
+  annual conference companion on Genetic and evolutionary computation}}. ACM,
+  \bibinfo{pages}{67--74}.
+\newblock
+
+
+\end{thebibliography}

@@ -1,0 +1,89 @@
+Running Postprocessing
+Postprocess results:
+String form of stochastic_universal_sampling__66_tournament_NR: None
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616885576_fe012142-fdec-4aec-ab63-2897aa4eed8e ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: 656.25853, reaching target fitness in 94.0% of runs
+Mean performance of Evolved Selection Function 0: 656.04966, reaching target fitness in 99.5% of runs
+	stochastic_universal_sampling__66_tournament_NR performed 0.20887 higher than Evolved Selection Function 0, p=0.008387708986285092
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616885016_e78b34cc-aef3-4757-96bc-67df245ad30e ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: 99.70136, reaching target fitness in 94.0% of runs
+Mean performance of Evolved Selection Function 0: 99.59774, reaching target fitness in 100.0% of runs
+	stochastic_universal_sampling__66_tournament_NR performed 0.10362 higher than Evolved Selection Function 0, p=0.006302090333435699
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616886024_5f9328e9-987f-49c0-bec9-721c80aa118b ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: 149.74734, reaching target fitness in 97.0% of runs
+Mean performance of Evolved Selection Function 0: 149.67914, reaching target fitness in 98.5% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616886080_0466b9e0-aba4-4eea-8635-3b60dd28740e ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: -999.79475, reaching target fitness in 92.0% of runs
+Mean performance of Evolved Selection Function 0: -999.90058, reaching target fitness in 98.5% of runs
+	stochastic_universal_sampling__66_tournament_NR performed 0.10583 higher than Evolved Selection Function 0, p=0.01001486613450225
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616884736_64988f84-1753-459c-bc63-5ef80fc37cfd ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: -40.81761, reaching target fitness in 95.0% of runs
+Mean performance of Evolved Selection Function 0: -40.87581, reaching target fitness in 99.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616885632_47f5fb4b-f93e-4071-b934-066a77dc55c2 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: 66.86795, reaching target fitness in 94.0% of runs
+Mean performance of Evolved Selection Function 0: 66.80246, reaching target fitness in 99.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616886192_93fede07-9a20-4048-936f-a64d9ec62ea6 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: 941.83599, reaching target fitness in 96.0% of runs
+Mean performance of Evolved Selection Function 0: 941.74716, reaching target fitness in 99.0% of runs
+	stochastic_universal_sampling__66_tournament_NR performed 0.08883 higher than Evolved Selection Function 0, p=0.00708460755747112
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616886864_68700ee2-f157-4130-815d-cfc02e1814b7 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: -37.24503, reaching target fitness in 92.5% of runs
+Mean performance of Evolved Selection Function 0: -37.31683, reaching target fitness in 97.5% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616885072_0a2d8014-0e70-4ec9-9be2-03a5aa3b7a3e ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: -225.78642, reaching target fitness in 93.0% of runs
+Mean performance of Evolved Selection Function 0: -225.8815, reaching target fitness in 97.5% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616885128_71497c87-ffd3-4c30-afe6-f11251c05283 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: 1000.12596, reaching target fitness in 95.5% of runs
+Mean performance of Evolved Selection Function 0: 1000.12784, reaching target fitness in 99.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616885184_21c3cca1-9e87-4f46-9229-0d87b4137608 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: -182.72031, reaching target fitness in 89.5% of runs
+Mean performance of Evolved Selection Function 0: -182.87113, reaching target fitness in 96.5% of runs
+	stochastic_universal_sampling__66_tournament_NR performed 0.15082 higher than Evolved Selection Function 0, p=0.039029911207604205
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616886360_4d699924-dfa4-4c59-a825-f3bcad6f656a ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of stochastic_universal_sampling__66_tournament_NR: -102.37339, reaching target fitness in 92.5% of runs
+Mean performance of Evolved Selection Function 0: -102.49127, reaching target fitness in 97.5% of runs
+	No significant differences in performance
+
+Total time elapsed: 9215.43237566948

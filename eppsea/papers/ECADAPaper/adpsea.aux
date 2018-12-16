@@ -1,0 +1,112 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{woodward2010metaBias}
+\citation{wolpert1995noFreeLunch}
+\citation{woodward2011selection}
+\citation{koza1994genetic}
+\citation{burke2013HHstateoftheart}
+\@writefile{toc}{\contentsline {section}{Abstract}{1}{section*.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
+\newlabel{Introduction}{{1}{1}{Introduction}{section.1}{}}
+\citation{lopez2012antcol,khudabukhsh2009satenstein,martin2013evolvingBBSA,burke2012localHeuristics}
+\citation{woodward2012mutationGeneration,guntly2011limp,goldman2011scc,scott2015geneticRepresentations,hong2013probMutation}
+\citation{woodward2011selection}
+\citation{lourencco2013selection}
+\citation{koza1994genetic}
+\citation{woodward2009GPNotGood}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{2}{section.2}}
+\newlabel{Background}{{2}{2}{Background}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{2}{section.3}}
+\newlabel{Methodology}{{3}{2}{Methodology}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Encoding Selection Functions}{2}{subsection.3.1}}
+\newlabel{Methodology-Encoding Selection Functions}{{3.1}{2}{Encoding Selection Functions}{subsection.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Representing Typical Selection Functions}{2}{subsection.3.2}}
+\newlabel{Methodology-Representing Typical Selection Functions}{{3.2}{2}{Representing Typical Selection Functions}{subsection.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example of a generated selection function, encoded in a GP-Tree. With this selection function, the probability of any individual being selected is directly proportional to the individual's fitness rating plus 5, multiplied by the individual's ranking in the population ordered by fitness. The bit to indicate selection with replacement is set to False, so this selection function will not select the same individual more than once within the same generation.\relax }}{3}{figure.caption.5}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:example_adpsea}{{1}{3}{Example of a generated selection function, encoded in a GP-Tree. With this selection function, the probability of any individual being selected is directly proportional to the individual's fitness rating plus 5, multiplied by the individual's ranking in the population ordered by fitness. The bit to indicate selection with replacement is set to False, so this selection function will not select the same individual more than once within the same generation.\relax }{figure.caption.5}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Probabilistic Selection Function\relax }}{3}{algorithm.1}}
+\newlabel{alg:ExampleSelection}{{1}{3}{Probabilistic Selection Function\relax }{algorithm.1}{}}
+\newlabel{proc:WeightedSelection}{{1}{3}{Probabilistic Selection Function\relax }{algorithm.1}{}}
+\newlabel{line:SelectWithoutReplacementLine}{{24}{3}{Probabilistic Selection Function\relax }{algorithm.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A comparison of the chances that each member of a sample population, with fitnesses as listed, will be selected, under each of the typical selection strategies listed, as well as the custom selection strategy shown in Figure\nonbreakingspace \ref  {fig:example_adpsea}.\relax }}{3}{figure.caption.6}}
+\newlabel{fig:selection_chances}{{2}{3}{A comparison of the chances that each member of a sample population, with fitnesses as listed, will be selected, under each of the typical selection strategies listed, as well as the custom selection strategy shown in Figure~\ref {fig:example_adpsea}.\relax }{figure.caption.6}{}}
+\newlabel{eq:probabilitySelectedForTournament}{{6}{4}{Representing Typical Selection Functions}{equation.3.6}{}}
+\newlabel{eq:probabilityWinTournament}{{8}{4}{Representing Typical Selection Functions}{equation.3.8}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Fitness Proportional Selection\relax }}{4}{algorithm.2}}
+\newlabel{alg:FitnessProportionalSelection}{{2}{4}{Fitness Proportional Selection\relax }{algorithm.2}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Fitness Ranking Selection\relax }}{4}{algorithm.3}}
+\newlabel{alg:FitnessRankingSelection}{{3}{4}{Fitness Ranking Selection\relax }{algorithm.3}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Truncation Selection\relax }}{4}{algorithm.4}}
+\newlabel{alg:TruncationSelection}{{4}{4}{Truncation Selection\relax }{algorithm.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Search Methodology}{4}{subsection.3.3}}
+\newlabel{Methodology-Search Methodology}{{3.3}{4}{Search Methodology}{subsection.3.3}{}}
+\citation{kaufmann1993origins}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The GP-Trees encoding the selection probabilities for typical selection functions, including a) Fitness proportional, b) Fitness Ranking, c) Truncation (T=40), and d) \textit  {k}-tournament (k=2).\relax }}{5}{figure.caption.7}}
+\newlabel{fig:example_selections}{{3}{5}{The GP-Trees encoding the selection probabilities for typical selection functions, including a) Fitness proportional, b) Fitness Ranking, c) Truncation (T=40), and d) \textit {k}-tournament (k=2).\relax }{figure.caption.7}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces \textit  {k}-tournament Selection\relax }}{5}{algorithm.5}}
+\newlabel{alg:KTournamentSelection}{{5}{5}{\textit {k}-tournament Selection\relax }{algorithm.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental Setup}{5}{section.4}}
+\newlabel{Experimental Setup}{{4}{5}{Experimental Setup}{section.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Meta-EA Parameters\relax }}{6}{table.caption.8}}
+\newlabel{tab:meta-EA_params}{{1}{6}{Meta-EA Parameters\relax }{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Bottom-level EA/Benchmark Function Parameters\relax }}{6}{table.caption.9}}
+\newlabel{tab:basicEA_params}{{2}{6}{Bottom-level EA/Benchmark Function Parameters\relax }{table.caption.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{6}{section.5}}
+\newlabel{Results}{{5}{6}{Results}{section.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The best fitness achieved by the underlying EA on one of the testing functions, using evolved and conventional fitness functions, averaged over all runs.\relax }}{6}{figure.caption.11}}
+\newlabel{fig:nk_landscape_fitness_plot}{{4}{6}{The best fitness achieved by the underlying EA on one of the testing functions, using evolved and conventional fitness functions, averaged over all runs.\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{6}{section.6}}
+\newlabel{Discussion}{{6}{6}{Discussion}{section.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Final best fitness achieved by bottom-level EA on each testing instance, averaged over all runs, for the first 5 test instances.\relax }}{7}{table.caption.10}}
+\newlabel{tab:results}{{3}{7}{Final best fitness achieved by bottom-level EA on each testing instance, averaged over all runs, for the first 5 test instances.\relax }{table.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces A boxplot of the final best fitness values achieved by the underlying EA on one of the testing functions, using evolved and conventional fitness functions. Here, each box encloses the data points within the first and third quartiles, and the whiskers enclose the furthest data points that still lie within 1.5 *\textit  {IQR} from each quartile, where textit{IQR} is the interquartile range.\relax }}{7}{figure.caption.12}}
+\newlabel{fig:nk_landscape_fitness_boxplot}{{5}{7}{A boxplot of the final best fitness values achieved by the underlying EA on one of the testing functions, using evolved and conventional fitness functions. Here, each box encloses the data points within the first and third quartiles, and the whiskers enclose the furthest data points that still lie within 1.5 *\textit {IQR} from each quartile, where textit{IQR} is the interquartile range.\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces One of the best custom selection functions produced by the meta-EA.\relax }}{7}{figure.caption.13}}
+\newlabel{fig:adpsea_final}{{6}{7}{One of the best custom selection functions produced by the meta-EA.\relax }{figure.caption.13}{}}
+\bibstyle{ACM-Reference-Format}
+\bibdata{adpsea-bibliography}
+\bibcite{burke2013HHstateoftheart}{{1}{2013}{{Burke et~al\unhbox \voidb@x \hbox {.}}}{{Burke, Gendreau, Hyde, Kendall, Ochoa, {\"O}zcan, and Qu}}}
+\bibcite{burke2012localHeuristics}{{2}{2012}{{Burke et~al\unhbox \voidb@x \hbox {.}}}{{Burke, Hyde, and Kendall}}}
+\bibcite{goldman2011scc}{{3}{2011}{{Goldman and Tauritz}}{{Goldman and Tauritz}}}
+\bibcite{guntly2011limp}{{4}{2011}{{Guntly and Tauritz}}{{Guntly and Tauritz}}}
+\bibcite{hong2013probMutation}{{5}{2013}{{Hong et~al\unhbox \voidb@x \hbox {.}}}{{Hong, Woodward, Li, and {\"O}zcan}}}
+\bibcite{kaufmann1993origins}{{6}{1993}{{Kaufmann}}{{Kaufmann}}}
+\bibcite{khudabukhsh2009satenstein}{{7}{2009}{{KhudaBukhsh et~al\unhbox \voidb@x \hbox {.}}}{{KhudaBukhsh, Xu, Hoos, and Leyton-Brown}}}
+\bibcite{koza1994genetic}{{8}{1994}{{Koza}}{{Koza}}}
+\bibcite{lopez2012antcol}{{9}{2012}{{Lopez-Ibanez and Stutzle}}{{Lopez-Ibanez and Stutzle}}}
+\bibcite{lourencco2013selection}{{10}{2013}{{Louren{\c {c}}o et~al\unhbox \voidb@x \hbox {.}}}{{Louren{\c {c}}o, Pereira, and Costa}}}
+\bibcite{martin2013evolvingBBSA}{{11}{2013}{{Martin and Tauritz}}{{Martin and Tauritz}}}
+\bibcite{scott2015geneticRepresentations}{{12}{2015}{{Scott and Bassett}}{{Scott and Bassett}}}
+\bibcite{wolpert1995noFreeLunch}{{13}{1995}{{Wolpert et~al\unhbox \voidb@x \hbox {.}}}{{Wolpert, Macready, et~al\unhbox \voidb@x \hbox {.}}}}
+\bibcite{woodward2010metaBias}{{14}{2010}{{Woodward}}{{Woodward}}}
+\bibcite{woodward2009GPNotGood}{{15}{2009}{{Woodward and Bai}}{{Woodward and Bai}}}
+\bibcite{woodward2011selection}{{16}{2011}{{Woodward and Swan}}{{Woodward and Swan}}}
+\bibcite{woodward2012mutationGeneration}{{17}{2012}{{Woodward and Swan}}{{Woodward and Swan}}}
+\newlabel{tocindent-1}{0pt}
+\newlabel{tocindent0}{0pt}
+\newlabel{tocindent1}{4.185pt}
+\newlabel{tocindent2}{10.34999pt}
+\newlabel{tocindent3}{0pt}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}}
+\newlabel{Conclusion}{{7}{8}{Conclusion}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Future Work}{8}{section.8}}
+\newlabel{Future Work}{{8}{8}{Future Work}{section.8}{}}
+\@writefile{toc}{\contentsline {section}{References}{8}{section*.15}}
+\newlabel{TotPages}{{8}{8}{}{page.8}{}}

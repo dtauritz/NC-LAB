@@ -1,0 +1,35 @@
+2018/12/06 16:42:53| INFO: Using config file config/base_config/basicEA5-2.cfg
+2018/12/06 16:42:53| INFO: Using random seed 1544136173
+2018/12/06 16:42:53| INFO: Starting evolution
+2018/12/06 16:44:03| INFO: Finished generation 0
+2018/12/06 16:45:00| INFO: Finished generation 1
+2018/12/06 16:45:49| INFO: Finished generation 2
+2018/12/06 16:46:42| INFO: Finished generation 3
+2018/12/06 16:47:52| INFO: Finished generation 4
+2018/12/06 16:49:10| INFO: Finished generation 5
+2018/12/06 16:51:23| INFO: Finished generation 6
+2018/12/06 16:53:34| INFO: Finished generation 7
+2018/12/06 16:55:03| INFO: Finished generation 8
+2018/12/06 16:57:11| INFO: Finished generation 9
+2018/12/06 16:59:24| INFO: Finished generation 10
+2018/12/06 17:01:26| INFO: Finished generation 11
+2018/12/06 17:03:50| INFO: Finished generation 12
+2018/12/06 17:06:27| INFO: Finished generation 13
+2018/12/06 17:08:28| INFO: Finished generation 14
+2018/12/06 17:10:56| INFO: Finished generation 15
+2018/12/06 17:12:59| INFO: Finished generation 16
+2018/12/06 17:15:06| INFO: Finished generation 17
+2018/12/06 17:17:14| INFO: Finished generation 18
+2018/12/06 17:19:42| INFO: Finished generation 19
+2018/12/06 17:22:21| INFO: Finished generation 20
+2018/12/06 17:24:35| INFO: Finished generation 21
+2018/12/06 17:26:47| INFO: Finished generation 22
+2018/12/06 17:29:42| INFO: Finished generation 23
+2018/12/06 17:31:09| INFO: Finished generation 24
+2018/12/06 17:33:09| INFO: Finished generation 25
+2018/12/06 17:35:36| INFO: Finished generation 26
+2018/12/06 17:38:07| INFO: Finished generation 27
+2018/12/06 17:40:27| INFO: Finished generation 28
+2018/12/06 17:40:27| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/06 17:40:27| INFO: String form of best Popi: fitness_rank | selection type: tournament_replacement |  | tournament size: 2 |||| relative_fitness | selection type: truncation | 
+2018/12/06 17:40:27| INFO: Time elapsed: 3454.347519159317

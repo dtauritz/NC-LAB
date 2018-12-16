@@ -1,0 +1,89 @@
+Running Postprocessing
+Postprocess results:
+String form of 51_tournament_replacement__truncation: None
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887032_fe8a53b6-8fa6-4306-be7f-9c54c1040294 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: -1.56222, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -2.82168, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887760_9ed3b597-7935-48b4-afa0-214391ae51ae ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: 248.41361, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 244.70618, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887088_04c0e1c4-31a5-47bf-8891-7687b29cae9e ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: 172.03743, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 176.11365, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610350720_90503363-bc3b-48b8-b584-9650be37f0f9 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: 236.25252, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 233.91655, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610350832_c6a770f3-e22c-42d1-ba7b-16fdebe6f98b ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: -6.23309, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -10.99527, reaching target fitness in 0.0% of runs
+	51_tournament_replacement__truncation performed 4.76218 higher than Evolved Selection Function 0, p=0.0024759454672165057
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616886920_7b8df337-4408-49c7-898c-b69e67db1657 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: -226.35367, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -227.61531, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616885800_0984899a-c77f-4b38-ab47-2ca93481963d ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: 971.41416, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 969.66752, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887424_5f51ffe6-3b76-4def-bb00-6a3aae4ebb32 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: 149.55547, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 145.96967, reaching target fitness in 0.0% of runs
+	51_tournament_replacement__truncation performed 3.5858 higher than Evolved Selection Function 0, p=0.030301903926093575
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616886472_050fdd1e-5bb6-448a-b15e-69113f1ae80d ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: -694.65185, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -696.94518, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887536_92f09c26-a09e-4fdd-b7be-55973de98b73 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: -8.62153, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -8.81845, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887648_f1c7c382-6e1a-4d5c-9dee-a1a78e814e19 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: -175.88941, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -172.78014, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887704_7d3794d8-9c61-4e74-9601-851465873e33 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of 51_tournament_replacement__truncation: 47.38675, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 47.86196, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+
+Total time elapsed: 19035.075834035873

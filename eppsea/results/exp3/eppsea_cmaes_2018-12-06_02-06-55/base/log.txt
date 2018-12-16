@@ -1,0 +1,36 @@
+2018/12/06 02:06:55| INFO: Using config file config/base_config/cmaes_d2.cfg
+2018/12/06 02:06:55| INFO: Using random seed 1544083615
+2018/12/06 02:06:55| INFO: Starting evolution
+2018/12/06 02:07:03| INFO: Finished generation 0
+2018/12/06 02:07:11| INFO: Finished generation 1
+2018/12/06 02:07:19| INFO: Finished generation 2
+2018/12/06 02:07:27| INFO: Finished generation 3
+2018/12/06 02:07:35| INFO: Finished generation 4
+2018/12/06 02:07:43| INFO: Finished generation 5
+2018/12/06 02:07:51| INFO: Finished generation 6
+2018/12/06 02:07:59| INFO: Finished generation 7
+2018/12/06 02:08:08| INFO: Finished generation 8
+2018/12/06 02:08:16| INFO: Finished generation 9
+2018/12/06 02:08:26| INFO: Finished generation 10
+2018/12/06 02:08:34| INFO: Finished generation 11
+2018/12/06 02:08:42| INFO: Finished generation 12
+2018/12/06 02:08:51| INFO: Finished generation 13
+2018/12/06 02:08:59| INFO: Finished generation 14
+2018/12/06 02:09:09| INFO: Finished generation 15
+2018/12/06 02:09:18| INFO: Finished generation 16
+2018/12/06 02:09:28| INFO: Finished generation 17
+2018/12/06 02:09:36| INFO: Finished generation 18
+2018/12/06 02:09:45| INFO: Finished generation 19
+2018/12/06 02:09:55| INFO: Finished generation 20
+2018/12/06 02:10:04| INFO: Finished generation 21
+2018/12/06 02:10:12| INFO: Finished generation 22
+2018/12/06 02:10:21| INFO: Finished generation 23
+2018/12/06 02:10:30| INFO: Finished generation 24
+2018/12/06 02:10:38| INFO: Finished generation 25
+2018/12/06 02:10:46| INFO: Finished generation 26
+2018/12/06 02:10:56| INFO: Finished generation 27
+2018/12/06 02:11:04| INFO: Finished generation 28
+2018/12/06 02:11:13| INFO: Finished generation 29
+2018/12/06 02:11:13| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/06 02:11:13| INFO: String form of best Popi: relative_fitness | selection type: tournament_replacement |  | tournament size: 15
+2018/12/06 02:11:13| INFO: Time elapsed: 257.75215792655945

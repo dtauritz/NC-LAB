@@ -1,0 +1,169 @@
+\begin{thebibliography}{27}
+\newcommand{\enquote}[1]{`#1'}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Burke \emph{et~al.}(2013)Burke, Gendreau, Hyde, Kendall, Ochoa,
+  {\"O}zcan, and Qu}]{burke2013HHstateoftheart}
+Burke, E.~K., Gendreau, M., Hyde, M., Kendall, G., Ochoa, G., {\"O}zcan, E.,
+  and Qu, R., \enquote{Hyper-heuristics: A survey of the state of the art,}
+  Journal of the Operational Research Society, 2013, \textbf{64}(12), pp.
+  1695--1724.
+
+\bibitem[{Burke \emph{et~al.}(2010)Burke, Hyde, Kendall, and
+  Woodward}]{burke2010strippacking}
+Burke, E.~K., Hyde, M., Kendall, G., and Woodward, J., \enquote{A genetic
+  programming hyper-heuristic approach for evolving 2-d strip packing
+  heuristics,} IEEE Transactions on Evolutionary Computation, 2010,
+  \textbf{14}(6), pp. 942--958.
+
+\bibitem[{Burke \emph{et~al.}(2006)Burke, Hyde, and
+  Kendall}]{burke2006binpacking}
+Burke, E.~K., Hyde, M.~R., and Kendall, G., \enquote{Evolving bin packing
+  heuristics with genetic programming,} in \enquote{Parallel Problem Solving
+  from Nature-PPSN IX,} pp. 860--869, Springer, 2006.
+
+\bibitem[{Burke \emph{et~al.}(2012)Burke, Hyde, and
+  Kendall}]{burke2012localHeuristics}
+Burke, E.~K., Hyde, M.~R., and Kendall, G., \enquote{Grammatical evolution of
+  local search heuristics,} IEEE Transactions on Evolutionary Computation,
+  2012, \textbf{16}(3), pp. 406--417.
+
+\bibitem[{Burke \emph{et~al.}(2009)Burke, Hyde, Kendall, Ochoa, Ozcan, and
+  Woodward}]{burke2009exploring}
+Burke, E.~K., Hyde, M.~R., Kendall, G., Ochoa, G., Ozcan, E., and Woodward,
+  J.~R., \enquote{Exploring hyper-heuristic methodologies with genetic
+  programming,} in \enquote{Computational intelligence,} pp. 177--201,
+  Springer, 2009.
+
+\bibitem[{Eiben \emph{et~al.}(1999)Eiben, Hinterding, and
+  Michalewicz}]{eiben1999parameter}
+Eiben, {\'A}.~E., Hinterding, R., and Michalewicz, Z., \enquote{Parameter
+  control in evolutionary algorithms,} IEEE Transactions on evolutionary
+  computation, 1999, \textbf{3}(2), pp. 124--141.
+
+\bibitem[{Goldman and Tauritz(2011)}]{goldman2011scc}
+Goldman, B.~W. and Tauritz, D.~R., \enquote{Self-configuring crossover,} in
+  \enquote{Proceedings of the 13th annual conference companion on Genetic and
+  evolutionary computation,} ACM, 2011 pp. 575--582.
+
+\bibitem[{Guntly and Tauritz(2011)}]{guntly2011limp}
+Guntly, L.~M. and Tauritz, D.~R., \enquote{Learning individual mating
+  preferences,} in \enquote{Proceedings of the 13th annual conference on
+  Genetic and evolutionary computation,} ACM, 2011 pp. 1069--1076.
+
+\bibitem[{Hansen \emph{et~al.}(2016)Hansen, Auger, Mersmann, Tu{\v s}ar, and
+  Brockhoff}]{cocobbob}
+Hansen, N., Auger, A., Mersmann, O., Tu{\v s}ar, T., and Brockhoff, D.,
+  \enquote{{COCO}: A platform for comparing continuous optimizers in a
+  black-box setting,} ArXiv e-prints, 2016, \textbf{arXiv:1603.08785}.
+
+\bibitem[{Hansen and Ostermeier(1996)}]{hansen1996cmaes}
+Hansen, N. and Ostermeier, A., \enquote{Adapting arbitrary normal mutation
+  distributions in evolution strategies: The covariance matrix adaptation,} in
+  \enquote{Evolutionary Computation, 1996., Proceedings of IEEE International
+  Conference on,} IEEE, 1996 pp. 312--317.
+
+\bibitem[{Harris \emph{et~al.}(2015)Harris, Bueter, and
+  Tauritz}]{harris2015comparison}
+Harris, S., Bueter, T., and Tauritz, D.~R., \enquote{A comparison of genetic
+  programming variants for hyper-heuristics,} in \enquote{Proceedings of the
+  Companion Publication of the 2015 Annual Conference on Genetic and
+  Evolutionary Computation,} ACM, 2015 pp. 1043--1050.
+
+\bibitem[{Hong \emph{et~al.}(2013)Hong, Woodward, Li, and
+  {\"O}zcan}]{hong2013probMutation}
+Hong, L., Woodward, J., Li, J., and {\"O}zcan, E., \enquote{Automated design of
+  probability distributions as mutation operators for evolutionary programming
+  using genetic programming,} in \enquote{European Conference on Genetic
+  Programming,} Springer, 2013 pp. 85--96.
+
+\bibitem[{Kaufmann(1993)}]{kaufmann1993origins}
+Kaufmann, S., \enquote{The origins of order,} 1993.
+
+\bibitem[{KhudaBukhsh \emph{et~al.}(2009)KhudaBukhsh, Xu, Hoos, and
+  Leyton-Brown}]{khudabukhsh2009satenstein}
+KhudaBukhsh, A.~R., Xu, L., Hoos, H.~H., and Leyton-Brown, K.,
+  \enquote{Satenstein: Automatically building local search sat solvers from
+  components.} in \enquote{IJCAI,} volume~9, 2009 pp. 517--524.
+
+\bibitem[{Koza(1994)}]{koza1994genetic}
+Koza, J.~R., \enquote{Genetic programming as a means for programming computers
+  by natural selection,} Statistics and computing, 1994, \textbf{4}(2), pp.
+  87--112.
+
+\bibitem[{Lopez-Ibanez and Stutzle(2012)}]{lopez2012antcol}
+Lopez-Ibanez, M. and Stutzle, T., \enquote{The automatic design of
+  multiobjective ant colony optimization algorithms,} IEEE Transactions on
+  Evolutionary Computation, 2012, \textbf{16}(6), pp. 861--875.
+
+\bibitem[{Louren{\c{c}}o \emph{et~al.}(2013)Louren{\c{c}}o, Pereira, and
+  Costa}]{lourencco2013selection}
+Louren{\c{c}}o, N., Pereira, F., and Costa, E., \enquote{Learning selection
+  strategies for evolutionary algorithms,} in \enquote{International Conference
+  on Artificial Evolution (Evolution Artificielle),} Springer, 2013 pp.
+  197--208.
+
+\bibitem[{López-Ibáñez \emph{et~al.}(2016)López-Ibáñez, Dubois-Lacoste,
+  {Pérez Cáceres}, Stützle, and Birattari}]{irace}
+López-Ibáñez, M., Dubois-Lacoste, J., {Pérez Cáceres}, L., Stützle, T.,
+  and Birattari, M., \enquote{The irace package: Iterated racing for automatic
+  algorithm configuration,} Operations Research Perspectives, 2016, \textbf{3},
+  pp. 43--58, \doi{10.1016/j.orp.2016.09.002}.
+
+\bibitem[{Martin and Tauritz(2013)}]{martin2013evolvingBBSA}
+Martin, M.~A. and Tauritz, D.~R., \enquote{Evolving black-box search algorithms
+  employing genetic programming,} in \enquote{Proceedings of the 15th annual
+  conference companion on Genetic and evolutionary computation,} ACM, 2013 pp.
+  1497--1504.
+
+\bibitem[{Richter and Tauritz(2018)}]{richter2018adpsea}
+Richter, S.~N. and Tauritz, D.~R., \enquote{The automated design of
+  probabilistic selection methods for evolutionary algorithms,} in
+  \enquote{Proceedings of the Genetic and Evolutionary Computation Conference
+  Companion,} ACM, 2018 pp. 1545--1552.
+
+\bibitem[{Scott and Bassett(2015)}]{scott2015geneticRepresentations}
+Scott, E.~O. and Bassett, J.~K., \enquote{Learning genetic representations for
+  classes of real-valued optimization problems,} in \enquote{Proceedings of the
+  Companion Publication of the 2015 Annual Conference on Genetic and
+  Evolutionary Computation,} ACM, 2015 pp. 1075--1082.
+
+\bibitem[{Whitley \emph{et~al.}(2016)Whitley, Chicano, and
+  Goldman}]{whitley2016gray}
+Whitley, L.~D., Chicano, F., and Goldman, B.~W., \enquote{Gray box optimization
+  for mk landscapes (nk landscapes and max-ksat),} Evolutionary computation,
+  2016, \textbf{24}(3), pp. 491--519.
+
+\bibitem[{Wolpert \emph{et~al.}(1995)Wolpert, Macready
+  \emph{et~al.}}]{wolpert1995noFreeLunch}
+Wolpert, D.~H., Macready, W.~G., \emph{et~al.}, \enquote{No free lunch theorems
+  for search,} Technical report, Technical Report SFI-TR-95-02-010, Santa Fe
+  Institute, 1995.
+
+\bibitem[{Woodward(2010)}]{woodward2010metaBias}
+Woodward, J.~R., \enquote{The necessity of meta bias in search algorithms,} in
+  \enquote{Computational Intelligence and Software Engineering (CiSE), 2010
+  International Conference on,} IEEE, 2010 pp. 1--4.
+
+\bibitem[{Woodward and Bai(2009)}]{woodward2009GPNotGood}
+Woodward, J.~R. and Bai, R., \enquote{Why evolution is not a good paradigm for
+  program induction: a critique of genetic programming,} in
+  \enquote{Proceedings of the first ACM/SIGEVO Summit on Genetic and
+  Evolutionary Computation,} ACM, 2009 pp. 593--600.
+
+\bibitem[{Woodward and Swan(2011)}]{woodward2011selection}
+Woodward, J.~R. and Swan, J., \enquote{Automatically designing selection
+  heuristics,} in \enquote{Proceedings of the 13th annual conference companion
+  on Genetic and evolutionary computation,} ACM, 2011 pp. 583--590.
+
+\bibitem[{Woodward and Swan(2012)}]{woodward2012mutationGeneration}
+Woodward, J.~R. and Swan, J., \enquote{The automatic generation of mutation
+  operators for genetic algorithms,} in \enquote{Proceedings of the 14th annual
+  conference companion on Genetic and evolutionary computation,} ACM, 2012 pp.
+  67--74.
+
+\end{thebibliography}

@@ -1,0 +1,89 @@
+Running Postprocessing
+Postprocess results:
+String form of fitness_rank_replacement__40_tournament_NR: None
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887648_03ffb87c-f474-4ea1-904d-cb57cd18bc74 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: -179.50754, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -179.5012, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.00634 lower than Evolved Selection Function 0, p=0.001821052277185663
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610347128_c25e5416-7446-47ae-aa04-ab06bdb208ab ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: -36.46636, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -36.46234, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.00402 lower than Evolved Selection Function 0, p=0.04320788397304587
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610347184_f57012cc-6670-408a-a082-4a66db6ce48b ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: 172.90084, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 172.89921, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610347240_3faf1fef-b68f-4848-915f-f09520cde06e ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: 157.7578, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 157.76254, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.00474 lower than Evolved Selection Function 0, p=0.04342158595872562
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610347352_42ef6428-61ab-493f-a49b-f23d7f6f824d ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: -99.21842, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -99.2192, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887536_6ea1fe5c-8e0c-49fc-8300-945a3d0ce8cd ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: 77.3352, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 77.33462, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769616887704_a1db6a73-6148-4ca6-9cb6-9f9eb21592ad ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: 39.9477, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 39.96209, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.01439 lower than Evolved Selection Function 0, p=6.408274127907129e-08
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610346736_59371269-54df-4c72-9a18-7e78f5ea4bb7 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: -56.57199, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -56.55836, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.01363 lower than Evolved Selection Function 0, p=5.016636114073266e-06
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610346792_80694706-b653-4f0d-9124-8c371b471aa7 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: -39.39861, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -39.39412, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.00449 lower than Evolved Selection Function 0, p=0.011471236809891738
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610346904_88849963-bfb9-4ac3-9e23-531fa83c2907 ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: 419.74929, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 419.75174, reaching target fitness in 0.0% of runs
+	No significant differences in performance
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610347016_49be2c6a-1508-4caa-aab4-e1ee516cbeaa ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: 7.67493, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: 7.68592, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.01099 lower than Evolved Selection Function 0, p=0.005436502473751443
+--------------------------- Analyzing results for fitness function with id FitnessFunction_139769610347072_aed970d7-406b-440f-a363-67da2415e07d ---------------------------------
+Plotting figure
+Plotting boxplot
+Doing t-tests
+Mean performance of fitness_rank_replacement__40_tournament_NR: -127.64118, reaching target fitness in 0.0% of runs
+Mean performance of Evolved Selection Function 0: -127.63073, reaching target fitness in 0.0% of runs
+	fitness_rank_replacement__40_tournament_NR performed -0.01045 lower than Evolved Selection Function 0, p=0.00020413179754374486
+
+Total time elapsed: 3857.924462080002

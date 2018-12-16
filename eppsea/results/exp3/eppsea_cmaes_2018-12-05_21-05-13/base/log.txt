@@ -1,0 +1,37 @@
+2018/12/05 21:05:13| INFO: Using config file config/base_config/cmaes_d10.cfg
+2018/12/05 21:05:13| INFO: Using random seed 1544065513
+2018/12/05 21:05:13| INFO: Starting evolution
+2018/12/05 21:08:44| INFO: Finished generation 0
+2018/12/05 21:13:26| INFO: Finished generation 1
+2018/12/05 21:17:30| INFO: Finished generation 2
+2018/12/05 21:21:51| INFO: Finished generation 3
+2018/12/05 21:26:33| INFO: Finished generation 4
+2018/12/05 21:30:56| INFO: Finished generation 5
+2018/12/05 21:35:20| INFO: Finished generation 6
+2018/12/05 21:39:40| INFO: Finished generation 7
+2018/12/05 21:44:11| INFO: Finished generation 8
+2018/12/05 21:48:16| INFO: Finished generation 9
+2018/12/05 21:52:25| INFO: Finished generation 10
+2018/12/05 21:56:11| INFO: Finished generation 11
+2018/12/05 21:59:59| INFO: Finished generation 12
+2018/12/05 22:04:13| INFO: Finished generation 13
+2018/12/05 22:08:26| INFO: Finished generation 14
+2018/12/05 22:12:49| INFO: Finished generation 15
+2018/12/05 22:17:25| INFO: Finished generation 16
+2018/12/05 22:21:48| INFO: Finished generation 17
+2018/12/05 22:26:02| INFO: Finished generation 18
+2018/12/05 22:30:01| INFO: Finished generation 19
+2018/12/05 22:33:58| INFO: Finished generation 20
+2018/12/05 22:38:24| INFO: Finished generation 21
+2018/12/05 22:42:36| INFO: Finished generation 22
+2018/12/05 22:46:46| INFO: Finished generation 23
+2018/12/05 22:51:01| INFO: Finished generation 24
+2018/12/05 22:55:14| INFO: Finished generation 25
+2018/12/05 22:59:32| INFO: Finished generation 26
+2018/12/05 23:03:41| INFO: Finished generation 27
+2018/12/05 23:07:59| INFO: Finished generation 28
+2018/12/05 23:11:54| INFO: Finished generation 29
+2018/12/05 23:16:10| INFO: Finished generation 30
+2018/12/05 23:16:10| INFO: Terminating evolution due to no improvement in best fitness
+2018/12/05 23:16:10| INFO: String form of best Popi: min_fitness | selection type: tournament_no_replacement |  | tournament size: 32
+2018/12/05 23:16:10| INFO: Time elapsed: 7856.835775613785
