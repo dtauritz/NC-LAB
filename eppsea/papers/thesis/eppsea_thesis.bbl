@@ -89,11 +89,12 @@ Hong, L., Woodward, J., Li, J., and {\"O}zcan, E., \enquote{{Automated Design
 \bibitem[{Kaufmann(1993)}]{kaufmann1993origins}
 Kaufmann, S., \enquote{{The Origins of Order},} 1993.
 
-\bibitem[{KhudaBukhsh \emph{et~al.}()KhudaBukhsh, Xu, Hoos, and
+\bibitem[{KhudaBukhsh \emph{et~al.}(2009)KhudaBukhsh, Xu, Hoos, and
   Leyton-Brown}]{khudabukhsh2009satenstein}
 KhudaBukhsh, A.~R., Xu, L., Hoos, H.~H., and Leyton-Brown, K.,
   \enquote{{SATenstein: Automatically Building Local Search SAT Solvers from
-  Components"},} ???? .
+  Components"},} in \enquote{Twenty-first International Joint Conference on
+  Artificial Intelligence (IJCAI-09),} 2009 pp. 517--524.
 
 \bibitem[{Koza(1994)}]{koza1994genetic}
 Koza, J.~R., \enquote{{Genetic Programming as a Means for Programming Computers
