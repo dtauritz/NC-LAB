@@ -239,7 +239,7 @@ Figure~\ref{fig:selection_chances} shows how, for a hypothetical sample populati
 \begin{algorithmic}[1]
 \Function {ExampleSelection}{$P, m$}
 \label{proc:ExampleSelection}
-	\State $W \leftarrow 0,\forall p \in P$
+	\State $W(p) \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State $W(p) \leftarrow (p.Fitness + 5)*p.FitnessRank$\label{procline:gp-tree-line}
 	\EndFor
@@ -742,7 +742,7 @@ Algorithm~\ref{alg:ProportionalReplacement} describes the procedure for Proporti
 \label{alg:ProportionalReplacement}
 \begin{algorithmic}[1]
 \Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:ProportionalReplacement}
-	\State $W \leftarrow 0,\forall p \in P$
+	\State $W(p) \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State $W(p) \leftarrow F(P,p)$
 	\EndFor
@@ -779,7 +779,7 @@ Algorithm~\ref{alg:ProportionalNoReplacement} describes the procedure for Propor
 \label{alg:ProportionalNoReplacement}
 \begin{algorithmic}[1]
 \Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:ProportionalNoReplacement}
-	\State $W \leftarrow 0,\forall p \in P$
+	\State $W(p) \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State $W(p) \leftarrow F(P,p)$
 	\EndFor
@@ -868,7 +868,7 @@ Algorithm~\ref{alg:Truncation} describes the procedure for Truncation selection.
 \label{alg:Truncation}
 \begin{algorithmic}[1]
 \Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:Truncation}
-	\State $W \leftarrow 0,\forall p \in P$
+	\State $W(p) \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State {$W(p) \leftarrow F(P,p)$}
 	\EndFor
@@ -889,7 +889,7 @@ Algorithm~\ref{alg:SUS} describes the procedure for Stochastic-Universal-Samplin
 \label{alg:SUS}
 \begin{algorithmic}[1]
 \Function {StochasticUniversalSampling}{$P$, $m$, $F$} \label{proc:SUS}
-	\State $W \leftarrow 0,\forall p \in P$
+	\State $W(p) \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State $W(p) \leftarrow F(P,p)$
 	\EndFor
