@@ -234,16 +234,17 @@ Figure~\ref{fig:selection_chances} shows how, for a hypothetical sample populati
 \end{figure}
 
 \begin{algorithm}
-\caption{Probabilistic Selection Function}
+\caption{An example of the psuedocode for a generated selection function. The function takes as input a population $P$ of individuals, and a number of individuals $m$ to be selected. Each individual $p$ in $P$ has member elements member elements $p.Fitness$ and $p.FitnessRank$, encoding the individual's fitness and fitness ranking, respectively. Other generated selection functions may use additional information (see Table~\ref{tab:gp-terminals}).  The function returns a set of selected individuals. Note the weight calculation performed on Line~\ref{procline:gp-tree-line}, which is controlled by the GP-Tree encoded in the selection function. Also note that $\emptyset$ is used here to denote the empty set.}
 \label{alg:ExampleSelection}
 \begin{algorithmic}[1]
-\Procedure {ExampleSelection}{$P$, $W$} \label{proc:ExampleSelection}
+\Function {ExampleSelection}{$P, m$}
+\label{proc:ExampleSelection}
 	\State $W \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
-		\State $W(i) \leftarrow (p.Fitness + 5)*p.FitnessRank$
+		\State $W(i) \leftarrow (p.Fitness + 5)*p.FitnessRank$\label{procline:gp-tree-line}
 	\EndFor
 	\State $w_{min} \leftarrow minimum(W)$	
-	\State $s \leftarrow 0$
+	\State $s \leftarrow 0$ 
 	\ForAll {$w \in W$}
 		\If {$w_{min}  < 0$}
 			\State $s \leftarrow s + (w - w_{min} )$			
@@ -259,10 +260,11 @@ Figure~\ref{fig:selection_chances} shows how, for a hypothetical sample populati
 			\State $r \leftarrow r - W(i)$
 			\State $i \leftarrow i + 1$
 		\EndWhile	
-		\State $selected \leftarrow selection \cup P(i)$
+		\State $selected \leftarrow selected \cup P(i)$
 		\State $P \leftarrow P - P(i)$
 	\EndFor
-\EndProcedure
+	\State \Return $selected$
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
@@ -737,7 +739,7 @@ Algorithm~\ref{alg:ProportionalReplacement} describes the procedure for Proporti
 \caption{Proportional Selection With Replacement}
 \label{alg:ProportionalReplacement}
 \begin{algorithmic}[1]
-\Procedure {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:ProportionalReplacement}
+\Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:ProportionalReplacement}
 	\State $W \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State $W(i) \leftarrow F(P,p)$
@@ -761,7 +763,7 @@ Algorithm~\ref{alg:ProportionalReplacement} describes the procedure for Proporti
 		\EndWhile	
 		\State $selected \leftarrow selection \cup P(i)$
 	\EndFor
-\EndProcedure
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
@@ -806,7 +808,7 @@ Algorithm~\ref{alg:TournamentReplacement} describes the procedure for \textit{k}
 \caption{\textit{k}-Tournament Selection With Replacement}
 \label{alg:TournamentReplacement}
 \begin{algorithmic}[1]
-\Procedure {ProportionalReplacement}{$P$, $m$, $F$, $k$} \label{proc:TournamentReplacement}
+\Function {ProportionalReplacement}{$P$, $m$, $F$, $k$} \label{proc:TournamentReplacement}
 	\State $selected \leftarrow \emptyset$
 	\For {$j \leftarrow 1,m$}
 		\State $tournament \leftarrow k$ members selected randomly from $P$
@@ -820,7 +822,7 @@ Algorithm~\ref{alg:TournamentReplacement} describes the procedure for \textit{k}
 		\EndFor
 		\State $selected \leftarrow selection \cup p$
 	\EndFor
-\EndProcedure
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
@@ -830,7 +832,7 @@ Algorithm~\ref{alg:TournamentNoReplacement} describes the procedure for \textit{
 \caption{\textit{k}-Tournament Selection Without Replacement}
 \label{alg:TournamentNoReplacement}
 \begin{algorithmic}[1]
-\Procedure {ProportionalReplacement}{$P$, $m$, $F$, $k$} \label{proc:TournamentNoReplacement}
+\Function {ProportionalReplacement}{$P$, $m$, $F$, $k$} \label{proc:TournamentNoReplacement}
 	\State $selected \leftarrow \emptyset$
 	\For {$j \leftarrow 1,m$}
 		\State $tournament \leftarrow k$ members selected randomly from $P$
@@ -845,7 +847,7 @@ Algorithm~\ref{alg:TournamentNoReplacement} describes the procedure for \textit{
 		\State $selected \leftarrow selection \cup p$
 		\State $P \leftarrow P - p$
 	\EndFor
-\EndProcedure
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
@@ -855,7 +857,7 @@ Algorithm~\ref{alg:Truncation} describes the procedure for Truncation selection.
 \caption{Truncation}
 \label{alg:Truncation}
 \begin{algorithmic}[1]
-\Procedure {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:Truncation}
+\Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:Truncation}
 	\State $W \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State {$W(i) \leftarrow F(P,p)$}
@@ -865,7 +867,7 @@ Algorithm~\ref{alg:Truncation} describes the procedure for Truncation selection.
 	\For {$j \leftarrow 1,m$}
 		\State $selected \leftarrow selection \cup P(j)$
 	\EndFor
-\EndProcedure
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
@@ -875,7 +877,7 @@ Algorithm~\ref{alg:SUS} describes the procedure for Stochastic-Universal-Samplin
 \caption{Proportional Selection With Replacement}
 \label{alg:SUS}
 \begin{algorithmic}[1]
-\Procedure {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:SUS}
+\Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:SUS}
 	\State $W \leftarrow 0,\forall p \in P$
 	\ForAll {$p \in P$}
 		\State $W(i) \leftarrow F(P,p)$
@@ -901,7 +903,7 @@ Algorithm~\ref{alg:SUS} describes the procedure for Stochastic-Universal-Samplin
 		\EndWhile	
 		\State $selected \leftarrow selection \cup P(i)$	
 	\EndFor
-\EndProcedure
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
 
