@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  4 JAN 2019 08:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  4 JAN 2019 09:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -977,25 +977,25 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 <selection_chances.png, id=61, 455.45157pt x 255.95625pt>
 File: selection_chances.png Graphic file (type png)
 <use selection_chances.png>
-Package pdftex.def Info: selection_chances.png  used on input line 273.
+Package pdftex.def Info: selection_chances.png  used on input line 275.
 (pdftex.def)             Requested size: 429.28616pt x 241.25504pt.
  [10 <./example_eppsea.png>] [11] [12 <./selection_chances.png (PNG copy)>]
 <parsimony_example.png, id=80, 2942.995pt x 895.345pt>
 File: parsimony_example.png Graphic file (type png)
 <use parsimony_example.png>
-Package pdftex.def Info: parsimony_example.png  used on input line 289.
+Package pdftex.def Info: parsimony_example.png  used on input line 291.
 (pdftex.def)             Requested size: 429.28616pt x 130.5936pt.
  [13 <./parsimony_example.png>] [14]
 Chapter 4.
 LaTeX Font Info:    Try loading font information for T1+ntxsups on input line 3
-04.
+06.
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/t1ntxsups.fd
 File: t1ntxsups.fd 2015/01/17 v1.0
 )
 LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 306.
 LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
-(Font)              scaled to size 10.0pt on input line 304.
+(Font)              scaled to size 10.0pt on input line 306.
  [15
 
 ] [16]
@@ -1004,7 +1004,7 @@ Chapter 5.
 [18
 
 ] [19] [20] [21]
-Overfull \hbox (20.21112pt too wide) in paragraph at lines 438--438
+Overfull \hbox (20.21112pt too wide) in paragraph at lines 440--440
 |[]\T1/ntxtlf/b/n/12 EVOLUTION OF SE-LEC-TION FOR CMA-ES SOLV-ING REAL-VALUED B
 ENCH-
  []
@@ -1014,12 +1014,12 @@ Chapter 6.
 <experiment1Result.png, id=121, 3786.145pt x 1742.51pt>
 File: experiment1Result.png Graphic file (type png)
 <use experiment1Result.png>
-Package pdftex.def Info: experiment1Result.png  used on input line 498.
+Package pdftex.def Info: experiment1Result.png  used on input line 500.
 (pdftex.def)             Requested size: 390.25534pt x 179.6055pt.
 <Experiment1LinePlot.png, id=122, 615.0177pt x 315.0972pt>
 File: Experiment1LinePlot.png Graphic file (type png)
 <use Experiment1LinePlot.png>
-Package pdftex.def Info: Experiment1LinePlot.png  used on input line 508.
+Package pdftex.def Info: Experiment1LinePlot.png  used on input line 510.
 (pdftex.def)             Requested size: 390.25534pt x 199.94505pt.
 [25
 
@@ -1027,11 +1027,11 @@ Package pdftex.def Info: Experiment1LinePlot.png  used on input line 508.
 <Experiment1Boxplot.png, id=126, 415.5525pt x 315.0972pt>
 File: Experiment1Boxplot.png Graphic file (type png)
 <use Experiment1Boxplot.png>
-Package pdftex.def Info: Experiment1Boxplot.png  used on input line 515.
+Package pdftex.def Info: Experiment1Boxplot.png  used on input line 517.
 (pdftex.def)             Requested size: 390.25534pt x 295.92696pt.
  [26 <./experiment1Result.png>] [27 <./Experiment1LinePlot.png> <./Experiment1B
 oxplot.png>] [28]
-Overfull \hbox (2.76399pt too wide) in paragraph at lines 602--674
+Overfull \hbox (2.76399pt too wide) in paragraph at lines 604--676
  [][] 
  []
 
@@ -1051,64 +1051,64 @@ Chapter 9.
 Appendix A.
 [39
 
-] [40] [41] [42] [43]
+] [40] [41] [42] [43] [44]
 Appendix B.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/it' in size <12> not available
-(Font)              Font shape `T1/ntxtlf/b/it' tried instead on input line 910
+(Font)              Font shape `T1/ntxtlf/b/it' tried instead on input line 924
 .
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 12.0pt on input line 910.
-[44
+(Font)              scaled to size 12.0pt on input line 924.
+[45
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 985--986
+Underfull \hbox (badness 10000) in paragraph at lines 999--1000
 []|\T1/ntxtlf/m/it/12 k\T1/ntxtlf/m/n/12 -tournament with-out re-
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 993--993
+Underfull \hbox (badness 3930) in paragraph at lines 1007--1007
 []|\T1/ntxtlf/m/n/12 Stochastic Uni-ver-sal Sam-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1011--1012
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
 []|\T1/ntxtlf/m/it/12 k\T1/ntxtlf/m/n/12 -tournament with-out re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1022
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1036
 []|\T1/ntxtlf/m/it/12 k\T1/ntxtlf/m/n/12 -tournament with-out re-
  []
 
-[45] [46]
+[46] [47]
 Appendix C.
-[47
+[48
 
 ]
-<old_eppsea_representation.png, id=202, 2260.445pt x 2661.945pt>
+<old_eppsea_representation.png, id=205, 2260.445pt x 2661.945pt>
 File: old_eppsea_representation.png Graphic file (type png)
 <use old_eppsea_representation.png>
-Package pdftex.def Info: old_eppsea_representation.png  used on input line 1047
+Package pdftex.def Info: old_eppsea_representation.png  used on input line 1061
 .
 (pdftex.def)             Requested size: 390.25534pt x 459.55157pt.
- [48] [49 <./old_eppsea_representation.png>]
+ [49] [50 <./old_eppsea_representation.png>]
 Appendix D.
-[50
+[51
 
-] [51] [52] (./eppsea_thesis.bbl [53
+] [52] [53] (./eppsea_thesis.bbl [54
 
 
-] [54]) [55] [56
+] [55]) [56] [57
 
 ] (./eppsea_thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 9844 strings out of 492639
- 138743 string characters out of 6130239
+ 9840 strings out of 492639
+ 138677 string characters out of 6130239
  235266 words of memory out of 5000000
- 13478 multiletter control sequences out of 15000+600000
+ 13474 multiletter control sequences out of 15000+600000
  43635 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,12n,94p,2194b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,12n,94p,2194b,626s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/newt
 x/ntx-ec-tlf.enc}{/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/base/ec.enc}
 {/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/home/
@@ -1123,10 +1123,10 @@ rntxmi.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/txfonts/rtxmi.p
 fb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></home
 /lt/texlive/2018/texmf-dist/fonts/type1/public/newtx/txsys.pfb></home/lt/texliv
 e/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on eppsea_thesis.pdf (64 pages, 1031607 bytes).
+Output written on eppsea_thesis.pdf (65 pages, 1033384 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 277 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

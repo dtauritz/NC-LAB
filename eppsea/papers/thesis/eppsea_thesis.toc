@@ -30,9 +30,9 @@
 \vspace {4ex}
 \hbox to \textwidth {{} \hspace *{-2mm}{{APPENDICES} \ \hfill }}
 \contentsline {chapter}{\numberline {A.}Psuedocode For Final Selection Methods}{39}
-\contentsline {chapter}{\numberline {B.}\textit {irace} Generated EA Parameters For Basic EA Running On Real-Valued Problems}{44}
-\contentsline {chapter}{\numberline {C.}Representations of Conventional Selection Functions in Initial Experimentation}{47}
-\contentsline {chapter}{\numberline {D.}Addendum to Experiment 3}{50}
+\contentsline {chapter}{\numberline {B.}\textit {irace} Generated EA Parameters For Basic EA Running On Real-Valued Problems}{45}
+\contentsline {chapter}{\numberline {C.}Representations of Conventional Selection Functions in Initial Experimentation}{48}
+\contentsline {chapter}{\numberline {D.}Addendum to Experiment 3}{51}
 \setcounter {tocdepth}{4}
-\contentsline {chapter}{REFERENCES}{53}
-\contentsline {chapter}{VITA}{56}
+\contentsline {chapter}{REFERENCES}{54}
+\contentsline {chapter}{VITA}{57}
