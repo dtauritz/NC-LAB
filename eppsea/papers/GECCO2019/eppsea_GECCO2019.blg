@@ -5,6 +5,8 @@ The style file: ACM-Reference-Format.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: eppsea_GECCO2019_bibliography.bib
+Warning--entry type for "richter2019thesis" isn't style-file defined
+--line 314 of file eppsea_GECCO2019_bibliography.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -29,8 +31,7 @@ Warning--empty publisher in lourencco2013selection
 Warning--empty address in lourencco2013selection
 Warning--empty publisher in martin2013evolvingBBSA
 Warning--empty address in martin2013evolvingBBSA
-Warning--empty publisher in richter2018adpsea
-Warning--empty address in richter2018adpsea
+Warning--empty year in richter2019thesis
 Warning--empty publisher in scott2015geneticRepresentations
 Warning--empty address in scott2015geneticRepresentations
 Warning--empty publisher in woodward2010metaBias
@@ -43,43 +44,43 @@ Warning--empty publisher in woodward2012mutationGeneration
 Warning--empty address in woodward2012mutationGeneration
 You've used 31 entries,
             5795 wiz_defined-function locations,
-            1496 strings with 21797 characters,
-and the built_in function-call counts, 39424 in all, are:
-= -- 5062
-> -- 1348
+            1496 strings with 21717 characters,
+and the built_in function-call counts, 38794 in all, are:
+= -- 4979
+> -- 1330
 < -- 0
-+ -- 443
-- -- 472
-* -- 2693
-:= -- 3902
++ -- 435
+- -- 464
+* -- 2655
+:= -- 3860
 add.period$ -- 158
 call.type$ -- 31
-change.case$ -- 215
+change.case$ -- 214
 chr.to.int$ -- 31
-cite$ -- 62
-duplicate$ -- 3524
-empty$ -- 2458
-format.name$ -- 584
-if$ -- 9640
+cite$ -- 61
+duplicate$ -- 3454
+empty$ -- 2416
+format.name$ -- 572
+if$ -- 9483
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 124
-newline$ -- 276
+missing$ -- 119
+newline$ -- 277
 num.names$ -- 248
-pop$ -- 1299
+pop$ -- 1290
 preamble$ -- 1
-purify$ -- 493
+purify$ -- 486
 quote$ -- 0
-skip$ -- 1265
+skip$ -- 1233
 stack$ -- 0
-substring$ -- 3097
-swap$ -- 380
+substring$ -- 3013
+swap$ -- 370
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 748
-warning$ -- 31
-while$ -- 268
+warning$ -- 30
+while$ -- 265
 width$ -- 0
 write$ -- 568
 (There were 31 warnings)
