@@ -43,7 +43,7 @@
 
 
 \begin{document}
-\title[Evolved Parameterized Selection for Evolutionary Algorithms]{Evolved Parameterized Selection for Evolutionary Algorithms}
+\title[Evolved Mean-Update Selection Methods for CMA-ES]{Evolved Mean-Update Selection Methods for CMA-ES}
 
 \author{Samuel N. Richter}
 \affiliation{
@@ -65,7 +65,7 @@
 
 
 \begin{abstract}
-Selection functions enable Evolutionary Algorithms (EAs) to apply selection pressure to a population of individuals, by regulating the probability that an individual's genes survive, typically based on fitness. Various conventional fitness based selection functions exist, each providing a unique method of selecting individuals based on their fitness, fitness ranking within the population, and/or various other factors. However, the full space of selection algorithms is only limited by max algorithm size, and each possible selection algorithm is optimal for some EA configuration applied to a particular problem class. Therefore, improved performance is likely to be obtained by tuning an EA's selection algorithm to the problem at hand, rather than employing a conventional selection function. This paper details an investigation of the extent to which performance can be improved by tuning the selection algorithm. We do this by employing a Hyper-heuristic to explore the space of algorithms which determine the methods used to select individuals from the population. We show, with a Covariance Matrix Adaptation Evolutionary Strategy, the increase in performance obtained with a tuned selection algorithm, versus conventional selection functions. Specifically, we measure performance on instances from several benchmark problem classes, including separate testing instances to show generalization of the improved performance.
+Selection functions enable Evolutionary Algorithms (EAs) to apply selection pressure to a population of individuals, whether by directly making criteria-based decisions on whether an individual's genes survive, or by selecting the individuals used to update the internal variables of the EA and thus influencing its behavior. Various conventional selection functions exist, each providing a unique method of selecting individuals based on their fitness, fitness ranking within the population, and/or various other factors. However, the full space of selection algorithms is only limited by max algorithm size, and each possible selection algorithm is optimal for some EA configuration applied to a particular problem class. Therefore, improved performance is likely to be obtained by tuning an EA's selection algorithm to the problem at hand, rather than employing a conventional selection function. This paper details an investigation of the extent to which performance can be improved for the Covariance Matrix Adaptation Evolutionary Strategy (CMA-ES) by tuning the selection of individuals used for the mean-update algorithm. We do this by employing a Hyper-heuristic to explore the space of algorithms which determine the methods used to select individuals from the population. We show the increase in performance obtained with a tuned selection algorithm, versus the unmodified CMA-ES mean-update algorithm. Specifically, we measure performance on instances from several real-valued benchmark problem classes, including separate testing instances to show generalization of the improved performance.
 
 \end{abstract}
 
@@ -74,38 +74,40 @@ Selection functions enable Evolutionary Algorithms (EAs) to apply selection pres
 % http://dl.acm.org/ccs.cfm
 % Please copy and paste the code instead of the example below. 
 %
+
 \begin{CCSXML}
 <ccs2012>
  <concept>
   <concept_id>10010520.10010553.10010562</concept_id>
-  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
+  <concept_desc>TODO</concept_desc>
   <concept_significance>500</concept_significance>
  </concept>
  <concept>
   <concept_id>10010520.10010575.10010755</concept_id>
-  <concept_desc>Computer systems organization~Redundancy</concept_desc>
+  <concept_desc>CTODO</concept_desc>
   <concept_significance>300</concept_significance>
  </concept>
  <concept>
   <concept_id>10010520.10010553.10010554</concept_id>
-  <concept_desc>Computer systems organization~Robotics</concept_desc>
+  <concept_desc>TODO</concept_desc>
   <concept_significance>100</concept_significance>
  </concept>
  <concept>
   <concept_id>10003033.10003083.10003095</concept_id>
-  <concept_desc>Networks~Network reliability</concept_desc>
+  <concept_desc>TODO</concept_desc>
   <concept_significance>100</concept_significance>
  </concept>
 </ccs2012>  
 \end{CCSXML}
 
-\ccsdesc[500]{Computer systems organization~Embedded systems}
-\ccsdesc[300]{Computer systems organization~Redundancy}
-\ccsdesc{Computer systems organization~Robotics}
-\ccsdesc[100]{Networks~Network reliability}
+%TODO: Select CCS concepts
+\ccsdesc[500]{TODO}
+\ccsdesc[300]{TODO}
+\ccsdesc{TODO}
+\ccsdesc[100]{TODO}
 
 
-\keywords{ACM proceedings, \LaTeX, text tagging}
+\keywords{TODO}
 
 
 \maketitle
@@ -116,7 +118,7 @@ Selection functions enable Evolutionary Algorithms (EAs) to apply selection pres
 \label{Introduction}
 Evolutionary Algorithms (EAs), as well as related stochastic meta-heuristics, are applied to many real-world problems, including problems in the fields of optimization, modeling, and system design. Their success is due to a number of important factors. They make no assumptions about the optimality of any solution design, and they are blind to the preconceptions that human-built solutions may be constructed from. As such, they can generate solutions using approaches that a human might not invent. Additionally, the mechanisms of an EA allow it to avoid and escape local optima in the solution space, exploring a greater range of solutions in search of a better optimum. Their structure naturally lends itself to parallelism, as candidate solutions can be evaluated simultaneously on their own individual computing threads. EA's are relatively easy to implement, requiring, at a basic level, only a method of evaluating solutions and a method of building new solutions from old ones. However, the performance of an EA is highly sensitive to the parameters used to configure it~\citep{eiben1999parameter}. The fields of automated algorithm configuration and Hyper-heuristics address this by exploring methods to remove the human bias in selection of algorithm parameters and search methods. Hyper-heuristics, in particular, are used to automate the generation of EA heuristics and algorithmic components, such as mutation operators, recombination operators, population sizing, and selection functions.
 
-EAs employ selection functions to control the probability that an individual's genes are selected for recombination and survival. Various conventional fitness-based selection functions exist, each providing a unique method of selecting individuals. These (potentially independent) may then undergo recombination and/or survival selection, or be used for some other update to the status of the population and internal variables of the EA. Often, the goal of these selection functions is to push the population of the EA towards an area of higher fitness, or to explore a region of the search space to find a potential growth direction. It follows that each selection algorithm plays a significant role in determining the behavior of the EA and the population, and thus, the average performance of the EA's search through the space of solutions~\citep{woodward2010metaBias}. Many selection algorithms are parameterized, allowing for further variance in the behavior they provide. In cases where parameterized selection algorithms are applied, the parameters can be carefully tuned, either manually or with tuning software, to maximize the performance of an EA on a particular problem or problem class.
+EAs employ selection functions to control the method by which an individual's genes are selected, for purposes such as, recombination, survival, or updating internal variables. Various conventional fitness-based selection functions exist, each providing a unique method of selecting individuals. These selected invididuals may then undergo recombination and/or survival selection, or be used for some other update to the status of the population and internal variables of the EA. Often, the goal of these selection functions is to push the population of the EA towards an area of higher fitness, or to explore a region of the search space to find a potential growth direction. It follows that each selection algorithm plays a significant role in determining the behavior of the EA and the population, and thus, the average performance of the EA's search through the space of solutions~\citep{woodward2010metaBias}. Many selection algorithms are parameterized, allowing for further variance in the behavior they provide. In cases where parameterized selection algorithms are applied, the parameters can be carefully tuned, either manually or with tuning software, to maximize the performance of an EA on a particular problem or problem class.
 
 New selection algorithms can be designed in cases where the performance offered by existing algorithms is insufficient, even with well-tuned parameters. However, the full space of selection algorithms is only limited by the maximum algorithm size, and so it is highly unlikely that any conventionally human-designed algorithm offers the optimal selection behavior for the EA. An implication of the ``No Free Lunch'' theorem~\citep{wolpert1995noFreeLunch}, each possible selection algorithm is optimal for some EA configuration applied to a particular problem class. Therefore, a performance gain is likely to be attained by exploring the space of selection algorithms to find one that offers better performance than any conventional selection algorithm. Previous work has confirmed this hypothesis, prompting our approach to use a Hyper-heuristic and a custom representation of selection functions to explore the space of new selection functions ~\citep{woodward2011selection}.
 
@@ -369,7 +371,7 @@ To select benchmark functions, we first tested the unmodified CMA-ES on the func
 
 \begin{table}
 	\centering
-	\caption{COCO Benchmark Functions Chosen For Experiment 3}
+	\caption{COCO Benchmark Functions Chosen For Experiment}
 	\label{tab:experiment3chosenFunctions}
 	\begin{tabular}{c|c}
 		\toprule
@@ -414,7 +416,7 @@ For each testing instance, the percentage of runs solved by the modified and unm
 
 \begin{table*}
 	\centering
-	\caption{Experiment 3 Results}
+	\caption{Percent of Runs Solved By Modified CMA-ES/Unmodified CMA-ES}
 	\label{tab:experiment3Results}
 	\begin{tabular}{c|c|c|c|c}
 		\toprule
