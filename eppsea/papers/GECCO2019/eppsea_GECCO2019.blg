@@ -6,7 +6,12 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: eppsea_GECCO2019_bibliography.bib
 Warning--entry type for "richter2019thesis" isn't style-file defined
---line 314 of file eppsea_GECCO2019_bibliography.bib
+--line 313 of file eppsea_GECCO2019_bibliography.bib
+Repeated entry---line 321 of file eppsea_GECCO2019_bibliography.bib
+ : @inproceedings{hansen1996cmaes
+ :                               ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "hong2013probMutation"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -23,8 +28,10 @@ Warning--empty publisher in hansen1996cmaes
 Warning--empty address in hansen1996cmaes
 Warning--empty publisher in harris2015comparison
 Warning--empty address in harris2015comparison
-Warning--empty publisher in hong2013probMutation
-Warning--empty address in hong2013probMutation
+Warning--empty publisher in hong2013cmaes1plus1
+Warning--empty address in hong2013cmaes1plus1
+Warning--empty publisher in jastrebski2006activecmaes
+Warning--empty address in jastrebski2006activecmaes
 Warning--empty publisher in khudabukhsh2009satenstein
 Warning--empty address in khudabukhsh2009satenstein
 Warning--empty publisher in lourencco2013selection
@@ -32,6 +39,8 @@ Warning--empty address in lourencco2013selection
 Warning--empty publisher in martin2013evolvingBBSA
 Warning--empty address in martin2013evolvingBBSA
 Warning--empty year in richter2019thesis
+Warning--empty publisher in richter2018adpsea
+Warning--empty address in richter2018adpsea
 Warning--empty publisher in scott2015geneticRepresentations
 Warning--empty address in scott2015geneticRepresentations
 Warning--empty publisher in woodward2010metaBias
@@ -42,45 +51,45 @@ Warning--empty publisher in woodward2011selection
 Warning--empty address in woodward2011selection
 Warning--empty publisher in woodward2012mutationGeneration
 Warning--empty address in woodward2012mutationGeneration
-You've used 31 entries,
+You've used 30 entries,
             5795 wiz_defined-function locations,
-            1496 strings with 21717 characters,
-and the built_in function-call counts, 38794 in all, are:
-= -- 4979
-> -- 1330
+            1490 strings with 21633 characters,
+and the built_in function-call counts, 38002 in all, are:
+= -- 4785
+> -- 1282
 < -- 0
-+ -- 435
-- -- 464
-* -- 2655
-:= -- 3860
-add.period$ -- 158
-call.type$ -- 31
-change.case$ -- 214
-chr.to.int$ -- 31
-cite$ -- 61
-duplicate$ -- 3454
-empty$ -- 2416
-format.name$ -- 572
-if$ -- 9483
++ -- 422
+- -- 456
+* -- 2572
+:= -- 3772
+add.period$ -- 153
+call.type$ -- 30
+change.case$ -- 205
+chr.to.int$ -- 30
+cite$ -- 64
+duplicate$ -- 3437
+empty$ -- 2395
+format.name$ -- 564
+if$ -- 9251
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 119
-newline$ -- 277
-num.names$ -- 248
-pop$ -- 1290
+missing$ -- 121
+newline$ -- 265
+num.names$ -- 240
+pop$ -- 1296
 preamble$ -- 1
-purify$ -- 486
+purify$ -- 468
 quote$ -- 0
-skip$ -- 1233
+skip$ -- 1240
 stack$ -- 0
-substring$ -- 3013
-swap$ -- 370
+substring$ -- 2985
+swap$ -- 371
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 748
-warning$ -- 30
+type$ -- 746
+warning$ -- 34
 while$ -- 265
 width$ -- 0
-write$ -- 568
-(There were 31 warnings)
+write$ -- 549
+(There was 1 error message)

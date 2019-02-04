@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{31}
+\begin{thebibliography}{30}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -194,7 +194,7 @@
 
 \bibitem[\protect\citeauthoryear{Hong, Woodward, Li, and {\"O}zcan}{Hong
   et~al\mbox{.}}{2013}]%
-        {hong2013probMutation}
+        {hong2013cmaes1plus1}
 \bibfield{author}{\bibinfo{person}{Libin Hong}, \bibinfo{person}{John
   Woodward}, \bibinfo{person}{Jingpeng Li}, {and} \bibinfo{person}{Ender
   {\"O}zcan}.} \bibinfo{year}{2013}\natexlab{}.
@@ -205,12 +205,15 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Kaufmann}{Kaufmann}{1993}]%
-        {kaufmann1993origins}
-\bibfield{author}{\bibinfo{person}{SA Kaufmann}.}
-  \bibinfo{year}{1993}\natexlab{}.
-\newblock \bibinfo{title}{{The Origins of Order}}.
-\newblock   (\bibinfo{year}{1993}).
+\bibitem[\protect\citeauthoryear{Jastrebski and Arnold}{Jastrebski and
+  Arnold}{2006}]%
+        {jastrebski2006activecmaes}
+\bibfield{author}{\bibinfo{person}{Grahame~A Jastrebski} {and}
+  \bibinfo{person}{Dirk~V Arnold}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{{Improving Evolution Strategies Through Active
+  Covariance Matrix Adaptation}}. In \bibinfo{booktitle}{{\em Evolutionary
+  Computation, 2006. CEC 2006. IEEE Congress on}}. IEEE,
+  \bibinfo{pages}{2814--2821}.
 \newblock
 
 
@@ -277,22 +280,6 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{López-Ibáñez, Dubois-Lacoste, {Pérez
-  Cáceres}, Stützle, and Birattari}{López-Ibáñez et~al\mbox{.}}{2016}]%
-        {irace}
-\bibfield{author}{\bibinfo{person}{Manuel López-Ibáñez},
-  \bibinfo{person}{Jérémie Dubois-Lacoste}, \bibinfo{person}{Leslie {Pérez
-  Cáceres}}, \bibinfo{person}{Thomas Stützle}, {and} \bibinfo{person}{Mauro
-  Birattari}.} \bibinfo{year}{2016}\natexlab{}.
-\newblock \showarticletitle{{The irace package: Iterated Racing for Automatic
-  Algorithm Configuration}}.
-\newblock \bibinfo{journal}{{\em {Operations Research Perspectives}\/}}
-  \bibinfo{volume}{3} (\bibinfo{year}{2016}), \bibinfo{pages}{43--58}.
-\newblock
-\showDOI{%
-\url{https://doi.org/10.1016/j.orp.2016.09.002}}
-
-
 \bibitem[\protect\citeauthoryear{Martin and Tauritz}{Martin and
   Tauritz}{2013}]%
         {martin2013evolvingBBSA}
@@ -343,6 +330,18 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Richter and Tauritz}{Richter and
+  Tauritz}{2018}]%
+        {richter2018adpsea}
+\bibfield{author}{\bibinfo{person}{Samuel~N Richter} {and}
+  \bibinfo{person}{Daniel~R Tauritz}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{{The Automated Design of Probabilistic Selection
+  Methods for Evolutionary Algorithms}}. In \bibinfo{booktitle}{{\em
+  {Proceedings of the Genetic and Evolutionary Computation Conference
+  Companion}}}. ACM, \bibinfo{pages}{1545--1552}.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Scott and Bassett}{Scott and Bassett}{2015}]%
         {scott2015geneticRepresentations}
 \bibfield{author}{\bibinfo{person}{Eric~O Scott} {and}
@@ -351,20 +350,6 @@
   Real-valued Optimization Problems}}. In \bibinfo{booktitle}{{\em {Proceedings
   of the Companion Publication of the 2015 Annual Conference on Genetic and
   Evolutionary Computation}}}. ACM, \bibinfo{pages}{1075--1082}.
-\newblock
-
-
-\bibitem[\protect\citeauthoryear{Whitley, Chicano, and Goldman}{Whitley
-  et~al\mbox{.}}{2016}]%
-        {whitley2016gray}
-\bibfield{author}{\bibinfo{person}{L~Darrell Whitley},
-  \bibinfo{person}{Francisco Chicano}, {and} \bibinfo{person}{Brian~W
-  Goldman}.} \bibinfo{year}{2016}\natexlab{}.
-\newblock \showarticletitle{{Gray Box Optimization for Mk Landscapes (NK
-  Landscapes and MAX-kSAT)}}.
-\newblock \bibinfo{journal}{{\em {Evolutionary Computation}\/}}
-  \bibinfo{volume}{24}, \bibinfo{number}{3} (\bibinfo{year}{2016}),
-  \bibinfo{pages}{491--519}.
 \newblock
 
 
