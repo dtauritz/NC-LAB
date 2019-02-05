@@ -11,12 +11,24 @@ Repeated entry---line 321 of file eppsea_GECCO2019_bibliography.bib
  : @inproceedings{hansen1996cmaes
  :                               ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "hong2013probMutation"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in igel2006cmaes1plus1
+Warning--no author, editor, organization, or key in igel2006cmaes1plus1
+Warning--to sort, need author or key in igel2006cmaes1plus1
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--no key, author in igel2006cmaes1plus1
+Warning--no key, author in igel2006cmaes1plus1
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in igel2006cmaes1plus1
+Warning--no author, editor, organization, or key in igel2006cmaes1plus1
+Warning--empty author in igel2006cmaes1plus1
+Warning--empty year in igel2006cmaes1plus1
+Warning--empty booktitle in igel2006cmaes1plus1
+Warning--empty publisher in igel2006cmaes1plus1
+Warning--empty address in igel2006cmaes1plus1
+Warning--page numbers missing in both pages and numpages fields in igel2006cmaes1plus1
 Warning--empty address in burke2006binpacking
 Warning--empty address in burke2009exploring
 Warning--empty publisher in goldman2011scc
@@ -28,8 +40,8 @@ Warning--empty publisher in hansen1996cmaes
 Warning--empty address in hansen1996cmaes
 Warning--empty publisher in harris2015comparison
 Warning--empty address in harris2015comparison
-Warning--empty publisher in hong2013cmaes1plus1
-Warning--empty address in hong2013cmaes1plus1
+Warning--empty publisher in hong2013probMutation
+Warning--empty address in hong2013probMutation
 Warning--empty publisher in jastrebski2006activecmaes
 Warning--empty address in jastrebski2006activecmaes
 Warning--empty publisher in khudabukhsh2009satenstein
@@ -51,45 +63,45 @@ Warning--empty publisher in woodward2011selection
 Warning--empty address in woodward2011selection
 Warning--empty publisher in woodward2012mutationGeneration
 Warning--empty address in woodward2012mutationGeneration
-You've used 30 entries,
+You've used 31 entries,
             5795 wiz_defined-function locations,
-            1490 strings with 21633 characters,
-and the built_in function-call counts, 38002 in all, are:
-= -- 4785
+            1491 strings with 21727 characters,
+and the built_in function-call counts, 38767 in all, are:
+= -- 4832
 > -- 1282
 < -- 0
-+ -- 422
++ -- 423
 - -- 456
-* -- 2572
-:= -- 3772
-add.period$ -- 153
-call.type$ -- 30
-change.case$ -- 205
-chr.to.int$ -- 30
-cite$ -- 64
-duplicate$ -- 3437
-empty$ -- 2395
+* -- 2623
+:= -- 3813
+add.period$ -- 156
+call.type$ -- 31
+change.case$ -- 209
+chr.to.int$ -- 31
+cite$ -- 82
+duplicate$ -- 3539
+empty$ -- 2471
 format.name$ -- 564
-if$ -- 9251
+if$ -- 9454
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 121
-newline$ -- 265
+missing$ -- 126
+newline$ -- 272
 num.names$ -- 240
-pop$ -- 1296
+pop$ -- 1387
 preamble$ -- 1
-purify$ -- 468
+purify$ -- 475
 quote$ -- 0
-skip$ -- 1240
+skip$ -- 1263
 stack$ -- 0
-substring$ -- 2985
-swap$ -- 371
+substring$ -- 3009
+swap$ -- 375
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 746
-warning$ -- 34
+type$ -- 776
+warning$ -- 47
 while$ -- 265
 width$ -- 0
-write$ -- 549
+write$ -- 562
 (There was 1 error message)

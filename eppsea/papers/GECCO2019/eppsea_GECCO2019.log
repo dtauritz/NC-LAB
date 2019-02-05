@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  3 FEB 2019 21:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  4 FEB 2019 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1180,11 +1180,10 @@ Overfull \hbox (5.11464pt too wide) in paragraph at lines 107--108
  []
 
 
-Package natbib Warning: Citation `hong2013probMutation' on page 2 undefined on 
-input line 111.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \vbox (badness 2698) has occurred while \output is active []
+Underfull \vbox (badness 4660) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 126.
@@ -1217,7 +1216,7 @@ Overfull \hbox (23.58818pt too wide) in paragraph at lines 200--218
  [][] 
  []
 
-<example_eppsea.png, id=149, 4842.09pt x 2272.49pt>
+<example_eppsea.png, id=151, 4842.09pt x 2272.49pt>
 File: example_eppsea.png Graphic file (type png)
 <use example_eppsea.png>
 Package pdftex.def Info: example_eppsea.png  used on input line 226.
@@ -1226,7 +1225,7 @@ Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 232.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 9.0pt on input line 235.
-<selection_chances.png, id=155, 455.45157pt x 255.95625pt>
+<selection_chances.png, id=157, 455.45157pt x 255.95625pt>
 File: selection_chances.png Graphic file (type png)
 <use selection_chances.png>
 Package pdftex.def Info: selection_chances.png  used on input line 270.
@@ -1236,8 +1235,11 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 270--271
  [][] 
  []
 
-[3.3 <./example_eppsea.png>] [4.4 <./selection_chances.png (PNG copy)>]
-<parsimony_example.png, id=178, 2942.995pt x 895.345pt>
+
+Underfull \vbox (badness 1661) has occurred while \output is active []
+
+ [3.3 <./example_eppsea.png>] [4.4 <./selection_chances.png (PNG copy)>]
+<parsimony_example.png, id=180, 2942.995pt x 895.345pt>
 File: parsimony_example.png Graphic file (type png)
 <use parsimony_example.png>
 Package pdftex.def Info: parsimony_example.png  used on input line 286.
@@ -1248,21 +1250,22 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 286--287
  []
 
 [5.5 <./parsimony_example.png>] [6.6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2057) has occurred while \output is active []
 
  [7.7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 (./eppsea_GECCO2019.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8.8])
-
-Package natbib Warning: There were undefined citations.
-
 - LAST -
-Extra skip:8.0pt
-Left:66.0pt/1.66599pt
-Right:58.0pt/1.66599pt
-Output:66.0pt
+Extra skip:15.98601pt
+Left:122.0pt/1.652pt
+Right:106.0pt/1.66599pt
+Output:122.0pt
+
 [9.9]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 472.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 472.
@@ -1273,13 +1276,13 @@ Package rerunfilecheck Info: File `eppsea_GECCO2019.out' has not changed.
 (rerunfilecheck)             Checksum: 1DFA814641FB419600F24AD9DB5BBA12;1827.
  ) 
 Here is how much of TeX's memory you used:
- 19057 strings out of 492639
- 290345 string characters out of 6130239
- 425477 words of memory out of 5000000
- 21992 multiletter control sequences out of 15000+600000
- 153091 words of font info for 346 fonts, out of 8000000 for 9000
+ 19058 strings out of 492639
+ 290379 string characters out of 6130239
+ 427056 words of memory out of 5000000
+ 21995 multiletter control sequences out of 15000+600000
+ 152818 words of font info for 344 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 60i,12n,94p,2020b,606s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,94p,2020b,597s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/ho
 me/lt/texlive/2018/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/home/
 lt/texlive/2018/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/home/lt/
@@ -1299,10 +1302,10 @@ t/fonts/type1/public/txfonts/rtxmi.pfb></home/lt/texlive/2018/texmf-dist/fonts/
 type1/public/txfonts/rtxr.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/pub
 lic/newtx/txsys.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/newtx/
 zxlri.pfb>
-Output written on eppsea_GECCO2019.pdf (9 pages, 878622 bytes).
+Output written on eppsea_GECCO2019.pdf (9 pages, 878857 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 250 compressed objects within 3 object streams
- 63 named destinations out of 1000 (max. 500000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
  47236 words of extra memory for PDF output out of 51595 (max. 10000000)
 

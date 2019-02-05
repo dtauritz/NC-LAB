@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{30}
+\begin{thebibliography}{31}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,6 +36,14 @@
 \providecommand\bibinfo[2]{#2}
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{??}{ige}{[n. d.]}]%
+        {igel2006cmaes1plus1}
+ \bibinfo{year}{[n. d.]}\natexlab{}.
+\newblock \showarticletitle{{}A Computational Efficient Covariance Matrix
+  Update and a (1+ 1)-CMA For Evolution Strategies}.
+\newblock
+
 
 \bibitem[\protect\citeauthoryear{Burke, Gendreau, Hyde, Kendall, Ochoa,
   {\"O}zcan, and Qu}{Burke et~al\mbox{.}}{2013}]%
@@ -194,7 +202,7 @@
 
 \bibitem[\protect\citeauthoryear{Hong, Woodward, Li, and {\"O}zcan}{Hong
   et~al\mbox{.}}{2013}]%
-        {hong2013cmaes1plus1}
+        {hong2013probMutation}
 \bibfield{author}{\bibinfo{person}{Libin Hong}, \bibinfo{person}{John
   Woodward}, \bibinfo{person}{Jingpeng Li}, {and} \bibinfo{person}{Ender
   {\"O}zcan}.} \bibinfo{year}{2013}\natexlab{}.
