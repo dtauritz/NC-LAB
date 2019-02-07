@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  4 FEB 2019 21:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  6 FEB 2019 18:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1174,8 +1174,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1.1{/home/lt/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (5.11464pt too wide) in paragraph at lines 107--108
-\T1/LinuxLibertineT-TLF/m/n/9 (-20) The field of Hyper-heuristics en-com-passes
+Overfull \hbox (3.4212pt too wide) in paragraph at lines 107--108
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) The field of hyper-heuristics en-com-passes
  many dif-fer-ent ap-proaches
  []
 
@@ -1257,14 +1257,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 (./eppsea_GECCO2019.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1097) has occurred while \output is active []
 
  [8.8])
 - LAST -
-Extra skip:15.98601pt
-Left:122.0pt/1.652pt
+Extra skip:23.98601pt
+Left:130.0pt/1.652pt
 Right:106.0pt/1.66599pt
-Output:122.0pt
+Output:130.0pt
 
 [9.9]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 472.
@@ -1276,13 +1276,13 @@ Package rerunfilecheck Info: File `eppsea_GECCO2019.out' has not changed.
 (rerunfilecheck)             Checksum: 1DFA814641FB419600F24AD9DB5BBA12;1827.
  ) 
 Here is how much of TeX's memory you used:
- 19058 strings out of 492639
- 290379 string characters out of 6130239
- 427056 words of memory out of 5000000
- 21995 multiletter control sequences out of 15000+600000
- 152818 words of font info for 344 fonts, out of 8000000 for 9000
+ 19067 strings out of 492639
+ 290601 string characters out of 6130239
+ 427083 words of memory out of 5000000
+ 21997 multiletter control sequences out of 15000+600000
+ 153625 words of font info for 349 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 60i,12n,94p,2020b,597s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,94p,2020b,595s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/ho
 me/lt/texlive/2018/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/home/
 lt/texlive/2018/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/home/lt/
@@ -1302,7 +1302,7 @@ t/fonts/type1/public/txfonts/rtxmi.pfb></home/lt/texlive/2018/texmf-dist/fonts/
 type1/public/txfonts/rtxr.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/pub
 lic/newtx/txsys.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/newtx/
 zxlri.pfb>
-Output written on eppsea_GECCO2019.pdf (9 pages, 878857 bytes).
+Output written on eppsea_GECCO2019.pdf (9 pages, 879220 bytes).
 PDF statistics:
  302 PDF objects out of 1000 (max. 8388607)
  253 compressed objects within 3 object streams
