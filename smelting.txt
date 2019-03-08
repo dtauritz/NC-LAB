@@ -1,0 +1,12 @@
+hardness
+(Lhardness+Rhardness)/2+10-(LhardVariance+RhardVariance)
+hardVariance
+LhardVariance+RhardVariance
+corrosion
+(Lcorrosion+Rcorrosion)/2
+corrVariance
+LcorrVariance+RcorrVariance
+conductivity
+(Lconductivity+Rconductivity)/2
+condVariance
+LcondVariance+RcondVariance

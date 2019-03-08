@@ -7,6 +7,7 @@ import (
 	"math/rand"
 	"strconv"
 	"sort"
+	"github.com/Knetic/govaluate"
 )
 
 type metal struct {
@@ -252,12 +253,39 @@ func metalFile(filePath string) metal {
 func smelting(met1, met2 metal) metal {
 	result := metalConstructor()
 
-	result.attributes["hardness"] = (met1.attributes["hardness"] + met2.attributes["hardness"])/2
-	result.attributes["hardVariance"] = met1.attributes["hardVariance"] + met2.attributes["hardVariance"]
-	result.attributes["hardness"] += 10 - result.attributes["hardVariance"]
+	parameters := make(map[string]interface{})
+	for k, v := range met1.attributes {
+		parameters["L"+k] = v
+	}
+	for k, v := range met2.attributes {
+		parameters["R"+k] = v
+	}
 
-	result.attributes["conductivity"] = (met1.attributes["conductivity"] + met2.attributes["conductivity"])/2
-	result.attributes["corrosion"] = (met1.attributes["corrosion"] + met2.attributes["corrosion"])/2
+	file, err := os.Open("smelting.txt")
+	if err != nil {
+		panic("open smelt")
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		if err != nil {
+			panic("smelt scanning")
+		}
+		key := scanner.Text()
+		scanner.Scan()
+		equation := scanner.Text()
+		expression, err := govaluate.NewEvaluableExpression(equation)
+		if err != nil {
+			panic("smelt making eval")
+		}
+		tmp, err := expression.Evaluate(parameters)
+		if err != nil {
+			panic("smelt evaling")
+		}
+		result.attributes[key] = tmp.(float64) 
+	}
 
 	return result
 }
@@ -271,13 +299,39 @@ func smelting(met1, met2 metal) metal {
 func conductivityTreat(met1, met2 metal) metal {
 	result := metalConstructor()
 
-	result.attributes["hardness"] = met1.attributes["hardness"]
-	result.attributes["hardVariance"] = met1.attributes["hardVariance"]
-	result.attributes["corrosion"] = met1.attributes["corrosion"]
-	result.attributes["corrVariance"] = met1.attributes["corrVariance"]
+	parameters := make(map[string]interface{})
+	for k, v := range met1.attributes {
+		parameters["L"+k] = v
+	}
+	for k, v := range met2.attributes {
+		parameters["R"+k] = v
+	}
 
-	result.attributes["condVariance"] = met2.attributes["condVariance"]
-	result.attributes["conductivity"] = met1.attributes["conductivity"] + met2.attributes["conductivity"] - met2.attributes["condVariance"]
+	file, err := os.Open("condTreat.txt")
+	if err != nil {
+		panic("open condTreat")
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		if err != nil {
+			panic("condTreat scanning")
+		}
+		key := scanner.Text()
+		scanner.Scan()
+		equation := scanner.Text()
+		expression, err := govaluate.NewEvaluableExpression(equation)
+		if err != nil {
+			panic("condTreat making eval")
+		}
+		tmp, err := expression.Evaluate(parameters)
+		if err != nil {
+			panic("condTreat evaling")
+		}
+		result.attributes[key] = tmp.(float64) 
+	}
 
 	return result
 }
@@ -286,13 +340,39 @@ func conductivityTreat(met1, met2 metal) metal {
 func plating(met1, met2 metal) metal {
 	result := metalConstructor()
 
-	result.attributes["hardness"] = met1.attributes["hardness"]
-	result.attributes["hardVariance"] = met1.attributes["hardVariance"]
-	result.attributes["conductivity"] = met1.attributes["conductivity"]
-	result.attributes["condVariance"] = met1.attributes["condVariance"]
+	parameters := make(map[string]interface{})
+	for k, v := range met1.attributes {
+		parameters["L"+k] = v
+	}
+	for k, v := range met2.attributes {
+		parameters["R"+k] = v
+	}
 
-	result.attributes["corrVariance"] = met2.attributes["corrVariance"]
-	result.attributes["corrosion"] = met1.attributes["corrosion"] + met2.attributes["corrosion"] - met2.attributes["corrVariance"]
+	file, err := os.Open("plating.txt")
+	if err != nil {
+		panic("open plating")
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		if err != nil {
+			panic("plating scanning")
+		}
+		key := scanner.Text()
+		scanner.Scan()
+		equation := scanner.Text()
+		expression, err := govaluate.NewEvaluableExpression(equation)
+		if err != nil {
+			panic("plating making eval")
+		}
+		tmp, err := expression.Evaluate(parameters)
+		if err != nil {
+			panic("plating evaling")
+		}
+		result.attributes[key] = tmp.(float64)
+	}
 
 	return result
 }

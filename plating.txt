@@ -1,0 +1,12 @@
+hardness
+Lhardness
+hardVariance
+LhardVariance
+corrosion
+Lcorrosion+Rcorrosion-RcorrVariance
+corrVariance
+RcorrVariance
+conductivity
+Lconductivity
+condVariance
+LcondVariance
