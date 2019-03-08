@@ -13,103 +13,236 @@ type metal struct {
 	//lower better for variances
 	//higher the better for others
 
-	hardness 		float64 //[0, 100]
+	/*hardness 		float64 //[0, 100]
 	hardVariance	float64
 
 	conductivity	float64 //[0, 100]
 	condVariance	float64
 
 	corrosion		float64 //[0, 100]
-	corrVariance	float64
+	corrVariance	float64*/
+	attributes		map[string]float64
+}
+
+func metalConstructor() metal {
+	var result metal
+	result.attributes = make(map[string]float64)
+	return result
 }
 
 func (m metal) String() string {
 	return fmt.Sprintf("Hardness %v (%v) Conductivity %v (%v) Corrosion %v (%v)",
-		m.hardness, m.hardVariance, m.conductivity, m.condVariance, m.corrosion,
-		m.corrVariance)
+		m.attributes["hardness"], m.attributes["hardVariance"], m.attributes["conductivity"], m.attributes["condVariance"], m.attributes["corrosion"],
+		m.attributes["corrVariance"])
 }
 
 // kind=0 for goal alloy
 func generateMetal(kind, version int) (metal) {
-	var result metal
+	result := metalConstructor()
+
+	/*
+	switch(kind) {
+	case 0:
+		result.attributes["hardness"] = 61
+		result.attributes["conductivity"] = 71
+		result.attributes["corrosion"] = 85
+	case 1: // hard metal 1
+		result.attributes["hardness"] = 50
+		result.attributes["conductivity"] = 30
+		result.attributes["corrosion"] = 10
+		switch(version){
+		case 1:
+			result.attributes["hardVariance"] = 8
+			result.attributes["hardness"] -= 4
+		case 2:
+			result.attributes["hardVariance"] = 6
+			result.attributes["hardness"] -= 3
+		case 3:
+			result.attributes["hardVariance"] = 4
+			result.attributes["hardness"] -= 2
+		case 4:
+			result.attributes["hardVariance"] = 2
+			result.attributes["hardness"] -= 1
+		}
+	case 2: // hard metal 2
+		result.attributes["hardness"] = 60
+		result.attributes["conductivity"] = 20
+		result.attributes["corrosion"] = 30
+		switch(version){
+		case 1:
+			result.attributes["hardVariance"] = 6
+			result.attributes["hardness"] -= 3
+		case 2:
+			result.attributes["hardVariance"] = 4
+			result.attributes["hardness"] -= 2
+		case 3:
+			result.attributes["hardVariance"] = 2
+			result.attributes["hardness"] -= 1
+		case 4:
+			result.attributes["hardVariance"] = 1
+			result.attributes["hardness"] -= 0.5
+		}
+	case 3: // conductivity metal
+		result.attributes["hardness"] = 30
+		result.attributes["conductivity"] = 50
+		result.attributes["corrosion"] = 10
+		switch(version){
+		case 1:
+			result.attributes["condVariance"] = 7
+			result.attributes["conductivity"] -= 3.5
+		case 2:
+			result.attributes["condVariance"] = 5
+			result.attributes["conductivity"] -= 2.5
+		case 3:
+			result.attributes["condVariance"] = 3
+			result.attributes["conductivity"] -= 1.5
+		case 4:
+			result.attributes["condVariance"] = 1
+			result.attributes["conductivity"] -= 0.5
+		}
+	case 4: // corrosive metal
+		result.attributes["hardness"] = 20
+		result.attributes["conductivity"] = 20
+		result.attributes["corrosion"] = 70
+		switch(version){
+		case 1:
+			result.attributes["corrVariance"] = 8
+			result.attributes["corrosion"] -= 4
+		case 2:
+			result.attributes["corrVariance"] = 5
+			result.attributes["corrosion"] -= 2.5
+		case 3:
+			result.attributes["corrVariance"] = 4
+			result.attributes["corrosion"] -= 2
+		case 4:
+			result.attributes["corrVariance"] = 3
+			result.attributes["corrosion"] -= 1.5
+		}
+	}
+	*/
 
 	switch(kind) {
 	case 0:
-		result.hardness = 61
-		result.conductivity = 71
-		result.corrosion = 85
+		result.attributes["hardness"] = 61
+		result.attributes["conductivity"] = 71
+		result.attributes["corrosion"] = 85
 	case 1: // hard metal 1
-		result.hardness = 50
-		result.conductivity = 30
-		result.corrosion = 10
+		result.attributes["hardness"] = 50
+		result.attributes["conductivity"] = 30
+		result.attributes["corrosion"] = 10
 		switch(version){
 		case 1:
-			result.hardVariance = 8
-			result.hardness -= 4
+			result.attributes["hardVariance"] = 8
+			result.attributes["hardness"] -= 4
 		case 2:
-			result.hardVariance = 6
-			result.hardness -= 3
+			result.attributes["hardVariance"] = 6
+			result.attributes["hardness"] -= 3
 		case 3:
-			result.hardVariance = 4
-			result.hardness -= 2
+			result.attributes["hardVariance"] = 4
+			result.attributes["hardness"] -= 2
 		case 4:
-			result.hardVariance = 2
-			result.hardness -= 1
+			result.attributes["hardVariance"] = 2
+			result.attributes["hardness"] -= 1
 		}
 	case 2: // hard metal 2
-		result.hardness = 60
-		result.conductivity = 20
-		result.corrosion = 30
+		result.attributes["hardness"] = 60
+		result.attributes["conductivity"] = 20
+		result.attributes["corrosion"] = 30
 		switch(version){
 		case 1:
-			result.hardVariance = 6
-			result.hardness -= 3
+			result.attributes["hardVariance"] = 6
+			result.attributes["hardness"] -= 3
 		case 2:
-			result.hardVariance = 4
-			result.hardness -= 2
+			result.attributes["hardVariance"] = 4
+			result.attributes["hardness"] -= 2
 		case 3:
-			result.hardVariance = 2
-			result.hardness -= 1
+			result.attributes["hardVariance"] = 2
+			result.attributes["hardness"] -= 1
 		case 4:
-			result.hardVariance = 1
-			result.hardness -= 0.5
+			result.attributes["hardVariance"] = 1
+			result.attributes["hardness"] -= 0.5
 		}
 	case 3: // conductivity metal
-		result.hardness = 30
-		result.conductivity = 50
-		result.corrosion = 10
+		result.attributes["hardness"] = 30
+		result.attributes["conductivity"] = 50
+		result.attributes["corrosion"] = 10
 		switch(version){
 		case 1:
-			result.condVariance = 7
-			result.conductivity -= 3.5
+			result.attributes["condVariance"] = 7
+			result.attributes["conductivity"] -= 3.5
 		case 2:
-			result.condVariance = 5
-			result.conductivity -= 2.5
+			result.attributes["condVariance"] = 5
+			result.attributes["conductivity"] -= 2.5
 		case 3:
-			result.condVariance = 3
-			result.conductivity -= 1.5
+			result.attributes["condVariance"] = 3
+			result.attributes["conductivity"] -= 1.5
 		case 4:
-			result.condVariance = 1
-			result.conductivity -= 0.5
+			result.attributes["condVariance"] = 1
+			result.attributes["conductivity"] -= 0.5
 		}
 	case 4: // corrosive metal
-		result.hardness = 20
-		result.conductivity = 20
-		result.corrosion = 70
+		result.attributes["hardness"] = 20
+		result.attributes["conductivity"] = 20
+		result.attributes["corrosion"] = 70
 		switch(version){
 		case 1:
-			result.corrVariance = 8
-			result.corrosion -= 4
+			result.attributes["corrVariance"] = 8
+			result.attributes["corrosion"] -= 4
 		case 2:
-			result.corrVariance = 5
-			result.corrosion -= 2.5
+			result.attributes["corrVariance"] = 5
+			result.attributes["corrosion"] -= 2.5
 		case 3:
-			result.corrVariance = 4
-			result.corrosion -= 2
+			result.attributes["corrVariance"] = 4
+			result.attributes["corrosion"] -= 2
 		case 4:
-			result.corrVariance = 3
-			result.corrosion -= 1.5
+			result.attributes["corrVariance"] = 3
+			result.attributes["corrosion"] -= 1.5
 		}
+	}
+
+	return result
+}
+
+func readMetal(kind, version int) (metal) {
+	var result metal
+
+	// switch kind {
+	// case 0:
+	// 	result = metalFile("goal.txt")
+	// }
+	if kind == 0 {
+		result = metalFile("goal.txt")
+	} else {
+		filePath := strconv.Itoa(kind) + "_" + strconv.Itoa(version) + ".txt"
+		result = metalFile(filePath) 
+	}
+
+	return result
+}
+
+func metalFile(filePath string) metal {
+	result := metalConstructor()
+
+	file, err := os.Open(filePath)
+	if err != nil {
+		panic(0)
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		if err != nil {
+			panic(0)
+		}
+		key := scanner.Text()
+		scanner.Scan()
+		val := scanner.Text()
+		tmp, err := strconv.ParseFloat(val, 64)
+		if err != nil {
+			panic(1)
+		}
+		result.attributes[key] = tmp
 	}
 
 	return result
@@ -117,14 +250,14 @@ func generateMetal(kind, version int) (metal) {
 
 //combines two metals
 func smelting(met1, met2 metal) metal {
-	var result metal
+	result := metalConstructor()
 
-	result.hardness = (met1.hardness + met2.hardness)/2
-	result.hardVariance = met1.hardVariance + met2.hardVariance
-	result.hardness += 10 - result.hardVariance
+	result.attributes["hardness"] = (met1.attributes["hardness"] + met2.attributes["hardness"])/2
+	result.attributes["hardVariance"] = met1.attributes["hardVariance"] + met2.attributes["hardVariance"]
+	result.attributes["hardness"] += 10 - result.attributes["hardVariance"]
 
-	result.conductivity = (met1.conductivity + met2.conductivity)/2
-	result.corrosion = (met1.corrosion + met2.corrosion)/2
+	result.attributes["conductivity"] = (met1.attributes["conductivity"] + met2.attributes["conductivity"])/2
+	result.attributes["corrosion"] = (met1.attributes["corrosion"] + met2.attributes["corrosion"])/2
 
 	return result
 }
@@ -136,30 +269,30 @@ func smelting(met1, met2 metal) metal {
 
 //increases conductivity with two metals
 func conductivityTreat(met1, met2 metal) metal {
-	var result metal
+	result := metalConstructor()
 
-	result.hardness = met1.hardness
-	result.hardVariance = met1.hardVariance
-	result.corrosion = met1.corrosion
-	result.corrVariance = met1.corrVariance
+	result.attributes["hardness"] = met1.attributes["hardness"]
+	result.attributes["hardVariance"] = met1.attributes["hardVariance"]
+	result.attributes["corrosion"] = met1.attributes["corrosion"]
+	result.attributes["corrVariance"] = met1.attributes["corrVariance"]
 
-	result.condVariance = met2.condVariance
-	result.conductivity = met1.conductivity + met2.conductivity - met2.condVariance
+	result.attributes["condVariance"] = met2.attributes["condVariance"]
+	result.attributes["conductivity"] = met1.attributes["conductivity"] + met2.attributes["conductivity"] - met2.attributes["condVariance"]
 
 	return result
 }
 
 //increases corrosion with two metals
 func plating(met1, met2 metal) metal {
-	var result metal
+	result := metalConstructor()
 
-	result.hardness = met1.hardness
-	result.hardVariance = met1.hardVariance
-	result.conductivity = met1.conductivity
-	result.condVariance = met1.condVariance
+	result.attributes["hardness"] = met1.attributes["hardness"]
+	result.attributes["hardVariance"] = met1.attributes["hardVariance"]
+	result.attributes["conductivity"] = met1.attributes["conductivity"]
+	result.attributes["condVariance"] = met1.attributes["condVariance"]
 
-	result.corrVariance = met2.corrVariance
-	result.corrosion = met1.corrosion + met2.corrosion - met2.corrVariance
+	result.attributes["corrVariance"] = met2.attributes["corrVariance"]
+	result.attributes["corrosion"] = met1.attributes["corrosion"] + met2.attributes["corrosion"] - met2.attributes["corrVariance"]
 
 	return result
 }
@@ -265,41 +398,46 @@ func find(arr []int, elem int) int {
 }
 
 func (perm *permutation) getFitness(guarantee chan bool) {
-	goal := generateMetal(0,0)
+	// goal := generateMetal(0,0)
+	goal := readMetal(0,0)
 
 	var in1, in2, in3, in4 metal
 
-	in1 = generateMetal(1, perm.assignment[0])
-	in2 = generateMetal(2, perm.assignment[1])
-	in3 = generateMetal(3, perm.assignment[2])
-	in4 = generateMetal(4, perm.assignment[3])
+	// in1 = generateMetal(1, perm.assignment[0])
+	// in2 = generateMetal(2, perm.assignment[1])
+	// in3 = generateMetal(3, perm.assignment[2])
+	// in4 = generateMetal(4, perm.assignment[3])
+	in1 = readMetal(1, perm.assignment[0])
+	in2 = readMetal(2, perm.assignment[1])
+	in3 = readMetal(3, perm.assignment[2])
+	in4 = readMetal(4, perm.assignment[3])
 
 	perm.finalMetal = blackBox(in1, in2, in3, in4)
 
 	//hardness section
 	hardRating := 0.0
-	if perm.finalMetal.hardness > goal.hardness {
+	if perm.finalMetal.attributes["hardness"] > goal.attributes["hardness"] {
 		hardRating = 1.0
 	} else {
-		hardRating = 1.0 - (goal.hardness - perm.finalMetal.hardness)/perm.finalMetal.hardVariance
+		hardRating = 1.0 - (goal.attributes["hardness"] - perm.finalMetal.attributes["hardness"])/perm.finalMetal.attributes["hardVariance"]
 	}
 	perm.fitness += hardRating/3.0
 
 	//conductivity section
 	condRating := 0.0
-	if perm.finalMetal.conductivity > goal.conductivity {
+	if perm.finalMetal.attributes["conductivity"] > goal.attributes["conductivity"] {
 		condRating = 1.0
 	} else {
-		condRating = 1.0 - (goal.conductivity - perm.finalMetal.conductivity)/perm.finalMetal.condVariance
+		condRating = 1.0 - (goal.attributes["conductivity"] - perm.finalMetal.attributes["conductivity"])/perm.finalMetal.attributes["condVariance"]
 	}
 	perm.fitness += condRating/3.0
 
 	//corrosion section
 	corrRating := 0.0
-	if perm.finalMetal.corrosion > goal.corrosion {
+	if perm.finalMetal.attributes["corrosion"] > goal.attributes["corrosion"] {
 		corrRating = 1.0
 	} else {
-		corrRating = 1.0 - (goal.corrosion - perm.finalMetal.corrosion)/perm.finalMetal.corrVariance
+		corrRating = 1.0 - (goal.attributes["corrosion"] - perm.finalMetal.attributes["corrosion"])/perm.finalMetal.attributes["corrVariance"]
 	}
 	perm.fitness += corrRating/3.0
 
@@ -568,7 +706,8 @@ func main() {
 	front := runEA()
 
 	fmt.Println()
-	goal := generateMetal(0,0)
+	// goal := generateMetal(0,0)
+	goal := readMetal(0,0)
 	fmt.Println("goal: ", goal, "\n")
 
 	for i := 0; i < len(front); i++ {

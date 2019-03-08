@@ -1,0 +1,12 @@
+hardness
+20
+hardVariance
+0
+corrosion
+68.5
+corrVariance
+3
+conductivity
+20
+condVariance
+0
