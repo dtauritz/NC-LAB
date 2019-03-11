@@ -749,4 +749,7 @@ if __name__ == '__main__':
     config_paths = sys.argv[1:]
 
     for config_path in config_paths:
-        main(config_path)
+      try:
+          main(config_path)
+      except:
+          print('Exception Caught')
