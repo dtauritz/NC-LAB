@@ -8,6 +8,12 @@ import (
 	"strconv"
 	"sort"
 	"github.com/Knetic/govaluate"
+
+	"gonum.org/v1/plot"
+	"gonum.org/v1/plot/plotter"
+	"gonum.org/v1/plot/vg"
+
+	"image/color"
 )
 
 type metal struct {
@@ -795,6 +801,36 @@ func main() {
 			front[i].assignment, front[i].fitness, front[i].fitness2)
 		fmt.Println(front[i].finalMetal, "\n")
 	}
+
+
+	pts := make(plotter.XYs, len(front))
+	for i := range pts {
+		pts[i].X = front[i].fitness
+		pts[i].Y = front[i].fitness2
+	}
+
+	p, err := plot.New()
+	if err != nil {
+		panic(err)
+	}
+	p.Title.Text = "Pareto Front"
+	p.X.Label.Text = "Accuracy"
+	p.Y.Label.Text = "Cost"
+	p.Add(plotter.NewGrid())
+
+	s, err := plotter.NewScatter(pts)
+	if err != nil {
+		panic(err)
+	}
+	s.GlyphStyle.Color = color.RGBA{R: 255, B: 128, A: 255}
+
+	p.Add(s)
+	// p.Legend.Add("Front", s)
+
+	if err := p.Save(6*vg.Inch, 6*vg.Inch, "points.png"); err != nil {
+		panic(err)
+	}
+
 
 	reader := bufio.NewReader(os.Stdin)
 	_, _ = reader.ReadString('\n')
