@@ -3,54 +3,45 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: eppsea_thesis.aux
 The style file: mstogs.bst
 Database file #1: eppsea_bibliography.bib
-I was expecting a `,' or a `}'---line 134 of file eppsea_bibliography.bib
- :  
- :  YEAR =  {2009},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Warning--empty booktitle in khudabukhsh2009satenstein
-Warning--empty year in khudabukhsh2009satenstein; set to ????
-Warning--empty pages in khudabukhsh2009satenstein
 You've used 31 entries,
             3043 wiz_defined-function locations,
-            801 strings with 11298 characters,
-and the built_in function-call counts, 22982 in all, are:
-= -- 1843
+            805 strings with 11342 characters,
+and the built_in function-call counts, 23225 in all, are:
+= -- 1874
 > -- 845
-< -- 42
-+ -- 304
+< -- 44
++ -- 306
 - -- 274
-* -- 1705
-:= -- 3081
-add.period$ -- 77
+* -- 1715
+:= -- 3103
+add.period$ -- 78
 call.type$ -- 31
 change.case$ -- 247
 chr.to.int$ -- 32
-cite$ -- 34
-duplicate$ -- 1864
-empty$ -- 1867
+cite$ -- 31
+duplicate$ -- 1885
+empty$ -- 1886
 format.name$ -- 384
-if$ -- 4800
+if$ -- 4864
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 328
+missing$ -- 331
 newline$ -- 101
 num.names$ -- 124
-pop$ -- 751
+pop$ -- 749
 preamble$ -- 1
 purify$ -- 215
 quote$ -- 0
-skip$ -- 910
+skip$ -- 923
 stack$ -- 0
-substring$ -- 1246
-swap$ -- 1031
-text.length$ -- 27
+substring$ -- 1281
+swap$ -- 1051
+text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 279
-warning$ -- 3
-while$ -- 174
+warning$ -- 0
+while$ -- 177
 width$ -- 0
-write$ -- 360
-(There was 1 error message)
+write$ -- 363

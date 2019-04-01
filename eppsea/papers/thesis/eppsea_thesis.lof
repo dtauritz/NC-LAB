@@ -1,7 +1,6 @@
 \babel@toc {american}{}
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Example of a generated selection function.\relax }}{10}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces A comparison of the chances that each member of a sample population, with fitnesses as listed, will be selected, under each of the typical selection strategies listed, as well as the custom selection strategy shown in Figure~\ref {fig:example_adpsea}.\relax }}{12}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The GP-Trees for an example population of 3 individuals.\relax }}{13}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The function that controlled parent selection in the best evolved selection function.\relax }}{26}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces A plot of the best population fitness against the number of EA evaluations, achieved by both the typical selection function and the evolved selection function, averaged over all runs, for one of the testing functions of experiment 1.\relax }}{27}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces A box plot comparing the final best fitnesses achieved on one of the testing functions of experiment 1, by both the typical selection functions and the evolved selection functions.\relax }}{27}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The function that controlled parent selection in the best evolved selection function.\relax }}{24}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces A plot of the best population fitness against the number of EA evaluations, achieved by both the typical selection function and the evolved selection function, averaged over all runs, for one of the testing functions of experiment 1.\relax }}{25}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces A box plot comparing the final best fitnesses achieved on one of the testing functions of experiment 1, by both the typical selection functions and the evolved selection functions.\relax }}{25}
