@@ -1,4 +1,0 @@
-parameterFile = "./irace_parameters.txt"
-targetRunner = "./irace_target_runner"
-maxExperiments = 2000
-forbiddenFile = "./irace_forbidden.txt"

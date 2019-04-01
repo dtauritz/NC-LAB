@@ -1,3 +1,0 @@
-((fitness / ((fitness_rank / random) / (fitness step generation_number))) - (((population_size min random) min sum_fitness) + ((relative_fitness * 34.02468691168235) step absolute((population_size min random))))) | selection type: truncation |  
-|||| 
-(((((relative_fitness - fitness) max fitness_rank) + birth_generation) * relative_uniqueness) min (((((((min_fitness min (((((fitness_rank - fitness) max fitness_rank) + birth_generation) * relative_uniqueness) min (relative_uniqueness / birth_generation))) max ((relative_fitness - random) / absolute(max_fitness))) + (population_size * fitness_rank)) max relative_fitness) * fitness_rank) + fitness_rank) / birth_generation)) | selection type: tournament_no_replacement |  | tournament size: 12
