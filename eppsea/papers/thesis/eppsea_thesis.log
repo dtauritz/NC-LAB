@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  3 JAN 2019 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  1 JAN 2019 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1104,7 +1104,7 @@ Appendix D.
 Here is how much of TeX's memory you used:
  9838 strings out of 492639
  138631 string characters out of 6130239
- 235257 words of memory out of 5000000
+ 235253 words of memory out of 5000000
  13472 multiletter control sequences out of 15000+600000
  43635 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1123,7 +1123,7 @@ rntxmi.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/txfonts/rtxmi.p
 fb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></home
 /lt/texlive/2018/texmf-dist/fonts/type1/public/newtx/txsys.pfb></home/lt/texliv
 e/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on eppsea_thesis.pdf (64 pages, 1030682 bytes).
+Output written on eppsea_thesis.pdf (64 pages, 1030801 bytes).
 PDF statistics:
  274 PDF objects out of 1000 (max. 8388607)
  183 compressed objects within 2 object streams
