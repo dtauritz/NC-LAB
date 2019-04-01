@@ -1,47 +1,47 @@
-This is BibTeX, Version 0.99d (TeX Live 2018)
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: eppsea_thesis.aux
 The style file: mstogs.bst
 Database file #1: eppsea_bibliography.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 31 entries,
+You've used 27 entries,
             3043 wiz_defined-function locations,
-            805 strings with 11342 characters,
-and the built_in function-call counts, 23225 in all, are:
-= -- 1874
-> -- 845
-< -- 44
-+ -- 306
-- -- 274
-* -- 1715
-:= -- 3103
-add.period$ -- 78
-call.type$ -- 31
-change.case$ -- 247
-chr.to.int$ -- 32
-cite$ -- 31
-duplicate$ -- 1885
-empty$ -- 1886
-format.name$ -- 384
-if$ -- 4864
+            782 strings with 10454 characters,
+and the built_in function-call counts, 20283 in all, are:
+= -- 1637
+> -- 733
+< -- 38
++ -- 280
+- -- 238
+* -- 1483
+:= -- 2714
+add.period$ -- 70
+call.type$ -- 27
+change.case$ -- 215
+chr.to.int$ -- 28
+cite$ -- 27
+duplicate$ -- 1645
+empty$ -- 1659
+format.name$ -- 332
+if$ -- 4252
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 331
-newline$ -- 101
-num.names$ -- 124
-pop$ -- 749
+missing$ -- 287
+newline$ -- 89
+num.names$ -- 108
+pop$ -- 665
 preamble$ -- 1
-purify$ -- 215
+purify$ -- 187
 quote$ -- 0
-skip$ -- 923
+skip$ -- 802
 stack$ -- 0
-substring$ -- 1281
-swap$ -- 1051
-text.length$ -- 29
+substring$ -- 1127
+swap$ -- 897
+text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 279
+type$ -- 243
 warning$ -- 0
-while$ -- 177
+while$ -- 153
 width$ -- 0
-write$ -- 363
+write$ -- 319
