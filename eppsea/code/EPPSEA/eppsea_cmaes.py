@@ -367,6 +367,7 @@ class EppseaCMAES:
                     
 
         # sample a spread of the loaded fitness functions
+        print(len(prepared_fitness_functions))
         if len(prepared_fitness_functions) < self.num_training_fitness_functions:
             raise Exception('ERROR: Trying to load {0} training fitness functions, but only {1} are available'.format(self.num_training_fitness_functions, len(prepared_fitness_functions)))
         # take an even sampling of the training functions to prevent bias
