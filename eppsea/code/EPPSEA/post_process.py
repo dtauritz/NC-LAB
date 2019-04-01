@@ -1,6 +1,7 @@
 import statistics
 import sys
 import pickle
+import re
 
 import numpy as np
 
@@ -50,12 +51,20 @@ def main(final_output_directory, results_file_paths):
             printed_selection_functions.append(r['selection_function_eppsea_string'])
     # Analyze results for each fitness function
     average_overall_hit_percentage = [0]*len(selection_function_ids);
+    functionClassHitPercentage = {}
+    functionClassRegex = re.compile('F\d{1,2}')
     for fitness_function_id in fitness_function_ids:
         plt.clf()
         print('--------------------------- Analyzing results for fitness function with id {0} ---------------------------------'.format(fitness_function_id))
-        print('Plotting figure')
         # Get the name of the fitness function from one of the result files
         fitness_function_name = fitness_function_display_names[fitness_function_id]
+        functionClass = functionClassRegex.search(fitness_function_name).group(0)
+        if functionClass not in functionClassHitPercentage:
+            functionClassHitPercentage[functionClass] = [0]*len(selection_function_ids)
+        print(functionClass)
+        print('Fitness Function Name: ' + fitness_function_name)
+        print('Plotting figure')
+        
 
         # filter out the results for this fitness function
         fitness_function_results = list(r for r in results if r['fitness_function_id'] == fitness_function_id)
@@ -118,6 +127,7 @@ def main(final_output_directory, results_file_paths):
             average_final_best_fitness1 = round(statistics.mean(final_best_fitnesses1), 5)
             target_hit_percentage1 = round(len(selection_function_target_results1) * 100 / len(selection_function_results1), 2)
             average_overall_hit_percentage[counter] = average_overall_hit_percentage[counter] + target_hit_percentage1
+            functionClassHitPercentage[functionClass][counter] = functionClassHitPercentage[functionClass][counter] + target_hit_percentage1
             counter = counter + 1
             print('Mean performance of {0}: {1}, reaching target fitness in {2}% of runs'.format(selection_function_name1,average_final_best_fitness1, target_hit_percentage1))
             # perform a t test with all the other results that this selection has not yet been tested against
@@ -161,6 +171,10 @@ def main(final_output_directory, results_file_paths):
 
     for i in range(0,len(selection_function_ids)):
         print('Selection function {0} hit target at an average of {1}%'.format(i, average_overall_hit_percentage[i]/len(fitness_function_ids)))
+        
+    for funcClass in functionClassHitPercentage:
+        for i in range(0,len(selection_function_ids)):
+            print('Selection function {0} hit target at an average of {1}% in class {2}'.format(i, len(functionClassHitPercentage) * functionClassHitPercentage[funcClass][i]/len(fitness_function_ids), funcClass))
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
