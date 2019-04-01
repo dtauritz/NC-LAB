@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  21 JAN 2019 11:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  13 JAN 2019 20:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1106,28 +1106,28 @@ Package caption Info: End \AtBeginDocument code.
 
 Excluding 'CCSXML' comment.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 113.
+(Font)              scaled to size 17.28pt on input line 111.
 LaTeX Font Info:    Try loading font information for T1+LinuxBiolinumT-TLF on i
-nput line 113.
+nput line 111.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
 File: T1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Lin
 uxBiolinumT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 113.
+(Font)              scaled to size 17.28pt on input line 111.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxBiolinumT-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 17.28pt on input line 113.
+(Font)              scaled to size 17.28pt on input line 111.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 113.
+(Font)              scaled to size 12.0pt on input line 111.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 113.
+(Font)              scaled to size 10.0pt on input line 111.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 113.
+(Font)              scaled to size 10.0pt on input line 111.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1140,46 +1140,49 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 113.
+(Font)              scaled to size 7.0pt on input line 111.
 LaTeX Font Info:    Try loading font information for TS1+LinuxLibertineT-TLF on
- input line 113.
+ input line 111.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 113.
+(Font)              scaled to size 7.0pt on input line 111.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 113.
+(Font)              scaled to size 9.0pt on input line 111.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 113.
+(Font)              scaled to size 10.95pt on input line 111.
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 113.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 113.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 113.
+(Font)              scaled to size 9.0pt on input line 111.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 113.
+(Font)              scaled to size 9.0pt on input line 111.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 113.
+(Font)              scaled to size 9.0pt on input line 111.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.3pt on input line 111.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 111.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 8.0pt on input line 111.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 8.0pt on input line 111.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.2pt on input line 113.
+(Font)              scaled to size 8.0pt on input line 111.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.2pt on input line 111.
 
-Underfull \vbox (badness 1521) has occurred while \output is active []
+Underfull \vbox (badness 3568) has occurred while \output is active []
 
  [1.1{/home/lt/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 131.
-
-Overfull \hbox (5.11464pt too wide) in paragraph at lines 131--132
+Overfull \hbox (5.11464pt too wide) in paragraph at lines 129--130
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) The field of Hyper-heuristics en-com-passes
  many dif-fer-ent ap-proaches
  []
@@ -1188,66 +1191,60 @@ Overfull \hbox (5.11464pt too wide) in paragraph at lines 131--132
 Underfull \vbox (badness 2698) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 150.
+(Font)              scaled to size 9.0pt on input line 148.
  [2.2]
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 159.
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 []\T1/LinuxLibertineT-TLF/m/n/9 (+20) Multiplies the left and right
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 175--176
+Underfull \hbox (badness 1014) in paragraph at lines 173--174
 []\T1/LinuxLibertineT-TLF/m/n/9 (+20) Returns 1 if the left operand is
  []
 
 
-Overfull \hbox (7.99673pt too wide) in paragraph at lines 159--181
+Overfull \hbox (7.99673pt too wide) in paragraph at lines 157--179
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 []\T1/LinuxLibertineT-TLF/m/n/9 (+20) As with \T1/LinuxLibertineT-TLF/m/it/9 (+
 20) k\T1/LinuxLibertineT-TLF/m/n/9 (+20) -Tournament-
  []
 
 
-Overfull \hbox (23.58818pt too wide) in paragraph at lines 224--242
+Overfull \hbox (23.58818pt too wide) in paragraph at lines 222--240
  [][] 
  []
 
-<example_eppsea.png, id=145, 4842.09pt x 2272.49pt>
+<example_eppsea.png, id=146, 4842.09pt x 2272.49pt>
 File: example_eppsea.png Graphic file (type png)
 <use example_eppsea.png>
-Package pdftex.def Info: example_eppsea.png  used on input line 250.
+Package pdftex.def Info: example_eppsea.png  used on input line 248.
 (pdftex.def)             Requested size: 227.83119pt x 106.90413pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 256.
+put line 254.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 259.
-<selection_chances.png, id=151, 455.45157pt x 255.95625pt>
+(Font)              scaled to size 9.0pt on input line 257.
+<selection_chances.png, id=152, 455.45157pt x 255.95625pt>
 File: selection_chances.png Graphic file (type png)
 <use selection_chances.png>
-Package pdftex.def Info: selection_chances.png  used on input line 294.
+Package pdftex.def Info: selection_chances.png  used on input line 292.
 (pdftex.def)             Requested size: 253.14749pt x 142.2683pt.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 294--295
+Overfull \hbox (12.0pt too wide) in paragraph at lines 292--293
  [][] 
  []
 
-
-Underfull \vbox (badness 1661) has occurred while \output is active []
-
- [3.3 <./example_eppsea.png>] [4.4 <./selection_chances.png (PNG copy)>]
-<parsimony_example.png, id=173, 2942.995pt x 895.345pt>
+[3.3 <./example_eppsea.png>] [4.4 <./selection_chances.png (PNG copy)>]
+<parsimony_example.png, id=174, 2942.995pt x 895.345pt>
 File: parsimony_example.png Graphic file (type png)
 <use parsimony_example.png>
-Package pdftex.def Info: parsimony_example.png  used on input line 310.
+Package pdftex.def Info: parsimony_example.png  used on input line 308.
 (pdftex.def)             Requested size: 253.14749pt x 77.01183pt.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 310--311
+Overfull \hbox (12.0pt too wide) in paragraph at lines 308--309
  [][] 
  []
 
@@ -1255,33 +1252,36 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 310--311
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7.7]
+Underfull \vbox (badness 2698) has occurred while \output is active []
+
+
 (./eppsea_GECCO2019.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5878) has occurred while \output is active []
 
  [8.8])
 - LAST -
-Extra skip:0.0pt
-Left:290.0pt/1.66599pt
-Right:290.0pt/1.66599pt
-Output:290.0pt
+Extra skip:32.0pt
+Left:266.0pt/1.66599pt
+Right:234.0pt/1.66599pt
+Output:266.0pt
 
 [9.9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 535.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 535.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 533.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 533.
  (./eppsea_GECCO2019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 535.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 535.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 533.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 533.
 Package rerunfilecheck Info: File `eppsea_GECCO2019.out' has not changed.
 (rerunfilecheck)             Checksum: 274472F5A0D0AF79C61C4A7D1280BD4B;1847.
  ) 
 Here is how much of TeX's memory you used:
- 19081 strings out of 492639
- 290665 string characters out of 6130239
- 428148 words of memory out of 5000000
- 22007 multiletter control sequences out of 15000+600000
- 158610 words of font info for 360 fonts, out of 8000000 for 9000
+ 19092 strings out of 492639
+ 290996 string characters out of 6130239
+ 426463 words of memory out of 5000000
+ 22014 multiletter control sequences out of 15000+600000
+ 164031 words of font info for 363 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 77i,11n,94p,2038b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,12n,94p,2038b,579s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/ho
 me/lt/texlive/2018/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/home/
 lt/texlive/2018/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/home/lt/
@@ -1301,10 +1301,10 @@ t/fonts/type1/public/txfonts/rtxmi.pfb></home/lt/texlive/2018/texmf-dist/fonts/
 type1/public/txfonts/rtxr.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/pub
 lic/newtx/txsys.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/newtx/
 zxlri.pfb>
-Output written on eppsea_GECCO2019.pdf (9 pages, 879337 bytes).
+Output written on eppsea_GECCO2019.pdf (9 pages, 880546 bytes).
 PDF statistics:
  297 PDF objects out of 1000 (max. 8388607)
  248 compressed objects within 3 object streams
  64 named destinations out of 1000 (max. 500000)
- 51332 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 51844 words of extra memory for PDF output out of 61914 (max. 10000000)
 
