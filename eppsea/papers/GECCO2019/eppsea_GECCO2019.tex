@@ -120,9 +120,9 @@ EAs employ selection functions to control the probability that an individual's g
 
 New selection algorithms can be designed in cases where the performance offered by existing algorithms is insufficient, even with well-tuned parameters. However, the full space of selection algorithms is only limited by the maximum algorithm size, and so it is highly unlikely that any conventionally human-designed algorithm offers the optimal selection behavior for the EA. An implication of the ``No Free Lunch'' theorem~\citep{wolpert1995noFreeLunch}, each possible selection algorithm is optimal for some EA configuration applied to a particular problem class. Therefore, a performance gain is likely to be attained by exploring the space of selection algorithms to find one that offers better performance than any conventional selection algorithm. Previous work has confirmed this hypothesis, prompting our approach to use a Hyper-heuristic and a custom representation of selection functions to explore the space of new selection functions ~\citep{woodward2011selection}.
 
-Our approach employs a Hyper-heuristic, with both generative and perturbative elements, to explore the space of selection algorithms, with each search algorithm represented by two components. The first component is a Koza-style Genetic Programming (GP) tree~\citep{koza1994genetic}, encoding a mathematical function that calculates how desirable an individual is at the current stage of evolution. The second component is a method of selecting individuals, based on how desirable they are calculated to be. We use this Hyper-heuristic to evolve a new scheme for selecting individuals in the mean update function of the Covariance Matrix Adaptation Evolutionary Strategy (CMA-ES).
+Our approach employs a Hyper-heuristic, with both generative and perturbative elements, to explore the space of selection algorithms, with each search algorithm represented by two components. The first component is a Koza-style Genetic Programming (GP) tree~\citep{koza1994genetic}, encoding a mathematical function that calculates how desirable an individual is at the current stage of evolution. The second component is a method of selecting individuals, based on how desirable they are calculated to be.
 
-The rest of this paper is organized as follows. Section~\ref{Literature Review} covers a review of the relevant literature concerning the use of Hyper-heuristics for the targeted improvement of search algorithms and EA components, including selection functions. Section~\ref{Methodology} details the methodology of the meta-EA powering our Hyper-heuristic, including our customized representation of selection functions that defines the space we search with the Hyper-heuristic.  Section~\ref{Primary Experiments} details the experimental setup testing our methodology. In Section~\ref{Results}, we show and discuss the results obtained from our experiments. We conclude our findings in Section~\ref{Conclusion}. In Section~\ref{Threats to Validity}, we discuss how the assumptions made in our experimental setup may affect the validity of our conclusions. In Section~\ref{Future Work}, we discuss potential avenues of future work for this research.
+The rest of this paper is organized as follows. Section~\ref{Literature Review} covers a review of the relevant literature concerning the use of Hyper-heuristics for the targeted improvement of search algorithms and EA components, including selection functions. Section~\ref{Methodology} details the methodology of the meta-EA powering our Hyper-heuristic, including our customized representation of selection functions that defines the space we search with the Hyper-heuristic.  Section~\ref{Primary Experiments} details the three experiments testing our methodology. In Section~\ref{Results}, we show and discuss the results obtained from our experiments. We conclude our findings in Section~\ref{Conclusion}. In Section~\ref{Threats to Validity}, we discuss how the assumptions made in our experimental setup may affect the validity of our conclusions. In Section~\ref{Future Work}, we discuss potential avenues of future work for this research.
 
 \section{Literature Review}
 \label{Literature Review}
@@ -314,11 +314,18 @@ When the meta-EA concludes, the bottom-level EA utilizing the best selection fun
 
 By using a meta-EA to evolve selection functions with \textit{a priori} computation, we are utilizing an offline Hyper-heuristic, with the goal being to evolve a selection function that offers better generalized performance on all instances of a particular problem class. For this initial exploration into evolving selection functions, we decided to employ an offline Hyper-heuristic in order to better estimate the performance upper bound without the overhead potentially incurred by an online hyper-heuristic.
 
-The benchmark problem classes used for the underlying EA are selected from the Comparing Continuous Optimizers (COCO) platform used for the GECCO Workshops on Real-Parameter Black-Box Optimization Benchmarking~\citep{cocobbob}. This benchmark set provides a suite of real-valued optimization problems that serve as a robust testbed for optimization algorithms, including EAs. These problems are well-suited to measuring the strength of an EA and how well it performs under various conditions, which makes it an excellent choice for measuring how different selection functions impact the performance of an EA. Additionally, each problem class in the suite offers multiple problems, which allows us to both test the EA's performance on a variety of similar problems and test whether an increase in performance offered by a higher-quality selection function generalizes to other instances within the problem class.
+The benchmark problem classes used for the underlying EA are selected from two sources. The first source of benchmark problems is the MK-Landscape class of optimization problems~\citep{whitley2016gray}. This problem set is a generalization of the NK-landscape problem class, first introduced in~\citep{kaufmann1993origins}. This benchmark was chosen because the properties of the fitness landscape can be easily controlled with the N, M, and K parameters, as well as the policy with which the fitness values of the loci are generated. With one set of parameters, a wide range of new MK-Landscapes can be easily generated, making it easy to provide both a variety of training landscapes to tune a selection algorithm to, and a variety of new, separate landscapes to use for testing the generalization of the selection algorithm. 
 
-\section{Experimental Setup}
+As a second source of benchmark problems, we also select functions from the Comparing Continuous Optimizers (COCO) platform used for the GECCO Workshops on Real-Parameter Black-Box Optimization Benchmarking~\citep{cocobbob}. This benchmark set provides a suite of real-valued optimization problems that serve as a robust testbed for optimization algorithms, including EAs. These problems are well-suited to measuring the strength of an EA and how well it performs under various conditions, which makes it an excellent choice for measuring how different selection functions impact the performance of an EA. Additionally, each problem class in the suite offers multiple problems, which allows us to both test the EA's performance on a variety of similar problems and test whether an increase in performance offered by a higher-quality selection function generalizes to other instances within the problem class.
+
+\section{Experiments}
 \label{Primary Experiments}
 
+We conducted three sets of experiments with our meta-EA methodology. In our first experiment, we evolved new parent and survival selection functions for a basic EA solving benchmark problems in the MK-Landscape problem class. This experiment is described further in Section~\ref{Evolution of Parent and Survival Selection For A Basic EA Solving MK-Landscapes}.
+
+In our second experiment, we used the same EA as in the first experiment, but instead solving for real-valued benchmark problems selected from the COCO platform. This experiment is described further in Section~\ref{Evolution of Parent and Survival Selection For A Basic EA Solving Real-Valued Benchmarks}.
+
+In our third experiment, we evolved a new mean-update scheme for a covariance matrix adaptation evolution strategy (CMA-ES) \citep{hansen1996cmaes}, again solving for real-valued benchmark problems selected from the COCO platform. We select our benchmark problems from the same problem classes as in Experiment 2, but with different dimensionalities, in some cases. This experiment is described further in Section~\ref{Evolution of Selection For CMA-ES Solving Real-Valued Benchmarks}.
 The parameters for the meta-EA used in each experiment are shown in Table~\ref{tab:Meta-EA Parameters}. These parameters were manually tuned to allow for a population with high explorative potential while keeping the total computation time manageable.
 
 \begin{table}
@@ -361,11 +368,82 @@ The parameters for the meta-EA used in each experiment are shown in Table~\ref{t
 	\end{tabular}
 \end{table}
 
-To test our methodology, we target the CMA-ES algorithm for improvement. This algorithm repeatedly samples $\lambda$ points in a space around a mean, and uses a weighted combination of the high-value points to update the mean, as well as the parameters that control the shape of the space to be sampled in the next generation. In its traditional form, CMA-ES uses the $\mu$ highest-fitness points to update the mean; from an EA-perspective, this is akin to truncation selection. 
+\subsection{Evolution of Parent and Survival Selection For A Basic EA Solving MK-Landscapes}
+\label{Evolution of Parent and Survival Selection For A Basic EA Solving MK-Landscapes}
 
-We used the meta-EA to evolve a new method of selecting which of the sampled points to use for recalculating the mean. The individuals of the meta-EA each encode a single selection function in their genome, which modifies the mean-update functionality of CMA-ES. Rather than selecting the $\mu$ highest-fitness points, which is done in standard CMA-ES, the encoded selection function selects a subset of all the sampled points, which are then ordered by fitness and used to update the mean. Once the mean is updated, all other state variables, such as the covariance matrix, are updated using the same methods as the unchanged CMA-ES.
+For our first experiment, we constructed a basic EA, utilizing traditional parent selection, recombination, mutation, and survival selection. The target problem of the EA is an MK-Landscape problem, which is a generalization of the NK-Landscape problem~\citep{whitley2016gray,kaufmann1993origins}. The EA has a number of parameters, including $\mu$, the population size; $\lambda$, the offspring size; parent and survival selection schemes; and a mutation rate. 
 
-To select benchmark functions, we first tested the unmodified CMA-ES on the functions in the COCO dataset. On many of the COCO functions, the solutions found by CMA-ES are close enough to the function's global optimum to meet the criteria set by COCO for solving the function. For each of the 24 function classes, we selected the lowest dimensionality for which CMA-ES was unable to find the global optimum (according to COCO's own criteria) at least half the time. We ignore the function classes for which CMA-ES is able to solve the instances more than half the time with $D\geq20$. The functions chosen are detailed in Table~\ref{tab:experiment3chosenFunctions}. For the parameters to CMA-ES, we use $\lambda=10*D$, $\mu = \lambda/2$, and $\sigma_i = 0.5$. 
+Each EA is assigned a single landscape to use when evaluating the population. When the EA is initialized, a set of $\mu$ bitstrings is randomly generated as the initial population. The fitness of each bitstring is measured against the MK-Landscape. 2$\lambda$ individuals are selected from the population. The selected individuals are paired up, and one new individual is generated from each pair using per-bit crossover. Individuals are mutated at a configurable rate, and all of the new individuals are evaluated. The population of $\mu+\lambda$ individuals is then culled back down to $\mu$ individuals using survival selection. The process repeats until the best fitness of the population stops increasing, and the fitness of the best bitstring in the final population is taken as the final result of the EA run.
+
+For the purposes of both determining the quality of evolved selection functions, and testing the generalization of their performance, a number of MK-Landscape problems are generated. Most of the generated problems are set aside for testing generalization, and the rest are used for training. Before the meta-EA is run, the optimal parameters for the EA are determined using the \textit{irace} parameter optimization package~\citep{irace}. \textit{irace} is also used to determine schemes for traditional, non-evolved parent and survival selection, selecting from a number of typical parent and survival selection methods, such as truncation, fitness-proportional selection, and \textit{k}-tournament selection. The parameters and selection schemes are tuned together, so the parameters are tuned for the selection scheme used. For the purposes of determining these parameters with \textit{irace}, only the training problems are used, and not the testing problems. This way, we can compare the generalization of the selection functions picked by \textit{irace} to the generalization of the selection functions generated by the meta-EA.
+
+Every member of the meta-EA population consists of two selection functions, which are evolved together as one genome. The first selection function is used for parent selection, and the second function is used for survival selection. When the meta-EA is initialized, each selection function in the initial meta-EA population is measured by running the underlying EA on each of the training problems, using the parameters found by \textit{irace} but substituting the evolved selection function for the \textit{irace}-picked selection schemes. The final result of the EA is averaged across all the training problems, for multiple runs per problem, and this mean is assigned as the fitness of the evolved selection function. Once all of the evolved selection functions have an assigned fitness, the meta-EA performs recombination and mutation to generate the next generation of selection functions, which are evaluated in the same way. The meta-EA continues until a number of generations pass with no improvement in the quality of the selection functions, at which point it terminates.
+
+When the meta-EA terminates, the selection function with the highest fitness is selected, and EAs using this selection function are run on the testing problem instances. The EA is also run on the same testing instances using the original \textit{irace} parameters. The performance of the EA using the evolved selection function is then compared to the performance of the EA using the \textit{irace}-chosen selection methods to test for generalization.
+
+Table~\ref{tab:Bottom-level EA Parameters For MK-Landscape} shows the parameters used in the bottom-level EA and for generating the landscape functions. These parameters include the parent and survival selection functions chosen by \textit{irace}; for evaluating an evolved selection function, these functions are replaced with the evolved functions.
+
+\begin{table*} 
+	\centering
+	\caption{Bottom-level EA Parameters For MK-Landscape}
+	\label{tab:Bottom-level EA Parameters For MK-Landscape}
+	\begin{tabular}{c|c}
+		\toprule
+		Parameter & Value\\
+		\midrule
+		Population Size & 91 \\
+		\hline
+		Offspring Size & 34\\
+		\hline
+		Genome Length (N) & 40 \\
+		\hline
+		Locus Length (K) & 8\\
+		\hline
+		Number of Loci (M) & 40 \\
+		\hline
+		Locus Minimum Value & 0\\
+		\hline
+		Locus Maximum Value & 8\\
+		\hline
+		Parent Selection & Fitness Ranking With Replacement \\
+		\hline
+		Survival Selection & Fitness Ranking Without Replacement \\
+		\hline
+		Termination Criteria & Convergence \\
+		\hline
+		Generations to Convergence & 25\\
+		\hline
+		Mutation & Random Bit Flip \\
+		\hline
+		Mutation Rate & 0.0038\\
+		\hline
+		Crossover & Per-Bit Crossover\\
+		
+		\bottomrule
+	\end{tabular}
+\end{table*}
+
+\subsection{Evolution of Parent and Survival Selection For A Basic EA Solving Real-Valued Benchmarks}
+\label{Evolution of Parent and Survival Selection For A Basic EA Solving Real-Valued Benchmarks}
+
+Our second experiment utilized a similar approach to our first experiment, but the benchmarks problem targeted by our EA were real-valued functions chosen from the 24 noiseless benchmark test functions contained in the COCO benchmark set. 
+
+For each of the 24 problem classes, COCO offers multiple benchmark instances in each of several dimensionalities. For our experiment, we chose the 10-dimensional problems, and utilized all of the available instances for each of the 24 problem classes. For each of the problem classes, a number of the instances were chosen to be the training instances, used by the meta-EA to assign a fitness to an evolved selection function, and the rest of the instances were set aside as testing instances, to test for generalization.
+
+As with the first experiment, each run of the underlying EA is initialized with a randomized population, but the population members are real-valued vectors initialized within a range recommended by COCO, rather than bitstrings. Parent selection, arithmetic recombination, mutation, and survival selection are used to advance the EA until the population fitness is no longer increasing, and the best fitness attained by the EA is used as a measure of the EA's performance.
+
+For this experiment, \textit{irace} was run for the training instances of each of the 24 problem classes individually, generating 24 sets of parameters for the EA. These parameters are listed in \citep{richter2019thesis}. 
+
+The meta-EA was run as it was for the first experiment, with each evolved member containing two selection functions: one to replace parent selection, and one to replace survival selection. At the meta-EA's conclusion, the best selection function evolved is pitted against the traditional selection functions chosen by \textit{irace}, running on the testing problem instances to test generalization.
+
+\subsection{Evolution of Selection For CMA-ES Solving Real-Valued Benchmarks}
+\label{Evolution of Selection For CMA-ES Solving Real-Valued Benchmarks}
+
+In the third experiment, we replaced the simple EA with a more complex covariance-matrix-adaptation evolution strategy (CMA-ES). This method repeatedly samples $\lambda$ points in a space around a mean, and uses a weighted combination of the high-value points to update the mean, as well as the parameters that control the shape of the space to be sampled in the next generation. In its traditional form, CMA-ES uses the $\mu$ highest-fitness points to update the mean; from an EA-perspective, this is akin to truncation selection. 
+
+For this experiment, we used the same meta-EA setup from previous experiments to evolve a new method of selecting which of the sampled points to use for recalculating the mean. The individuals of the meta-EA each encode a single selection function in their genome, which modifies the mean-update functionality of CMA-ES. Rather than selecting the $\mu$ highest-fitness points, which is done in standard CMA-ES, the encoded selection function selects a subset of all the sampled points, which are then ordered by fitness and used to update the mean. Once the mean is updated, all other state variables, such as the covariance matrix, are updated using the same methods as the unchanged CMA-ES.
+
+To select benchmark functions, we tested the unmodified CMA-ES on the COCO functions. On many of the COCO functions, the solutions found by CMA-ES are close enough to the function's global optimum to meet the criteria set by COCO for solving the function. For each of the 24 function classes, we selected the lowest dimensionality for which CMA-ES was unable to find the global optimum (according to COCO's own criteria) at least half the time. We ignore the function classes for which CMA-ES is able to solve the instances more than half the time with $D\geq20$. The functions chosen are detailed in Table~\ref{tab:experiment3chosenFunctions}. Unlike with the first two experiments, we did not use \textit{irace} to find a parameter set for CMA-ES before running the meta-EA, as CMA-ES is much less dependent on initial parameters. We use $\lambda=10*D=100$, $\mu = \lambda/2 = 50$, and $\sigma_i = 0.5$. 
 
 \begin{table}
 	\centering
@@ -405,12 +483,116 @@ To select benchmark functions, we first tested the unmodified CMA-ES on the func
 
 When evaluating the performance of an evolved selection function to assign a fitness value to it, the fitness is taken as the proportion of the runs in which the modified CMA-ES reaches the global optimum, or moves close enough to it to meet the criteria to solve the problem.
 
-For each problem instance in the testing set, we run the CMA-ES for 200 testing runs, both using the evolved selection function and unmodified. We then measure, for each testing instance, the proportion of runs which solved the function, in each case. 
-
 \section{Results and Discussion}
 \label{Results}
+Here, we present the results observed from the three experiments performed, as well as a discussion of our observations.
 
-For each testing instance, the percentage of runs solved by the modified and unmodified CMA-ES is shown in Table~\ref{tab:experiment3Results}.
+\subsection{Results And Observations From First Experiment}
+\label{firstExperimentResults}
+
+For each of the problem instances in the testing set, we run the EA for 200 testing runs, both with the evolved selection functions and with the traditional selection functions. We then compare the final best fitnesses reached in the testing runs with a two-sided T-test to test for a significant difference. If the variances are shown to be unequal by Bartlett's test $(p \leq 0.05)$, then the T-test is performed assuming unequal variances; otherwise, the T-test is performed assuming equal variances. We found that, in 45 out of 50 of the testing instances, the EA using the evolved selection function reached a significantly higher final best fitness than the EA without an evolved selection function $(p \leq 0.05)$. In the remaining 5 testing instances, there was no statistical difference between the EA with and without the evolved selection function.
+
+Figure~\ref{fig:experiment1Result} shows the parent selection stage of the best selection function evolved by the Hyper-heuristic. The survival selection was controlled by a separate, similar function.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.9\textwidth]{experiment1Result}
+	\caption{The function that controlled parent selection in the best evolved selection function.}
+	\label{fig:experiment1Result}
+\end{figure*}
+
+Figure~\ref{fig:Experiment1LinePlot} shows the progression of the best population member's fitness through many runs of one of the testing functions, averaged for both the typical selection functions and the evolved selection functions. We see that, on average, the evolved selection function climbs more slowly towards a higher fitness before converging and terminating. Figure~\ref{fig:Experiment1Boxplot} shows a boxplot comparison of the final best fitnesses achieved on the same testing fitness function, showing that, for this particular function, while the best fitnesses achieved by the evolved selection functions are generally within the same range as those found by the unmodified EA, they tend to be more consistently within the higher end, by comparison.
+
+The general trend that we observe, across all the testing problems, is that the EA using the evolved selection functions tends to trend more slowly toward an area of high fitness than the EA using the traditional selection functions. Although the evolved selection functions take more evaluations to converge, they often converge at a higher fitness.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Experiment1LinePlot}
+	\caption{A plot of the best population fitness against the number of EA evaluations, achieved by both the typical selection function and the evolved selection function, averaged over all runs, for one of the testing functions of Experiment 1.}
+	\label{fig:Experiment1LinePlot}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Experiment1Boxplot}
+	\caption{A box plot comparing the final best fitnesses achieved on one of the testing functions of Experiment 1, by both the typical selection functions and the evolved selection functions.}
+	\label{fig:Experiment1Boxplot}
+\end{figure}
+
+\subsection{Results And Observations From Second Experiment}
+\label{secondExperimentResults}
+
+For each of the problem instances in the testing set, we run the EA for 200 testing runs, both with the evolved selection functions and with the traditional selection functions. We then compare the final best fitnesses reached in the testing runs with a two-sided T-test to test for a significant difference. If the variances are shown to be unequal by Bartlett's test $(p \leq 0.05)$, then the T-test is performed assuming unequal variances; otherwise, the T-test is performed assuming equal variances.. For each benchmark problem class in the COCO functions dataset, we count the number of instances for which we find a statistically significant difference between the final best fitness found by the EA with the best evolved selection function and the final best fitness found by the EA without one. These results are shown in Table~\ref{tab:experiment2results}. 
+
+\begin{table}
+	\centering
+	\caption{Experiment 2 Results}
+	\label{tab:experiment2results}
+	\begin{tabular}{c|c}
+		\toprule
+		Problem Index (D=10) & Number of Instances Improved \\
+		\midrule
+		F=1 & 0 / 12 \\
+		\hline
+		F=2 & 1 / 12 \\
+		\hline
+		F=3 & 2 / 12 \\
+		\hline
+		F=4 & 2 / 12 \\
+		\hline
+		F=5 & 5 / 12 \\
+		\hline
+		F=6 & 3 / 12 \\
+		\hline
+		F=7 & 7 / 12 \\
+		\hline
+		F=8 & 2 / 12 \\
+		\hline
+		F=9 & 12 / 12 \\
+		\hline
+		F=10 & 1 / 12 \\
+		\hline
+		F=11 & 7 / 12 \\
+		\hline
+		F=12 & 0 / 12 \\
+		\hline
+		F=13 & 2 / 12 \\
+		\hline
+		F=14 & 0 / 12 \\
+		\hline
+		F=15 & 0 / 12 \\
+		\hline
+		F=16 & 0 / 12 \\
+		\hline
+		F=17 & 4 / 12 \\
+		\hline
+		F=18 & 4 / 12 \\
+		\hline
+		F=19 & 12 / 12 \\
+		\hline
+		F=20 & 0 / 12 \\
+		\hline
+		F=21 & 7 / 12 \\
+		\hline
+		F=22 & 6 / 12 \\
+		\hline
+		F=23 & 0 / 12 \\
+		\hline
+		F=24 & 0 / 12 \\                       
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+We find that, for some problem classes, such as 7, 9, 11, 19, 21, and 22, the evolved selection function enabled the EA to perform significantly better in at least half of the testing instances used. For most of the testing cases, however, there were few or no testing instances for which the EA using the evolved selection function performed significantly better than the EA using only the parameters found by \textit{irace}. 
+
+\subsection{Results And Observations From Third Experiment}
+\label{thirdExperimentResults}
+
+For each problem instance in the testing set, we run the CMA-ES for 200 testing runs, both using the evolved selection function and unmodified. We then measure, for each testing instance, the proportion of runs which solved the function, in each case. For each testing instance, the percentage of runs solved by the modified and unmodified CMA-ES is shown in Table~\ref{tab:experiment3Results}.
+
+For the problem classes 4, 6, 12, 19, 20, and 21, the CMA-ES modified with the evolved selection function solved the problem instance more often than the unmodified CMA-ES. For the functions 4, 19, 20, and 21, the success rate of CMA-ES increased by 20-30 percent when modified with the evolved selection function. For functions 6 and 12, the effect is much more dramatic: on function 6, the success rate increased from 0 percent to around 96 percent, and on function 12, the success rate increased from 18-67 percent, varying across the function instances, to 100 percent for all function instances.
+
+For the function indices 3, 15, 16, 23, and 24, there was no major difference between the success rate of the modified and unmodified CMA-ES.
 
 \begin{table*}
 	\centering
@@ -490,14 +672,14 @@ For each testing instance, the percentage of runs solved by the modified and unm
 	\end{tabular}
 \end{table*}
 
-For the problem classes 4, 6, 12, 19, 20, and 21, the CMA-ES modified with the evolved selection function solved the problem instance more often than the unmodified CMA-ES. For the functions 4, 19, 20, and 21, the success rate of CMA-ES increased by 20-30 percent when modified with the evolved selection function. For functions 6 and 12, the effect is much more dramatic: on function 6, the success rate increased from 0 percent to around 96 percent, and on function 12, the success rate increased from 18-67 percent, varying across the function instances, to 100 percent for all function instances.
-
-For the function indices 3, 15, 16, 23, and 24, there was no major difference between the success rate of the modified and unmodified CMA-ES.
-
 \subsection{Discussion of Results}
 \label{resultsDiscussion}
 
-We observed that evolving a new selection function for CMA-ES increased its solution quality on 6 of the 11 functions tested. In particular, we observed two cases with high dramatic improvements: the tests for COCO function classes 6 and 12. In the case of function class 6, the unmodified CMA-ES was unable to solve any of the testing instances, but the CMA-ES using the evolved selection solved these instances nearly 100\% of the time. In the case of function class 12, the success rate of the unmodified CMA-ES varied strongly between instances, ranging from 18 to 67\%. The modified CMA-ES, however, solved every test instance, reaching the global best fitness in each of 200 runs, on each of the testing instances, achieving a 100\% success rate. By observing the increases in success rate for some of the functions, it is clear that evolving a new selection scheme for CMA-ES provides a substantial benefit in some cases. The five cases where no improvement was observed involved functions that were highly multimodal. Three of these function were variants of the Rastrigin function, a highly multimodal function and the other two---the Weierstrass Function and the Katsuura Function---are highly rugged. It is likely, in these cases, that CMA-ES requires some other improvement aside from a new selection scheme to better learn and traverse the global structures of these functions. Because we only replaced the selection scheme of CMA-ES, we only changed how it internally updates the mean. Improving the performance of CMA-ES on these functions likely requires more intelligent updating of the other internal variables of CMA-ES, such as the evolution paths, the covariance matrix, and the step size.
+In our first experiment, we observed that, for an EA with a given set of parameters, an evolved selection function can lead to a significant increase in performance that successfully generalizes to other similar instances in the same problem class. The behavior that we see in the EAs using the evolved selection functions, where the fitness grows more slowly and converges later, at a higher fitness, suggests that the meta-EA evolved toward selection schemes with less selection pressure on the population, allowing them to explore further to find better optima. Even though the candidate parameters for the EA, as selected by \textit{irace}, included several selections of varying selection pressures (including \textit{k}-tournament with configurable \textit{k}), the evolved selection functions still seemed to find a better balance of exploration versus exploitation.
+
+In our second experiment, we observed varying results in the ability for the EA with the evolved selection function to outperform the EA without one. In some cases, a large improvement was seen by applying the evolved selection function, resulting in the EA finding significantly higher fitnesses in at least half the testing instances. In many cases, applying the evolved selection function results in significantly higher fitnesses on fewer than half of the test cases, and in some cases, there is no observed significant improvement whatsoever. This deficiency could be due to a number of factors. It is possible that, within the meta-EA, the evolved selection functions over-specialized to the training functions provided, and sacrificed the ability to generalize for increased improvement on the training functions. It is also possible that some of the functions selected from the COCO benchmarks are sufficiently complex that the EA setup we used required a more sophisticated improvement than a new selection function to gain an appreciable benefit to solving these functions. Some functions chosen may also be so simple that the EA already performs well enough that a change in selection function has a negligible impact on performance, as long as it exerts sufficient selection pressure. We attempted to remedy the issue of function difficulty in our third experiment by carefully selecting functions for which the unmodified CMA-ES performed moderately, but not exceptionally, well.
+
+For our third experiment, we observed that evolving a new selection function for CMA-ES increased its solution quality on 6 of the 11 functions tested. In particular, we observed two cases with high dramatic improvements: the tests for COCO function classes 6 and 12. In the case of function class 6, the unmodified CMA-ES was unable to solve any of the testing instances, but the CMA-ES using the evolved selection solved these instances nearly 100\% of the time. In the case of function class 12, the success rate of the unmodified CMA-ES varied strongly between instances, ranging from 18 to 67\%. The modified CMA-ES, however, solved every test instance, reaching the global best fitness in each of 200 runs, on each of the testing instances, achieving a 100\% success rate. By observing the increases in success rate for some of the functions, it is clear that evolving a new selection scheme for CMA-ES provides a substantial benefit in some cases. The five cases where no improvement was observed involved functions that were highly multimodal. Three of these function were variants of the Rastrigin function, a highly multimodal function and the other two---the Weierstrass Function and the Katsuura Function---are highly rugged. It is likely, in these cases, that CMA-ES requires some other improvement aside from a new selection scheme to better learn and traverse the global structures of these functions. Because we only replaced the selection scheme of CMA-ES, we only changed how it internally updates the mean. Improving the performance of CMA-ES on these functions likely requires more intelligent updating of the other internal variables of CMA-ES, such as the evolution paths, the covariance matrix, and the step size.
 
 \section{Conclusions}
 \label{Conclusion}
@@ -511,17 +693,23 @@ Although we strove to ensure the robustness of our methodology and experimental 
 
 Of obvious note is the fact that, while we have shown improved performance on the benchmark functions tested, we still have yet to test this method on EAs run in real-world scenarios, and we do not yet know whether the supposed performance benefit is, in practice, enough to warrant the \textit{a priori} computation necessitated by our methods.
 
-We chose CMA-ES as a testing target for extending our method to a more state-of-the-art method. However, the implementation of CMA-ES we used was fairly basic, lacking restarts in particular, and much research has been done on improved and alternative variants of CMA-ES. For certain problems, these newer variants may offer the same, or greater, performance increases as an evolved selection function. However, if these newer variants also use some selection function to update internal variables, as the basic implementation does, then evolving a new selection function for these newer variants could generate an even greater increase in performance; this opens up an avenue for future research.
+In Experiment 1 and Experiment 2, we used a very rudimentary EA, and it is highly unlikely that such an EA would be the best practical approach for a given problem, given the countless advancements in the field of evolutionary computing. We chose such a simple EA to illustrate our point that the selection function, while deceptively simple to configure by selecting a conventional selection function with proven effectiveness, has a large impact on the performance of an EA.
+
+For our third experiment, we chose CMA-ES as a testing target for extending our method to a more state-of-the-art method. However, the implementation of CMA-ES we used was fairly basic, lacking restarts in particular, and much research has been done on improved and alternative variants of CMA-ES. For certain problems, these newer variants may offer the same, or greater, performance increases as an evolved selection function. However, if these newer variants also use some selection function to update internal variables, as the basic implementation does, then evolving a new selection function for these newer variants could generate an even greater increase in performance; this opens up an avenue for future research.
+
+Some of the terminals used by the GP-Trees enable selection functions to have access to some information that conventional selection functions such as fitness proportional selection and truncation selection do not have. This information includes generation number and genome uniqueness, which can allow the selection function to account for other factors besides the fitness of the individual and the population at large. This might make the comparison to these functions in experiments 1 and 2 unfair. We chose the set of conventional selection functions available to \textit{irace} in experiments 1 and 2 as the functions that are commonly used in straightfoward EAs, in order to show that an evolved selection function with access to additional information may be worth the \textit{a priori} computation cost if the alternative is to simply use a conventional selection function selected from the most common choices that would work acceptably well for most EAs. To investigate whether the meta-EA still performs well, even with a limited set of terminals, we ran the experimental setup discussed in Experiment 3, but with a more limited set of terminals. This is discussed in \citep{richter2019thesis}.
 
 \section{Future Work}
 \label{Future Work}
 The work presented in this paper opens a number of potential avenues for future research. Of primary concern is the fact that the meta-EA presented in this paper requires a large amount of \textit{a priori} computation to generate a high-quality selection function. While this computational cost may be worth it for EAs that will run on problems from the same problem class many times, a more efficient method of finding good selection functions has a much greater potential to benefit EAs in general. Exploring a method of online learning could allow for the elimination of the expensive \textit{a priori} computation time, allowing specialized selection functions to be generated during the evolution.
 
-The CMA-ES in our experiments was tuned to increase performance on the COCO benchmark problem classes. While these problems are difficult and non-trivial to optimize for, they are entirely artificial, and the meta-EA has not yet been used to tune an EA for solving a real-world problem class. A major next step for this work is to apply the meta-EA to real-world EAs that could benefit from new, specialized selection functions. Of particular interest are EAs that are expected to be run many times on problems from the same general problem class, which would, over many runs, amortize the \textit{a priori} computation time required to tune the selection function.
+The EA and CMA-ES in our experiments were tuned to increase performance on the MK-Landscape problem class and the COCO benchmark problem classes. While these problems are difficult and non-trivial to optimize for, they are entirely artificial, and the meta-EA has not yet been used to tune an EA for solving a real-world problem class. While the MK-Landscape problem class and related problems are used in several real-world fields, a major next step for this work is to apply the meta-EA to real-world EAs that could benefit from new, specialized selection functions. Of particular interest are EAs that are expected to be run many times on problems from the same general problem class, which would, over many runs, amortize the \textit{a priori} computation time required to tune the selection function.
 
 Because the objective of this paper is similar to the work done to develop selection algorithms via Grammatical Evolution~\citep{lourencco2013selection} and register machines~\citep{woodward2011selection}, it remains to be seen which cases each method is more effective for, and a direct comparison of the methods on the same benchmark problems may yield more insight into which offers better performance benefits under certain conditions.
 
-The framework of CMA-ES used was fairly basic, lacking features such as restarts. In addition, many techniques have been developed to improve the performance of CMA-ES on functions where it may be deficient. Evolving a specialized selection function for these new forms of CMA-ES may lead to even greater performance gains, or may not even be necessary for particular problem classes. Additionally, as we noted in our conclusions, we only made efforts to improve the selection of points used in the mean-update step of CMA-ES, which allowed to it gain increased performance in some, but not all, of the problem cases tested. Further experiments to tune the selection of points used for updating the other internal variables, such as evolution path, covariance matrix, and step-size, may lead to greater changes in the behavior of CMA-ES, and thus, greater changes in performance.
+In the case of Experiment 1 and Experiment 2, the evolved selection functions were only tested against basic selection functions that lacked any self-adaptability. More work will need to be done to determine whether the best evolved selection functions can stand up to more dynamic, adaptable selection methods, if EAs such as the one used in Experiments 1 and 2 are targeted for improvement.
+
+For the third experiment, the framework of CMA-ES used was fairly basic, lacking features such as restarts. In addition, many techniques have been developed to improve the performance of CMA-ES on functions where it may be deficient. Evolving a specialized selection function for these new forms of CMA-ES may lead to even greater performance gains, or may not even be necessary for particular problem classes. Additionally, as we noted in our conclusions, we only made efforts to improve the selection of points used in the mean-update step of CMA-ES, which allowed to it gain increased performance in some, but not all, of the problem cases tested. Further experiments to tune the selection of points used for updating the other internal variables, such as evolution path, covariance matrix, and step-size, may lead to greater changes in the behavior of CMA-ES, and thus, greater changes in performance.
 
 For our meta-EA, the GP-Trees utilized several terminals related to the individual, such as fitness, fitness ranking, uniqueness of genome, and birth generation, as well as terminals related to the evolution at large, such as population size and generation number. Adding additional available terminals increases the information available to the meta-EA, allowing it to potentially evolve more intelligent selection functions. In particular, there are no terminals that allow the selection function to have any internal persisting memory from generation to generation, such as the best fitness of past generations or which individuals have been selected previously. Additionally for EA's with sexual reproduction, or selection schemes involving individuals selected in pairs or groups, there is no terminal that measures two individuals relative to each other. This prevents the meta-EA from developing a selection function based on any information about an individual's mate, such as fitness, genome, etc. To add these terminals to the meta-EA, the selection function representation would need to be updated such that, when determining the desirability of an individual, the GP-Tree would take as input the information of some other individual to be selected for a similar purpose, such as recombination of the same child (for an EA with two-parent recombination) or selection for update of the same internal variable (for an Evolution Strategy such as CMA-ES).
 
