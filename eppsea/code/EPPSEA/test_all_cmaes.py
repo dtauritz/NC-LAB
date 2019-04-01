@@ -1,16 +1,16 @@
 import configparser
 import sys
 
-import eppsea_cmaes_bothDiff
+import eppsea_cmaes
 
 def main(start=1, end=24):
     for i in range(start, end+1):
-        for config_path in ('config/cmaes_different_mean_and_evoPath/config{0}.cfg'.format(i), 'config/cmaes/config{0}b.cfg'.format(i)):
+        for config_path in ('config/cmaes/config{0}.cfg'.format(i), 'config/cmaes/config{0}b.cfg'.format(i)):
             print('Running with config at {0}'.format(config_path))
             config = configparser.ConfigParser()
             config.read(config_path)
 
-            evaluator = eppsea_cmaes_bothDiff.EppseaCMAES(config)
+            evaluator = eppsea_cmaes.EppseaCMAES(config)
             fitness_functions = evaluator.training_fitness_functions + evaluator.testing_fitness_functions
             basic_cmaess = evaluator.get_basic_cmaes_runners(fitness_functions)
             basic_cmaess_results = evaluator.run_basic_cmaes_runners(basic_cmaess, True)
