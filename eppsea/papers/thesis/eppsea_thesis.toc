@@ -21,18 +21,18 @@
 \contentsline {chapter}{\numberline {6.}Results and Discussion}{23}
 \contentsline {section}{\numberline {6.1}Results And Observations From First Experiment}{23}
 \contentsline {section}{\numberline {6.2}Results And Observations From Second Experiment}{24}
-\contentsline {section}{\numberline {6.3}Results And Observations From Third Experiment}{27}
-\contentsline {section}{\numberline {6.4}Discussion of Results}{27}
-\contentsline {chapter}{\numberline {7.}Conclusions}{31}
-\contentsline {chapter}{\numberline {8.}Threats To Validity}{32}
-\contentsline {chapter}{\numberline {9.}Future Work}{34}
+\contentsline {section}{\numberline {6.3}Results And Observations From Third Experiment}{26}
+\contentsline {section}{\numberline {6.4}Discussion of Results}{28}
+\contentsline {chapter}{\numberline {7.}Conclusions}{32}
+\contentsline {chapter}{\numberline {8.}Threats To Validity}{33}
+\contentsline {chapter}{\numberline {9.}Future Work}{35}
 \setcounter {tocdepth}{0}
 \vspace {4ex}
 \hbox to \textwidth {{} \hspace *{-2mm}{{APPENDICES} \ \hfill }}
-\contentsline {chapter}{\numberline {A.}Psuedocode For Final Selection Methods}{37}
-\contentsline {chapter}{\numberline {B.}iRace Generated EA Parameters For Basic EA Running On Real-Valued Problems}{42}
-\contentsline {chapter}{\numberline {C.}Representations of Conventional Selection Functions in Initial Experimentation}{45}
-\contentsline {chapter}{\numberline {D.}Addendum to Experiment 3}{48}
+\contentsline {chapter}{\numberline {A.}Psuedocode For Final Selection Methods}{38}
+\contentsline {chapter}{\numberline {B.}iRace Generated EA Parameters For Basic EA Running On Real-Valued Problems}{43}
+\contentsline {chapter}{\numberline {C.}Representations of Conventional Selection Functions in Initial Experimentation}{46}
+\contentsline {chapter}{\numberline {D.}Addendum to Experiment 3}{49}
 \setcounter {tocdepth}{4}
-\contentsline {chapter}{REFERENCES}{50}
-\contentsline {chapter}{VITA}{53}
+\contentsline {chapter}{REFERENCES}{51}
+\contentsline {chapter}{VITA}{54}
