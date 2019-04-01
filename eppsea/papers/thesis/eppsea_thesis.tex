@@ -438,7 +438,7 @@ The meta-EA was run as it was for the first experiment, with each evolved member
 
 In the third experiment, we replaced the simple EA with a more complex covariance-matrix-adaptation evolution strategy (CMA-ES). This method repeatedly samples $\lambda$ points in a space around a mean, and uses a weighted combination of the high-value points to update the mean, as well as the parameters that control the shape of the space to be sampled in the next generation. In its traditional form, CMA-ES uses the $\mu$ highest-fitness points to update the mean; from an EA-perspective, this is akin to truncation selection. 
 
-For this experiment, we used the same meta-EA setup from previous experiments to evolve a new method of selecting which of the sampled points to use for recalculating the mean. The individuals of the meta-EA each encode a single selection function in their genome, which modifies the mean-update functionality of CMA-ES. Rather than selecting the $\mu$ highest-fitness points, which is done in standard CMA-ES, the encoded selection function selects a subset of all the sampled points, which are then ordered by fitness and used to update the mean. Once the mean is updated, all other state variables, such as the covariance matrix, are updated using the same methods as the unchanged CMA-ES.
+For this experiment, we used the same meta-EA setup from previous experiments to evolve a new method of selecting which of the sampled points to use for recalculating the mean. The individuals of the meta-EA each encode a single selection function in their genome, which modifies the mean-update functionality of CMA-ES. Rather than selecting the $\mu$ highest-fitness points, which is done in standard CMA-ES, the encoded election function selects a subset of all the sampled points, which are then ordered by fitness and used to update the mean. Once the mean is updated, all other state variables, such as the covariance matrix, are updated using the same methods as the unchanged CMA-ES.
 
 To select benchmark functions, we tested the unmodified CMA-ES on the COCO functions. On many of the COCO functions, the solutions found by CMA-ES are close enough to the function's global optimum to meet the criteria set by COCO for solving the function. For each of the 24 function classes, we selected the lowest dimensionality for which CMA-ES was unable to find the global optimum (according to COCO's own criteria) at least half the time. We ignore the function classes for which CMA-ES is able to solve the instances more than half the time with $D\geq20$. The functions chosen are detailed in Table~\ref{tab:experiment3chosenFunctions}. Unlike with the first two experiments, we did not use \textit{irace} to find a parameter set for CMA-ES before running the meta-EA, as CMA-ES is much less dependent on initial parameters. We use $\lambda=10*D=100$, $\mu = \lambda/2 = 50$, and $\sigma_i = 0.5$. 
 
@@ -487,7 +487,7 @@ Here, we present the results observed from the three experiments performed, as w
 \section{Results And Observations From First Experiment}
 \label{firstExperimentResults}
 
-For each of the problem instances in the testing set, we run the EA for 200 testing runs, both with the evolved selection functions and with the traditional selection functions. We then compare the final best fitnesses reached in the testing runs with a two-sided T-test to test for a significant difference. If the variances are shown to be unequal by Bartlett's test $(p \leq 0.05)$, then the T-test is performed assuming unequal variances; otherwise, the T-test is performed assuming equal variances. We found that, in 45 out of 50 of the testing instances, the EA using the evolved selection function reached a significantly higher final best fitness than the EA without an evolved selection function $(p \leq 0.05)$. In the remaining 5 testing instances, there was no statistical difference between the EA with and without the evolved selection function.
+For each of the problem instances in the testing set, we run the EA for 200 testing runs, both with the evolved selection functions and with the traditional selection functions. We then compare the final best fitnesses reached in the testing runs with a two-sided T-test (assuming equal variances) to test for a significant difference. We found that, in 45 out of 50 of the testing instances, the EA using the evolved selection function reached a significantly higher final best fitness than the EA without an evolved selection function $(p \leq 0.05)$. In the remaining 5 testing instances, there was no statistical difference between the EA with and without the evolved selection function.
 
 Figure~\ref{fig:experiment1Result} shows the parent selection stage of the best selection function evolved by the Hyper-heuristic. The survival selection was controlled by a separate, similar function.
 
@@ -518,7 +518,7 @@ The general trend that we observe, across all the testing problems, is that the 
 \section{Results And Observations From Second Experiment}
 \label{secondExperimentResults}
 
-For each of the problem instances in the testing set, we run the EA for 200 testing runs, both with the evolved selection functions and with the traditional selection functions. We then compare the final best fitnesses reached in the testing runs with a two-sided T-test to test for a significant difference. If the variances are shown to be unequal by Bartlett's test $(p \leq 0.05)$, then the T-test is performed assuming unequal variances; otherwise, the T-test is performed assuming equal variances.. For each benchmark problem class in the COCO functions dataset, we count the number of instances for which we find a statistically significant difference between the final best fitness found by the EA with the best evolved selection function and the final best fitness found by the EA without one. These results are shown in Table~\ref{tab:experiment2results}. 
+For each of the problem instances in the testing set, we run the EA for 200 testing runs, both with the evolved selection functions and with the traditional selection functions. We then compare the final best fitnesses reached in the testing runs with a two-sided T-test (assuming equal variances) to test for a significant difference ($p \leq 0.05$). For each benchmark problem class in the COCO functions dataset, we count the number of instances for which we find a statistically significant difference between the final best fitness found by the EA with the best evolved selection function and the final best fitness found by the EA without one. These results are shown in Table~\ref{tab:experiment2results}. 
 
 \begin{table}
 \centering
@@ -539,7 +539,7 @@ For each of the problem instances in the testing set, we run the EA for 200 test
 	\hline
 	F=5 & 5 / 12 \\
 	\hline
-	F=6 & 3 / 12 \\
+	F=6 & 2 / 12 \\
 	\hline
 	F=7 & 7 / 12 \\
 	\hline
@@ -569,13 +569,13 @@ For each of the problem instances in the testing set, we run the EA for 200 test
 	\hline
 	F=20 & 0 / 12 \\
 	\hline
-	F=21 & 7 / 12 \\
+	F=21 & 8 / 12 \\
 	\hline
 	F=22 & 6 / 12 \\
 	\hline
 	F=23 & 0 / 12 \\
 	\hline
-	F=24 & 0 / 12 \\                       
+	F=24 & 1 / 12 \\                       
 	
   \bottomrule
 \end{tabular}
