@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  6 FEB 2019 22:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  6 FEB 2019 18:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1249,11 +1249,21 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 286--287
  [][] 
  []
 
-[5.5 <./parsimony_example.png>] [6.6] [7.7] (./eppsea_GECCO2019.bbl [8.8])
+[5.5 <./parsimony_example.png>] [6.6]
+Underfull \vbox (badness 2057) has occurred while \output is active []
+
+ [7.7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+(./eppsea_GECCO2019.bbl
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+ [8.8])
 - LAST -
-Extra skip:7.26851pt
-Left:130.0pt/0.9345pt
-Right:122.0pt/1.66599pt
+Extra skip:23.98601pt
+Left:130.0pt/1.652pt
+Right:106.0pt/1.66599pt
 Output:130.0pt
 
 [9.9]
@@ -1266,11 +1276,11 @@ Package rerunfilecheck Info: File `eppsea_GECCO2019.out' has not changed.
 (rerunfilecheck)             Checksum: 1DFA814641FB419600F24AD9DB5BBA12;1827.
  ) 
 Here is how much of TeX's memory you used:
- 19070 strings out of 492639
- 290676 string characters out of 6130239
+ 19067 strings out of 492639
+ 290601 string characters out of 6130239
  427083 words of memory out of 5000000
  21997 multiletter control sequences out of 15000+600000
- 153898 words of font info for 351 fonts, out of 8000000 for 9000
+ 153625 words of font info for 349 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,12n,94p,2020b,595s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/ho
@@ -1292,7 +1302,7 @@ t/fonts/type1/public/txfonts/rtxmi.pfb></home/lt/texlive/2018/texmf-dist/fonts/
 type1/public/txfonts/rtxr.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/pub
 lic/newtx/txsys.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/newtx/
 zxlri.pfb>
-Output written on eppsea_GECCO2019.pdf (9 pages, 879321 bytes).
+Output written on eppsea_GECCO2019.pdf (9 pages, 879220 bytes).
 PDF statistics:
  302 PDF objects out of 1000 (max. 8388607)
  253 compressed objects within 3 object streams
