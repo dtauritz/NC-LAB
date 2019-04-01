@@ -333,13 +333,15 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Richter}{Richter}{[n. d.]}]%
-        {richter2019thesis}
-\bibfield{author}{\bibinfo{person}{Samuel Richter}.} \bibinfo{year}{[n.
-  d.]}\natexlab{}.
-\newblock \bibinfo{title}{{Evolved Parameterized Selection for Evolutionary
-  Algoruthms}}.
-\newblock   (\bibinfo{year}{[n. d.]}).
+\bibitem[\protect\citeauthoryear{Richter and Tauritz}{Richter and
+  Tauritz}{2018}]%
+        {richter2018adpsea}
+\bibfield{author}{\bibinfo{person}{Samuel~N Richter} {and}
+  \bibinfo{person}{Daniel~R Tauritz}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{{The Automated Design of Probabilistic Selection
+  Methods for Evolutionary Algorithms}}. In \bibinfo{booktitle}{{\em
+  {Proceedings of the Genetic and Evolutionary Computation Conference
+  Companion}}}. ACM, \bibinfo{pages}{1545--1552}.
 \newblock
 
 

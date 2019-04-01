@@ -65,7 +65,7 @@
 
 
 \begin{abstract}
-Selection functions enable Evolutionary Algorithms (EAs) to apply selection pressure to a population of individuals, by regulating the probability that an individual's genes survive, typically based on fitness. Various conventional fitness based selection functions exist, each providing a unique method of selecting individuals based on their fitness, fitness ranking within the population, and/or various other factors. However, the full space of selection algorithms is only limited by max algorithm size, and each possible selection algorithm is optimal for some EA configuration applied to a particular problem class. Therefore, improved performance is likely to be obtained by tuning an EA's selection algorithm to the problem at hand, rather than employing a conventional selection function. This paper details an investigation of the extent to which performance can be improved by tuning selection algorithm. We do this by employing a Hyper-heuristic to explore the space of algorithms which determine the methods used to select individuals from the population. We show, with both a conventional EA and a Covariance Matrix Adaptation Evolutionary Strategy, the increase in performance obtained with a tuned selection algorithm, versus conventional selection functions. Specifically, we measure performance on instances from several benchmark problem classes, including separate testing instances to show generalization of the improved performance.
+Selection functions enable Evolutionary Algorithms (EAs) to apply selection pressure to a population of individuals, by regulating the probability that an individual's genes survive, typically based on fitness. Various conventional fitness based selection functions exist, each providing a unique method of selecting individuals based on their fitness, fitness ranking within the population, and/or various other factors. However, the full space of selection algorithms is only limited by max algorithm size, and each possible selection algorithm is optimal for some EA configuration applied to a particular problem class. Therefore, improved performance is likely to be obtained by tuning an EA's selection algorithm to the problem at hand, rather than employing a conventional selection function. This thesis details an investigation of the extent to which performance can be improved by tuning selection algorithm. We do this by employing a Hyper-heuristic to explore the space of algorithms which determine the methods used to select individuals from the population. We show, with both a conventional EA and a Covariance Matrix Adaptation Evolutionary Strategy, the increase in performance obtained with a tuned selection algorithm, versus conventional selection functions. Specifically, we measure performance on instances from several benchmark problem classes, including separate testing instances to show generalization of the improved performance. This thesis consists of work that was presented at the Genetic and Evolutionary Computation Conference (GECCO) in 2018, as well as work that will be submitted to GECCO in 2019. 
 
 \end{abstract}
 
@@ -122,15 +122,17 @@ New selection algorithms can be designed in cases where the performance offered 
 
 Our approach employs a Hyper-heuristic, with both generative and perturbative elements, to explore the space of selection algorithms, with each search algorithm represented by two components. The first component is a Koza-style Genetic Programming (GP) tree~\citep{koza1994genetic}, encoding a mathematical function that calculates how desirable an individual is at the current stage of evolution. The second component is a method of selecting individuals, based on how desirable they are calculated to be.
 
-The rest of this paper is organized as follows. Section~\ref{Literature Review} covers a review of the relevant literature concerning the use of Hyper-heuristics for the targeted improvement of search algorithms and EA components, including selection functions. Section~\ref{Methodology} details the methodology of the meta-EA powering our Hyper-heuristic, including our customized representation of selection functions that defines the space we search with the Hyper-heuristic.  Section~\ref{Primary Experiments} details the three experiments testing our methodology. In Section~\ref{Results}, we show and discuss the results obtained from our experiments. We conclude our findings in Section~\ref{Conclusion}. In Section~\ref{Threats to Validity}, we discuss how the assumptions made in our experimental setup may affect the validity of our conclusions. In Section~\ref{Future Work}, we discuss potential avenues of future work for this research.
+The rest of this thesis is organized as follows. Section~\ref{Literature Review} covers a review of the relevant literature concerning the use of Hyper-heuristics for the targeted improvement of search algorithms and EA components, including selection functions. Section~\ref{Methodology} details the methodology of the meta-EA powering our Hyper-heuristic, including our customized representation of selection functions that defines the space we search with the Hyper-heuristic. Section~\ref{Initial Experimentation} summarizes the exploratory initial experiment we performed with an earlier version of this methodology; this work is detailed further in~\citep{richter2018adpsea}. Section~\ref{Primary Experiments} details the three main experiments testing the latest version of our methodology, including an updated version of the experiment described in Section~\ref{Initial Experimentation}. In Section~\ref{Results}, we show and discuss the results obtained from our experiments. We conclude our findings in Section~\ref{Conclusion}. In Section~\ref{Threats to Validity}, we discuss how the assumptions made in our experimental setup may affect the validity of our conclusions. In Section~\ref{Future Work}, we discuss potential avenues of future work for this research.
+
+This thesis also contains four appendices. Appendix~\ref{apx:SelectionPsuedocode} shows psuedocode for the selection methods employed by the evolved selection functions. Appendix~\ref{apx:iRaceBasicEACOCOParams} shows the tuned parameters used for the bottom level EA in our second primary experiment. Appendix~\ref{apx:originalEppseaRepresentation} contains representations of typical selection functions in the evolved selection format. Appendix~\ref{apx:exp3addendum} contains an addendum procedure and results for our third primary experiment.
 
 \section{Literature Review}
 \label{Literature Review}
-The field of Hyper-heuristics encompasses many different approaches for the automated design of new algorithms. Methods may utilize offline learning, in which computation is done \textit{a priori} to develop a heuristic, or online learning, in which a heuristic is developed dynamically alongside a running problem. Hyper-heuristic searches can be perturbative, in which complete solutions are considered individually, or generative, in which solutions begin partially built and are extended iteratively~\citep{burke2013HHstateoftheart}. The Hyper-heuristic presented in this paper is an offline-learning heuristic that combines these approaches, building one component of a selection algorithm with a generative method, and selecting another component in a perturbative manner.
+The field of Hyper-heuristics encompasses many different approaches for the automated design of new algorithms. Methods may utilize offline learning, in which computation is done \textit{a priori} to develop a heuristic, or online learning, in which a heuristic is developed dynamically alongside a running problem. Hyper-heuristic searches can be perturbative, in which complete solutions are considered individually, or generative, in which solutions begin partially built and are extended iteratively~\citep{burke2013HHstateoftheart}. The Hyper-heuristic presented in this thesis is an offline-learning heuristic that combines these approaches, building one component of a selection algorithm with a generative method, and selecting another component in a perturbative manner.
 
-A major application of Hyper-heuristics is the automated design of algorithmic components, which various algorithms have been shown to benefit from. Hyper-heuristics have been used to evolve new algorithms from components of existing algorithms for Ant Colony optimization algorithms~\citep{lopez2012antcol}, Boolean Satisfiability solvers~\citep{khudabukhsh2009satenstein}, local search heuristics~\citep{burke2012localHeuristics}, and iterative parse trees representing Black Box Search Algorithms~\citep{martin2013evolvingBBSA}. The research described in this paper applies the same concept to selection functions, employing a Hyper-heuristic to build selection functions from smaller components to search the space of new selection functions. In particular, the practice of using GP as a Hyper-heuristic has been discussed in~\citep{burke2009exploring} and explored in a number of works~\citep{burke2010strippacking, burke2006binpacking, harris2015comparison}. 
+A major application of Hyper-heuristics is the automated design of algorithmic components, which various algorithms have been shown to benefit from. Hyper-heuristics have been used to evolve new algorithms from components of existing algorithms for Ant Colony optimization algorithms~\citep{lopez2012antcol}, Boolean Satisfiability solvers~\citep{khudabukhsh2009satenstein}, local search heuristics~\citep{burke2012localHeuristics}, and iterative parse trees representing Black Box Search Algorithms~\citep{martin2013evolvingBBSA}. The research described in this thesis applies the same concept to selection functions, employing a Hyper-heuristic to build selection functions from smaller components to search the space of new selection functions. In particular, the practice of using GP as a Hyper-heuristic has been discussed in~\citep{burke2009exploring} and explored in a number of works~\citep{burke2010strippacking, burke2006binpacking, harris2015comparison}. 
 
-Previous work has also focused on improvement of targeted components of EAs, including the evolution of new mutation operators~\citep{woodward2012mutationGeneration, hong2013probMutation}, mating preferences~\citep{guntly2011limp}, genetic representation of individuals~\citep{scott2015geneticRepresentations}, and crossover operators~\citep{goldman2011scc}. Methods for generating selection algorithms, in particular, have been investigated. A random walk through the space of register machines that compute and return a probability of selection for each individual showed that such custom-tuned selection algorithms can outperform typical selection algorithms~\citep{woodward2011selection}. A more informed search through the space of selection algorithms may yield an even greater benefit than a random search. In the previous work involving the evolution of Black Box Search Algorithms, the parse trees include evolved selection functions, although the selection functions are limited to two conventional selection functions (\textit{k}-tournament and truncation) with evolved parameters~\citep{martin2013evolvingBBSA}. An evolutionary search through selection functions developed with Grammatical Evolution showed that better selection functions can be developed using a Hyper-heuristic, and that the performance of these selection functions can generalize to new instances within the same problem class~\citep{lourencco2013selection}. The work described in this paper expands on these ideas with a new representation for selection algorithms: an encoding of the relationship between various factors, such as an individual's fitness, uniqueness, and the population size, and how desirable it is for an EA to select that individual, as well as the method used to ultimately select individuals based on how desirable they are. 
+Previous work has also focused on improvement of targeted components of EAs, including the evolution of new mutation operators~\citep{woodward2012mutationGeneration, hong2013probMutation}, mating preferences~\citep{guntly2011limp}, genetic representation of individuals~\citep{scott2015geneticRepresentations}, and crossover operators~\citep{goldman2011scc}. Methods for generating selection algorithms, in particular, have been investigated. A random walk through the space of register machines that compute and return a probability of selection for each individual showed that such custom-tuned selection algorithms can outperform typical selection algorithms~\citep{woodward2011selection}. A more informed search through the space of selection algorithms may yield an even greater benefit than a random search. In the previous work involving the evolution of Black Box Search Algorithms, the parse trees include evolved selection functions, although the selection functions are limited to two conventional selection functions (\textit{k}-tournament and truncation) with evolved parameters~\citep{martin2013evolvingBBSA}. An evolutionary search through selection functions developed with Grammatical Evolution showed that better selection functions can be developed using a Hyper-heuristic, and that the performance of these selection functions can generalize to new instances within the same problem class~\citep{lourencco2013selection}. The work described in this thesis expands on these ideas with a new representation for selection algorithms: an encoding of the relationship between various factors, such as an individual's fitness, uniqueness, and the population size, and how desirable it is for an EA to select that individual, as well as the method used to ultimately select individuals based on how desirable they are. 
 
 To search the space of selection algorithms defined by this representation, we employ a combination of perturbative and generative Hyper-heuristics. Previous work has applied such combinations of Hyper-heuristic types to memetic algorithms~\citep{krasnogor2004memetic}, EA operator control~\citep{maturana2010autonomous}, low-level heuristic management~\citep{remde2012empirical}, and vehicle routing~\citep{garrido2010vehicleRouting}. 
 
@@ -146,7 +148,7 @@ Most typical selection functions are formatted as a series of algorithmic steps,
 
 To this end, we developed a generalized format to represent a selection function, which can encode both a number of traditional selection functions as well as novel selection functions. The representation consists of two major parts. The first part is a binary Koza-style GP-Tree~\citep{koza1994genetic}. Rather than encoding entire programs within the GP-Tree, which could result in an infeasibly wide search space of selection algorithms~\citep{woodward2009GPNotGood}, the GP-Tree instead encodes a mathematical function. All of the function inputs (the terminals of the GP-Tree) are real-valued numbers, and all of the operators in the GP-Tree operate on, and return, real-valued numbers. The terminals of the GP-Tree include various factors pertinent to a single individual of the population, including the individual's fitness, the individual's fitness ranking among the population members, the uniqueness of the individual's genome, and the individual's age, in generations. The possible terminal inputs also include information pertinent to the evolution at large, including the total size of the population, the current generation, the maximum and minimum fitness values in the population, and the sum of the individuals' fitness values. Constants are also included, as well as random terminals, which return a random number within a (configurable) closed range. Binary operators in the GP-Tree include various arithmetic and other mathematic functions. Refer to Table~\ref{tab:gp-operators} for a description of the possible operators and Table \ref{tab:gp-terminals} for a description of the possible terminal nodes. When evaluated, the mathematical function encoded by the GP-Tree returns a single real-valued number, corresponding to the relative ``desirability'' of the individual whose data was input into the function. This GP-Tree is built by the generative part of the Hyper-heuristic, and can encompass any valid parse tree built from the available operators and terminals.
 
-The second part of the evolved selection function is a method of selecting individuals based on their desirabilities, as calculated by the mathematical function encoded by the GP-Tree. The possible selection methods are inspired by traditional selection functions, such as truncation, tournament selection, fitness-proportional selection, and stochastic universal sampling. Some selection methods will select with replacement, allowing a single individual to be selected more than once per generation. Other methods will not select with replacement; under these methods, an individual may only be selected once per generation. See Table~\ref{tab:selection_methods} for a description of each selection method. Psuedocode for each of these selection methods may be found in \citep{richter2019thesis}. This component is the part of the selection function built by the perturbative Hyper-heuristic, being exactly one choice from a set of pre-determined methods.
+The second part of the evolved selection function is a method of selecting individuals based on their desirabilities, as calculated by the mathematical function encoded by the GP-Tree. The possible selection methods are inspired by traditional selection functions, such as truncation, tournament selection, fitness-proportional selection, and stochastic universal sampling. Some selection methods will select with replacement, allowing a single individual to be selected more than once per generation. Other methods will not select with replacement; under these methods, an individual may only be selected once per generation. See Table~\ref{tab:selection_methods} for a description of each selection method. Psuedocode for each of these selection methods may be found in Appendix \ref{apx:SelectionPsuedocode}. This component is the part of the selection function built by the perturbative Hyper-heuristic, being exactly one choice from a set of pre-determined methods.
 
 To perform selection on a population, the function encoded by the GP-Tree is evaluated once for each member of the population, using the data points for that individual (fitness value, fitness ranking, etc.) as inputs to the function. The number output by the function becomes the desirability score for each individual. Finally, the selection step is used to select individuals based on the individuals' desirability scores. The selected individuals can then be used for recombination, as the survivors for the next generation, or for any other update to the internal variables that depends on a chosen subset of the population, as pertinent to the evolutionary search strategy used.
 
@@ -318,7 +320,25 @@ The benchmark problem classes used for the underlying EA are selected from two s
 
 As a second source of benchmark problems, we also select functions from the Comparing Continuous Optimizers (COCO) platform used for the GECCO Workshops on Real-Parameter Black-Box Optimization Benchmarking~\citep{cocobbob}. This benchmark set provides a suite of real-valued optimization problems that serve as a robust testbed for optimization algorithms, including EAs. These problems are well-suited to measuring the strength of an EA and how well it performs under various conditions, which makes it an excellent choice for measuring how different selection functions impact the performance of an EA. Additionally, each problem class in the suite offers multiple problems, which allows us to both test the EA's performance on a variety of similar problems and test whether an increase in performance offered by a higher-quality selection function generalizes to other instances within the problem class.
 
-\section{Experiments}
+\section{Initial Experimentation}
+\label{Initial Experimentation}
+Here we discuss the initial experimentation performed with an earlier version of our Hyper-heuristic, to explore the prospects of using a Hyper-heuristic to evolve a relation between an individual's fitness score and the probability of being selected. The Hyper-heuristic used a methodology similar to the current version, as described in Section~\ref{Methodology-Encoding Selection Functions}. However, the GP operators were limited to the arithmetic functions (+, -, *, and /) and the step function\footnote{see Table~\ref{tab:gp-operators}}. The GP terminals were limited to fitness, fitness ranking, population size, constant, and random. The selection methods were limited to proportional-replacement and proportional-no-replacement, so the GP-Tree always directly determined the relative probability that an individual was to be selected.
+
+In the rest of this section, we briefly describe the experimental setup, as well as the observations resulting from this experiment, and how we incorporated this information into the current version of the Hyper-heuristic. For more details on the methodology and results of this experiment, refer to~\citep{richter2018adpsea}, in which this work was originally published.
+
+\subsection{Experimental Setup}
+\label{Experimental Setup-Original}
+
+We constructed a basic EA, utilizing traditional parent selection, recombination, mutation, and survival selection. The target problem of the EA was an NK-Landscape problem~\citep{whitley2016gray,kaufmann1993origins}. We used the Hyper-heuristic to evolve the parent selection stage of this EA. Survivor selection was always performed randomly, thus forcing the parent selection to provide all of the EA's selection pressure. We evaluated selection functions by running the EA multiple times on each of a number of NK-Landscape functions, which are generated when the meta-EA is initialized and held constant throughout the experiment. The best fitnesses in the population at the end of each run of the EA using the selection function were averaged and assigned to the selection function as its fitness at the Hyper-heuristic level. When the meta-EA terminates, the best selection function was tested against a number of conventional selection functions, including fitness proportional, truncation, and \textit{k}-tournament, with several values of \textit{k}. The NK-Landscape problems used for these tests were separately generated from the functions used during the meta-EA, to test generalization.
+
+\subsection{Results, Observations, and Takeaways}
+\label{Results-Original}
+
+The evolved selection function significantly outperformed all of the conventional selections tested on 46 out of the 50 benchmark problems. This confirmed our initial hypothesis that, by using a Hyper-heuristic search through the space of selection functions as defined by our custom representation, a significant performance benefit can be achieved. However, for future experiments, we needed to show that an evolved selection function could not just outperform a number of handpicked selection functions, but the best possible selection function, with the best possible parameters, from our suite of conventional selection functions, in order to prove the validity of using our Hyper-heuristic versus conventional fitness tuning methods. Thus, for future experiments, we used automated parameter tuning to select the conventional selection function that the evolved selection function would be measured against. We also noted that our representation could only effectively represent a probabilistic selection scheme, which directly calculates the relative probability that an individual will be selected as a function of its fitness. Although it was possible to map other selection methodologies, such as tournament selection and truncation selection, to our custom representation (see Appendix \ref{apx:originalEppseaRepresentation} for examples of these mappings), such mappings were too complex to emerge during evolution, and so we built more options for the final selection method into the representation. With these new selection methods, we moved from evolving a GP-Tree to determine an individual's probability of selection, to evolving a GP-Tree that output a more general ``desirability'' score for an individual, and allowed various methods of selecting individuals based on their assigned desirability. We also sought more benchmark problem classes to test our methodology on, as we had only shown improvement and generalization for the NK-Landscape problem class. We additionally sought to tune selection for a more state-of-the-art method of evolutionary computing, as the EA for which we showed improvement was very basic.
+
+The first of the three primary experiments presented in Section~\ref{Primary Experiments} is an updated repetition of this experiment, with our updated methodology, on a problem class generalized from the NK-Landscape class. We describe this experiment in more detail in Section~\ref{Evolution of Parent and Survival Selection For A Basic EA Solving MK-Landscapes}. The other two experiments incorporate the rest of our observations with new experimental setups.
+
+\section{Primary Experiments}
 \label{Primary Experiments}
 
 We conducted three sets of experiments with our meta-EA methodology. In our first experiment, we evolved new parent and survival selection functions for a basic EA solving benchmark problems in the MK-Landscape problem class. This experiment is described further in Section~\ref{Evolution of Parent and Survival Selection For A Basic EA Solving MK-Landscapes}.
@@ -371,7 +391,7 @@ The parameters for the meta-EA used in each experiment are shown in Table~\ref{t
 \subsection{Evolution of Parent and Survival Selection For A Basic EA Solving MK-Landscapes}
 \label{Evolution of Parent and Survival Selection For A Basic EA Solving MK-Landscapes}
 
-For our first experiment, we constructed a basic EA, utilizing traditional parent selection, recombination, mutation, and survival selection. The target problem of the EA is an MK-Landscape problem, which is a generalization of the NK-Landscape problem~\citep{whitley2016gray,kaufmann1993origins}. The EA has a number of parameters, including $\mu$, the population size; $\lambda$, the offspring size; parent and survival selection schemes; and a mutation rate. 
+Our first experiment is a repetition of our initial experiment described in Section~\ref{Initial Experimentation}, with the methodology described in Section~\ref{Methodology} on a generalized problem class. For this experiment, we constructed a basic EA, utilizing traditional parent selection, recombination, mutation, and survival selection. The target problem of the EA is an MK-Landscape problem, which is a generalization of the NK-Landscape problem~\citep{whitley2016gray,kaufmann1993origins}. The EA has a number of parameters, including $\mu$, the population size; $\lambda$, the offspring size; parent and survival selection schemes; and a mutation rate. 
 
 Each EA is assigned a single landscape to use when evaluating the population. When the EA is initialized, a set of $\mu$ bitstrings is randomly generated as the initial population. The fitness of each bitstring is measured against the MK-Landscape. 2$\lambda$ individuals are selected from the population. The selected individuals are paired up, and one new individual is generated from each pair using per-bit crossover. Individuals are mutated at a configurable rate, and all of the new individuals are evaluated. The population of $\mu+\lambda$ individuals is then culled back down to $\mu$ individuals using survival selection. The process repeats until the best fitness of the population stops increasing, and the fitness of the best bitstring in the final population is taken as the final result of the EA run.
 
@@ -432,7 +452,7 @@ For each of the 24 problem classes, COCO offers multiple benchmark instances in 
 
 As with the first experiment, each run of the underlying EA is initialized with a randomized population, but the population members are real-valued vectors initialized within a range recommended by COCO, rather than bitstrings. Parent selection, arithmetic recombination, mutation, and survival selection are used to advance the EA until the population fitness is no longer increasing, and the best fitness attained by the EA is used as a measure of the EA's performance.
 
-For this experiment, \textit{irace} was run for the training instances of each of the 24 problem classes individually, generating 24 sets of parameters for the EA. These parameters are listed in \citep{richter2019thesis}. 
+For this experiment, \textit{irace} was run for the training instances of each of the 24 problem classes individually, generating 24 sets of parameters for the EA. These parameters are listed in Appendix \ref{apx:iRaceBasicEACOCOParams}. 
 
 The meta-EA was run as it was for the first experiment, with each evolved member containing two selection functions: one to replace parent selection, and one to replace survival selection. At the meta-EA's conclusion, the best selection function evolved is pitted against the traditional selection functions chosen by \textit{irace}, running on the testing problem instances to test generalization.
 
@@ -697,15 +717,17 @@ In Experiment 1 and Experiment 2, we used a very rudimentary EA, and it is highl
 
 For our third experiment, we chose CMA-ES as a testing target for extending our method to a more state-of-the-art method. However, the implementation of CMA-ES we used was fairly basic, lacking restarts in particular, and much research has been done on improved and alternative variants of CMA-ES. For certain problems, these newer variants may offer the same, or greater, performance increases as an evolved selection function. However, if these newer variants also use some selection function to update internal variables, as the basic implementation does, then evolving a new selection function for these newer variants could generate an even greater increase in performance; this opens up an avenue for future research.
 
-Some of the terminals used by the GP-Trees enable selection functions to have access to some information that conventional selection functions such as fitness proportional selection and truncation selection do not have. This information includes generation number and genome uniqueness, which can allow the selection function to account for other factors besides the fitness of the individual and the population at large. This might make the comparison to these functions in experiments 1 and 2 unfair. We chose the set of conventional selection functions available to \textit{irace} in experiments 1 and 2 as the functions that are commonly used in straightfoward EAs, in order to show that an evolved selection function with access to additional information may be worth the \textit{a priori} computation cost if the alternative is to simply use a conventional selection function selected from the most common choices that would work acceptably well for most EAs. To investigate whether the meta-EA still performs well, even with a limited set of terminals, we ran the experimental setup discussed in Experiment 3, but with a more limited set of terminals. This is discussed in \citep{richter2019thesis}.
+Some of the terminals used by the GP-Trees enable selection functions to have access to some information that conventional selection functions such as fitness proportional selection and truncation selection do not have. This information includes generation number and genome uniqueness, which can allow the selection function to account for other factors besides the fitness of the individual and the population at large. This might make the comparison to these functions in experiments 1 and 2 unfair. We chose the set of conventional selection functions available to \textit{irace} in experiments 1 and 2 as the functions that are commonly used in straightfoward EAs, in order to show that an evolved selection function with access to additional information may be worth the \textit{a priori} computation cost if the alternative is to simply use a conventional selection function selected from the most common choices that would work acceptably well for most EAs. To investigate whether the meta-EA still performs well, even with a limited set of terminals, we ran the experimental setup discussed in Experiment 3, but with a more limited set of terminals. We discuss this in Appendix \ref{apx:exp3addendum}.
+
+
 
 \section{Future Work}
 \label{Future Work}
-The work presented in this paper opens a number of potential avenues for future research. Of primary concern is the fact that the meta-EA presented in this paper requires a large amount of \textit{a priori} computation to generate a high-quality selection function. While this computational cost may be worth it for EAs that will run on problems from the same problem class many times, a more efficient method of finding good selection functions has a much greater potential to benefit EAs in general. Exploring a method of online learning could allow for the elimination of the expensive \textit{a priori} computation time, allowing specialized selection functions to be generated during the evolution.
+The work presented in this thesis opens a number of potential avenues for future research. Of primary concern is the fact that the meta-EA presented in this thesis requires a large amount of \textit{a priori} computation to generate a high-quality selection function. While this computational cost may be worth it for EAs that will run on problems from the same problem class many times, a more efficient method of finding good selection functions has a much greater potential to benefit EAs in general. Exploring a method of online learning could allow for the elimination of the expensive \textit{a priori} computation time, allowing specialized selection functions to be generated during the evolution.
 
 The EA and CMA-ES in our experiments were tuned to increase performance on the MK-Landscape problem class and the COCO benchmark problem classes. While these problems are difficult and non-trivial to optimize for, they are entirely artificial, and the meta-EA has not yet been used to tune an EA for solving a real-world problem class. While the MK-Landscape problem class and related problems are used in several real-world fields, a major next step for this work is to apply the meta-EA to real-world EAs that could benefit from new, specialized selection functions. Of particular interest are EAs that are expected to be run many times on problems from the same general problem class, which would, over many runs, amortize the \textit{a priori} computation time required to tune the selection function.
 
-Because the objective of this paper is similar to the work done to develop selection algorithms via Grammatical Evolution~\citep{lourencco2013selection} and register machines~\citep{woodward2011selection}, it remains to be seen which cases each method is more effective for, and a direct comparison of the methods on the same benchmark problems may yield more insight into which offers better performance benefits under certain conditions.
+Because the objective of this thesis is similar to the work done to develop selection algorithms via Grammatical Evolution~\citep{lourencco2013selection} and register machines~\citep{woodward2011selection}, it remains to be seen which cases each method is more effective for, and a direct comparison of the methods on the same benchmark problems may yield more insight into which offers better performance benefits under certain conditions.
 
 In the case of Experiment 1 and Experiment 2, the evolved selection functions were only tested against basic selection functions that lacked any self-adaptability. More work will need to be done to determine whether the best evolved selection functions can stand up to more dynamic, adaptable selection methods, if EAs such as the one used in Experiments 1 and 2 are targeted for improvement.
 
@@ -714,6 +736,403 @@ For the third experiment, the framework of CMA-ES used was fairly basic, lacking
 For our meta-EA, the GP-Trees utilized several terminals related to the individual, such as fitness, fitness ranking, uniqueness of genome, and birth generation, as well as terminals related to the evolution at large, such as population size and generation number. Adding additional available terminals increases the information available to the meta-EA, allowing it to potentially evolve more intelligent selection functions. In particular, there are no terminals that allow the selection function to have any internal persisting memory from generation to generation, such as the best fitness of past generations or which individuals have been selected previously. Additionally for EA's with sexual reproduction, or selection schemes involving individuals selected in pairs or groups, there is no terminal that measures two individuals relative to each other. This prevents the meta-EA from developing a selection function based on any information about an individual's mate, such as fitness, genome, etc. To add these terminals to the meta-EA, the selection function representation would need to be updated such that, when determining the desirability of an individual, the GP-Tree would take as input the information of some other individual to be selected for a similar purpose, such as recombination of the same child (for an EA with two-parent recombination) or selection for update of the same internal variable (for an Evolution Strategy such as CMA-ES).
 
 The parameters at the meta-EA level were manually tuned to allow for a high degree of exploration. A sensitivity analysis of these parameters, as well an investigation of parameter tuning/control, could increase the performance of the meta-EA.
+
+
+\appendix
+\section{Psuedocode For Final Selection Methods}
+\label{apx:SelectionPsuedocode}
+
+Here, we provide psuedocode to describe the procedures of the final selection methods utilized by the evolved selection functions. Refer to Table~\ref{tab:selection_methods} for a list and description of the selection methods. Note that each of these methods take as input a population \textit{P} of size \textit{n}, from which individuals will be selected; a number of individuals \textit{m} to be selected; and a function \textit{F}, which is the mathematical function encoded by the GP-Tree associated with the selection function. The method returns a list of the selected individuals. \textit{F} takes as input the population \textit{P}, and a population member \textit{p}, and returns a real number, representing the desirability score of the population member.
+
+Algorithm~\ref{alg:ProportionalReplacement} describes the procedure for Proportional-Replacement selection.
+
+\begin{algorithm}
+	\caption{Proportional Selection With Replacement}
+	\label{alg:ProportionalReplacement}
+	\begin{algorithmic}[1]
+		\Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:ProportionalReplacement}
+		\State $W(p) \leftarrow 0,\forall p \in P$
+		\ForAll {$p \in P$}
+		\State $W(p) \leftarrow F(P,p)$
+		\EndFor
+		\State $w_{min} \leftarrow minimum(W)$	
+		\State $s \leftarrow 0$
+		\ForAll {$w \in W$}
+		\If {$w_{min}  < 0$}
+		\State $s \leftarrow s + (w - w_{min} )$			
+		\Else
+		\State $s \leftarrow s + w$		
+		\EndIf	
+		\EndFor
+		\State $selected \leftarrow \emptyset$
+		\For {$j \leftarrow 1,m$}
+		\State{$r \leftarrow random(0,s)$}
+		\State $i \leftarrow 1$
+		\State $p_s \leftarrow P(i)$
+		\While {$r > W(p_s)$}
+		\State $r \leftarrow r - W(p_s)$
+		\State $i \leftarrow i + 1$
+		\State $p_s \leftarrow P(i)$
+		\EndWhile	
+		\State $selected \leftarrow selected \cup p_s$
+		\EndFor
+		\State \Return $selected$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+Algorithm~\ref{alg:ProportionalNoReplacement} describes the procedure for Proportional-No-Replacement selection.
+
+\begin{algorithm}
+	\caption{Proportional Selection Without Replacement}
+	\label{alg:ProportionalNoReplacement}
+	\begin{algorithmic}[1]
+		\Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:ProportionalNoReplacement}
+		\State $W(p) \leftarrow 0,\forall p \in P$
+		\ForAll {$p \in P$}
+		\State $W(p) \leftarrow F(P,p)$
+		\EndFor
+		\State $w_{min} \leftarrow minimum(W)$	
+		\State $s \leftarrow 0$
+		\ForAll {$w \in W$}
+		\If {$w_{min}  < 0$}
+		\State $s \leftarrow s + (w - w_{min} )$			
+		\Else
+		\State $s \leftarrow s + w$		
+		\EndIf	
+		\EndFor
+		\State $selected \leftarrow \emptyset$
+		\For {$j \leftarrow 1,m$}
+		\State{$r \leftarrow random(0,s)$}
+		\State $i \leftarrow 1$
+		\State $p_s \leftarrow P(i)$
+		\While {$r > W(p_s)$}
+		\State $r \leftarrow r - W(P-s)$
+		\State $i \leftarrow i + 1$
+		\State $p_s \leftarrow P(i)$
+		\EndWhile	
+		\State $selected \leftarrow selection \cup p_s$
+		\State $P \leftarrow P - p_s$
+		\EndFor
+		\State \Return $selected$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+Algorithm~\ref{alg:TournamentReplacement} describes the procedure for \textit{k}-Tournament-Replacement selection. Note the additional parameter \textit{k}, which controls the size of the tournaments.
+
+\begin{algorithm}
+	\caption{\textit{k}-Tournament Selection With Replacement}
+	\label{alg:TournamentReplacement}
+	\begin{algorithmic}[1]
+		\Function {ProportionalReplacement}{$P$, $m$, $F$, $k$} \label{proc:TournamentReplacement}
+		\State $selected \leftarrow \emptyset$
+		\For {$j \leftarrow 1,m$}
+		\State $tournament \leftarrow k$ members selected randomly from $P$
+		\State $MaxScore = -\inf$
+		
+		\ForAll {$t \in tournament$}
+		\If {$F(P,p) > MaxScore$}
+		\State {$winner \leftarrow p$}
+		\State {$MaxScore \leftarrow F(P,p)$}
+		\EndIf			
+		\EndFor
+		\State $selected \leftarrow selected \cup winner$
+		\EndFor
+		\State \Return $selected$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+Algorithm~\ref{alg:TournamentNoReplacement} describes the procedure for \textit{k}-Tournament-No-Replacement selection. Note the additional parameter \textit{k}, which controls the size of the tournaments.
+
+\begin{algorithm}
+	\caption{\textit{k}-Tournament Selection Without Replacement}
+	\label{alg:TournamentNoReplacement}
+	\begin{algorithmic}[1]
+		\Function {ProportionalReplacement}{$P$, $m$, $F$, $k$} \label{proc:TournamentNoReplacement}
+		\State $selected \leftarrow \emptyset$
+		\For {$j \leftarrow 1,m$}
+		\State $tournament \leftarrow k$ members selected randomly from $P$
+		\State $MaxScore = -\inf$
+		
+		\ForAll {$t \in tournament$}
+		\If {$F(P,p) > MaxScore$}
+		\State {$winner \leftarrow p$}
+		\State {$MaxScore \leftarrow F(P,p)$}
+		\EndIf			
+		\EndFor
+		\State $selected \leftarrow selected \cup winner$
+		\State $P \leftarrow P - winner$
+		\EndFor
+		\State \Return $selected$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+Algorithm~\ref{alg:Truncation} describes the procedure for Truncation selection.
+
+\begin{algorithm}
+	\caption{Truncation}
+	\label{alg:Truncation}
+	\begin{algorithmic}[1]
+		\Function {ProportionalReplacement}{$P$, $m$, $F$} \label{proc:Truncation}
+		\State $W(p) \leftarrow 0,\forall p \in P$
+		\ForAll {$p \in P$}
+		\State {$W(p) \leftarrow F(P,p)$}
+		\EndFor
+		\State {$P \leftarrow P$ sorted by $W$, descending}
+		\State {$selected \leftarrow \emptyset$}
+		\For {$j \leftarrow 1,m$}
+		\State $selected \leftarrow selected \cup P(j)$
+		\EndFor
+		\State \Return $selected$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+Algorithm~\ref{alg:SUS} describes the procedure for Stochastic-Universal-Sampling selection.
+
+\begin{algorithm}
+	\caption{Stochastic Universal Sampling}
+	\label{alg:SUS}
+	\begin{algorithmic}[1]
+		\Function {StochasticUniversalSampling}{$P$, $m$, $F$} \label{proc:SUS}
+		\State $W(p) \leftarrow 0,\forall p \in P$
+		\ForAll {$p \in P$}
+		\State $W(p) \leftarrow F(P,p)$
+		\EndFor
+		\State $w_{min} \leftarrow minimum(W)$	
+		\State $s \leftarrow 0$
+		\ForAll {$w \in W$}
+		\If {$w_{min}  < 0$}
+		\State $s \leftarrow s + (w - w_{min} )$			
+		\Else
+		\State $s \leftarrow s + w$		
+		\EndIf	
+		\EndFor
+		\State $selected \leftarrow \emptyset$
+		\State $interval \leftarrow s / n$
+		\State $offset \leftarrow random(0,interval)$
+		\For {$j \leftarrow 1,m$}
+		\State{$r \leftarrow (j-1)*interval + offset$}
+		\State $i \leftarrow 1$
+		\State $p_s \leftarrow P(i)$
+		\While {$r > W(p_s)$}
+		\State $r \leftarrow r - W(p_s)$
+		\State $i \leftarrow i + 1$
+		\State $p_s \leftarrow P(i)$
+		\EndWhile	
+		\State $selected \leftarrow selected \cup p_s$	
+		\EndFor
+		\State \Return $selected$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+\section{\textit{irace} Generated EA Parameters For Basic EA Running On Real-Valued Problems}
+\label{apx:iRaceBasicEACOCOParams}
+
+For each of the 24 benchmark functions in the COCO benchmark set, a set of optimal parameters for the EA was found using the \textit{irace} tuning package. The parameters used are listed here, in Table~\ref{tab:iRaceBasicEAParams}. The parent and survival selection schemes are also tuned, and these selections are shown in Table~\ref{tab:iRaceBasicEASelection}. Note that, during the execution of the meta-EA, these parent and survival selection are replaced by the evolved parent and survival selection schemes, and are only used when testing against the final evolved selection function at the termination of the meta-EA. 
+
+\begin{table}
+	\centering
+	\caption{\textit{irace} tuned parameters for EA used in Experiment 2}
+	\label{tab:iRaceBasicEAParams}
+	\begin{tabular}{cccc}
+		\toprule
+		Function Index & Population Size & Offspring Size & Mutation Rate\\
+		\midrule
+		1 & 54 & 99 & 0.1021\\
+		\hline
+		2 & 15 & 96 & 0.1172\\
+		\hline
+		3 & 45 & 82 & 0.0853\\
+		\hline
+		4 & 28 & 96 & 0.1576\\
+		\hline
+		5 & 3 & 89 & 0.8467\\
+		\hline
+		6 & 4 & 86 & 0.3399\\
+		\hline
+		7 & 13 & 93 & 0.3261\\
+		\hline
+		8 & 10 & 98 & 0.1403\\
+		\hline
+		9 & 18 & 73 & 0.0893\\
+		\hline
+		10 & 23 & 76 & 0.2451\\
+		\hline
+		11 & 15 & 75 & 0.1801\\
+		\hline
+		12 & 55 & 96 & 0.0914\\
+		\hline
+		13 & 88 & 95 & 0.1656\\
+		\hline
+		14 & 13 & 96 & 0.1963\\
+		\hline
+		15 & 62 & 99 & 0.0066\\
+		\hline
+		16 & 89 & 81 & 0.157\\
+		\hline
+		17 & 85 & 97 & 0.1521\\
+		\hline
+		18 & 43 & 92 & 0.1178\\
+		\hline
+		19 & 33 & 93 & 0.1141\\
+		\hline
+		20 & 31 & 91 & 0.1748\\
+		\hline
+		21 & 42 & 97 & 0.3282\\
+		\hline
+		22 & 89 & 84 & 0.1373\\
+		\hline
+		23 & 16 & 92 & 0.1704\\
+		\hline
+		24 & 20 & 80 & 0.053\\              
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table*}
+	\centering
+	\caption{\textit{irace} tuned selection functions for EA used in Experiment 2. Tournament, proportional, and ranking selections are performed with replacement, except where otherwise noted.}
+	\label{tab:iRaceBasicEASelection}
+	\begin{tabular}{cp{5cm}p{5cm}}
+		\toprule
+		Function Index & Parent Selection & Survival Selection \\
+		\midrule
+		1 & \textit{k}-tournament, \textit{k}=15 & \textit{k}-tournament without replacement, \textit{k}=89  \\ 
+		\hline
+		2 & Fitness ranking & truncation\\
+		\hline
+		3 & \textit{k}-tournament , \textit{k}=15 & Truncation \\ 
+		\hline
+		4 & \textit{k}-tournament , \textit{k}=12 & Truncation \\ 
+		\hline
+		5 & Stochastic Universal Sampling & Truncation\\
+		\hline
+		6 & Fitness ranking & Truncation  \\ 
+		\hline
+		7 & Fitness ranking & Truncation   \\ 
+		\hline
+		8 & Fitness ranking & Truncation   \\ 
+		\hline
+		9 & Fitness proportional & Truncation   \\ 
+		\hline
+		10 & Fitness proportional & Truncation   \\ 
+		\hline
+		11 & Fitness proportional & Truncation   \\   
+		\hline
+		12 & \textit{k}-tournament, \textit{k}=16 & Truncation   \\ 
+		\hline
+		13 & \textit{k}-tournament, \textit{k}=51 & Truncation    \\ 
+		\hline
+		14 & Fitness ranking & \textit{k}-tournament without replacement, \textit{k}=40   \\ 
+		\hline
+		15 & Fitness ranking & Truncation   \\ 
+		\hline
+		16 &  \textit{k}-tournament, \textit{k}=18 & Truncation  \\ 
+		\hline
+		17 &  \textit{k}-tournament, \textit{k}=12 & Truncation  \\ 
+		\hline
+		18 &  Fitness ranking & Truncation  \\ 
+		\hline
+		19 &  Fitness ranking & \textit{k}-tournament without replacement, \textit{k}=30  \\ 
+		\hline
+		20 &  \textit{k}-tournament, \textit{k}=15 & Truncation   \\ 
+		\hline
+		21 &  Fitness ranking & Truncation  \\ 
+		\hline
+		22 &  \textit{k}-tournament, \textit{k}=37 & Truncation  \\ 
+		\hline
+		23 &  Fitness ranking & Truncation  \\ 
+		\hline
+		24 &  Fitness ranking & Truncation  \\ 
+		
+		\bottomrule      
+	\end{tabular}
+\end{table*}
+
+
+
+
+\section{Representations of Conventional Selection Functions in Initial Experimentation}
+\label{apx:originalEppseaRepresentation}
+
+In the earlier version of our selection function representation, as presented in~\citep{richter2018adpsea}, the GP-Trees were used to directly evolve the relative probability that an individual would be selected, as a function of its fitness, fitness ranking, and population size. This method closely resembles fitness proportional selection, but other selection schemes can be represented in this format as well. In Figure~\ref{fig:old_eppsea_representation}, we show how examples of these selection schemes would be represented by the evolved GP-Tree.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.45\textwidth]{old_eppsea_representation}
+	\caption{The GP-Trees encoding the selection probabilities for typical selection functions, including a) Fitness proportional, b) Fitness Ranking, c) Truncation (T=40), and d) \textit{k}-tournament (\textit{k}=2).}
+	\label{fig:old_eppsea_representation}
+\end{figure}
+
+\section{Addendum to Experiment 3}
+\label{apx:exp3addendum}
+
+In order to determine whether the extra information provided by certain GP-Tree terminals was enabling selection functions to perform better, as opposed to the fitness-related information used by conventional selection functions, we ran the meta-EA again, with the experimental setup described in Section \ref{Evolution of Selection For CMA-ES Solving Real-Valued Benchmarks}, on the 6 benchmark functions that the evolved selection function performed well on. We disallowed the Birth Generation, Relative Uniqueness, and Generation Number terminals, thus restricting the meta-EA to using the information accessible to the conventional selection functions. Even with the restriction, the meta-EA performed well on all 6 of the benchmark functions that it performed well on previously. The results are shown in Table~\ref{tab:experiment3AddendumResults}.
+
+These results show that the performance increase gained by the evolved selection functions does not depend solely on the additional information supplied by the meta-EA terminals, and that a better tuned selection function may be evolved using only the information available to the conventional selection functions that the evolved selection function is measured against.
+
+\begin{table}
+	\centering
+	\caption{Experiment 3 Results with Limited Meta-EA Terminals}
+	\label{tab:experiment3AddendumResults}
+	\begin{tabular}{cccc}
+		\toprule
+		Problem Instance & F=4,D=2 & F=6,D=10 & F=12,D=10\\
+		\hline
+		0 & 38.0\% / 3.0\% & 95.0\% / 0.0\% & 100.0\% / 44.0\%\\
+		\hline
+		1 & 20.5\% / 4.0\% & 92.5\% / 0.0\% & 100.0\% / 40.0\%\\
+		\hline
+		2 & 0.5\% / 3.5\% & 93.0\% / 0.0\% & 100.0\% / 55.5\%\\
+		\hline
+		3 & 31.5\% / 2.0\% & 92.5\% / 0.0\% & 100.0\% / 47.0\%\\
+		\hline
+		4 & 36.5\% / 6.0\% & 89.0\% / 0.0\% & 100.0\% / 51.0\%\\
+		\hline
+		5 & 0.0\% / 6.0\% & 91.0\% / 0.0\% & 100.0\% / 48.5\%\\
+		\hline
+		6 & 11.5\% / 4.0\% & 90.5\% / 0.0\% & 100.0\% / 20.0\%\\
+		\hline
+		7 & 33.0\% / 3.0\% & 97.0\% / 0.0\% & 100.0\% / 35.0\%\\
+		\hline
+		8 & 3.0\% / 3.5\% & 97.0\% / 0.0\% & 100.0\% / 34.0\%\\
+		\hline
+		9 & 30.5\% / 6.0\% & 94.5\% / 0.0\% & 100.0\% / 70.5\%\\
+		\hline
+		\hline
+		Problem Instance & F=19,D=2 & F=20,D=2 & F=21,D=2\\
+		\hline
+		0 & 53.5\% / 35.0\% & 45.0\% / 26.5\% & 58.5\% / 34.5\%\\
+		\hline
+		1 & 60.5\% / 39.0\% & 51.0\% / 28.5\% & 38.5\% / 19.5\%\\
+		\hline
+		2 & 56.5\% / 36.0\% & 50.5\% / 22.5\% & 55.5\% / 30.5\%\\
+		\hline
+		3 & 56.5\% / 37.0\% & 54.5\% / 26.0\% & 69.5\% / 38.5\%\\
+		\hline
+		4 & 54.0\% / 37.5\% & 42.5\% / 21.0\% & 53.5\% / 20.5\%\\
+		\hline
+		5 & 58.0\% / 39.0\% & 53.0\% / 27.0\% & 32.0\% / 20.5\%\\
+		\hline
+		6 & 57.0\% / 30.5\% & 59.0\% / 21.5\% & 61.5\% / 29.0\%\\
+		\hline
+		7 & 54.0\% / 40.5\% & 45.5\% / 19.5\% & 51.0\% / 27.5\%\\
+		\hline
+		8 & 61.0\% / 41.5\% & 52.0\% / 19.5\% & 80.0\% / 32.0\%\\
+		\hline
+		9 & 54.0\% / 43.0\% & 49.0\% / 26.0\% & 74.0\% / 38.5\%\\
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{eppsea_GECCO2019_bibliography} 
