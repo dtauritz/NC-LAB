@@ -7,6 +7,7 @@
 \usepackage{threeparttable}
 \usepackage[final]{graphicx}
 \usepackage{psfrag}
+\usepackage[noprefix]{nomencl}
 \usepackage[table]{xcolor}
 
 \usepackage{booktabs}
@@ -15,14 +16,18 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage[utf8]{inputenc}
-\usepackage{placeins}
 
+\makenomenclature
+ % ... nomenclature groupings ...
 \renewcommand{\nomgroup}[1]{
    \ifthenelse{\equal{#1}{A}}{\medskip \item \textbf{Roman}}{}%
    \ifthenelse{\equal{#1}{G}}{\medskip \item \textbf{Greek}}{}%
    \ifthenelse{\equal{#1}{S}}{\medskip \item \textbf{Subscripts}}{}%
 }
-
+ % ... nomenclature preamble ...
+\renewcommand{\nompreamble}{%
+\hspace*{-0.50in}\makebox[1.0in][l]{Symbol} Description}
+\renewcommand{\nomlabelwidth}{1.0in}
 
  % ... end preamble ...
 
@@ -49,12 +54,12 @@ Patrick Taylor\\ %
 Samuel Mulder}
 
  % ... Graduation date - NOT your submission date ...
-\graddate{2019}
+\graddate{2018}
 
 \end{ThesisTitlePage}
  % ... copyright page - true|false ...
 
-\copyrightyear{2019}
+\copyrightyear{2018}
 \ThesisCopyrightPage{true}
 
  % ... front matter - thesis abstract ...
@@ -78,6 +83,7 @@ Lastly, I would like to extend my thanks and appreciation to Patrick Taylor and 
 \tableofcontents
 \listoffigures
 \listoftables
+\listofsymbols
 \end{ThesisFrontMatter}
 
 
@@ -431,7 +437,7 @@ For this experiment, \textit{irace} was run for the training instances of each o
 
 The meta-EA was run as it was for the first experiment, with each evolved member containing two selection functions: one to replace parent selection, and one to replace survival selection. At the meta-EA's conclusion, the best selection function evolved is pitted against the traditional selection functions chosen by \textit{irace}, running on the testing problem instances to test generalization.
 
-\section{Evolution of Selection For CMA-ES Solving Real-Valued\protect\\ Benchmarks}
+\section{Evolution of Selection For CMA-ES Solving Real-Valued Benchmarks}
 \label{Evolution of Selection For CMA-ES Solving Real-Valued Benchmarks}
 
 In the third experiment, we replaced the simple EA with a more complex covariance-matrix-adaptation evolution strategy (CMA-ES). This method repeatedly samples $\lambda$ points in a space around a mean, and uses a weighted combination of the high-value points to update the mean, as well as the parameters that control the shape of the space to be sampled in the next generation. In its traditional form, CMA-ES uses the $\mu$ highest-fitness points to update the mean; from an EA-perspective, this is akin to truncation selection. 
@@ -440,7 +446,7 @@ For this experiment, we used the same meta-EA setup from previous experiments to
 
 To select benchmark functions, we tested the unmodified CMA-ES on the COCO functions. On many of the COCO functions, the solutions found by CMA-ES are close enough to the function's global optimum to meet the criteria set by COCO for solving the function. For each of the 24 function classes, we selected the lowest dimensionality for which CMA-ES was unable to find the global optimum (according to COCO's own criteria) at least half the time. We ignore the function classes for which CMA-ES is able to solve the instances more than half the time with $D\geq20$. The functions chosen are detailed in Table~\ref{tab:experiment3chosenFunctions}. Unlike with the first two experiments, we did not use \textit{irace} to find a parameter set for CMA-ES before running the meta-EA, as CMA-ES is much less dependent on initial parameters. We use $\lambda=10*D=100$, $\mu = \lambda/2 = 50$, and $\sigma_i = 0.5$. 
 
-\begin{table}[htb]
+\begin{table}
 \centering
   \caption{COCO Benchmark Functions Chosen For Experiment 3}
   \label{tab:experiment3chosenFunctions}
@@ -518,8 +524,7 @@ The general trend that we observe, across all the testing problems, is that the 
 
 For each of the problem instances in the testing set, we run the EA for 200 testing runs, both with the evolved selection functions and with the traditional selection functions. We then compare the final best fitnesses reached in the testing runs with a two-sided T-test to test for a significant difference. If the variances are shown to be unequal by Bartlett's test $(p \leq 0.05)$, then the T-test is performed assuming unequal variances; otherwise, the T-test is performed assuming equal variances.. For each benchmark problem class in the COCO functions dataset, we count the number of instances for which we find a statistically significant difference between the final best fitness found by the EA with the best evolved selection function and the final best fitness found by the EA without one. These results are shown in Table~\ref{tab:experiment2results}. 
 
-\FloatBarrier
-\begin{table}[h]
+\begin{table}
 \centering
   \caption{Experiment 2 Results}
   \label{tab:experiment2results}
@@ -579,7 +584,6 @@ For each of the problem instances in the testing set, we run the EA for 200 test
   \bottomrule
 \end{tabular}
 \end{table}
-\FloatBarrier
 
 We find that, for some problem classes, such as 7, 9, 11, 19, 21, and 22, the evolved selection function enabled the EA to perform significantly better in at least half of the testing instances used. For most of the testing cases, however, there were few or no testing instances for which the EA using the evolved selection function performed significantly better than the EA using only the parameters found by \textit{irace}. 
 
@@ -592,86 +596,84 @@ For the problem classes 4, 6, 12, 19, 20, and 21, the CMA-ES modified with the e
 
 For the function indices 3, 15, 16, 23, and 24, there was no major difference between the success rate of the modified and unmodified CMA-ES.
 
-\FloatBarrier
-\begin{table}[htbp]
-	\centering
-	\caption{Experiment 3 Results}
-	\label{tab:experiment3Results}
-	\rowcolors{2}{gray!25}{white}
-	\begin{tabular}{c|c|c|c|c}
-		\toprule
-		Problem Instance & F=3,D=2 & F=4,D=2 & F=6,D=10 & F=12,D=10\\
-		\hline
-		0 & 36.0\% / 34.5\% & 34.0\% / 4.0\% & 96.5\% / 0.0\% & 100.0\% / 41.0\%\\
-		\hline
-		1 & 32.5\% / 33.5\% & 36.0\% / 1.5\% & 96.0\% / 0.0\% & 100.0\% / 40.0\%\\
-		\hline
-		2 & 38.5\% / 38.0\% & 26.5\% / 2.0\% & 97.5\% / 0.0\% & 100.0\% / 55.5\%\\
-		\hline
-		3 & 37.5\% / 30.5\% & 34.5\% / 3.5\% & 94.5\% / 0.0\% & 100.0\% / 52.0\%\\
-		\hline
-		4 & 34.0\% / 35.0\% & 38.0\% / 3.5\% & 93.5\% / 0.0\% & 100.0\% / 51.5\%\\
-		\hline
-		5 & 35.0\% / 32.5\% & 9.0\% / 4.0\% & 95.0\% / 0.0\% & 100.0\% / 48.0\%\\
-		\hline
-		6 & 33.5\% / 35.0\% & 36.5\% / 4.5\% & 95.0\% / 0.0\% & 100.0\% / 18.0\%\\
-		\hline
-		7 & 38.0\% / 37.5\% & 37.5\% / 2.0\% & 98.0\% / 0.0\% & 100.0\% / 31.0\%\\
-		\hline
-		8 & 35.0\% / 33.5\% & 36.0\% / 3.5\% & 97.5\% / 0.0\% & 100.0\% / 36.0\%\\
-		\hline
-		9 & 36.5\% / 32.0\% & 33.5\% / 4.5\% & 96.5\% / 0.0\% & 100.0\% / 67.5\%\\
-		\hline
-		\hline
-		Problem Instance & F=15,D=2 & F=16,D=10 & F=19,D=2 & F=20,D=2\\
-		\hline
-		0 & 40.0\% / 45.5\% & 39.5\% / 37.0\% & 48.0\% / 38.0\% & 45.0\% / 25.0\%\\
-		\hline
-		1 & 43.0\% / 47.0\% & 42.5\% / 41.5\% & 53.0\% / 38.0\% & 46.0\% / 22.5\%\\
-		\hline
-		2 & 47.0\% / 45.5\% & 40.0\% / 41.0\% & 58.0\% / 36.5\% & 54.0\% / 24.5\%\\
-		\hline
-		3 & 39.5\% / 40.0\% & 43.0\% / 38.5\% & 55.0\% / 30.0\% & 44.5\% / 22.5\%\\
-		\hline
-		4 & 40.0\% / 40.0\% & 42.0\% / 47.0\% & 54.0\% / 34.0\% & 46.0\% / 26.0\%\\
-		\hline
-		5 & 41.0\% / 45.0\% & 32.5\% / 38.0\% & 56.5\% / 40.0\% & 45.5\% / 26.5\%\\
-		\hline
-		6 & 38.0\% / 32.0\% & 45.5\% / 40.5\% & 55.5\% / 38.0\% & 50.0\% / 27.0\%\\
-		\hline
-		7 & 42.0\% / 42.5\% & 41.5\% / 42.0\% & 61.0\% / 32.0\% & 48.5\% / 23.5\%\\
-		\hline
-		8 & 43.0\% / 43.0\% & 37.5\% / 37.5\% & 53.0\% / 34.0\% & 54.5\% / 24.5\%\\
-		\hline
-		9 & 41.0\% / 39.0\% & 36.5\% / 34.0\% & 56.5\% / 40.5\% & 49.5\% / 26.0\%\\
-		\hline
-		\hline
-		Problem Instance & F=21,D=2 & F=23,D=5 & F=24,D=2 & \\
-		\hline
-		0 & 61.0\% / 37.5\% & 25.0\% / 39.0\% & 1.0\% / 3.0\%& \\
-		\hline
-		1 & 36.0\% / 19.5\% & 26.5\% / 28.0\% & 0.5\% / 1.0\%& \\
-		\hline
-		2 & 59.5\% / 28.0\% & 29.5\% / 30.0\% & 0.5\% / 1.5\%& \\
-		\hline
-		3 & 66.5\% / 37.0\% & 37.5\% / 35.0\% & 3.5\% / 1.0\%& \\
-		\hline
-		4 & 38.5\% / 18.5\% & 31.5\% / 29.0\% & 2.5\% / 0.5\%& \\
-		\hline
-		5 & 34.5\% / 16.5\% & 30.0\% / 33.0\% & 1.0\% / 2.0\%& \\
-		\hline
-		6 & 63.0\% / 24.5\% & 33.0\% / 33.5\% & 1.0\% / 0.5\%& \\
-		\hline
-		7 & 56.0\% / 28.5\% & 35.5\% / 30.0\% & 3.5\% / 2.0\%& \\
-		\hline
-		8 & 76.5\% / 33.0\% & 35.5\% / 26.5\% & 1.0\% / 2.0\%& \\
-		\hline
-		9 & 76.5\% / 33.5\% & 36.5\% / 28.0\% & 1.5\% / 1.0\%& \\
-		
-		\bottomrule
-	\end{tabular}
+\begin{table}
+\centering
+  \caption{Experiment 3 Results}
+  \label{tab:experiment3Results}
+  \rowcolors{2}{gray!25}{white}
+  \begin{tabular}{c|c|c|c|c}
+    \toprule
+	Problem Instance & F=3,D=2 & F=4,D=2 & F=6,D=10 & F=12,D=10\\
+	\hline
+	0 & 36.0\% / 34.5\% & 34.0\% / 4.0\% & 96.5\% / 0.0\% & 100.0\% / 41.0\%\\
+	\hline
+	1 & 32.5\% / 33.5\% & 36.0\% / 1.5\% & 96.0\% / 0.0\% & 100.0\% / 40.0\%\\
+	\hline
+	2 & 38.5\% / 38.0\% & 26.5\% / 2.0\% & 97.5\% / 0.0\% & 100.0\% / 55.5\%\\
+	\hline
+	3 & 37.5\% / 30.5\% & 34.5\% / 3.5\% & 94.5\% / 0.0\% & 100.0\% / 52.0\%\\
+	\hline
+	4 & 34.0\% / 35.0\% & 38.0\% / 3.5\% & 93.5\% / 0.0\% & 100.0\% / 51.5\%\\
+	\hline
+	5 & 35.0\% / 32.5\% & 9.0\% / 4.0\% & 95.0\% / 0.0\% & 100.0\% / 48.0\%\\
+	\hline
+	6 & 33.5\% / 35.0\% & 36.5\% / 4.5\% & 95.0\% / 0.0\% & 100.0\% / 18.0\%\\
+	\hline
+	7 & 38.0\% / 37.5\% & 37.5\% / 2.0\% & 98.0\% / 0.0\% & 100.0\% / 31.0\%\\
+	\hline
+	8 & 35.0\% / 33.5\% & 36.0\% / 3.5\% & 97.5\% / 0.0\% & 100.0\% / 36.0\%\\
+	\hline
+	9 & 36.5\% / 32.0\% & 33.5\% / 4.5\% & 96.5\% / 0.0\% & 100.0\% / 67.5\%\\
+	\hline
+	\hline
+	Problem Instance & F=15,D=2 & F=16,D=10 & F=19,D=2 & F=20,D=2\\
+	\hline
+	0 & 40.0\% / 45.5\% & 39.5\% / 37.0\% & 48.0\% / 38.0\% & 45.0\% / 25.0\%\\
+	\hline
+	1 & 43.0\% / 47.0\% & 42.5\% / 41.5\% & 53.0\% / 38.0\% & 46.0\% / 22.5\%\\
+	\hline
+	2 & 47.0\% / 45.5\% & 40.0\% / 41.0\% & 58.0\% / 36.5\% & 54.0\% / 24.5\%\\
+	\hline
+	3 & 39.5\% / 40.0\% & 43.0\% / 38.5\% & 55.0\% / 30.0\% & 44.5\% / 22.5\%\\
+	\hline
+	4 & 40.0\% / 40.0\% & 42.0\% / 47.0\% & 54.0\% / 34.0\% & 46.0\% / 26.0\%\\
+	\hline
+	5 & 41.0\% / 45.0\% & 32.5\% / 38.0\% & 56.5\% / 40.0\% & 45.5\% / 26.5\%\\
+	\hline
+	6 & 38.0\% / 32.0\% & 45.5\% / 40.5\% & 55.5\% / 38.0\% & 50.0\% / 27.0\%\\
+	\hline
+	7 & 42.0\% / 42.5\% & 41.5\% / 42.0\% & 61.0\% / 32.0\% & 48.5\% / 23.5\%\\
+	\hline
+	8 & 43.0\% / 43.0\% & 37.5\% / 37.5\% & 53.0\% / 34.0\% & 54.5\% / 24.5\%\\
+	\hline
+	9 & 41.0\% / 39.0\% & 36.5\% / 34.0\% & 56.5\% / 40.5\% & 49.5\% / 26.0\%\\
+	\hline
+	\hline
+	Problem Instance & F=21,D=2 & F=23,D=5 & F=24,D=2\\
+	\hline
+	0 & 61.0\% / 37.5\% & 25.0\% / 39.0\% & 1.0\% / 3.0\%& \\
+	\hline
+	1 & 36.0\% / 19.5\% & 26.5\% / 28.0\% & 0.5\% / 1.0\%& \\
+	\hline
+	2 & 59.5\% / 28.0\% & 29.5\% / 30.0\% & 0.5\% / 1.5\%& \\
+	\hline
+	3 & 66.5\% / 37.0\% & 37.5\% / 35.0\% & 3.5\% / 1.0\%& \\
+	\hline
+	4 & 38.5\% / 18.5\% & 31.5\% / 29.0\% & 2.5\% / 0.5\%& \\
+	\hline
+	5 & 34.5\% / 16.5\% & 30.0\% / 33.0\% & 1.0\% / 2.0\%& \\
+	\hline
+	6 & 63.0\% / 24.5\% & 33.0\% / 33.5\% & 1.0\% / 0.5\%& \\
+	\hline
+	7 & 56.0\% / 28.5\% & 35.5\% / 30.0\% & 3.5\% / 2.0\%& \\
+	\hline
+	8 & 76.5\% / 33.0\% & 35.5\% / 26.5\% & 1.0\% / 2.0\%& \\
+	\hline
+	9 & 76.5\% / 33.5\% & 36.5\% / 28.0\% & 1.5\% / 1.0\%& \\
+	
+  \bottomrule
+\end{tabular}
 \end{table}
-\FloatBarrier
 
 \section{Discussion of Results}
 \label{resultsDiscussion}
@@ -919,7 +921,7 @@ Algorithm~\ref{alg:SUS} describes the procedure for Stochastic-Universal-Samplin
 \end{algorithmic}
 \end{algorithm}
 
-\ThesisAppendixChapter{\textit{irace} Generated EA Parameters For Basic EA Running On\protect\\ Real-Valued Problems}
+\ThesisAppendixChapter{\textit{irace} Generated EA Parameters For Basic EA Running On Real-Valued Problems}
 \label{apx:iRaceBasicEACOCOParams}
 
 For each of the 24 benchmark functions in the COCO benchmark set, a set of optimal parameters for the EA was found using the \textit{irace} tuning package. The parameters used are listed here, in Table~\ref{tab:iRaceBasicEAParams}. The parent and survival selection schemes are also tuned, and these selections are shown in Table~\ref{tab:iRaceBasicEASelection}. Note that, during the execution of the meta-EA, these parent and survival selection are replaced by the evolved parent and survival selection schemes, and are only used when testing against the final evolved selection function at the termination of the meta-EA. 
@@ -1049,7 +1051,7 @@ For each of the 24 benchmark functions in the COCO benchmark set, a set of optim
 
 
 
-\ThesisAppendixChapter{Representations of Conventional Selection Functions in\protect\\ Initial Experimentation}
+\ThesisAppendixChapter{Representations of Conventional Selection Functions in Initial Experimentation}
 \label{apx:originalEppseaRepresentation}
 
 In the earlier version of our selection function representation, as presented in~\citep{richter2018adpsea}, the GP-Trees were used to directly evolve the relative probability that an individual would be selected, as a function of its fitness, fitness ranking, and population size. This method closely resembles fitness proportional selection, but other selection schemes can be represented in this format as well. In Figure~\ref{fig:old_eppsea_representation}, we show how examples of these selection schemes would be represented by the evolved GP-Tree.
@@ -1140,7 +1142,7 @@ These results show that the performance increase gained by the evolved selection
  % ... vita ...
 
 \begin{Vita}
-Samuel Richter was born and raised in St. Louis, Missouri. He enrolled at the Missouri University of Science and Technology (Missouri S\&T) in Fall 2012, working towards a Bachelor's Degree in Computer Engineering. In his senior year, he joined the Natural Computation Laboratory, where he was exposed to Missouri S\&T's state-of-the-art research in the field of evolutionary computing. After receiving his Bachelor's Degree in Spring 2016, he enrolled for a Master's Degree in Computer Science. He received his Master's Degree in Computer Science from Missouri S\&T in May of 2019.
+Samuel Richter was born and raised in St. Louis, Missouri. He enrolled at the Missouri University of Science and Technology (Missouri S\&T) in Fall 2012, working towards a Bachelor's Degree in Computer Engineering. In his senior year, he joined the Natural Computation Laboratory, where he was exposed to Missouri S\&T's state-of-the-art research in the field of evolutionary computing. After receiving his Bachelor's Degree in Spring 2016, he enrolled for a Master's Degree in Computer Science, which he earned in Spring 2019.
 \end{Vita}
 
 \end{document}
