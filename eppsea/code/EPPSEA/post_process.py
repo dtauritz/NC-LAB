@@ -22,11 +22,11 @@ def main(final_output_directory, results_file_paths):
     for fp in results_file_paths:
         with open(fp, 'rb') as file:
             results.extend(pickle.load(file))
-
+            
     # get the fitness function names and ids
     fitness_function_ids = []
     fitness_function_display_names = dict()
-
+    
     for r in results:
         if r['fitness_function_id'] not in fitness_function_ids:
             fitness_function_ids.append(r['fitness_function_id'])
@@ -40,7 +40,7 @@ def main(final_output_directory, results_file_paths):
         if r['selection_function_id'] not in selection_function_ids:
             selection_function_ids.append(r['selection_function_id'])
             selection_function_display_names[r['selection_function_id']] = r['selection_function_display_name']
-
+    
     np.seterr(all='warn')
     # log string forms of eppsea-based selection functions
     printed_selection_functions = []
@@ -49,7 +49,6 @@ def main(final_output_directory, results_file_paths):
             print('String form of {0}: {1}'.format(r['selection_function_display_name'], r['selection_function_eppsea_string']))
             printed_selection_functions.append(r['selection_function_eppsea_string'])
     # Analyze results for each fitness function
-    average_overall_hit_percentage = [0]*len(selection_function_ids);
     for fitness_function_id in fitness_function_ids:
         plt.clf()
         print('--------------------------- Analyzing results for fitness function with id {0} ---------------------------------'.format(fitness_function_id))
@@ -108,7 +107,6 @@ def main(final_output_directory, results_file_paths):
 
         tested_pairs = []
         significant_differences = []
-        counter = 0
         for selection_function_id1 in selection_function_ids:
             selection_function_results1 = list(r for r in fitness_function_results if r['selection_function_id'] == selection_function_id1)
             selection_function_target_results1 = list(r for r in selection_function_results1 if r['termination_reason'] == 'target_fitness_hit')
@@ -117,8 +115,6 @@ def main(final_output_directory, results_file_paths):
             # round means to 5 decimal places for cleaner display
             average_final_best_fitness1 = round(statistics.mean(final_best_fitnesses1), 5)
             target_hit_percentage1 = round(len(selection_function_target_results1) * 100 / len(selection_function_results1), 2)
-            average_overall_hit_percentage[counter] = average_overall_hit_percentage[counter] + target_hit_percentage1
-            counter = counter + 1
             print('Mean performance of {0}: {1}, reaching target fitness in {2}% of runs'.format(selection_function_name1,average_final_best_fitness1, target_hit_percentage1))
             # perform a t test with all the other results that this selection has not yet been tested against
             for selection_function_id2 in selection_function_ids:
@@ -159,8 +155,6 @@ def main(final_output_directory, results_file_paths):
         else:
             print('\tNo significant differences in performance')
 
-    for i in range(0,len(selection_function_ids)):
-        print('Selection function {0} hit target at an average of {1}%'.format(i, average_overall_hit_percentage[i]/len(fitness_function_ids)))
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:

@@ -80,7 +80,7 @@ class CMAES_Result:
 
 class ModifiedCMAES(purecma.CMAES):
     # a modified version of the basic CMA-ES, with a new mean-update scheme based on an Eppsea selection function
-    def tell_pop(self, arx, fitvals, population, selection_function, use_sorted_genomes):
+    def tell_pop(self, arx, fitvals, population, selection_function_mean, selection_function_ use_sorted_genomes):
         """update the evolution paths and the distribution parameters m,
         sigma, and C within CMA-ES.
 
@@ -289,7 +289,7 @@ class EppseaCMAES:
         present_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         experiment_name = "eppsea_cmaes_" + str(present_time)
 
-        self.results_directory = 'results/eppsea_cmaes_bothDiff/{0}'.format(experiment_name)
+        self.results_directory = 'results/eppsea_cmaes_bothSame/{0}'.format(experiment_name)
         os.makedirs(self.results_directory, exist_ok=True)
 
         self.log_file_location = '{0}/log.txt'.format(self.results_directory)
