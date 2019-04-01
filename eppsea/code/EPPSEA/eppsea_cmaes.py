@@ -295,11 +295,8 @@ class EppseaCMAES:
         self.use_preliminary_training_runs = config.getboolean('CMAES', 'use preliminary training runs')
         self.preliminary_training_runs = config.getint('CMAES', 'preliminary training runs')
         self.preliminary_fitness_threshold = config.getfloat('CMAES', 'preliminary fitness threshold')
+
         self.num_training_fitness_functions = config.getint('CMAES', 'num training fitness functions')
-        if config.has_option('CMAES', 'num fitness classes'):
-            self.num_fitness_classes = config.getint('CMAES', 'num fitness classes')
-        else:
-            self.num_fitness_classes = 1
         self.num_testing_fitness_functions = config.getint('CMAES', 'num testing fitness functions')
         self.training_fitness_functions = None
         self.testing_fitness_functions = None
@@ -352,22 +349,11 @@ class EppseaCMAES:
 
         else:
             prepared_fitness_functions = []
-            if self.num_fitness_classes == 1:
-                for fitness_function_path in sorted(os.listdir(fitness_function_directory)):
-                    full_fitness_function_path = '{0}/{1}'.format(fitness_function_directory, fitness_function_path)
-                    prepared_fitness_functions.append(ff.load(full_fitness_function_path))
-            else:
-                prepared_fitness_classes = [ [] for i in range(self.num_fitness_classes) ]
-                for counter, fitness_class in enumerate(os.listdir(fitness_function_directory)):
-                    for fitness_function_path in sorted(os.listdir(fitness_function_directory + '/' + fitness_class)):
-                        full_fitness_function_path = '{0}/{1}/{2}'.format(fitness_function_directory, fitness_class, fitness_function_path)
-                        prepared_fitness_classes[counter].append(ff.load(full_fitness_function_path))
-                    prepared_fitness_functions = prepared_fitness_functions + prepared_fitness_classes[counter]
-                    
-                    
+            for fitness_function_path in sorted(os.listdir(fitness_function_directory)):
+                full_fitness_function_path = '{0}/{1}'.format(fitness_function_directory, fitness_function_path)
+                prepared_fitness_functions.append(ff.load(full_fitness_function_path))
 
         # sample a spread of the loaded fitness functions
-        print(len(prepared_fitness_functions))
         if len(prepared_fitness_functions) < self.num_training_fitness_functions:
             raise Exception('ERROR: Trying to load {0} training fitness functions, but only {1} are available'.format(self.num_training_fitness_functions, len(prepared_fitness_functions)))
         # take an even sampling of the training functions to prevent bias
