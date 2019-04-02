@@ -5,3 +5,7 @@ The 'ECADApaper' directory contains the PDF and source files for the paper submi
 The 'thesis' directory contains the PDF and source for the Master's Thesis submitted to Missouri S&T for the project. The 'thesis_slides' contains PDF and source for the slides presented at the thesis defence.
 
 The 'GECCO2019' directory contains the PDF and source files for the paper to be submitted to GECCO 2019.
+
+The 'GECCO2019_poster' directory contains the PDF and source files for the poster paper to be submitted to GECCO 2019.
+
+The 'GECCO2019_ECADA' directory contains the PDF and source files for the paper to be submitted to the ECADA workshop at GECCO 2019.
