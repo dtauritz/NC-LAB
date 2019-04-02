@@ -1,0 +1,93 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: eppsea_GECCO2019.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: eppsea_GECCO2019_bibliography.bib
+Repeated entry---line 320 of file eppsea_GECCO2019_bibliography.bib
+ : @inproceedings{hansen1996cmaes
+ :                               ,
+I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty address in burke2006binpacking
+Warning--empty address in burke2009exploring
+Warning--empty publisher in goldman2011scc
+Warning--empty address in goldman2011scc
+Warning--empty publisher in guntly2011limp
+Warning--empty address in guntly2011limp
+Warning--page numbers missing in both pages and numpages fields in cocobbob
+Warning--empty publisher in hansen1996cmaes
+Warning--empty address in hansen1996cmaes
+Warning--empty publisher in harris2015comparison
+Warning--empty address in harris2015comparison
+Warning--empty publisher in hong2013probMutation
+Warning--empty address in hong2013probMutation
+Warning--empty publisher in igel2006cmaes1plus1
+Warning--empty address in igel2006cmaes1plus1
+Warning--empty publisher in jastrebski2006activecmaes
+Warning--empty address in jastrebski2006activecmaes
+Warning--empty publisher in khudabukhsh2009satenstein
+Warning--empty address in khudabukhsh2009satenstein
+Warning--empty publisher in lourencco2013selection
+Warning--empty address in lourencco2013selection
+Warning--empty publisher in martin2013evolvingBBSA
+Warning--empty address in martin2013evolvingBBSA
+Warning--empty publisher in richter2018adpsea
+Warning--empty address in richter2018adpsea
+Warning--empty publisher in scott2015geneticRepresentations
+Warning--empty address in scott2015geneticRepresentations
+Warning--empty publisher in woodward2010metaBias
+Warning--empty address in woodward2010metaBias
+Warning--empty publisher in woodward2009GPNotGood
+Warning--empty address in woodward2009GPNotGood
+Warning--empty publisher in woodward2011selection
+Warning--empty address in woodward2011selection
+Warning--empty publisher in woodward2012mutationGeneration
+Warning--empty address in woodward2012mutationGeneration
+You've used 31 entries,
+            5795 wiz_defined-function locations,
+            1493 strings with 21861 characters,
+and the built_in function-call counts, 39339 in all, are:
+= -- 4945
+> -- 1323
+< -- 0
++ -- 435
+- -- 468
+* -- 2661
+:= -- 3898
+add.period$ -- 159
+call.type$ -- 31
+change.case$ -- 212
+chr.to.int$ -- 31
+cite$ -- 66
+duplicate$ -- 3575
+empty$ -- 2484
+format.name$ -- 580
+if$ -- 9562
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 126
+newline$ -- 272
+num.names$ -- 248
+pop$ -- 1325
+preamble$ -- 1
+purify$ -- 490
+quote$ -- 0
+skip$ -- 1296
+stack$ -- 0
+substring$ -- 3114
+swap$ -- 385
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 776
+warning$ -- 35
+while$ -- 272
+width$ -- 0
+write$ -- 566
+(There was 1 error message)
