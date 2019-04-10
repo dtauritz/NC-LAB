@@ -80,7 +80,7 @@ class CMAES_Result:
 
 class ModifiedCMAES(purecma.CMAES):
     # a modified version of the basic CMA-ES, with a new mean-update scheme based on an Eppsea selection function
-    def tell_pop(self, arx, fitvals, population, selection_function, use_sorted_genomes):
+    def tell_pop(self, arx, fitvals, population, selection_function, use_sorted_genomes, use_selectability_as_weight):
         """update the evolution paths and the distribution parameters m,
         sigma, and C within CMA-ES.
 
@@ -110,7 +110,12 @@ class ModifiedCMAES(purecma.CMAES):
         if use_sorted_genomes:
             selected_members.sort(key=lambda p: p.fitness, reverse=True)
         selected_arx = list(p.genome for p in selected_members)
-        self.xmean = purecma.dot(selected_arx, par.weights[:par.mu], transpose=True)
+        if use_selectability_as_weight:
+            weights = selection_function.eppsea_selection_function.gptrees[0].get_selectabilities(population, len(population), None)
+            weights = list(w[1] for w in weights)
+            self.xmean = purecma.dot(selected_arx, weights[:par.mu], transpose=True)
+        else:
+            self.xmean = purecma.dot(selected_arx, par.weights[:par.mu], transpose=True)
         #          = [sum(self.weights[k] * arx[k][i] for k in range(self.mu))
         #                                             for i in range(N)]
 
@@ -172,6 +177,7 @@ class CMAES_runner:
         self.fitness_function = fitness_function
         self.selection_function = selection_function
         self.use_sorted_genomes = config.getboolean('CMAES', 'use sorted genomes')
+        self.use_selectability_as_weight = config.getboolean('CMAES', 'use selectability as weight', fallback=False)
 
     class Popi:
         # a 'POP'ulation 'I'ndividual in the CMA-ES population
@@ -220,7 +226,7 @@ class CMAES_runner:
                     new_popi.genome = x
                     new_popi.fitness = -1 * fit  # eppsea assumes fitness maximization
                     population.append(new_popi)
-                es.tell_pop(X, fitness_values, population, self.selection_function, self.use_sorted_genomes)  # update distribution parameters
+                es.tell_pop(X, fitness_values, population, self.selection_function, self.use_sorted_genomes, self.use_selectability_as_weight)  # update distribution parameters
 
             result.eval_counts.append(es.counteval)
             result.fitnesses[es.counteval] = fitness_values
