@@ -113,6 +113,10 @@ class ModifiedCMAES(purecma.CMAES):
         if use_selectability_as_weight:
             weights = selection_function.eppsea_selection_function.gptrees[0].get_selectabilities(population, len(population), None)
             weights = list(w[1] for w in weights)
+            # normalize weights if any are negative
+            if any(w < 0 for w in weights):
+                min_w = min(weights)
+                weights = list(w - min_w for w in weights)
             self.xmean = purecma.dot(selected_arx, weights[:par.mu], transpose=True)
         else:
             self.xmean = purecma.dot(selected_arx, par.weights[:par.mu], transpose=True)
