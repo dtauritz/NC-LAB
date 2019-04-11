@@ -80,7 +80,7 @@ class CMAES_Result:
 
 class ModifiedCMAES(purecma.CMAES):
     # a modified version of the basic CMA-ES, with a new mean-update scheme based on an Eppsea selection function
-    def tell_pop(self, arx, fitvals, population, selection_function, use_sorted_genomes, use_selectability_as_weight):
+    def tell_pop(self, arx, fitvals, population, selection_function, use_sorted_genomes, use_selectability_as_weight, generation, best_ever_genome):
         """update the evolution paths and the distribution parameters m,
         sigma, and C within CMA-ES.
 
@@ -106,7 +106,7 @@ class ModifiedCMAES(purecma.CMAES):
 
         ### recombination, compute new weighted mean value
         # new_arx = random.sample(arx, par.mu)
-        selected_members = selection_function.eppsea_selection_function.select(population, par.mu)
+        selected_members = selection_function.eppsea_selection_function.select(population, par.mu, 0, generation, best_ever_genome)
         if use_sorted_genomes:
             selected_members.sort(key=lambda p: p.fitness, reverse=True)
         selected_arx = list(p.genome for p in selected_members)
@@ -205,6 +205,7 @@ class CMAES_runner:
         self.fitness_function.start()
 
         generation = 0
+        best_ever_genome = None
 
         result = CMAES_Result()
 
@@ -221,6 +222,8 @@ class CMAES_runner:
             es.sigma = min(es.sigma, 1e100)
             X = es.ask()  # get a list of sampled candidate solutions
             fitness_values = list(self.fitness_function.evaluate(x) for x in X)
+            if best_ever_genome is None:
+                best_ever_genome = X[fitness_values.index(min(fitness_values))]
             if basic:
                 es.tell(X, fitness_values)
             else:
@@ -230,7 +233,7 @@ class CMAES_runner:
                     new_popi.genome = x
                     new_popi.fitness = -1 * fit  # eppsea assumes fitness maximization
                     population.append(new_popi)
-                es.tell_pop(X, fitness_values, population, self.selection_function, self.use_sorted_genomes, self.use_selectability_as_weight)  # update distribution parameters
+                es.tell_pop(X, fitness_values, population, self.selection_function, self.use_sorted_genomes, self.use_selectability_as_weight, generation, best_ever_genome)  # update distribution parameters
 
             result.eval_counts.append(es.counteval)
             result.fitnesses[es.counteval] = fitness_values
@@ -239,6 +242,7 @@ class CMAES_runner:
 
             if min(fitness_values) < best_fitness:
                 best_fitness = min(fitness_values)
+                best_ever_genome = X[fitness_values.index(min(fitness_values))]
                 gens_since_best_fitness_improvement = 0
             else:
                 gens_since_best_fitness_improvement += 1
@@ -318,7 +322,7 @@ class EppseaCMAES:
         self.basic_average_best_evals = None
         self.basic_median_best_fitness = None
         self.basic_median_best_evals = None
-        
+
         self.measuring_against_basic_evals = None
 
         if config.get('CMAES', 'eppsea fitness assignment method') == 'best fitness reached' or config.get('CMAES', 'eppsea fitness assignment method') == 'adaptive':
@@ -373,8 +377,8 @@ class EppseaCMAES:
                         full_fitness_function_path = '{0}/{1}/{2}'.format(fitness_function_directory, fitness_class, fitness_function_path)
                         prepared_fitness_classes[counter].append(ff.load(full_fitness_function_path))
                     prepared_fitness_functions = prepared_fitness_functions + prepared_fitness_classes[counter]
-                    
-                    
+
+
 
         # sample a spread of the loaded fitness functions
         if len(prepared_fitness_functions) < self.num_training_fitness_functions:

@@ -20,7 +20,7 @@ class GPNode:
     # Represents a node in the GPTree object. Contains either an operator or a terminal in the desirability
     # calculation tree for the fitness function
     numeric_terminals = ['constant', 'random']
-    data_terminals = ['fitness', 'fitness_rank', 'relative_fitness', 'birth_generation', 'relative_uniqueness', 'population_size', 'min_fitness', 'sum_fitness', 'max_fitness', 'generation_number']
+    data_terminals = ['fitness', 'fitness_rank', 'relative_fitness', 'birth_generation', 'relative_uniqueness', 'population_size', 'min_fitness', 'sum_fitness', 'max_fitness', 'generation_number', 'relative_uniqueness_from_best_ever_genome']
 
     terminals = numeric_terminals + data_terminals
 
@@ -323,7 +323,7 @@ class GPTree:
 
         return fitness_rankings, sum_fitness
 
-    def get_selectabilities(self, candidates, population_size, generation_number):
+    def get_selectabilities(self, candidates, population_size, generation_number, best_ever_genome):
         # calculates the selectabilities of the candidates
         # returns a new list of tuples, each of the form (candidate, selectability)
 
@@ -358,10 +358,16 @@ class GPTree:
         if 'birth_generation' in self.selection_parameters['selection_terminals']:
             terminal_values['birth_generation'] = numpy.array(list(c.birth_generation for c in sorted_candidates))
 
-        if generation_number is not None:
+        if 'generation_number' in self.selection_parameters['selection_terminals']:
             terminal_values['generation_number'] = numpy.repeat(generation_number, population_size)
-        else:
-            terminal_values['generation_number'] = numpy.repeat(0, population_size)
+
+        if 'relative_uniqueness_from_best_ever_genome' in self.selection_parameters['selection_terminals']:
+            all_genomes = numpy.stack(list(c.genome for c in sorted_candidates))
+            distances_from_best_ever_genome = numpy.array(list(scipy.spatial.distance.euclidean(g, best_ever_genome) for g in all_genomes))
+            max_distance = numpy.max(distances_from_best_ever_genome)
+            if max_distance == 0:
+                max_distance = 1
+            terminal_values['relative_uniqueness_from_best_ever_genome'] = distances_from_best_ever_genome / max_distance
 
         if 'relative_uniqueness' in self.selection_parameters['selection_terminals']:
             all_genomes = numpy.stack(list(c.genome for c in sorted_candidates))
@@ -374,10 +380,11 @@ class GPTree:
 
         selectabilities = self.get(terminal_values)
 
+
         # zip the candidates and selectabilities, and return
         return zip(sorted_candidates, selectabilities)
 
-    def select(self, population, n=1, generation_number=None):
+    def select(self, population, n=1, generation_number=None, best_ever_genome=None):
         # probabilistically selects n members of the population according to the selectability tree
 
         # raise an error if the population members do not have a fitness attribute
@@ -395,7 +402,7 @@ class GPTree:
         # prepare to catch an overflow error
         try:
             # get the candidates with selectabilities
-            candidates_with_selectabilities = self.get_selectabilities(candidates, len(population), generation_number)
+            candidates_with_selectabilities = self.get_selectabilities(candidates, len(population), generation_number, best_ever_genome)
             # if EPPSEA overflows at any point, just return random choices
 
             # get the newly ordered lists of candidates and selectabilities
@@ -453,7 +460,7 @@ class GPTree:
 
         # insert the tree
         new_child.replace_node(insertion_point, replacement_tree)
-        
+
         # recombine misc options
         new_child.selection_type = random.choice([self.selection_type, parent2.selection_type])
 
@@ -484,7 +491,7 @@ class GPTree:
 
         # insert the new subtree
         self.replace_node(insertion_point, new_subtree)
-        
+
         # chance to flip selection type
         if random.random() < 0.2:
             self.selection_type = random.choice(self.selection_parameters['selection_types'])
@@ -515,12 +522,12 @@ class GPTree:
 
         # return the results
         return values
-    
+
     def get_all_nodes(self):
         # returns a list of all nodes in the tree
         result = self.root.get_all_nodes()
         return result
-    
+
     def get_all_nodes_depth_limited(self, depth_limit):
         # returns a list of all nodes down to a certain depth limit
         result = self.root.get_all_nodes_depth_limited(depth_limit)
@@ -529,7 +536,7 @@ class GPTree:
     def size(self):
         # returns the number of nodes in the tree
         return len(self.get_all_nodes())
-    
+
     def replace_node(self, node_to_replace, replacement_node):
         # replaces node in GPTree. Uses the replacement_node directly, not a copy of it
         if node_to_replace is self.root:
@@ -869,12 +876,12 @@ class EppseaSelectionFunction:
         new_selection_function.mo_fitnesses = None
         return new_selection_function
 
-    def select(self, population, n=1, selector=0, generation_number=None):
+    def select(self, population, n=1, selector=0, generation_number=None, best_ever_genome=None):
         # selects n individuals from the population. generation_number may need to be passed in if generation_number
         # is a possible terminal in the GP Tree
         # if more than one GP Tree is contained in this selection function, then 'selector' will determine which tree
         # is used
-        return self.gp_trees[selector].select(population, n, generation_number)
+        return self.gp_trees[selector].select(population, n, generation_number, best_ever_genome)
 
     def simplify(self):
         # eliminates redundant branches in all of the GP Trees included in this selection function
