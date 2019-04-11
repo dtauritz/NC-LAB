@@ -80,7 +80,7 @@ class CMAES_Result:
 
 class ModifiedCMAES(purecma.CMAES):
     # a modified version of the basic CMA-ES, with a new mean-update scheme based on an Eppsea selection function
-    def tell_pop(self, arx, fitvals, population, selection_function, use_sorted_genomes, use_selectability_as_weight, generation, best_ever_genome):
+    def tell_pop(self, arx, fitvals, population, selection_function, use_sorted_genomes, use_selectability_as_weight, generation, best_ever_genome, average_fitness_last_generation):
         """update the evolution paths and the distribution parameters m,
         sigma, and C within CMA-ES.
 
@@ -106,12 +106,12 @@ class ModifiedCMAES(purecma.CMAES):
 
         ### recombination, compute new weighted mean value
         # new_arx = random.sample(arx, par.mu)
-        selected_members = selection_function.eppsea_selection_function.select(population, par.mu, 0, generation, best_ever_genome)
+        selected_members = selection_function.eppsea_selection_function.select(population, par.mu, 0, generation, best_ever_genome, average_fitness_last_generation)
         if use_sorted_genomes:
             selected_members.sort(key=lambda p: p.fitness, reverse=True)
         selected_arx = list(p.genome for p in selected_members)
         if use_selectability_as_weight:
-            weights = selection_function.eppsea_selection_function.gptrees[0].get_selectabilities(population, len(population), None)
+            weights = selection_function.eppsea_selection_function.gptrees[0].get_selectabilities(population, len(population), generation, best_ever_genome, average_fitness_last_generation)
             weights = list(w[1] for w in weights)
             # normalize weights if any are negative
             if any(w < 0 for w in weights):
@@ -206,6 +206,7 @@ class CMAES_runner:
 
         generation = 0
         best_ever_genome = None
+        average_fitness_last_generation = 0
 
         result = CMAES_Result()
 
@@ -233,11 +234,12 @@ class CMAES_runner:
                     new_popi.genome = x
                     new_popi.fitness = -1 * fit  # eppsea assumes fitness maximization
                     population.append(new_popi)
-                es.tell_pop(X, fitness_values, population, self.selection_function, self.use_sorted_genomes, self.use_selectability_as_weight, generation, best_ever_genome)  # update distribution parameters
+                es.tell_pop(X, fitness_values, population, self.selection_function, self.use_sorted_genomes, self.use_selectability_as_weight, generation, best_ever_genome, average_fitness_last_generation)  # update distribution parameters
 
             result.eval_counts.append(es.counteval)
             result.fitnesses[es.counteval] = fitness_values
             result.average_fitnesses[es.counteval] = statistics.mean(fitness_values)
+            average_fitness_last_generation = result.average_fitnesses[es.counteval]
             result.best_fitnesses[es.counteval] = max(fitness_values)
 
             if min(fitness_values) < best_fitness:
