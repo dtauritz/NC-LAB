@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{cocobbob}
+N.~Hansen, A.~Auger, O.~Mersmann, T.~Tu{\v s}ar, and D.~Brockhoff.
+\newblock {COCO: A Platform for Comparing Continuous Optimizers in a Black-Box
+  Setting}.
+\newblock {\em {ArXiv e-prints}}, arXiv:1603.08785, 2016.
+
+\bibitem{koza1994genetic}
+John~R Koza.
+\newblock {Genetic Programming as a Means for Programming Computers By Natural
+  Selection}.
+\newblock {\em {Statistics and Computing}}, 4(2):87--112, 1994.
+
+\bibitem{woodward2010metaBias}
+John~R Woodward.
+\newblock {The Necessity of Meta Bias in Search Algorithms}.
+\newblock In {\em {Computational Intelligence and Software Engineering (cise),
+  2010 International Conference On}}, pages 1--4. IEEE, 2010.
+
+\bibitem{woodward2011selection}
+John~Robert Woodward and Jerry Swan.
+\newblock {Automatically Designing Selection Heuristics}.
+\newblock In {\em {Proceedings of the 13th Annual Conference Companion on
+  Genetic and Evolutionary Computation}}, pages 583--590. ACM, 2011.
+
+\end{thebibliography}

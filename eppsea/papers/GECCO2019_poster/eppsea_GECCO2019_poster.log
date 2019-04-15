@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  14 APR 2019 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  14 APR 2019 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1466,34 +1466,16 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.2pt on input line 112.
 
-
-Package natbib Warning: Citation `woodward2010metaBias' on page 1 undefined on 
-input line 120.
-
-
-Package natbib Warning: Citation `woodward2011selection' on page 1 undefined on
- input line 122.
-
-
-Package natbib Warning: Citation `koza1994genetic' on page 1 undefined on input
- line 128.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-<terminalPerformanceComp.png, id=45, 481.8pt x 361.35pt>
+<terminalPerformanceComp.png, id=55, 481.8pt x 361.35pt>
 File: terminalPerformanceComp.png Graphic file (type png)
 <use terminalPerformanceComp.png>
 Package pdftex.def Info: terminalPerformanceComp.png  used on input line 137.
 (pdftex.def)             Requested size: 227.83119pt x 170.87111pt.
-
-
-Package natbib Warning: Citation `cocobbob' on page 2 undefined on input line 1
-49.
-
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 149.
 
@@ -1502,32 +1484,33 @@ Underfull \vbox (badness 2698) has occurred while \output is active []
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 167.
  [2.2 <./terminalPerformanceComp.png>]
+Underfull \vbox (badness 2698) has occurred while \output is active []
 
-Package natbib Warning: There were undefined citations.
 
+(./eppsea_GECCO2019_poster.bbl)
 - LAST -
-Extra skip:2.0pt
-Left:309.0pt/2.124pt
-Right:307.0pt/2.124pt
-Output:309.5pt
-[3.3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 178.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 178.
+Extra skip:13.582pt
+Left:386.0pt/2.124pt
+Right:372.876pt/1.66599pt
+Output:385.938pt
+ [3.3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 179.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 179.
  (./eppsea_GECCO2019_poster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 178.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 178.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 179.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 179.
 Package rerunfilecheck Info: File `eppsea_GECCO2019_poster.out' has not changed
 .
-(rerunfilecheck)             Checksum: 9515A41D996385E872210A5E7E4FDDC5;834.
+(rerunfilecheck)             Checksum: 841D37E4CF81ED414F2CF0C85E977314;928.
  ) 
 Here is how much of TeX's memory you used:
- 18942 strings out of 492982
- 283140 string characters out of 6134895
- 402255 words of memory out of 5000000
- 21741 multiletter control sequences out of 15000+600000
- 138306 words of font info for 259 fonts, out of 8000000 for 9000
+ 18975 strings out of 492982
+ 283918 string characters out of 6134895
+ 407308 words of memory out of 5000000
+ 21750 multiletter control sequences out of 15000+600000
+ 140030 words of font info for 270 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 60i,12n,94p,1711b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,94p,1691b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/us
 r/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texm
 f-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dist
@@ -1543,10 +1526,10 @@ e/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/
 rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on eppsea_GECCO2019_poster.pdf (3 pages, 392136 bytes).
+Output written on eppsea_GECCO2019_poster.pdf (3 pages, 395632 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 47170 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 130 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 47178 words of extra memory for PDF output out of 51595 (max. 10000000)
 

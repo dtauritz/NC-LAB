@@ -1,47 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: eppsea_GECCO2019_poster.aux
-I found no \bibdata command---while reading file eppsea_GECCO2019_poster.aux
-I found no \bibstyle command---while reading file eppsea_GECCO2019_poster.aux
+The style file: plain.bst
+Database file #1: eppsea_GECCO2019_bibliography.bib
 You've used 4 entries,
-            0 wiz_defined-function locations,
-            88 strings with 604 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            2118 wiz_defined-function locations,
+            525 strings with 4821 characters,
+and the built_in function-call counts, 1463 in all, are:
+= -- 152
+> -- 55
+< -- 2
++ -- 22
+- -- 18
+* -- 91
+:= -- 237
+add.period$ -- 14
+call.type$ -- 4
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 4
+duplicate$ -- 63
+empty$ -- 120
+format.name$ -- 18
+if$ -- 319
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 23
+num.names$ -- 8
+pop$ -- 23
+preamble$ -- 1
+purify$ -- 17
 quote$ -- 0
-skip$ -- 0
+skip$ -- 46
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 90
+swap$ -- 20
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 16
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 2 error messages)
+while$ -- 16
+width$ -- 5
+write$ -- 48
