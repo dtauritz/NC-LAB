@@ -82,6 +82,15 @@
 The CMA-ES algorithm searches a fitness landscape by sampling from a multivariate normal distribution and updating its mean by taking a weighted average of the highest fitness candidate solutions. In this work, we explore the possibility of using Genetic Programming to evolve new mean-update selection methods that take into account information other than just raw fitness values. These results show that CMA-ES can be tuned to specific problem classes to achieve better results.
 \end{abstract}
 
+\copyrightyear{2019}
+\acmYear{2019}
+\setcopyright{acmcopyright}
+\acmConference[GECCO '19 Companion]{Genetic and Evolutionary Computation Conference Companion}{July 13--17, 2019}{Prague, Czech Republic}
+\acmBooktitle{Genetic and Evolutionary Computation Conference Companion (GECCO '19 Companion), July 13--17, 2019, Prague, Czech Republic}
+\acmPrice{15.00}
+\acmDOI{10.1145/3319619.3321977}
+\acmISBN{978-1-4503-6748-6/19/07}
+
 \begin{CCSXML}
 	<ccs2012>
 	<concept>
@@ -116,7 +125,7 @@ The CMA-ES algorithm searches a fitness landscape by sampling from a multivariat
 \section{Introduction}
 \label{Introduction}
 
-Evolutionary Algorithms (EA's) employ selection functions to control the method by which individuals are selected, and play a significant role in determining the performance of the EA~\citep{woodward2010metaBias}. New selection algorithms can be designed in cases where the performance offered by existing algorithms is insufficient, even with well-tuned parameters. However, the full space of selection algorithms is effectively unlimited, and so it is highly unlikely that any conventional algorithm offers the optimal selection behavior, given a specific problem. A performance gain is likely to be attained by exploring the space of selection algorithms to find one that offers better performance than any conventional selection algorithm. Past work has confirmed this hypothesis, prompting our approach to use a hyper-heuristic to explore the space of new selection functions ~\citep{woodward2011selection}.
+In Evolutionary Algorithms (EA's), selection functions  play a significant role in determining the EA's performance~\citep{woodward2010metaBias}. New selection algorithms can be designed in cases where the performance offered by existing algorithms is insufficient, even with well-tuned parameters. However, the full space of selection algorithms is effectively unlimited, and so it is highly unlikely that any conventional algorithm offers optimal selection behavior, given a specific problem. A performance gain is likely to be attained by exploring the space of selection algorithms to find one that offers better performance than any conventional algorithm. Past work has confirmed this hypothesis, prompting our approach to use a hyper-heuristic to explore the space of new selection functions ~\citep{woodward2011selection}.
 
 
 \section{Encoding Selection Functions}
