@@ -70,7 +70,7 @@
 
 
 \begin{document}
-\title[Evolving Mean-Update Selection Methods for CMA-ES]{Evolving Mean-Update Selection Methods for CMA-ES}
+\title[Comparing Terminal Sets for Evolving CMA-ES Mean-Update Selection]{Comparing Terminal Sets for Evolving CMA-ES Mean-Update Selection}
 
 
 %
@@ -116,7 +116,7 @@ The CMA-ES algorithm searches a fitness landscape by sampling from a multivariat
 \section{Introduction}
 \label{Introduction}
 
-Evolutionary Algorithms (EA's) employ selection functions to control the method by which individuals are selected, and play a significant role in determining the performance of the EA~\citep{woodward2010metaBias}. New selection algorithms can be designed in cases where the performance offered by existing algorithms is insufficient, even with well-tuned parameters. However, the full space of selection algorithms is only limited by the maximum algorithm size, and so it is highly unlikely that any conventionally human-designed algorithm offers the optimal selection behavior, given a specific problem. A performance gain is likely to be attained by exploring the space of selection algorithms to find one that offers better performance than any conventional selection algorithm. Past work has confirmed this hypothesis, prompting our approach to use a hyper-heuristic to explore the space of new selection functions ~\citep{woodward2011selection}.
+Evolutionary Algorithms (EA's) employ selection functions to control the method by which individuals are selected, and play a significant role in determining the performance of the EA~\citep{woodward2010metaBias}. New selection algorithms can be designed in cases where the performance offered by existing algorithms is insufficient, even with well-tuned parameters. However, the full space of selection algorithms is effectively unlimited, and so it is highly unlikely that any conventional algorithm offers the optimal selection behavior, given a specific problem. A performance gain is likely to be attained by exploring the space of selection algorithms to find one that offers better performance than any conventional selection algorithm. Past work has confirmed this hypothesis, prompting our approach to use a hyper-heuristic to explore the space of new selection functions ~\citep{woodward2011selection}.
 
 
 \section{Encoding Selection Functions}
