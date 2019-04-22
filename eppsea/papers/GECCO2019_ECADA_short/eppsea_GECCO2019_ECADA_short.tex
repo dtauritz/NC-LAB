@@ -75,7 +75,7 @@
 
 \begin{abstract}
 
-Selection functions enable Evolutionary Algorithms (EAs) to apply selection pressure to a population of individuals, whether by directly making decisions on whether an individual’s genes survive, or by selecting the individuals used to update the internal variables of the EA and thus influencing its behavior. Various conventional selection functions exist, each providing a unique method of selecting individuals, typically based on fitness. However, the full space of selection functions is effectively unlimited in size, and each possible selection algorithm is optimal for some EA configuration applied to a particular function class. Therefore, improved performance can be obtained by tuning selection functions to the problem at hand, rather than employing conventional selection functions. This paper details an investigation of the extent to which performance can be improved for the Covariance Matrix Adaptation Evolution Strategy (CMA-ES) by tuning the selection of individuals used for the mean-update algorithm. A hyper-heuristic is employed to explore the space of algorithms which select individuals from the population. We show the increase in performance obtained with a tuned selection algorithm, versus the unmodified CMA-ES mean-update algorithm. Specifically, we measure performance on instances from several real-valued benchmark function classes to demonstrate generalization of the improved performance.
+This paper details an investigation of the extent to which performance can be improved for the Covariance Matrix Adaptation Evolution Strategy (CMA-ES) by tuning the selection of individuals used for the mean-update algorithm. A hyper-heuristic is employed to explore the space of algorithms which select individuals from the population. We show the increase in performance obtained with a tuned selection algorithm, versus the unmodified CMA-ES mean-update algorithm. Specifically, we measure performance on instances from several real-valued benchmark function classes to demonstrate generalization of the improved performance.
 
 \end{abstract}
 
@@ -123,15 +123,14 @@ Evolutionary Algorithms (EA)s employ selection functions to control the method b
 
 Our approach employs a hyper-heuristic to explore the space of selection algorithms, with each search algorithm represented by two components. The first component is a Koza-style Genetic Programming (GP) tree~\citep{koza1994genetic}, encoding a mathematical function that calculates how desirable an individual is at the current stage of evolution. The second component is a method of selecting individuals, based on how desirable they are calculated to be. We use this hyper-heuristic to evolve a new scheme for selecting individuals in the mean update function of the Covariance Matrix Adaptation Evolution Strategy (CMA-ES)~\citep{hansen1996cmaes}. The canonical CMA-ES has shown great success in solving a wide variety of problems, and given the improvement to a canonical EA via evolution of a new selection process shown in ~\citep{richter2018adpsea}, we sought to apply the same process to CMA-ES, anticipating a similar improvement.
 
-The rest of this paper is organized as follows. Section~\ref{Literature Review} covers a review of the relevant literature concerning the use of hyper-heuristics for the targeted improvement of search algorithms and EA components, including selection functions. Section~\ref{Methodology} details the methodology of the meta-EA powering our hyper-heuristic, including our customized representation of selection functions that defines the space we search with the hyper-heuristic.  Section~\ref{Primary Experiments} details the experimental setup testing our methodology. In Section~\ref{Results}, we show and discuss the results obtained from our experiments. In Section~\ref{Conclusion}, we conclude our findings,  discuss how the assumptions made in our experimental setup may affect the validity of our conclusions, and discuss potential avenues of future work for this research.
-
 \section{Related Work}
 \label{Literature Review}
 The field of hyper-heuristics encompasses many different approaches for the automated design of new algorithms. Methods may utilize offline learning, in which computation is done \textit{a priori} to develop a heuristic, or online learning, in which a heuristic is developed dynamically alongside a running problem. The hyper-heuristic presented in this paper is an offline-learning heuristic that builds a new selection function tuned to an EA solving problem instances from a particular problem class.
 
-A major application of hyper-heuristics is the automated design of algorithmic components, which various algorithms have been shown to benefit from. Hyper-heuristics have been used to evolve new algorithms from components of existing algorithms for Ant Colony optimization algorithms~\citep{lopez2012antcol}, Boolean Satisfiability solvers~\citep{khudabukhsh2009satenstein}, local search heuristics~\citep{burke2012localHeuristics}, and iterative parse trees representing Black Box Search Algorithms~\citep{martin2013evolvingBBSA}. The research described in this paper applies the same concept to selection functions, employing a hyper-heuristic to build selection functions from smaller components to search the space of new selection functions. In particular, the practice of using GP as a hyper-heuristic has been discussed in~\citep{burke2009exploring} and explored in a number of works~\citep{burke2010strippacking, burke2006binpacking, harris2015comparison}. 
+A major application of hyper-heuristics is the automated design of algorithmic components. Hyper-heuristics have been used to evolve new algorithms from components of existing algorithms for Ant Colony optimization algorithms~\citep{lopez2012antcol}, Boolean Satisfiability solvers~\citep{khudabukhsh2009satenstein}, local search heuristics~\citep{burke2012localHeuristics}, and iterative parse trees representing Black Box Search Algorithms~\citep{martin2013evolvingBBSA}.
 
-Previous work has also focused on improvement of targeted components of EAs, including the evolution of new mutation operators~\citep{woodward2012mutationGeneration, hong2013probMutation}, mating preferences~\citep{guntly2011limp}, genetic representation of individuals~\citep{scott2015geneticRepresentations}, and crossover operators~\citep{goldman2011scc}. Methods for generating selection algorithms, in particular, have been investigated. A random walk through the space of register machines that compute and return a probability of selection for each individual showed that such custom-tuned selection algorithms can outperform typical selection algorithms~\citep{woodward2011selection}. A more informed search through the space of selection algorithms may yield an even greater benefit than a random search. In the previous work involving the evolution of Black Box Search Algorithms, the parse trees include evolved selection functions, although the selection functions are limited to two conventional selection functions (\textit{k}-tournament and truncation) with evolved parameters~\citep{martin2013evolvingBBSA}. An evolutionary search through selection functions developed with Grammatical Evolution showed that better selection functions can be developed using a hyper-heuristic, and that the performance of these selection functions can generalize to new instances within the same function class~\citep{lourencco2013selection}. A similar hyper-heuristic search employed GP to discover new selection algorithms, again showing a generalized increase in performance for the same EA running on the same problem set~\citep{richter2018adpsea}. The work described in this paper expands on these ideas by applying the hyper-heuristic search employing GP to the mean-update function of CMA-ES, changing the method used to select the population members used to update the mean in order to tune the performance of CMA-ES for a particular function class. 
+Previous work has also focused on improvement of targeted components of EAs, including the evolution of new mutation operators~\citep{woodward2012mutationGeneration, hong2013probMutation}, mating preferences~\citep{guntly2011limp}, genetic representation of individuals~\citep{scott2015geneticRepresentations}, and crossover operators~\citep{goldman2011scc}. Methods for generating selection algorithms, in particular, have been investigated. A random walk through the space of register machines that compute and return a probability of selection for each individual showed that such custom-tuned selection algorithms can outperform typical selection algorithms~\citep{woodward2011selection}. A more informed search through the space of selection algorithms may yield an even greater benefit than a random search. In the previous work involving the evolution of Black Box Search Algorithms, the parse trees include evolved selection functions, although the selection functions are limited to two conventional selection functions (\textit{k}-tournament and truncation) with evolved parameters~\citep{martin2013evolvingBBSA}. An evolutionary search through selection functions developed with Grammatical Evolution showed that better selection functions can be developed using a hyper-heuristic, and that the performance of these selection functions can generalize to new instances within the same function class~\citep{lourencco2013selection}. A similar hyper-heuristic search employed GP to discover new selection algorithms, again showing a generalized increase in performance for the same EA running on the same problem set~\citep{richter2018adpsea}. The work described in this paper expands on these ideas by applying the hyper-heuristic search employing GP to the mean-update function of CMA-ES, changing the method used to select the population members used to update the mean in order to tune the performance of CMA-ES for a particular function class.
+ 
 
 \section{Methodology}
 \label{Methodology}
@@ -147,7 +146,7 @@ The second part of the evolved selection function is a method of selecting indiv
 
 To perform selection on a population, the function encoded by the GP-Tree is evaluated once for each member of the population, using the data points for that individual (fitness value, fitness ranking, etc.) as inputs to the function. The number output by the function becomes the desirability score for each individual. Finally, the selection step is used to select individuals based on the individuals' desirability scores. The selected individuals can then be used for recombination, as the survivors for the next generation, or for any other update to the internal variables that depends on a chosen subset of the population, as pertinent to the evolutionary search strategy used.
 
-An example of this representation is shown in Figure~\ref{fig:example_eppsea_nolabel}. It shows an example of a GP-Tree that represents the function evaluated for each individual, as well as a final selection method used. With this selection function, the desirability of any individual is calculated as the individual's fitness rating plus 5, multiplied by the individual's ranking in the population ordered by fitness. The selection method used is Proportional-No-Replacement, so the probability of any individual being selected is directly proportional to its desirability score, and an individual cannot be selected more than once. 
+An example of this representation is shown in Figure~\ref{fig:example_eppsea_nolabel}. It shows an example of a GP-Tree that represents the function evaluated for each individual, as well as a final selection method used. With this selection function, the desirability of any individual is calculated as the individual's fitness rating plus 5, multiplied by the individual's ranking in the population ordered by fitness. The selection method used is Proportional-No-Replacement, so the probability of any individual being selected is directly proportional to its desirability score, and an individual cannot be selected more than once. See \citep{richter2019thesis} for more information on this particular representation of selection functions.
 
 \begin{figure}
 	\centering
@@ -178,6 +177,68 @@ For each function instance in the testing set, we run the CMA-ES for 200 testing
 \section{Results and Discussion}
 \label{Results}
 
+For each testing instance, the percentage of runs solved by the modified and unmodified CMA-ES is shown in Table~\ref{tab:experiment3Results}.
+
+\begin{table*}
+	\centering
+	\caption{Percentage of Runs Solved By Modified CMA-ES/Unmodified CMA-ES, averaged over all instances}
+	\label{tab:experiment3Results}
+	\begin{tabular}{c|c|c|c|c}
+		\toprule
+		COCO Function Class & D=2 & D=3 & D=5 & D=10\\
+		\midrule
+		1 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline
+		2 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline				
+		3 &  35.65\% / 34.2\%  &  22.0\% / 21.35\%  &  7.6\% / 6.6\%  &  1.2\% / 1.35\% \\
+		\hline
+		4 &  32.15\% / 3.3\%  &  0.15\% / 0.25\%  &  0.0\% / 0.0\%  &  0.0\% / 0.0\% \\
+		\hline
+		5 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline		
+		6 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  99.1\% / 100.0\%  &  96.0\% / 0.0\% \\
+		\hline
+		7 &  98.05\% / 94.35\%  &  100.0\% / 97.65\%  &  99.35\% / 99.4\%  &  100.0\% / 99.95\% \\
+		\hline
+		8 &  99.85\% / 100.0\%  &  100.0\% / 100.0\%  &  99.9\% / 99.5\%  &  99.8\% / 100.0\% \\
+		\hline				
+		9 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline
+		10 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline	
+		11 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline					
+		12 &  99.55\% / 100.0\%  &  99.5\% / 100.0\%  &  99.85\% / 100.0\%  &  100.0\% / 44.05\% \\
+		\hline
+		13 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline
+		14 &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\%  &  100.0\% / 100.0\% \\
+		\hline				
+		15 &  41.45\% / 41.95\%  &  32.85\% / 32.45\%  &  24.55\% / 24.0\%  &  11.95\% / 16.85\% \\
+		\hline
+		16 &  65.7\% / 65.65\%  &  59.95\% / 64.0\%  &  58.2\% / 57.1\%  &  40.05\% / 39.7\% \\
+		\hline
+		17 &  96.05\% / 75.0\%  &  96.15\% / 81.9\%  &  96.7\% / 94.6\%  &  99.2\% / 99.2\% \\
+		\hline
+		18 &  96.85\% / 64.05\%  &  97.6\% / 79.25\%  &  93.5\% / 91.75\%  &  93.9\% / 94.9\% \\
+		\hline				
+		19 &  55.05\% / 36.1\%  &  20.1\% / 20.9\%  &  6.85\% / 5.8\%  &  6.6\% / 0.45\% \\
+		\hline
+		20 &  48.35\% / 24.8\%  &  19.35\% / 12.15\%  &  2.25\% / 1.5\%  &  0.0\% / 0.0\% \\
+		\hline
+		21 &  56.8\% / 27.65\%  &  55.4\% / 28.7\%  &  36.05\% / 23.3\%  &  28.6\% / 36.0\% \\
+		\hline
+		22 &  47.15\% / 35.25\%  &  25.8\% / 27.85\%  &  14.2\% / 12.75\%  &  5.95\% / 0.4\% \\
+		\hline		
+		23 &  70.35\% / 73.3\%  &  54.7\% / 52.3\%  &  32.05\% / 31.2\%  &  7.35\% / 8.05\% \\
+		\hline
+		24 &  1.6\% / 1.45\%  &  0.1\% / 0.3\%  &  0.0\% / 0.0\%  &  0.0\% / 0.0\% \\
+		
+		\bottomrule
+	\end{tabular}
+\end{table*}
+
 For the function classes 4, 6, 12, 17, 18, 19, 20, and 21, the CMA-ES modified with the evolved selection function solved the function instances at least 20 percent more often than the unmodified CMA-ES for at least one dimensionality. For the function classes 4 and 19, the success rate of CMA-ES increased by 20-30 percent when modified with the evolved selection function at $D=2$, but performed similarly to the unmodified CMA-ES at other dimensionalities. For function classes 20 and 21, a performance increase is seen on dimensionalities $D=2, 3,$ and $5$, but not $D=10$; curiously, the modified CMA-ES performs worse on function class 21 when $D=10$. For function classes 17 and 18, performance increases are seen for $D=2$ and $D=3$, with negligible performance differences on the other dimensionalities. Function class 22 sees about a 12 percent increase in solution rate on $D=2$, but negligible improvement for other dimensionalities. For function classes 6 and 12, performance is similar for $D=2, 3,$ and $5$, but for $D=10$, there is a significant performance increase: on function 6, the success rate increased from 0 percent to around 96 percent, and on function class 12, the success rate increased from 18-67 percent, varying across the function instances, to 100 percent for all function instances.
 
 For the other function classes, there was no major difference between the success rate of the modified and unmodified CMA-ES. In a few cases, the modified CMA-ES performs marginally worse than the unmodified CMA-ES, but the difference in solution rate usually no more than 5 percent, and only 7.4 percent at most.
@@ -193,25 +254,15 @@ We hypothesized that a search through the space of selection functions could imp
 
 With this meta-EA, we have shown that it is possible to generate new selection functions, tuned to a particular benchmark function, that can enable CMA-ES to significantly outperform conventional selection functions on those functions. We have also shown that this performance increase from a custom selection algorithm will generalize to similar functions in the same function class. Therefore, if one expects to run CMA-ES, or any EA on many functions from the same function class, one might expect to gain a performance increase by doing some \textit{a priori} calculation to develop a specialized selection algorithm trained on instances of that function class. However, our experiments have also shown that, for certain functions, replacing only the selection function may not yield significant performance improvements, depending on the behavior of the search strategy and the nature of the function being optimized by the EA. 
 
-\subsection{Comments on Methodology}
-\label{Threats to Validity}
-Although we strove to ensure the robustness of our methodology and experimental setup, there are some careful considerations that must be made when interpreting these results which may threaten the validity of our claims.
-
-While we have shown improved performance on the benchmark functions tested, we still have yet to test this method on EAs run in real-world scenarios, and we do not yet know whether the supposed performance benefit is, in practice, enough to warrant the \textit{a priori} computation necessitated by our methods.
-
-We chose CMA-ES as a testing target for extending our method to a more state-of-the-art method. However, the implementation of CMA-ES we used was fairly basic, lacking restarts in particular, and much research has been done on improved and alternative variants of CMA-ES. For certain problems, these newer variants may offer the same, or greater, performance increases as an evolved selection function. However, if these newer variants also use some selection function to update internal variables, as the basic implementation does, then evolving a new selection function for these newer variants could generate an even greater increase in performance; this opens up an avenue for future research.
-
 \subsection{Future Work}
 \label{Future Work}
 The work presented in this paper opens a number of potential avenues for future research. Of primary concern is the fact that the meta-EA presented in this paper requires a large amount of \textit{a priori} computation to generate a high-quality selection function. While this computational cost may be worth it for EAs that will run on functions from the same function class many times, a more efficient method of finding good selection functions has a much greater potential to benefit EAs in general. Exploring a method of online learning could allow for the elimination of the expensive \textit{a priori} computation time, allowing specialized selection functions to be generated during the evolution.
 
-The CMA-ES in our experiments was tuned to increase performance on the COCO benchmark function classes. While these functions are difficult and non-trivial to optimize for, they are entirely artificial, and the meta-EA has not yet been used to tune an EA for solving a real-world function class. A major next step for this work is to apply the meta-EA to real-world EAs that could benefit from new, specialized selection functions. Of particular interest are EAs that are expected to be run many times on functions from the same general function class, which would, over many runs, amortize the \textit{a priori} computation time required to tune the selection function.
+The CMA-ES in our experiments was tuned to increase performance on the COCO benchmark function classes. A major next step for this work is to apply the meta-EA to real-world EAs that could benefit from new, specialized selection functions.
 
 Because the objective of this paper is similar to the work done to develop selection algorithms via Grammatical Evolution~\citep{lourencco2013selection} and register machines~\citep{woodward2011selection}, it remains to be seen which cases each method is more effective for, and a direct comparison of the methods on the same benchmark functions may yield more insight into which offers better performance benefits under certain conditions.
 
 The framework of CMA-ES used was fairly basic, lacking features such as restarts. In addition, many techniques have been developed to improve CMA-ES, such as in $(1+1)$-CMA-ES~\citep{igel2006cmaes1plus1} and the Active CMA-ES~\citep{jastrebski2006activecmaes}. Evolving a specialized selection function for these new forms of CMA-ES may lead to even greater performance gains, or may not even be necessary for particular problem classes. Additionally, we only made efforts to improve the mean-update step of CMA-ES, which allowed to it gain increased performance in some, but not all, of the problem cases tested. Further experiments to tune the methods used for updating the other internal variables, such as evolution path, covariance matrix, and step-size, may lead to greater performance in more problem classes.
-
-Adding additional available terminals to the GP-Tree increases the information available to the meta-EA, allowing it to potentially evolve more intelligent selection functions. In particular, there are no terminals that allow the selection function to have any internal persisting memory from generation to generation, such as the best fitness of past generations or which individuals have been selected previously. Additionally for EA's with sexual reproduction, or selection schemes involving individuals selected in pairs or groups, there is no terminal that measures two individuals relative to each other. This prevents the meta-EA from developing a selection function based on any information about an individual's mate, such as fitness, genome, etc. To add these terminals to the meta-EA, the selection function representation would need to be updated such that, when determining the desirability of an individual, the GP-Tree would take as input the information of some other individual to be selected for a similar purpose, such as recombination of the same child (for an EA with two-parent recombination) or selection for update of the same internal variable (for an Evolution Strategy such as CMA-ES).
 
 The meta-EA parameters were manually tuned to allow for a high degree of exploration. A sensitivity analysis of these parameters, as well an investigation of parameter tuning/control, could lead to increased performance of the meta-EA.
 
