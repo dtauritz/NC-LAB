@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  22 APR 2019 08:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.3)  23 APR 2019 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,101 +900,101 @@ Excluding comment 'screenonly' Include comment 'printonly'
 Include comment 'anonsuppress' (./eppsea_GECCO2019_ECADA_short.aux)
 \openout1 = `eppsea_GECCO2019_ECADA_short.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 72.
-LaTeX Font Info:    Try loading font information for OML+nxlmi on input line 72
+LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 66.
+LaTeX Font Info:    Try loading font information for OML+nxlmi on input line 66
 .
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 72.
-LaTeX Font Info:    Try loading font information for U+ntxexa on input line 72.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 66.
+LaTeX Font Info:    Try loading font information for U+ntxexa on input line 66.
 
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 72.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 66.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 72.
-LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 72
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 66.
+LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 66
 .
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 72.
-LaTeX Font Info:    Try loading font information for LMX+ntxexx on input line 7
-2.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 66.
+LaTeX Font Info:    Try loading font information for LMX+ntxexx on input line 6
+6.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 72.
+(Font)              scaled to size 7.0pt on input line 66.
 LaTeX Font Info:    Try loading font information for OT1+LinuxLibertineT-TLF on
- input line 72.
+ input line 66.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd
 File: OT1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for OT1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 72.
+(Font)              scaled to size 7.3pt on input line 66.
 <<ot1.cmap>>
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 72.
+(Font)              scaled to size 5.5pt on input line 66.
 <<oml.cmap>>
-LaTeX Font Info:    Try loading font information for U+msa on input line 72.
+LaTeX Font Info:    Try loading font information for U+msa on input line 66.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 72.
+LaTeX Font Info:    Try loading font information for U+msb on input line 66.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 72.
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 66.
 
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsym on input line 72.
+LaTeX Font Info:    Try loading font information for U+ntxsym on input line 66.
 
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 72.
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 66.
 
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Info: Redefining \microtypecontext on input line 72.
+LaTeX Info: Redefining \microtypecontext on input line 66.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1011,7 +1011,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box40
-Package hyperref Info: Link coloring OFF on input line 72.
+Package hyperref Info: Link coloring OFF on input line 66.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1021,9 +1021,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count154
 )
-LaTeX Info: Redefining \ref on input line 72.
-LaTeX Info: Redefining \pageref on input line 72.
-LaTeX Info: Redefining \nameref on input line 72.
+LaTeX Info: Redefining \ref on input line 66.
+LaTeX Info: Redefining \pageref on input line 66.
+LaTeX Info: Redefining \nameref on input line 66.
 
 (./eppsea_GECCO2019_ECADA_short.out) (./eppsea_GECCO2019_ECADA_short.out)
 \@outlinefile=\write5
@@ -1106,28 +1106,28 @@ Package caption Info: End \AtBeginDocument code.
 
 Excluding 'CCSXML' comment.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 116.
+(Font)              scaled to size 17.28pt on input line 110.
 LaTeX Font Info:    Try loading font information for T1+LinuxBiolinumT-TLF on i
-nput line 116.
+nput line 110.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
 File: T1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Lin
 uxBiolinumT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 116.
+(Font)              scaled to size 17.28pt on input line 110.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxBiolinumT-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 17.28pt on input line 116.
+(Font)              scaled to size 17.28pt on input line 110.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 116.
+(Font)              scaled to size 12.0pt on input line 110.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 116.
+(Font)              scaled to size 10.0pt on input line 110.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 116.
+(Font)              scaled to size 10.0pt on input line 110.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1140,40 +1140,40 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 116.
+(Font)              scaled to size 7.0pt on input line 110.
 LaTeX Font Info:    Try loading font information for TS1+LinuxLibertineT-TLF on
- input line 116.
+ input line 110.
 
 (/home/lt/texlive/2018/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 116.
+(Font)              scaled to size 7.0pt on input line 110.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 116.
+(Font)              scaled to size 9.0pt on input line 110.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 116.
+(Font)              scaled to size 10.95pt on input line 110.
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 116.
+(Font)              scaled to size 9.0pt on input line 110.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 116.
+(Font)              scaled to size 9.0pt on input line 110.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 116.
+(Font)              scaled to size 8.0pt on input line 110.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 116.
+(Font)              scaled to size 8.0pt on input line 110.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 116.
+(Font)              scaled to size 8.0pt on input line 110.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 116.
+(Font)              scaled to size 8.0pt on input line 110.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.2pt on input line 116.
+(Font)              scaled to size 6.2pt on input line 110.
 
-Overfull \hbox (3.4212pt too wide) in paragraph at lines 128--129
+Overfull \hbox (3.4212pt too wide) in paragraph at lines 122--123
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) The field of hyper-heuristics en-com-passes
  many dif-fer-ent ap-proaches
  []
@@ -1184,47 +1184,48 @@ Underfull \vbox (badness 4036) has occurred while \output is active []
  [1.1{/home/lt/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Underfull \vbox (badness 4660) has occurred while \output is active []
-
-<example_eppsea_nolabel.png, id=103, 324.21124pt x 284.06125pt>
+<example_eppsea_nolabel.png, id=104, 324.21124pt x 284.06125pt>
 File: example_eppsea_nolabel.png Graphic file (type png)
 <use example_eppsea_nolabel.png>
-Package pdftex.def Info: example_eppsea_nolabel.png  used on input line 153.
+Package pdftex.def Info: example_eppsea_nolabel.png  used on input line 147.
 (pdftex.def)             Requested size: 126.57375pt x 110.90045pt.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 166.
+(Font)              scaled to size 9.0pt on input line 160.
  [2.2 <./example_eppsea_nolabel.png>]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 169.
+(Font)              scaled to size 9.0pt on input line 163.
+
+Underfull \vbox (badness 4660) has occurred while \output is active []
+
  [3.3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 (./eppsea_GECCO2019_ECADA_short.bbl [4.4])
 - LAST -
-Extra skip:16.0pt
-Left:306.0pt/1.66599pt
-Right:290.0pt/1.66599pt
-Output:306.0pt
+Extra skip:8.0pt
+Left:314.0pt/1.66599pt
+Right:306.0pt/1.66599pt
+Output:314.0pt
  [5.5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 266.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 266.
 
 (./eppsea_GECCO2019_ECADA_short.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 266.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 266.
 Package rerunfilecheck Info: File `eppsea_GECCO2019_ECADA_short.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: 6DB30781551E4670B45E0AEEBF7C99BF;1687.
  ) 
 Here is how much of TeX's memory you used:
- 19002 strings out of 492639
- 289650 string characters out of 6130239
- 424034 words of memory out of 5000000
+ 18999 strings out of 492639
+ 289581 string characters out of 6130239
+ 425136 words of memory out of 5000000
  21955 multiletter control sequences out of 15000+600000
- 153683 words of font info for 354 fonts, out of 8000000 for 9000
+ 153410 words of font info for 352 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 80i,11n,94p,2030b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,11n,94p,2030b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/lt/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/home/lt/texli
 ve/2018/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/home/lt/texlive/
 2018/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/home/lt/texlive/2018/t
@@ -1243,10 +1244,10 @@ dist/fonts/type1/public/txfonts/rtxmi.pfb></home/lt/texlive/2018/texmf-dist/fon
 ts/type1/public/txfonts/rtxr.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/
 public/newtx/txsys.pfb></home/lt/texlive/2018/texmf-dist/fonts/type1/public/new
 tx/zxlri.pfb>
-Output written on eppsea_GECCO2019_ECADA_short.pdf (5 pages, 494191 bytes).
+Output written on eppsea_GECCO2019_ECADA_short.pdf (5 pages, 494333 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
+ 228 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
  51 named destinations out of 1000 (max. 500000)
  47218 words of extra memory for PDF output out of 51595 (max. 10000000)
 
