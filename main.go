@@ -7,6 +7,7 @@ import (
 	"math/rand"
 	"strconv"
 	"sort"
+	"strings"
 	"github.com/Knetic/govaluate"
 
 	"gonum.org/v1/plot"
@@ -256,45 +257,45 @@ func metalFile(filePath string) metal {
 }
 
 //combines two metals
-func smelting(met1, met2 metal) metal {
-	result := metalConstructor()
+// func smelting(met1, met2 metal) metal {
+// 	result := metalConstructor()
 
-	parameters := make(map[string]interface{})
-	for k, v := range met1.attributes {
-		parameters["L"+k] = v
-	}
-	for k, v := range met2.attributes {
-		parameters["R"+k] = v
-	}
+// 	parameters := make(map[string]interface{})
+// 	for k, v := range met1.attributes {
+// 		parameters["L"+k] = v
+// 	}
+// 	for k, v := range met2.attributes {
+// 		parameters["R"+k] = v
+// 	}
 
-	file, err := os.Open("smelting.txt")
-	if err != nil {
-		panic("open smelt")
-	}
-	defer file.Close()
+// 	file, err := os.Open("smelting.txt")
+// 	if err != nil {
+// 		panic("open smelt")
+// 	}
+// 	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
+// 	scanner := bufio.NewScanner(file)
 
-	for scanner.Scan() {
-		if err != nil {
-			panic("smelt scanning")
-		}
-		key := scanner.Text()
-		scanner.Scan()
-		equation := scanner.Text()
-		expression, err := govaluate.NewEvaluableExpression(equation)
-		if err != nil {
-			panic("smelt making eval")
-		}
-		tmp, err := expression.Evaluate(parameters)
-		if err != nil {
-			panic("smelt evaling")
-		}
-		result.attributes[key] = tmp.(float64) 
-	}
+// 	for scanner.Scan() {
+// 		if err != nil {
+// 			panic("smelt scanning")
+// 		}
+// 		key := scanner.Text()
+// 		scanner.Scan()
+// 		equation := scanner.Text()
+// 		expression, err := govaluate.NewEvaluableExpression(equation)
+// 		if err != nil {
+// 			panic("smelt making eval")
+// 		}
+// 		tmp, err := expression.Evaluate(parameters)
+// 		if err != nil {
+// 			panic("smelt evaling")
+// 		}
+// 		result.attributes[key] = tmp.(float64) 
+// 	}
 
-	return result
-}
+// 	return result
+// }
 
 //increases hardness
 // func hardening(met metal) metal {
@@ -302,61 +303,108 @@ func smelting(met1, met2 metal) metal {
 // }
 
 //increases conductivity with two metals
-func conductivityTreat(met1, met2 metal) metal {
-	result := metalConstructor()
+// func conductivityTreat(met1, met2 metal) metal {
+// 	result := metalConstructor()
 
-	parameters := make(map[string]interface{})
-	for k, v := range met1.attributes {
-		parameters["L"+k] = v
-	}
-	for k, v := range met2.attributes {
-		parameters["R"+k] = v
-	}
+// 	parameters := make(map[string]interface{})
+// 	for k, v := range met1.attributes {
+// 		parameters["L"+k] = v
+// 	}
+// 	for k, v := range met2.attributes {
+// 		parameters["R"+k] = v
+// 	}
 
-	file, err := os.Open("condTreat.txt")
-	if err != nil {
-		panic("open condTreat")
-	}
-	defer file.Close()
+// 	file, err := os.Open("condTreat.txt")
+// 	if err != nil {
+// 		panic("open condTreat")
+// 	}
+// 	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
+// 	scanner := bufio.NewScanner(file)
 
-	for scanner.Scan() {
-		if err != nil {
-			panic("condTreat scanning")
-		}
-		key := scanner.Text()
-		scanner.Scan()
-		equation := scanner.Text()
-		expression, err := govaluate.NewEvaluableExpression(equation)
-		if err != nil {
-			panic("condTreat making eval")
-		}
-		tmp, err := expression.Evaluate(parameters)
-		if err != nil {
-			panic("condTreat evaling")
-		}
-		result.attributes[key] = tmp.(float64) 
-	}
+// 	for scanner.Scan() {
+// 		if err != nil {
+// 			panic("condTreat scanning")
+// 		}
+// 		key := scanner.Text()
+// 		scanner.Scan()
+// 		equation := scanner.Text()
+// 		expression, err := govaluate.NewEvaluableExpression(equation)
+// 		if err != nil {
+// 			panic("condTreat making eval")
+// 		}
+// 		tmp, err := expression.Evaluate(parameters)
+// 		if err != nil {
+// 			panic("condTreat evaling")
+// 		}
+// 		result.attributes[key] = tmp.(float64) 
+// 	}
 
-	return result
-}
+// 	return result
+// }
 
 //increases corrosion with two metals
-func plating(met1, met2 metal) metal {
+// func plating(met1, met2 metal) metal {
+// 	result := metalConstructor()
+
+// 	parameters := make(map[string]interface{})
+// 	for k, v := range met1.attributes {
+// 		parameters["L"+k] = v
+// 	}
+// 	for k, v := range met2.attributes {
+// 		parameters["R"+k] = v
+// 	}
+
+// 	file, err := os.Open("plating.txt")
+// 	if err != nil {
+// 		panic("open plating")
+// 	}
+// 	defer file.Close()
+
+// 	scanner := bufio.NewScanner(file)
+
+// 	for scanner.Scan() {
+// 		if err != nil {
+// 			panic("plating scanning")
+// 		}
+// 		key := scanner.Text()
+// 		scanner.Scan()
+// 		equation := scanner.Text()
+// 		expression, err := govaluate.NewEvaluableExpression(equation)
+// 		if err != nil {
+// 			panic("plating making eval")
+// 		}
+// 		tmp, err := expression.Evaluate(parameters)
+// 		if err != nil {
+// 			panic("plating evaling")
+// 		}
+// 		result.attributes[key] = tmp.(float64)
+// 	}
+
+// 	return result
+// }
+
+func generalFunc(inputs []string,filename string, output string, materials map[string]metal) {
 	result := metalConstructor()
 
 	parameters := make(map[string]interface{})
-	for k, v := range met1.attributes {
-		parameters["L"+k] = v
-	}
-	for k, v := range met2.attributes {
-		parameters["R"+k] = v
+	// for k, v := range met1.attributes {
+	// 	parameters["L"+k] = v
+	// }
+	// for k, v := range met2.attributes {
+	// 	parameters["R"+k] = v
+	// }
+
+	for ind,name := range inputs {
+		for k,v := range materials[name].attributes {
+			tmp := "v" + strconv.Itoa(ind) + k
+			parameters[tmp] = v
+		}
 	}
 
-	file, err := os.Open("plating.txt")
+	file, err := os.Open(filename)
 	if err != nil {
-		panic("open plating")
+		panic("opening file " + filename)
 	}
 	defer file.Close()
 
@@ -364,30 +412,75 @@ func plating(met1, met2 metal) metal {
 
 	for scanner.Scan() {
 		if err != nil {
-			panic("plating scanning")
+			panic("error scanning")
 		}
 		key := scanner.Text()
 		scanner.Scan()
 		equation := scanner.Text()
 		expression, err := govaluate.NewEvaluableExpression(equation)
 		if err != nil {
-			panic("plating making eval")
+			panic("error making eval")
 		}
 		tmp, err := expression.Evaluate(parameters)
 		if err != nil {
-			panic("plating evaling")
+			panic("error evaling")
 		}
 		result.attributes[key] = tmp.(float64)
 	}
 
-	return result
+	// return result
+
+	materials[output] = result
 }
 
 
-func blackBox(in1, in2, in3, in4 metal) metal {
-	smelt := smelting(in1, in2)
-	conduct := conductivityTreat(smelt, in3)
-	result := plating(conduct, in4)
+// func blackBox(in1, in2, in3, in4 metal) metal {
+func blackBox(materials map[string]metal) metal {
+	// smelt := smelting(in1, in2)
+	// conduct := conductivityTreat(smelt, in3)
+	// result := plating(conduct, in4)
+
+	file, err := os.Open("order.txt")
+	if err != nil {
+		fmt.Println("the machine order file could not be opened")
+		panic(err)	
+	}
+	defer file.Close()
+
+	reader := bufio.NewReader(file)
+
+	var line string
+	err = nil
+
+	for err == nil {
+		line, err = reader.ReadString('\n')
+	    line = strings.Replace(line, "\n", "", -1)
+		if line != "new row" {
+			initSplit := strings.Split(line, "->")
+
+			inPreSplit := initSplit[0]
+			filesPreSplit := initSplit[1]
+			outPreSplit := initSplit[2]
+
+			inputs := strings.Split(inPreSplit, ",")
+
+			files := strings.Split(filesPreSplit, ",")
+
+			outputs := strings.Split(outPreSplit, ",")
+
+			for k := range files {
+				generalFunc(inputs,files[k],outputs[k],materials)
+			}
+
+			// fmt.Printf("inputs %v\n", inputs)
+			// fmt.Printf("files %v\n", files)
+			// fmt.Printf("outpus %v\n", outputs)
+
+			// eqIndex++
+		}
+	}
+
+	result := materials["final"]
 
 	return result
 }
@@ -487,18 +580,21 @@ func (perm *permutation) getFitness(guarantee chan bool) {
 	// goal := generateMetal(0,0)
 	goal := readMetal(0,0)
 
-	var in1, in2, in3, in4 metal
+	// var in1, in2, in3, in4 metal
 
-	// in1 = generateMetal(1, perm.assignment[0])
-	// in2 = generateMetal(2, perm.assignment[1])
-	// in3 = generateMetal(3, perm.assignment[2])
-	// in4 = generateMetal(4, perm.assignment[3])
-	in1 = readMetal(1, perm.assignment[0])
-	in2 = readMetal(2, perm.assignment[1])
-	in3 = readMetal(3, perm.assignment[2])
-	in4 = readMetal(4, perm.assignment[3])
+	// in1 = readMetal(1, perm.assignment[0])
+	// in2 = readMetal(2, perm.assignment[1])
+	// in3 = readMetal(3, perm.assignment[2])
+	// in4 = readMetal(4, perm.assignment[3])
 
-	perm.finalMetal = blackBox(in1, in2, in3, in4)
+	materials := make(map[string]metal)
+
+	for key, val := range perm.assignment {
+		materials["in"+strconv.Itoa(key)] = readMetal(key+1, val)
+	}
+
+	// perm.finalMetal = blackBox(in1, in2, in3, in4)
+	perm.finalMetal = blackBox(materials)
 
 	//hardness section
 	hardRating := 0.0
@@ -561,7 +657,7 @@ func runEA() []permutation {
 	//if there has been no change in best fitness over 15 generations, cut run
 	bestCount := -1
 
-	for i := 0; i < 10 && bestCount < 10; i++ {
+	for i := 0; i < 1000 && bestCount < 10; i++ {
 		kids := make([]permutation, lambda)
 
 		guarantee := make(chan bool, len(kids))
@@ -619,7 +715,7 @@ func runEA() []permutation {
 		if changeFront {
 			bestCount = 0
 			bestFront = newFront
-			fmt.Printf("Best Fit (gen %d): Front %d\n", i, len(bestFront))
+			// fmt.Printf("Best Fit (gen %d): Front %d\n", i, len(bestFront))
 		} else {
 			bestCount++
 		}

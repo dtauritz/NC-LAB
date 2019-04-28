@@ -1,0 +1,6 @@
+new row
+in0,in1->smelting.txt->out0
+new row
+out0,in2->condTreat.txt->out1
+new row
+out1,in3->plating.txt->final
