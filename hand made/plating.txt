@@ -1,0 +1,12 @@
+hardness
+v0hardness
+hardVariance
+v0hardVariance
+corrosion
+v0corrosion+v1corrosion-v1corrVariance
+corrVariance
+v1corrVariance
+conductivity
+v0conductivity
+condVariance
+v0condVariance
