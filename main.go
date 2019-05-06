@@ -17,7 +17,7 @@ import (
 
 	"image/color"
 
-	"genEq"
+	// "genEq"
 )
 
 type metal struct {
@@ -382,7 +382,7 @@ func (perm *permutation) getFitness(guarantee chan bool) {
 	if perm.finalMetal.attributes["hardness"] > goal.attributes["hardness"] {
 		hardRating = 1.0
 	} else {
-		hardRating = 1.0 - (goal.attributes["hardness"] - perm.finalMetal.attributes["hardness"])/perm.finalMetal.attributes["hardVariance"]
+		hardRating = 1.0 - math.Abs(math.Abs(goal.attributes["hardness"] - perm.finalMetal.attributes["hardness"])/perm.finalMetal.attributes["hardVariance"])
 	}
 	perm.fitness += hardRating/3.0
 
@@ -391,7 +391,7 @@ func (perm *permutation) getFitness(guarantee chan bool) {
 	if perm.finalMetal.attributes["conductivity"] > goal.attributes["conductivity"] {
 		condRating = 1.0
 	} else {
-		condRating = 1.0 - (goal.attributes["conductivity"] - perm.finalMetal.attributes["conductivity"])/perm.finalMetal.attributes["condVariance"]
+		condRating = 1.0 - math.Abs(math.Abs(goal.attributes["conductivity"] - perm.finalMetal.attributes["conductivity"])/perm.finalMetal.attributes["condVariance"])
 	}
 	perm.fitness += condRating/3.0
 
@@ -400,7 +400,7 @@ func (perm *permutation) getFitness(guarantee chan bool) {
 	if perm.finalMetal.attributes["corrosion"] > goal.attributes["corrosion"] {
 		corrRating = 1.0
 	} else {
-		corrRating = 1.0 - (goal.attributes["corrosion"] - perm.finalMetal.attributes["corrosion"])/perm.finalMetal.attributes["corrVariance"]
+		corrRating = 1.0 - math.Abs(math.Abs(goal.attributes["corrosion"] - perm.finalMetal.attributes["corrosion"])/perm.finalMetal.attributes["corrVariance"])
 	}
 	perm.fitness += corrRating/3.0
 
@@ -409,6 +409,12 @@ func (perm *permutation) getFitness(guarantee chan bool) {
 		perm.fitness = math.MaxFloat64
 	} else if math.IsInf(perm.fitness, -1) {
 		perm.fitness = -math.MaxFloat64
+	}
+
+	if perm.fitness > 100 {
+		perm.fitness = 100
+	} else if perm.fitness < -100{
+		perm.fitness = -100
 	}
 
 	perm.getFitness2()
@@ -670,7 +676,47 @@ func proportionPareto(pop []permutation) (int, int) {
 
 
 func main() {
-	genEq.CreateFiles()
+
+	// generate random transformation functions
+	// keywords := []string{"hardness","hardVariance","corrosion","corrVariance","conductivity","condVariance"}
+	// depth := 3
+	// numinputs := 2
+	// files := []string{"plating.txt","smelting.txt","condTreat.txt"}
+	// genEq.CreateFiles(keywords, files, depth, numinputs)
+
+	// //generate random materials
+	// numTypes := 4
+	// numKinds := 4
+	// // for _, file := range files {
+	// for i := 1; i <= numTypes; i++ {
+	// 	for j := 1; j <= numKinds; j++ {
+	// 		tmp := strconv.Itoa(i) + "_" + strconv.Itoa(j) + ".txt"
+	// 		f, err := os.Create(tmp)
+	// 		if err != nil {
+	// 			panic(err)
+	// 		}
+	// 		for _, key := range keywords {
+	// 			_, err = f.WriteString(key + "\n")
+	// 			val := (rand.Float64())*float64(numTypes-i+1)/float64(numTypes)
+	// 			num := strconv.FormatFloat(val,'f',-1, 64)
+	// 			_, err = f.WriteString(num + "\n")
+	// 		}
+	// 		f.Close()
+	// 	}
+	// }
+
+	// {
+	// 	f, err := os.Create("goal.txt")
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	for _, key := range keywords {
+	// 		_, err = f.WriteString(key + "\n")
+	// 		num := strconv.FormatFloat((rand.Float64()),'f',-1, 64)
+	// 		_, err = f.WriteString(num + "\n")
+	// 	}
+	// 	f.Close()
+	// }
 
 	rand.Seed(1)
 
@@ -717,6 +763,6 @@ func main() {
 	}
 
 
-	reader := bufio.NewReader(os.Stdin)
-	_, _ = reader.ReadString('\n')
+	// reader := bufio.NewReader(os.Stdin)
+	// _, _ = reader.ReadString('\n')
 }
