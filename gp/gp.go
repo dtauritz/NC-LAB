@@ -319,7 +319,7 @@ func (ind *individual) getFitness(materials [][]metal, goal string, guarantee ch
 				want := tmp.(float64)
 
 				//SSE
-				ind.fitness += math.Pow(have - want, 2.0)
+				ind.fitness += math.Pow(want - have, 2.0)
 				// counter++
 			}
 			}

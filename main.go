@@ -282,9 +282,23 @@ func (s byScore) Less(i, j int) bool {
 	return s[i].pareto < s[j].pareto
 }
 
+type byFit1 []permutation
 
-var mu = 10
-var lambda = 5
+func (s byFit1) Len() int {
+	return len(s)
+}
+
+func (s byFit1) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func (s byFit1) Less(i, j int) bool {
+	return s[i].fitness < s[j].fitness
+}
+
+
+var mu = 25
+var lambda = 10
 var recombRate = .5
 var mutateRate = .25
 
@@ -520,7 +534,7 @@ func runEA() []permutation {
 
 	fmt.Println("EA Done")
 	// fmt.Println(bestFront)
-
+	sort.Sort(byFit1(bestFront))
 	return bestFront
 }
 

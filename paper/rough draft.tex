@@ -63,12 +63,14 @@ For this problem, we used a binary tree representation to generate our goal func
 \begin{equation} \label{eq:1}
 fitness=treedepth + \sum (expected-result)^{2}
 \end{equation}
-Equation \ref{eq:1} shows the fitness function written out.
+%Equation \ref{eq:1} shows the fitness function written out.
 
 \subsection{MOEA}
+For this problem, we created a model that used 3 transformation sets (machines) and 4 types of input components, with each component have 4 sub-types. The solution is represented as a sub-type selection for each input type. Each solution is rated based on how close it is to the goal component and how much each input selection cost.
 
 \section{Results}
 \subsection{Sample GP models}
+We tested this model on random functions up to depth four and a randomly generated set of 64 input components. Up to depth three, on average half of the transformation functions were modeled accurately with 75 generations. At depth four, average approximations had an SSE value less than 16, or .25 units away per input combination.
 
 \subsection{MOEA solutions}
 \begin{figure}[!t]
