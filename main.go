@@ -297,8 +297,8 @@ func (s byFit1) Less(i, j int) bool {
 }
 
 
-var mu = 25
-var lambda = 10
+var mu = 50
+var lambda = 25
 var recombRate = .5
 var mutateRate = .25
 
@@ -309,7 +309,7 @@ type permutation struct {
 	finalMetal	metal
 
 	fitness		float64 //accuracy
-	fitness2	float64 //cost
+	fitness2	float64 //affordability
 
 	pareto 		int
 }
@@ -442,9 +442,21 @@ func (perm *permutation) getFitness2() {
 	for i := 0; i < len(perm.assignment); i++ {
 		perm.fitness2 += float64(perm.assignment[i]*500)
 	}
+	perm.fitness2 = 8000.0/perm.fitness2
 }
 
 func runEA() []permutation {
+	//graph
+	p, err := plot.New()
+	if err != nil {
+		panic(err)
+	}
+	p.Title.Text = "Pareto Front"
+	p.X.Label.Text = "Accuracy"
+	p.Y.Label.Text = "Affordability"
+	p.Add(plotter.NewGrid())
+
+
 	pop := make([]permutation, mu)
 
 	tmpGuarantee := make(chan bool, len(pop))
@@ -465,6 +477,7 @@ func runEA() []permutation {
 	bestCount := -1
 
 	for i := 0; i < 1000 && bestCount < 10; i++ {
+		fmt.Printf("gen: %v\n", i)
 		kids := make([]permutation, lambda)
 
 		guarantee := make(chan bool, len(kids))
@@ -522,7 +535,7 @@ func runEA() []permutation {
 		if changeFront {
 			bestCount = 0
 			bestFront = newFront
-			// fmt.Printf("Best Fit (gen %d): Front %d\n", i, len(bestFront))
+			fmt.Printf("Best Fit (gen %d): Front %d\n", i, len(bestFront))
 		} else {
 			bestCount++
 		}
@@ -530,11 +543,73 @@ func runEA() []permutation {
 		if i > 0 && i%(20*len(pop)/5) == 0 && recombRate > 0.1 {
 			recombRate -= 0.1
 		}
+
+		if i == 0 {
+			//adding points to graph
+			pts := make(plotter.XYs, len(bestFront))
+			for i := range pts {
+				pts[i].X = bestFront[i].fitness
+				pts[i].Y = bestFront[i].fitness2
+			}
+
+			s, err := plotter.NewScatter(pts)
+			if err != nil {
+				panic(err)
+			}
+			rNum := uint8(0)
+			gNum := uint8(0)
+			bNum := uint8(0)
+			s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 255}
+
+			p.Add(s)
+		} else if i%300 == 0 || i == 100 {
+			//adding points to graph
+			pts := make(plotter.XYs, len(bestFront))
+			for i := range pts {
+				pts[i].X = bestFront[i].fitness
+				pts[i].Y = bestFront[i].fitness2
+			}
+
+			s, err := plotter.NewScatter(pts)
+			if err != nil {
+				panic(err)
+			}
+			rNum := uint8(0)
+			gNum := uint8(0)
+			bNum := uint8(0)
+			if i/300%2 == 0 {
+				gNum = uint8(16*(i/100)+64)
+			} else {
+				bNum = uint8(16*(i/100)+64)
+			}
+			s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 255}
+
+			p.Add(s)
+		}
 	}
 
 	fmt.Println("EA Done")
 	// fmt.Println(bestFront)
 	sort.Sort(byFit1(bestFront))
+
+	pts := make(plotter.XYs, len(bestFront))
+	for i := range pts {
+		pts[i].X = bestFront[i].fitness
+		pts[i].Y = bestFront[i].fitness2
+	}
+
+	s, err := plotter.NewScatter(pts)
+	if err != nil {
+		panic(err)
+	}
+	s.GlyphStyle.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
+	
+	p.Add(s)
+
+	if err := p.Save(6*vg.Inch, 6*vg.Inch, "points.png"); err != nil {
+		panic(err)
+	}
+
 	return bestFront
 }
 
@@ -609,7 +684,7 @@ func setPareto(pop []permutation) []permutation {
 	
 	for i := 0; i < len(pop); i++ {
 		for j := 0; j < len(pop); j++ {
-			if (pop[i].fitness > pop[j].fitness && pop[i].fitness2 <= pop[j].fitness2) || (pop[i].fitness >= pop[j].fitness && pop[i].fitness2 < pop[j].fitness2) {
+			if (pop[i].fitness > pop[j].fitness && pop[i].fitness2 >= pop[j].fitness2) || (pop[i].fitness >= pop[j].fitness && pop[i].fitness2 > pop[j].fitness2) {
 				dominates[i] = append(dominates[i], j)
 			}
 		}
@@ -690,92 +765,19 @@ func proportionPareto(pop []permutation) (int, int) {
 
 
 func main() {
-
-	// generate random transformation functions
-	// keywords := []string{"hardness","hardVariance","corrosion","corrVariance","conductivity","condVariance"}
-	// depth := 3
-	// numinputs := 2
-	// files := []string{"plating.txt","smelting.txt","condTreat.txt"}
-	// genEq.CreateFiles(keywords, files, depth, numinputs)
-
-	// //generate random materials
-	// numTypes := 4
-	// numKinds := 4
-	// // for _, file := range files {
-	// for i := 1; i <= numTypes; i++ {
-	// 	for j := 1; j <= numKinds; j++ {
-	// 		tmp := strconv.Itoa(i) + "_" + strconv.Itoa(j) + ".txt"
-	// 		f, err := os.Create(tmp)
-	// 		if err != nil {
-	// 			panic(err)
-	// 		}
-	// 		for _, key := range keywords {
-	// 			_, err = f.WriteString(key + "\n")
-	// 			val := (rand.Float64())*float64(numTypes-i+1)/float64(numTypes)
-	// 			num := strconv.FormatFloat(val,'f',-1, 64)
-	// 			_, err = f.WriteString(num + "\n")
-	// 		}
-	// 		f.Close()
-	// 	}
-	// }
-
-	// {
-	// 	f, err := os.Create("goal.txt")
-	// 	if err != nil {
-	// 		panic(err)
-	// 	}
-	// 	for _, key := range keywords {
-	// 		_, err = f.WriteString(key + "\n")
-	// 		num := strconv.FormatFloat((rand.Float64()),'f',-1, 64)
-	// 		_, err = f.WriteString(num + "\n")
-	// 	}
-	// 	f.Close()
-	// }
-
 	rand.Seed(1)
 
 	front := runEA()
 
 	fmt.Println()
-	// goal := generateMetal(0,0)
 	goal := readMetal(0,0)
 	fmt.Println("goal: ", goal, "\n")
 
 	for i := 0; i < len(front); i++ {
-		fmt.Printf("i: %v perm %v accuracy %v cost %v\n", i,
+		fmt.Printf("i: %v perm %v accuracy %v affordability %v\n", i,
 			front[i].assignment, front[i].fitness, front[i].fitness2)
 		fmt.Println(front[i].finalMetal, "\n")
 	}
-
-
-	pts := make(plotter.XYs, len(front))
-	for i := range pts {
-		pts[i].X = front[i].fitness
-		pts[i].Y = front[i].fitness2
-	}
-
-	p, err := plot.New()
-	if err != nil {
-		panic(err)
-	}
-	p.Title.Text = "Pareto Front"
-	p.X.Label.Text = "Accuracy"
-	p.Y.Label.Text = "Cost"
-	p.Add(plotter.NewGrid())
-
-	s, err := plotter.NewScatter(pts)
-	if err != nil {
-		panic(err)
-	}
-	s.GlyphStyle.Color = color.RGBA{R: 255, B: 128, A: 255}
-
-	p.Add(s)
-	// p.Legend.Add("Front", s)
-
-	if err := p.Save(6*vg.Inch, 6*vg.Inch, "points.png"); err != nil {
-		panic(err)
-	}
-
 
 	// reader := bufio.NewReader(os.Stdin)
 	// _, _ = reader.ReadString('\n')
