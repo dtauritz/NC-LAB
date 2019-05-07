@@ -44,7 +44,7 @@ We propose the following computational approaches to address the computational c
 \caption{The above diagram illustrates our modeling approach. Imagine for instance that this example is for creating two types of electrical wire. Red indicates the general durability attribute, green for conductivity, and blue for malleability. The hue indicates a user-defined aspect of a particular component attribute, for instance variation. A darker color designates a lower value, for instance less variation, which is typically associated with higher quality. The different color hues in the diagram demonstrate some of the possible attribute-transformation-interactions, where nonlinear effects between input attributes may translate to the output attributes.}
 \label{fig1}
 \end{figure}
-\section{Implementations}
+\section{Methodology}
 \subsection{Part-DNA Model}
 We designed our Part-DNA Model on the principle of taking input components and performing some form of transformation on the input components' attributes and producing an output component. The whole process consisting of a set of transformations based on the list of input and intermediate components leading to a final set of output components. For the purposes of testing, we created two subsets of data for the input component attributes and transformation functions:
 \begin{enumerate}
@@ -61,12 +61,12 @@ As for the MOEA portion, in a real world scenario; the input parameters, as well
 \subsection{GP}
 For this problem, we used a binary tree representation to generate our goal functions and to evolve approximations to those functions. We generated leaf nodes from one of the following groups: one of the attributes from any input component, or a constant number, real valued or discrete. Non-leaf nodes used the addition, subtraction, and multiplication operands. For testing the accuracy of the evolved solutions, the fitness was calculated as the sum squared error (SSE) across 64 combinations of input components with an addition of max tree depth to encourage consice representations.
 \begin{equation} \label{eq:1}
-fitness=treedepth + \sum (expected-result)^{2}
+fitness=(penaltyfactor)*treedepth + \sum (expected-result)^{2}
 \end{equation}
 %Equation \ref{eq:1} shows the fitness function written out.
 
 \subsection{MOEA}
-For this problem, we created a model that used 3 transformation sets (machines) and 4 types of input components, with each component have 4 sub-types. The solution is represented as a sub-type selection for each input type. Each solution is rated based on how close it is to the goal component and how much each input selection cost.
+For this problem, we created a model that used three transformation sets (machines) and four types of input components, with each component have four sub-types. The solution is represented as a sub-type selection for each input type. Each solution is rated based on how close it is to the goal component and how much each input selection cost.
 
 \section{Results}
 \subsection{Sample GP models}

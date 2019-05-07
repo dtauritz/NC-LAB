@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  5 MAY 2019 22:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  7 MAY 2019 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -424,12 +424,19 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 63.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Overfull \hbox (17.78596pt too wide) detected at line 65
+\OML/cmm/m/it/10 fitness \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 penaltyfactor\OT1/
+cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 treedepth \OT1/cmr/m/n/10 + 
+[](\OML/cmm/m/it/10 expected \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 result\OT1/c
+mr/m/n/10 )[]
+ []
+
 <points.png, id=11, 578.16pt x 578.16pt>
 File: points.png Graphic file (type png)
 <use points.png>
 Package pdftex.def Info: points.png  used on input line 77.
 (pdftex.def)             Requested size: 252.0pt x 252.00041pt.
- [2 <./Diagram1.jpeg> <./points.png (PNG copy)>] [3
+[2 <./Diagram1.jpeg> <./points.png (PNG copy)>] [3
 
 ] (./rough draft.aux) ) 
 Here is how much of TeX's memory you used:
@@ -449,7 +456,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "rough draft.pdf" (3 pages, 176490 bytes).
+Output written on "rough draft.pdf" (3 pages, 180240 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  36 compressed objects within 1 object stream
