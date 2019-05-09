@@ -1,5 +1,6 @@
 \beamer@sectionintoc {1}{Part-DNA}{3}{0}{1}
-\beamer@sectionintoc {2}{Evolutionary Computation Strategies}{10}{0}{2}
-\beamer@subsectionintoc {2}{1}{Genetic Programming}{10}{0}{2}
-\beamer@subsectionintoc {2}{2}{Evolutionary Algorithms}{11}{0}{2}
-\beamer@sectionintoc {3}{Application of EC Strategies}{13}{0}{3}
+\beamer@sectionintoc {2}{Evolutionary Computation Strategies}{17}{0}{2}
+\beamer@subsectionintoc {2}{1}{Genetic Programming}{18}{0}{2}
+\beamer@subsectionintoc {2}{2}{Multi-Objective Evolutionary Algorithms}{19}{0}{2}
+\beamer@sectionintoc {3}{Application of EC Strategies}{20}{0}{3}
+\beamer@sectionintoc {4}{Future Work}{32}{0}{4}

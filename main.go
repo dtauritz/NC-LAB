@@ -14,6 +14,7 @@ import (
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotter"
 	"gonum.org/v1/plot/vg"
+	"gonum.org/v1/plot/vg/draw"
 
 	"image/color"
 
@@ -297,7 +298,7 @@ func (s byFit1) Less(i, j int) bool {
 }
 
 
-var mu = 50
+var mu = 20
 var lambda = 25
 var recombRate = .5
 var mutateRate = .25
@@ -451,6 +452,7 @@ func runEA() []permutation {
 	if err != nil {
 		panic(err)
 	}
+	// leg, err := plot.NewLegend()
 	p.Title.Text = "Pareto Front"
 	p.X.Label.Text = "Accuracy"
 	p.Y.Label.Text = "Affordability"
@@ -546,31 +548,39 @@ func runEA() []permutation {
 
 		if i == 0 {
 			//adding points to graph
+			sort.Sort(byFit1(bestFront))
+
 			pts := make(plotter.XYs, len(bestFront))
 			for i := range pts {
 				pts[i].X = bestFront[i].fitness
 				pts[i].Y = bestFront[i].fitness2
 			}
 
-			s, err := plotter.NewScatter(pts)
+			lpLine, lpPoints, err := plotter.NewLinePoints(pts)
 			if err != nil {
 				panic(err)
 			}
 			rNum := uint8(0)
 			gNum := uint8(0)
 			bNum := uint8(0)
-			s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 255}
+			// s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
+			lpLine.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
+			lpPoints.Shape = draw.PyramidGlyph{}
+			lpPoints.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
 
-			p.Add(s)
+			p.Add(lpLine, lpPoints)
+			p.Legend.Add("Gen 0", lpLine, lpPoints)
 		} else if i%300 == 0 || i == 100 {
 			//adding points to graph
+			sort.Sort(byFit1(bestFront))
+
 			pts := make(plotter.XYs, len(bestFront))
 			for i := range pts {
 				pts[i].X = bestFront[i].fitness
 				pts[i].Y = bestFront[i].fitness2
 			}
 
-			s, err := plotter.NewScatter(pts)
+			lpLine, lpPoints, err := plotter.NewLinePoints(pts)
 			if err != nil {
 				panic(err)
 			}
@@ -582,14 +592,17 @@ func runEA() []permutation {
 			} else {
 				bNum = uint8(16*(i/100)+64)
 			}
-			s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 255}
+			lpLine.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
+			lpPoints.Shape = draw.BoxGlyph{}
+			lpPoints.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
 
-			p.Add(s)
+			p.Add(lpLine, lpPoints)
+			p.Legend.Add("Gen " + strconv.Itoa(i), lpLine, lpPoints)
 		}
 	}
 
 	fmt.Println("EA Done")
-	// fmt.Println(bestFront)
+
 	sort.Sort(byFit1(bestFront))
 
 	pts := make(plotter.XYs, len(bestFront))
@@ -598,13 +611,18 @@ func runEA() []permutation {
 		pts[i].Y = bestFront[i].fitness2
 	}
 
-	s, err := plotter.NewScatter(pts)
+	lpLine, lpPoints, err := plotter.NewLinePoints(pts)
 	if err != nil {
 		panic(err)
 	}
-	s.GlyphStyle.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
-	
-	p.Add(s)
+	// s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
+	lpLine.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
+	lpPoints.Shape = draw.CrossGlyph{}
+	lpPoints.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
+
+	p.Add(lpLine, lpPoints)
+	p.Legend.Add("Final Best", lpLine, lpPoints)
+	p.Legend.Top = true
 
 	if err := p.Save(6*vg.Inch, 6*vg.Inch, "points.png"); err != nil {
 		panic(err)

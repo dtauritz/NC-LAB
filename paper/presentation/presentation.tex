@@ -73,7 +73,7 @@
 %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
 %\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 \usepackage{graphicx} % Allows including images
@@ -87,9 +87,11 @@
 \title[Evolving Part-DNA Substructures]{The Automated Modeling and Optimization of Part DNA Substructures Employing Evolutionary Computation} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{Daniel Tauritz, Bailey Eversmeyer} % Your name
-\institute[MST] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+\institute[S\&T] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 Missouri University of Science and Technology \\ % Your institution for the title page
+Department of Computer Science
+
 \medskip
 \textit{tauritzd@mst.edu, rbe62d@mst.edu} % Your email address
 }
@@ -112,9 +114,9 @@ Missouri University of Science and Technology \\ % Your institution for the titl
 \frametitle{Part-DNA Overview}
 Goals:
 \begin{itemize}
-\item Model and map the flow of goods and components through a system
-\item Track the changes to components over time
-\item Help identify relationships between components
+\item Model and map the flow of goods and components through a system\pause
+\item Track the changes to components over time\pause
+\item Help identify relationships between components\pause
 \item Makes analyzing the system easier
 \end{itemize}
 \end{frame}
@@ -123,10 +125,39 @@ Goals:
 \frametitle{How We Fit into the Part-DNA Model}
 \begin{enumerate}
 \item Choose a substructure of the Part-DNA Model\pause
-\item Gather data on input-output component transformations\pause
-\item Model the transformations of components through the section\pause
-\item Gather data on possible input components\pause
-\item Test new input combinations to map Pareto Trade-Off surface
+\item Modeling the substructure (GP)
+%\item Optimize input combinations (MOEA)
+%\item Gather data on input-output component transformations\pause
+%\item Model the transformations of components\pause
+%\item Gather data on possible input components\pause
+%\item Test new input combinations to map Pareto Trade-Off surface
+\end{enumerate}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{How We Fit into the Part-DNA Model}
+%\begin{enumerate}
+%\item Choose a substructure of the Part-DNA Model\pause
+%\item Modeling the substructure (GP)
+%\item Optimize input combinations (MOEA)
+%\item Gather data on input-output component transformations\pause
+%\item Model the transformations of components\pause
+%\item Gather data on possible input components\pause
+%\item Test new input combinations to map Pareto Trade-Off surface
+%\end{enumerate}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Modeling the Substructure}
+\begin{enumerate}
+%\item Choose a substructure of the Part-DNA Model\pause
+%\item Modeling the substructure (GP)\pause
+%\item Optimize input combinations (MOEA)
+\item Map the layout into a well-defined ordering
+%\item Gather data on input-output component transformations\pause
+%\item Model the transformations of components
+%\item Gather data on possible input components\pause
+%\item Test new input combinations to map Pareto Trade-Off surface
 \end{enumerate}
 \end{frame}
 
@@ -137,7 +168,53 @@ Goals:
 \end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{Modeling the Substructure}
+\begin{enumerate}
+%\item Choose a substructure of the Part-DNA Model\pause
+%\item Modeling the substructure (GP)\pause
+%\item Optimize input combinations (MOEA)
+\item Map the layout into a well-defined ordering
+\item Gather data on input-output component transformations\pause
+\item Model the transformations of components
+%\item Gather data on possible input components\pause
+%\item Test new input combinations to map Pareto Trade-Off surface
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{How We Fit into the Part-DNA Model}
+\begin{enumerate}
+\item Choose a substructure of the Part-DNA Model
+\item Modeling the substructure (GP)\pause
+\item Optimize input combinations (MOEA)
+%\item Gather data on input-output component transformations\pause
+%\item Model the transformations of components\pause
+%\item Gather data on possible input components\pause
+%\item Test new input combinations to map Pareto Trade-Off surface
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Optimizing the Substructure}
+With the model in hand:
+\begin{enumerate}
+%\item Choose a substructure of the Part-DNA Model\pause
+%\item Modeling the substructure (GP)\pause
+%\item Optimize input combinations (MOEA)
+%\item Gather data on input-output component transformations\pause
+%\item Model the transformations of components
+\item Gather data on possible input components\pause
+\item Test new input combinations to map Pareto Trade-Off surface
+\end{enumerate}
+\end{frame}
+
 \section{Evolutionary Computation Strategies}
+
+\begin{frame}
+\frametitle{Evolutionary Algorithms (EAs)}
+
+\end{frame}
 
 \subsection{Genetic Programming}
 
@@ -146,12 +223,7 @@ Goals:
 
 \end{frame}
 
-\subsection{Evolutionary Algorithms}
-
-\begin{frame}
-\frametitle{Evolutionary Algorithms (EAs)}
-
-\end{frame}
+\subsection{Multi-Objective Evolutionary Algorithms}
 
 \begin{frame}
 \frametitle{Multi-Objective EAs (MOEAs)}
@@ -159,6 +231,13 @@ Goals:
 \end{frame}
 
 \section{Application of EC Strategies}
+
+\begin{frame}
+\frametitle{GP Section}
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{BaseModel.jpeg}
+\end{figure}
+\end{frame}
 
 \begin{frame}
 \frametitle{GP Section}
@@ -206,6 +285,12 @@ End with a selection of Pareto Optimal solutions, and associated trade-off infor
 \begin{figure}
 \includegraphics[width=0.6\linewidth]{points.png}
 \end{figure}
+\end{frame}
+
+\section{Future Work}
+\begin{frame}
+\frametitle{Future of the Project}
+
 \end{frame}
 
 \begin{frame}
