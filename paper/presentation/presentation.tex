@@ -114,7 +114,9 @@ Department of Computer Science
 \frametitle{Part-DNA Overview}
 Goals:
 \begin{itemize}
-\item Model and map the flow of goods and components through a system\pause
+\item Model and map the flow of goods and components
+
+through a system\pause
 \item Track the changes to components over time\pause
 \item Help identify relationships between components\pause
 \item Makes analyzing the system easier
@@ -133,19 +135,6 @@ Goals:
 %\item Test new input combinations to map Pareto Trade-Off surface
 \end{enumerate}
 \end{frame}
-
-%\begin{frame}
-%\frametitle{How We Fit into the Part-DNA Model}
-%\begin{enumerate}
-%\item Choose a substructure of the Part-DNA Model\pause
-%\item Modeling the substructure (GP)
-%\item Optimize input combinations (MOEA)
-%\item Gather data on input-output component transformations\pause
-%\item Model the transformations of components\pause
-%\item Gather data on possible input components\pause
-%\item Test new input combinations to map Pareto Trade-Off surface
-%\end{enumerate}
-%\end{frame}
 
 \begin{frame}
 \frametitle{Modeling the Substructure}
@@ -213,25 +202,74 @@ With the model in hand:
 
 \begin{frame}
 \frametitle{Evolutionary Algorithms (EAs)}
+\begin{itemize}
+\item EAs are stochastic, population-based local search algorithms
 
+inspired by neo-Darwinian Evolution Theory\pause
+\item Work by generating solutions, and testing fitness\pause
+\item Explore search space through recombination and mutation\pause
+\item Best population members chosen via Survival-of-the-fittest\pause
+\item Individual \textbf{A} is better than individual \textbf{B} if \textbf{A} has a higher
+
+fitness than \textbf{B}
+\end{itemize}
 \end{frame}
 
 \subsection{Genetic Programming}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Genetic Programming (GP)}
+\begin{itemize}
+\item Variable-size hierarchical representation vs fixed-size linear
 
+for EAs\pause
+\item Generally a tree-like structure that can model functions:\pause
+\begin{equation}
+Y = X^2 + sin(X*\pi)
+\end{equation}
+\end{itemize}
+\begin{figure}
+\includegraphics[width=0.3\linewidth]{functionmodel.png}
+\end{figure}
 \end{frame}
 
 \subsection{Multi-Objective Evolutionary Algorithms}
 
 \begin{frame}
 \frametitle{Multi-Objective EAs (MOEAs)}
+\begin{itemize}
+\item Extension of regular EAs which maps multiple objective
 
+values to single fitness\pause
+\item Objectives usually conflict\pause
+\item Uses \textit{Dominance} in place of fitness\pause
+\item Individual \textbf{A} dominates individual \textbf{B} iff:\pause
+	\begin{itemize}		
+	\item \textbf{A} is no worse than \textbf{B} in all objectives\pause
+	\item \textbf{A} is strictly better than \textbf{B} in at least one objective
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{MOEA Dominance}
+\begin{itemize}
+\item \textbf{A} \textit{dominates} \textbf{B}
+	\begin{itemize}
+	\item \textbf{A:} \verb|Accuracy 60%, Affordability 2|
+	\item \textbf{B:} \verb|Accuracy 50%, Affordability 2|
+	\end{itemize}
+\item \textbf{A} does \textit{not dominate} \textbf{B}
+	\begin{itemize}
+	\item \textbf{A:} \verb|Accuracy 60%, Affordability 1|
+	\item \textbf{B:} \verb|Accuracy 50%, Affordability 2|
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 \section{Application of EC Strategies}
 
+\subsection{GP Modeling}
 \begin{frame}
 \frametitle{GP Section}
 \begin{figure}
@@ -252,16 +290,23 @@ Given a dataset of input-output combinations
 
 For each output attribute:
 \begin{itemize}
-\item Generate population of randomized functions from the input domain\pause
+\item Generate population of randomized functions from the
+
+input domain\pause
 \item Assign fitness value based on error across the dataset\pause
-\item Explore the function domain through recombination and mutation of functions
+\item Explore the function domain through recombination and
+
+mutation of functions
 \end{itemize}
 Repeat for each transformation object
 \end{frame}
 
+\subsection{MOEA Optimization}
 \begin{frame}
 \frametitle{MOEA Section}
-With the modeled functions in hand, we apply our MOEA to the whole process to optimize for the output parameters
+With the modeled functions in hand, we apply our MOEA to the
+
+whole process to optimize for the output parameters
 \begin{figure}
 \includegraphics[width=0.4\linewidth]{BaseModel.jpeg}
 \end{figure}
@@ -275,9 +320,13 @@ Given a dataset of possible inputs and desired outputs:
 \item Simulate the system with each input combination\pause
 \item Assign fitness values for Accuracy and Affordability\pause
 \item Rate solutions based on their Pareto score\pause
-\item Explore the input combination domain through recombination and mutation of solutions
+\item Explore the input combination domain through recombination
+
+and mutation of solutions
 \end{itemize}
-End with a selection of Pareto Optimal solutions, and associated trade-off information.
+End with a selection of Pareto Optimal solutions, and associated
+
+trade-off information.
 \end{frame}
 
 \begin{frame}
@@ -290,11 +339,26 @@ End with a selection of Pareto Optimal solutions, and associated trade-off infor
 \section{Future Work}
 \begin{frame}
 \frametitle{Future of the Project}
+\begin{itemize}
+\item Realistic datasets, both transformation machines and
 
+full substructure simulation\pause
+\item Possibility for optimizing full substructure layout/ordering
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \Huge{\centerline{Questions?}}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{References}
+\begin{itemize}
+\item Dr. Tauritz's Intro to EA class slides 
+	\begin{itemize}	
+	\item \verb|http://web.mst.edu/~tauritzd/courses/ec/|
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
