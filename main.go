@@ -510,7 +510,7 @@ func runEA() []permutation {
 
 		newFront := setPareto(pop)
 
-		sort.Sort(byScore(pop))
+		// sort.Sort(byScore(pop))
 
 		pop = pop[:mu]
 
@@ -563,7 +563,6 @@ func runEA() []permutation {
 			rNum := uint8(0)
 			gNum := uint8(0)
 			bNum := uint8(0)
-			// s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
 			lpLine.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
 			lpPoints.Shape = draw.PyramidGlyph{}
 			lpPoints.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
@@ -615,7 +614,6 @@ func runEA() []permutation {
 	if err != nil {
 		panic(err)
 	}
-	// s.GlyphStyle.Color = color.RGBA{R: rNum, G: gNum, B: bNum, A: 128}
 	lpLine.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
 	lpPoints.Shape = draw.CrossGlyph{}
 	lpPoints.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
@@ -799,4 +797,72 @@ func main() {
 
 	// reader := bufio.NewReader(os.Stdin)
 	// _, _ = reader.ReadString('\n')
+
+	// pop := make([]permutation, 256)
+
+	// tmpGuarantee := make(chan bool, len(pop))
+	// go eat(tmpGuarantee)
+	// i := 0
+	// 	// pop[i].genPermutation()
+	// for a := 1; a <= 4; a++ {
+	// 	for b := 1; b <= 4; b++ {
+	// 		for c := 1; c <= 4; c++ {
+	// 			for d := 1; d <= 4; d++ {
+	// 				// perm.assignment = make([]int, 4)
+	// 				pop[i].assignment = []int{a,b,c,d}
+	// 				pop[i].getFitness(tmpGuarantee);i++
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// _ = setPareto(pop)
+
+	// sort.Sort(byScore(pop))
+	// // for _ = range pop {
+	// // 	_ = <- tmpGuarantee
+	// // }
+
+	// p, err := plot.New()
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// // leg, err := plot.NewLegend()
+	// p.Title.Text = "Pareto Front"
+	// p.X.Label.Text = "Accuracy"
+	// p.Y.Label.Text = "Affordability"
+	// p.Add(plotter.NewGrid())
+
+	// pts := make(plotter.XYs, len(pop))
+	// for i := range pts {
+	// 	pts[i].X = pop[i].fitness
+	// 	pts[i].Y = pop[i].fitness2
+	// }
+
+	// s, err := plotter.NewScatter(pts)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// s.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
+	
+	// p.Add(s)
+	// // p.Legend.Add("Final Best", lpLine, lpPoints)
+	// // p.Legend.Top = true
+
+	// if err := p.Save(6*vg.Inch, 6*vg.Inch, "all.png"); err != nil {
+	// 	panic(err)
+	// }
+
+	// for i := 0; i < len(pop); i++ {
+	// 	fmt.Printf("i: %v perm %v accuracy %v affordability %v\n", i,
+	// 		pop[i].assignment, pop[i].fitness, pop[i].fitness2)
+	// 	fmt.Println(pop[i].finalMetal)
+	// 	fmt.Printf("Pareto: %v\n\n", pop[i].pareto)
+	// }
 }
+
+// func eat(guarantee chan bool) {
+// 	for _ = range guarantee {
+// 		_ = <- guarantee
+// 	}
+// }

@@ -2,7 +2,7 @@
 \beamer@sectionintoc {2}{Evolutionary Computation Strategies}{17}{0}{2}
 \beamer@subsectionintoc {2}{1}{Genetic Programming}{22}{0}{2}
 \beamer@subsectionintoc {2}{2}{Multi-Objective Evolutionary Algorithms}{25}{0}{2}
-\beamer@sectionintoc {3}{Application of EC Strategies}{32}{0}{3}
-\beamer@subsectionintoc {3}{1}{GP Modeling}{32}{0}{3}
-\beamer@subsectionintoc {3}{2}{MOEA Optimization}{37}{0}{3}
-\beamer@sectionintoc {4}{Future Work}{44}{0}{4}
+\beamer@sectionintoc {3}{Application of EC Strategies}{33}{0}{3}
+\beamer@subsectionintoc {3}{1}{GP Modeling}{33}{0}{3}
+\beamer@subsectionintoc {3}{2}{MOEA Optimization}{38}{0}{3}
+\beamer@sectionintoc {4}{Future Work}{45}{0}{4}

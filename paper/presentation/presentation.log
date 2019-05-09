@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  9 MAY 2019 06:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  9 MAY 2019 06:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -932,37 +932,37 @@ Package pdftex.def Info: functionmodel.png  used on input line 12.
 
  (./presentation.vrb) [31
 
+] (./presentation.vrb) [32
+
 ]
 File: BaseModel.jpeg Graphic file (type jpg)
 <use BaseModel.jpeg>
 Package pdftex.def Info: BaseModel.jpeg  used on input line 278.
 (pdftex.def)             Requested size: 171.14764pt x 203.58917pt.
- [32
+ [33
 
 ]
 File: BaseModel.jpeg Graphic file (type jpg)
 <use BaseModel.jpeg>
 Package pdftex.def Info: BaseModel.jpeg  used on input line 285.
 (pdftex.def)             Requested size: 171.14764pt x 197.11903pt.
- [33
 
-] [34
+[34
 
 ] [35
 
 ] [36
+
+] [37
 
 ]
 File: BaseModel.jpeg Graphic file (type jpg)
 <use BaseModel.jpeg>
 Package pdftex.def Info: BaseModel.jpeg  used on input line 313.
 (pdftex.def)             Requested size: 136.91603pt x 162.85959pt.
- [37
+ [38
 
-] [38
-
-]
-[39
+] [39
 
 ] [40
 
@@ -970,25 +970,26 @@ Package pdftex.def Info: BaseModel.jpeg  used on input line 313.
 
 ] [42
 
+] [43
+
 ]
-<points.png, id=342, 578.16pt x 578.16pt>
+<points.png, id=349, 578.16pt x 578.16pt>
 File: points.png Graphic file (type png)
 <use points.png>
 Package pdftex.def Info: points.png  used on input line 337.
 (pdftex.def)             Requested size: 205.37926pt x 205.37614pt.
- [43
+ [44
 
- <./points.png (PNG copy)>] [44
-
-] [45
+ <./points.png (PNG copy)>] [45
 
 ] [46
+
+] [47
 
 ]
 \openout4 = `presentation.vrb'.
 
-
-(./presentation.vrb) [47
+ (./presentation.vrb) [48
 
 ]
 \tf@nav=\write6
@@ -1006,11 +1007,11 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 364.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 364.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 364.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 85656EAB280B6CC24E177E0B492FC502;508.
+(rerunfilecheck)             Checksum: 9DC9036C67F9760EE91EFA390D06ADEF;508.
  ) 
 Here is how much of TeX's memory you used:
- 17184 strings out of 494805
- 326684 string characters out of 6178001
+ 17188 strings out of 494805
+ 326737 string characters out of 6178001
  388024 words of memory out of 5000000
  20015 multiletter control sequences out of 15000+600000
  11625 words of font info for 43 fonts, out of 8000000 for 9000
@@ -1026,10 +1027,10 @@ nts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmtt10.pfb>
-Output written on presentation.pdf (47 pages, 268756 bytes).
+Output written on presentation.pdf (48 pages, 262586 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 353 compressed objects within 4 object streams
- 103 named destinations out of 1000 (max. 500000)
+ 439 PDF objects out of 1000 (max. 8388607)
+ 358 compressed objects within 4 object streams
+ 105 named destinations out of 1000 (max. 500000)
  164 words of extra memory for PDF output out of 10000 (max. 10000000)
 
