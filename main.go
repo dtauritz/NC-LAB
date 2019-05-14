@@ -17,123 +17,27 @@ import (
 	"gonum.org/v1/plot/vg/draw"
 
 	"image/color"
-
-	// "genEq"
 )
 
 type metal struct {
-	//lower better for variances
-	//higher the better for others
-
-	/*hardness 		float64 //[0, 100]
-	hardVariance	float64
-
-	conductivity	float64 //[0, 100]
-	condVariance	float64
-
-	corrosion		float64 //[0, 100]
-	corrVariance	float64*/
 	attributes		map[string]float64
 }
 
+//initializes a metal object
 func metalConstructor() metal {
 	var result metal
 	result.attributes = make(map[string]float64)
 	return result
 }
 
+//string output for a metal
 func (m metal) String() string {
 	return fmt.Sprintf("Hardness %v (%v) Conductivity %v (%v) Corrosion %v (%v)",
 		m.attributes["hardness"], m.attributes["hardVariance"], m.attributes["conductivity"], m.attributes["condVariance"], m.attributes["corrosion"],
 		m.attributes["corrVariance"])
 }
 
-// kind=0 for goal alloy
-func generateMetal(kind, version int) (metal) {
-	result := metalConstructor()
-
-	switch(kind) {
-	case 0:
-		result.attributes["hardness"] = 61
-		result.attributes["conductivity"] = 71
-		result.attributes["corrosion"] = 85
-	case 1: // hard metal 1
-		result.attributes["hardness"] = 50
-		result.attributes["conductivity"] = 30
-		result.attributes["corrosion"] = 10
-		switch(version){
-		case 1:
-			result.attributes["hardVariance"] = 8
-			result.attributes["hardness"] -= 4
-		case 2:
-			result.attributes["hardVariance"] = 6
-			result.attributes["hardness"] -= 3
-		case 3:
-			result.attributes["hardVariance"] = 4
-			result.attributes["hardness"] -= 2
-		case 4:
-			result.attributes["hardVariance"] = 2
-			result.attributes["hardness"] -= 1
-		}
-	case 2: // hard metal 2
-		result.attributes["hardness"] = 60
-		result.attributes["conductivity"] = 20
-		result.attributes["corrosion"] = 30
-		switch(version){
-		case 1:
-			result.attributes["hardVariance"] = 6
-			result.attributes["hardness"] -= 3
-		case 2:
-			result.attributes["hardVariance"] = 4
-			result.attributes["hardness"] -= 2
-		case 3:
-			result.attributes["hardVariance"] = 2
-			result.attributes["hardness"] -= 1
-		case 4:
-			result.attributes["hardVariance"] = 1
-			result.attributes["hardness"] -= 0.5
-		}
-	case 3: // conductivity metal
-		result.attributes["hardness"] = 30
-		result.attributes["conductivity"] = 50
-		result.attributes["corrosion"] = 10
-		switch(version){
-		case 1:
-			result.attributes["condVariance"] = 7
-			result.attributes["conductivity"] -= 3.5
-		case 2:
-			result.attributes["condVariance"] = 5
-			result.attributes["conductivity"] -= 2.5
-		case 3:
-			result.attributes["condVariance"] = 3
-			result.attributes["conductivity"] -= 1.5
-		case 4:
-			result.attributes["condVariance"] = 1
-			result.attributes["conductivity"] -= 0.5
-		}
-	case 4: // corrosive metal
-		result.attributes["hardness"] = 20
-		result.attributes["conductivity"] = 20
-		result.attributes["corrosion"] = 70
-		switch(version){
-		case 1:
-			result.attributes["corrVariance"] = 8
-			result.attributes["corrosion"] -= 4
-		case 2:
-			result.attributes["corrVariance"] = 5
-			result.attributes["corrosion"] -= 2.5
-		case 3:
-			result.attributes["corrVariance"] = 4
-			result.attributes["corrosion"] -= 2
-		case 4:
-			result.attributes["corrVariance"] = 3
-			result.attributes["corrosion"] -= 1.5
-		}
-	}
-
-	return result
-}
-
+//finds which file to read from
 func readMetal(kind, version int) (metal) {
 	var result metal
 
@@ -147,6 +51,7 @@ func readMetal(kind, version int) (metal) {
 	return result
 }
 
+//reads and stores the 'metal' given by the filePath
 func metalFile(filePath string) metal {
 	result := metalConstructor()
 
@@ -175,6 +80,7 @@ func metalFile(filePath string) metal {
 	return result
 }
 
+//opens a transformation file and creates the transformation output
 func generalFunc(inputs []string,filename string, output string, materials map[string]metal) {
 	result := metalConstructor()
 
@@ -213,13 +119,12 @@ func generalFunc(inputs []string,filename string, output string, materials map[s
 		result.attributes[key] = tmp.(float64)
 	}
 
-	// return result
-
 	materials[output] = result
 }
 
 
-// func blackBox(in1, in2, in3, in4 metal) metal {
+//runs through the ordering stated by "order.txt" and makes all
+//transformation materials
 func blackBox(materials map[string]metal) metal {
 
 	file, err := os.Open("order.txt")
@@ -253,12 +158,6 @@ func blackBox(materials map[string]metal) metal {
 			for k := range files {
 				generalFunc(inputs,files[k],outputs[k],materials)
 			}
-
-			// fmt.Printf("inputs %v\n", inputs)
-			// fmt.Printf("files %v\n", files)
-			// fmt.Printf("outpus %v\n", outputs)
-
-			// eqIndex++
 		}
 	}
 
@@ -269,6 +168,8 @@ func blackBox(materials map[string]metal) metal {
 
 
 // ea
+
+//sorting by Pareto rank
 type byScore []permutation
 
 func (s byScore) Len() int {
@@ -283,6 +184,7 @@ func (s byScore) Less(i, j int) bool {
 	return s[i].pareto < s[j].pareto
 }
 
+//sorting by fitness1
 type byFit1 []permutation
 
 func (s byFit1) Len() int {
@@ -297,7 +199,7 @@ func (s byFit1) Less(i, j int) bool {
 	return s[i].fitness < s[j].fitness
 }
 
-
+//EA variables for population sizes and modifier chances
 var mu = 20
 var lambda = 25
 var recombRate = .5
@@ -315,6 +217,7 @@ type permutation struct {
 	pareto 		int
 }
 
+//randomly generate permutation
 func (perm *permutation) genPermutation() {
 	perm.assignment = make([]int, 4)
 
@@ -324,6 +227,7 @@ func (perm *permutation) genPermutation() {
 	}
 }
 
+//makes a standardized output for a permutation
 func (perm *permutation) String() string {
 	tmpStr := "["
 
@@ -336,7 +240,7 @@ func (perm *permutation) String() string {
 	return tmpStr
 }
 
-
+//creates new population member from 2 parents. guarantee is for parallelization
 func (kid *permutation) recombination(parent1 permutation, parent2 permutation, guarantee chan bool) {
 	kid.assignment = make([]int, len(parent1.assignment))
 
@@ -349,39 +253,19 @@ func (kid *permutation) recombination(parent1 permutation, parent2 permutation, 
 	}
 
 	kid.mutation(parent1, parent2)
-	// return kid
 	guarantee <- true
 }
 
+//mutates a population member
 func (kid *permutation) mutation(parent1 permutation, parent2 permutation) {
 	if rand.Float64() < mutateRate {
 		kid.assignment[rand.Int()%4] = rand.Int()%4+1
 	}
 }
 
-func find(arr []int, elem int) int {
-	index := -1
-
-	for i, e := range arr {
-		if e == elem {
-			index = i
-			break
-		}
-	}
-
-	return index
-}
-
+//calculates and sets fitness1
 func (perm *permutation) getFitness(guarantee chan bool) {
-	// goal := generateMetal(0,0)
 	goal := readMetal(0,0)
-
-	// var in1, in2, in3, in4 metal
-
-	// in1 = readMetal(1, perm.assignment[0])
-	// in2 = readMetal(2, perm.assignment[1])
-	// in3 = readMetal(3, perm.assignment[2])
-	// in4 = readMetal(4, perm.assignment[3])
 
 	materials := make(map[string]metal)
 
@@ -389,7 +273,6 @@ func (perm *permutation) getFitness(guarantee chan bool) {
 		materials["in"+strconv.Itoa(key)] = readMetal(key+1, val)
 	}
 
-	// perm.finalMetal = blackBox(in1, in2, in3, in4)
 	perm.finalMetal = blackBox(materials)
 
 	//hardness section
@@ -437,6 +320,7 @@ func (perm *permutation) getFitness(guarantee chan bool) {
 	guarantee <- true
 }
 
+//calculates and sets the fitness2 value
 func (perm *permutation) getFitness2() {
 	perm.fitness2 = 0.0
 
@@ -446,13 +330,13 @@ func (perm *permutation) getFitness2() {
 	perm.fitness2 = 8000.0/perm.fitness2
 }
 
+//run EA, returns final Pareto front
 func runEA() []permutation {
-	//graph
+	//setup Pareto progress graph
 	p, err := plot.New()
 	if err != nil {
 		panic(err)
 	}
-	// leg, err := plot.NewLegend()
 	p.Title.Text = "Pareto Front"
 	p.X.Label.Text = "Accuracy"
 	p.Y.Label.Text = "Affordability"
@@ -475,7 +359,7 @@ func runEA() []permutation {
 
 	sort.Sort(byScore(pop))
 
-	//if there has been no change in best fitness over 15 generations, cut run
+	//if there has been no change in best fitness over 10 generations, cut run
 	bestCount := -1
 
 	for i := 0; i < 1000 && bestCount < 10; i++ {
@@ -509,8 +393,6 @@ func runEA() []permutation {
 		pop = append(pop, kids...)
 
 		newFront := setPareto(pop)
-
-		// sort.Sort(byScore(pop))
 
 		pop = pop[:mu]
 
@@ -547,7 +429,7 @@ func runEA() []permutation {
 		}
 
 		if i == 0 {
-			//adding points to graph
+			//adding starting Pareto fronts to graph
 			sort.Sort(byFit1(bestFront))
 
 			pts := make(plotter.XYs, len(bestFront))
@@ -570,7 +452,7 @@ func runEA() []permutation {
 			p.Add(lpLine, lpPoints)
 			p.Legend.Add("Gen 0", lpLine, lpPoints)
 		} else if i%300 == 0 || i == 100 {
-			//adding points to graph
+			//adding intermediate Pareto fronts to graph
 			sort.Sort(byFit1(bestFront))
 
 			pts := make(plotter.XYs, len(bestFront))
@@ -604,6 +486,7 @@ func runEA() []permutation {
 
 	sort.Sort(byFit1(bestFront))
 
+	//adds final generation to Pareto graph
 	pts := make(plotter.XYs, len(bestFront))
 	for i := range pts {
 		pts[i].X = bestFront[i].fitness
@@ -629,6 +512,7 @@ func runEA() []permutation {
 	return bestFront
 }
 
+//checking that no duplicate solutions are in the Pareto front
 func assignmentEquality(a, b []int) bool {
 	if (a == nil) != (b == nil) { 
 		return false; 
@@ -647,50 +531,7 @@ func assignmentEquality(a, b []int) bool {
 	return true
 }
 
-func proportionSelect(pop []permutation) (int, int) {
-	p1 := -1
-	p2 := -1
-
-	totalScore := 0.0
-
-	for i := 0; i < len(pop); i++ {
-		totalScore += pop[i].fitness * float64(len(pop) - i)
-	}
-
-	r := rand.Float64() * totalScore
-
-	tmpScore := 0.0
-
-	//select parent 1
-	for i, p := range pop {
-		tmpScore += p.fitness * float64(len(pop) - i)
-
-		if totalScore - tmpScore < r {
-			p1 = i
-			p2 = p1
-			break
-		}
-	}
-
-	//select different parent for parent 2
-	for p2 == p1 {
-		r := rand.Float64() * totalScore
-
-		tmpScore := 0.0
-
-		for i, p := range pop {
-			tmpScore += p.fitness * float64(len(pop) - i)
-
-			if totalScore - tmpScore < r {
-				p2 = i
-				break
-			}
-		}
-	}
-
-	return p1, p2
-}
-
+//used to find Pareto ranks for the population (pop)
 func setPareto(pop []permutation) []permutation {
 	for i := range pop {
 		pop[i].pareto = 1
@@ -729,6 +570,7 @@ func setPareto(pop []permutation) []permutation {
 	return front
 }
 
+//helper function for finding Pareto rank
 func incPareto(pop []permutation, dom [][]int, index int) {
 	for i := 0; i < len(dom[index]); i++ {
 		if pop[index].pareto >= pop[dom[index][i]].pareto{
@@ -738,6 +580,7 @@ func incPareto(pop []permutation, dom [][]int, index int) {
 	}
 }
 
+//selects parent indices proportionally based on the Pareto rank
 func proportionPareto(pop []permutation) (int, int) {
 	p1 := -1
 	p2 := -1
@@ -780,6 +623,7 @@ func proportionPareto(pop []permutation) (int, int) {
 // end ea
 
 
+//runs the program and EA, outputs a sorted list of pareto front.
 func main() {
 	rand.Seed(1)
 
@@ -794,75 +638,4 @@ func main() {
 			front[i].assignment, front[i].fitness, front[i].fitness2)
 		fmt.Println(front[i].finalMetal, "\n")
 	}
-
-	// reader := bufio.NewReader(os.Stdin)
-	// _, _ = reader.ReadString('\n')
-
-	// pop := make([]permutation, 256)
-
-	// tmpGuarantee := make(chan bool, len(pop))
-	// go eat(tmpGuarantee)
-	// i := 0
-	// 	// pop[i].genPermutation()
-	// for a := 1; a <= 4; a++ {
-	// 	for b := 1; b <= 4; b++ {
-	// 		for c := 1; c <= 4; c++ {
-	// 			for d := 1; d <= 4; d++ {
-	// 				// perm.assignment = make([]int, 4)
-	// 				pop[i].assignment = []int{a,b,c,d}
-	// 				pop[i].getFitness(tmpGuarantee);i++
-	// 			}
-	// 		}
-	// 	}
-	// }
-
-	// _ = setPareto(pop)
-
-	// sort.Sort(byScore(pop))
-	// // for _ = range pop {
-	// // 	_ = <- tmpGuarantee
-	// // }
-
-	// p, err := plot.New()
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// // leg, err := plot.NewLegend()
-	// p.Title.Text = "Pareto Front"
-	// p.X.Label.Text = "Accuracy"
-	// p.Y.Label.Text = "Affordability"
-	// p.Add(plotter.NewGrid())
-
-	// pts := make(plotter.XYs, len(pop))
-	// for i := range pts {
-	// 	pts[i].X = pop[i].fitness
-	// 	pts[i].Y = pop[i].fitness2
-	// }
-
-	// s, err := plotter.NewScatter(pts)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// s.Color = color.RGBA{R: 255, G: 0, B: 0, A: 255}
-	
-	// p.Add(s)
-	// // p.Legend.Add("Final Best", lpLine, lpPoints)
-	// // p.Legend.Top = true
-
-	// if err := p.Save(6*vg.Inch, 6*vg.Inch, "all.png"); err != nil {
-	// 	panic(err)
-	// }
-
-	// for i := 0; i < len(pop); i++ {
-	// 	fmt.Printf("i: %v perm %v accuracy %v affordability %v\n", i,
-	// 		pop[i].assignment, pop[i].fitness, pop[i].fitness2)
-	// 	fmt.Println(pop[i].finalMetal)
-	// 	fmt.Printf("Pareto: %v\n\n", pop[i].pareto)
-	// }
 }
-
-// func eat(guarantee chan bool) {
-// 	for _ = range guarantee {
-// 		_ = <- guarantee
-// 	}
-// }

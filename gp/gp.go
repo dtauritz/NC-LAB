@@ -128,12 +128,14 @@ type Node struct {
 	right	*Node
 }
 
+//initializes tree node
 func NodeDefaultConstructor() (*Node) {
 	n := &Node{}
 
 	return n
 }
 
+//generates a tree of fixed size and equal balance
 func NodeConstructor(depth, numinputs int, keywords []string) (*Node) {
 	n := NodeDefaultConstructor()
 	if depth <= 1 {
@@ -162,6 +164,7 @@ func NodeConstructor(depth, numinputs int, keywords []string) (*Node) {
 	return n
 }
 
+//generates a tree of random size and balance
 func NodeGrowConstructor(depth, size, numinputs int, keywords []string) (*Node) {
 	n := NodeDefaultConstructor()
 	
@@ -199,10 +202,12 @@ func NodeGrowConstructor(depth, size, numinputs int, keywords []string) (*Node) 
 	return n
 }
 
+//GP variables for population sizes and modifier chances
 var mu = 100
 var lamda = 50
 var recombRate = .3
 var mutateRate = .2
+
 
 func runGp(depth, numInputs int, keywords []string, materials [][]metal, goal string) (string, float64) {
 	pop := make([]individual, mu)
@@ -275,64 +280,61 @@ func runGp(depth, numInputs int, keywords []string, materials [][]metal, goal st
 	return bestInd.eq.toString(), (bestInd.fitness - bestInd.treeDepth())
 }
 
+//calculates fitness on sum squared error from multiple material combinations
 func (ind *individual) getFitness(materials [][]metal, goal string, guarantee chan bool) {
 	ind.fitness = 0.0
-	// counter := 1
 
 	for mx1 := range materials {
 	for mx2 := range materials {
-		// if mx1 != mx2 {
-			for my1 := range materials[mx1] {
-			for my2 := range materials[mx2] {
-				mat1 := materials[mx1][my1]
-				mat2 := materials[mx2][my2] 
-				
-				parameters := make(map[string]interface{})
+		for my1 := range materials[mx1] {
+		for my2 := range materials[mx2] {
+			mat1 := materials[mx1][my1]
+			mat2 := materials[mx2][my2] 
+			
+			parameters := make(map[string]interface{})
 
-				for k,v := range mat1.attributes {
-					tmp := "v0" + k
-					parameters[tmp] = v
-				}
-				for k,v := range mat2.attributes {
-					tmp := "v1" + k
-					parameters[tmp] = v
-				}
-
-				expression, err := govaluate.NewEvaluableExpression(ind.eq.toString())
-				if err != nil {
-					panic(err)
-				}
-				tmp, err := expression.Evaluate(parameters)
-				if err != nil {
-					panic(err)
-				}
-				have := tmp.(float64)
-
-				expression, err = govaluate.NewEvaluableExpression(goal)
-				if err != nil {
-					panic(err)
-				}
-				tmp, err = expression.Evaluate(parameters)
-				if err != nil {
-					panic(err)
-				}
-				want := tmp.(float64)
-
-				//SSE
-				ind.fitness += math.Pow(want - have, 2.0)
-				// counter++
+			for k,v := range mat1.attributes {
+				tmp := "v0" + k
+				parameters[tmp] = v
 			}
+			for k,v := range mat2.attributes {
+				tmp := "v1" + k
+				parameters[tmp] = v
 			}
-		// }
+
+			expression, err := govaluate.NewEvaluableExpression(ind.eq.toString())
+			if err != nil {
+				panic(err)
+			}
+			tmp, err := expression.Evaluate(parameters)
+			if err != nil {
+				panic(err)
+			}
+			have := tmp.(float64)
+
+			expression, err = govaluate.NewEvaluableExpression(goal)
+			if err != nil {
+				panic(err)
+			}
+			tmp, err = expression.Evaluate(parameters)
+			if err != nil {
+				panic(err)
+			}
+			want := tmp.(float64)
+
+			//SSE
+			ind.fitness += math.Pow(want - have, 2.0)
+		}
+		}
 	}
 	}
-	// ind.fitness /= float64(counter)
 
 	ind.fitness += ind.treeDepth()
 
 	guarantee <- true
 }
 
+//selects parent indices via proportional fitness selection
 func proportionSelect(pop []individual) (int, int) {
 	p1 := -1
 	p2 := -1
@@ -377,7 +379,7 @@ func proportionSelect(pop []individual) (int, int) {
 	return p1, p2
 }
 
-
+//makes a new individual through graph recombinaation
 func (kid *individual) recombination(parent1 individual, parent2 individual, depth, numinputs int, keywords []string, guarantee chan bool) {
 	choices := []*Node{}
 	var point1 *Node
@@ -427,6 +429,7 @@ func (kid *individual) recombination(parent1 individual, parent2 individual, dep
 	guarantee <- true
 }
 
+//mutates an individual
 func (kid *individual) mutation(depth, numinputs int, keywords []string) {
 	if rand.Float64() < mutateRate {
 		choices := kid.getNodes()
@@ -493,13 +496,13 @@ func fancyStringify(n *Node, level int) {
 }
 //end gp
 
-
+//runs program, generates random equations and then tries to approximate the 
+//equations via GP
 func main() {
 	keywords := []string{"hardness","hardVariance","corrosion","corrVariance","conductivity","condVariance"}
 	depth := 4
 	numinputs := 2
 	files := []string{"plating.txt", "smelting.txt", "condTreat.txt"}
-	// files := []string{"plating.txt"}
 	genEq.CreateFiles(keywords, files, depth, numinputs)
 
 	//generate materials for testing

@@ -113,34 +113,9 @@ func check(e error) {
 	}
 }
 
-
-// func main() {
-//     rand.Seed(time.Now().UTC().UnixNano())
-// 	keywords := []string{"hardness","hardVariance","corrosion","corrVariance","conductivity","condVariance"}
-// 	depth := 3
-// 	numinputs := 2
-// 	files := []string{"plating.txt","smelting.txt","condTreat.txt"}
-
-// 	for _, file := range files {
-// 		f, err := os.Create(file)
-// 		check(err)
-// 		for _, key := range keywords {
-// 			_, err = f.WriteString(key + "\n")
-		
-// 			eq := genEquation(depth, numinputs, keywords)
-		
-// 			_, err = f.WriteString(eq.toString() + "\n")
-// 		}
-// 		f.Close()
-// 	}
-// }
-
+//creates random transformation function files, based on the parameters
 func CreateFiles(keywords, files []string, depth, numinputs int) {
     rand.Seed(time.Now().UTC().UnixNano())
-	// keywords := []string{"hardness","hardVariance","corrosion","corrVariance","conductivity","condVariance"}
-	// depth := 3
-	// numinputs := 2
-	// files := []string{"plating.txt","smelting.txt","condTreat.txt"}
 
 	for _, file := range files {
 		f, err := os.Create(file)
