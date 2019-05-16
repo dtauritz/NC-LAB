@@ -1,0 +1,178 @@
+\begin{thebibliography}{31}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Burke et~al.(2006)Burke, Hyde, and Kendall}]{burke2006binpacking}
+Burke EK, Hyde MR, Kendall G (2006) {Evolving Bin Packing Heuristics with
+  Genetic Programming}. In: {Parallel Problem Solving From Nature-ppsn Ix},
+  Springer, pp 860--869
+
+\bibitem[{Burke et~al.(2009)Burke, Hyde, Kendall, Ochoa, Ozcan, and
+  Woodward}]{burke2009exploring}
+Burke EK, Hyde MR, Kendall G, Ochoa G, Ozcan E, Woodward JR (2009) {Exploring
+  Hyper-heuristic Methodologies with Genetic Programming}. In: {Computational
+  Intelligence}, Springer, pp 177--201
+
+\bibitem[{Burke et~al.(2010)Burke, Hyde, Kendall, and
+  Woodward}]{burke2010strippacking}
+Burke EK, Hyde M, Kendall G, Woodward J (2010) {A Genetic Programming
+  Hyper-heuristic Approach for Evolving 2-d Strip Packing Heuristics}. IEEE
+  Transactions on Evolutionary Computation 14(6):942--958
+
+\bibitem[{Burke et~al.(2012)Burke, Hyde, and
+  Kendall}]{burke2012localHeuristics}
+Burke EK, Hyde MR, Kendall G (2012) {Grammatical Evolution of Local Search
+  Heuristics}. {IEEE Transactions on Evolutionary Computation} 16(3):406--417
+
+\bibitem[{Burke et~al.(2013)Burke, Gendreau, Hyde, Kendall, Ochoa, {\"O}zcan,
+  and Qu}]{burke2013HHstateoftheart}
+Burke EK, Gendreau M, Hyde M, Kendall G, Ochoa G, {\"O}zcan E, Qu R (2013)
+  {Hyper-heuristics: A Survey of the State of the Art}. {Journal of the
+  Operational Research Society} 64(12):1695--1724
+
+\bibitem[{Eiben et~al.(1999)Eiben, Hinterding, and
+  Michalewicz}]{eiben1999parameter}
+Eiben {\'A}E, Hinterding R, Michalewicz Z (1999) {Parameter Control in
+  Evolutionary Algorithms}. {IEEE Transactions on Evolutionary Computation}
+  3(2):124--141
+
+\bibitem[{Garrido and Riff(2010)}]{garrido2010vehicleRouting}
+Garrido P, Riff MC (2010) {DVRP: a Hard Dynamic Combinatorial Optimisation
+  Problem Tackled By An Evolutionary Hyper-heuristic}. {Journal of Heuristics}
+  16(6):795--834
+
+\bibitem[{Goldman and Tauritz(2011)}]{goldman2011scc}
+Goldman BW, Tauritz DR (2011) {Self-configuring Crossover}. In: {Proceedings of
+  the 13th Annual Conference Companion on Genetic and Evolutionary
+  Computation}, ACM, pp 575--582
+
+\bibitem[{Guntly and Tauritz(2011)}]{guntly2011limp}
+Guntly LM, Tauritz DR (2011) {Learning Individual Mating Preferences}. In:
+  {Proceedings of the 13th Annual Conference on Genetic and Evolutionary
+  Computation}, ACM, pp 1069--1076
+
+\bibitem[{Hansen and Ostermeier(1996)}]{hansen1996cmaes}
+Hansen N, Ostermeier A (1996) {Adapting Arbitrary Normal Mutation Distributions
+  in Evolution Strategies: The Covariance Matrix Adaptation}. In: Evolutionary
+  Computation, 1996., Proceedings of IEEE International Conference on, IEEE, pp
+  312--317
+
+\bibitem[{Hansen et~al.(2016)Hansen, Auger, Mersmann, Tu{\v s}ar, and
+  Brockhoff}]{cocobbob}
+Hansen N, Auger A, Mersmann O, Tu{\v s}ar T, Brockhoff D (2016) {COCO: A
+  Platform for Comparing Continuous Optimizers in a Black-Box Setting}. {ArXiv
+  e-prints} arXiv:1603.08785
+
+\bibitem[{Harris et~al.(2015)Harris, Bueter, and
+  Tauritz}]{harris2015comparison}
+Harris S, Bueter T, Tauritz DR (2015) {A Comparison of Genetic Programming
+  Variants for Hyper-heuristics}. In: {Proceedings of the Companion Publication
+  of the 2015 Annual Conference on Genetic and Evolutionary Computation}, ACM,
+  pp 1043--1050
+
+\bibitem[{Hong et~al.(2013)Hong, Woodward, Li, and
+  {\"O}zcan}]{hong2013probMutation}
+Hong L, Woodward J, Li J, {\"O}zcan E (2013) {Automated Design of Probability
+  Distributions as Mutation Operators for Evolutionary Programming Using
+  Genetic Programming}. In: {European Conference on Genetic Programming},
+  Springer, pp 85--96
+
+\bibitem[{Igel et~al.(2006)Igel, Suttorp, and Hansen}]{igel2006cmaes1plus1}
+Igel C, Suttorp T, Hansen N (2006) {A Computational Efficient Covariance Matrix
+  Update and a (1+ 1)-CMA For Evolution Strategies}. In: Proceedings of the 8th
+  annual conference on Genetic and evolutionary computation, ACM, pp 453--460
+
+\bibitem[{Jastrebski and Arnold(2006)}]{jastrebski2006activecmaes}
+Jastrebski GA, Arnold DV (2006) {Improving Evolution Strategies Through Active
+  Covariance Matrix Adaptation}. In: Evolutionary Computation, 2006. CEC 2006.
+  IEEE Congress on, IEEE, pp 2814--2821
+
+\bibitem[{KhudaBukhsh et~al.(2009)KhudaBukhsh, Xu, Hoos, and
+  Leyton-Brown}]{khudabukhsh2009satenstein}
+KhudaBukhsh AR, Xu L, Hoos HH, Leyton-Brown K (2009) {SATenstein: Automatically
+  Building Local Search SAT Solvers from Components"}. In: Twenty-first
+  International Joint Conference on Artificial Intelligence (IJCAI-09), pp
+  517--524
+
+\bibitem[{Koza(1994)}]{koza1994genetic}
+Koza JR (1994) {Genetic Programming as a Means for Programming Computers By
+  Natural Selection}. {Statistics and Computing} 4(2):87--112
+
+\bibitem[{Krasnogor and Gustafson(2004)}]{krasnogor2004memetic}
+Krasnogor N, Gustafson S (2004) {A Study on the Use of ``Self-Generation'' in
+  Memetic Algorithms}. Natural Computing 3(1):53--76
+
+\bibitem[{Lopez-Ibanez and Stutzle(2012)}]{lopez2012antcol}
+Lopez-Ibanez M, Stutzle T (2012) {The Automatic Design of Multiobjective Ant
+  Colony Optimization Algorithms}. {IEEE Transactions on Evolutionary
+  Computation} 16(6):861--875
+
+\bibitem[{Louren{\c{c}}o et~al.(2013)Louren{\c{c}}o, Pereira, and
+  Costa}]{lourencco2013selection}
+Louren{\c{c}}o N, Pereira F, Costa E (2013) {Learning Selection Strategies for
+  Evolutionary Algorithms}. In: {International Conference on Artificial
+  Evolution (evolution Artificielle)}, Springer, pp 197--208
+
+\bibitem[{Martin and Tauritz(2013)}]{martin2013evolvingBBSA}
+Martin MA, Tauritz DR (2013) {Evolving Black-box Search Algorithms Employing
+  Genetic Programming}. In: {Proceedings of the 15th Annual Conference
+  Companion on Genetic and Evolutionary Computation}, ACM, pp 1497--1504
+
+\bibitem[{Maturana et~al.(2010)Maturana, Lardeux, and
+  Saubion}]{maturana2010autonomous}
+Maturana J, Lardeux F, Saubion F (2010) {Autonomous Operator Management for
+  Evolutionary Algorithms}. {Journal of Heuristics} 16(6):881--909
+
+\bibitem[{Remde et~al.(2012)Remde, Cowling, Dahal, Colledge, and
+  Selensky}]{remde2012empirical}
+Remde S, Cowling P, Dahal K, Colledge N, Selensky E (2012) {An Empirical Study
+  of Hyperheuristics for Managing Very Large Sets of Low Level Heuristics}.
+  {Journal of the Operational Research Society} 63(3):392--405
+
+\bibitem[{Richter(2019)}]{richter2019thesis}
+Richter S (2019) {Evolved Parameterized Selection for Evolutionary Algorithms}.
+  Master's thesis, Missouri University of Science and Technology
+
+\bibitem[{Richter and Tauritz(2018)}]{richter2018adpsea}
+Richter SN, Tauritz DR (2018) {The Automated Design of Probabilistic Selection
+  Methods for Evolutionary Algorithms}. In: {Proceedings of the Genetic and
+  Evolutionary Computation Conference Companion}, ACM, pp 1545--1552
+
+\bibitem[{Scott and Bassett(2015)}]{scott2015geneticRepresentations}
+Scott EO, Bassett JK (2015) {Learning Genetic Representations for Classes of
+  Real-valued Optimization Problems}. In: {Proceedings of the Companion
+  Publication of the 2015 Annual Conference on Genetic and Evolutionary
+  Computation}, ACM, pp 1075--1082
+
+\bibitem[{Wolpert et~al.(1995)Wolpert, Macready
+  et~al.}]{wolpert1995noFreeLunch}
+Wolpert DH, Macready WG, et~al. (1995) {No Free Lunch Theorems for Search}.
+  Tech. rep., Technical Report SFI-TR-95-02-010, Santa Fe Institute
+
+\bibitem[{Woodward(2010)}]{woodward2010metaBias}
+Woodward JR (2010) {The Necessity of Meta Bias in Search Algorithms}. In:
+  {Computational Intelligence and Software Engineering (cise), 2010
+  International Conference On}, IEEE, pp 1--4
+
+\bibitem[{Woodward and Bai(2009)}]{woodward2009GPNotGood}
+Woodward JR, Bai R (2009) {Why Evolution Is Not a Good Paradigm for Program
+  Induction: A Critique of Genetic Programming}. In: {Proceedings of the First
+  Acm/sigevo Summit on Genetic and Evolutionary Computation}, ACM, pp 593--600
+
+\bibitem[{Woodward and Swan(2011)}]{woodward2011selection}
+Woodward JR, Swan J (2011) {Automatically Designing Selection Heuristics}. In:
+  {Proceedings of the 13th Annual Conference Companion on Genetic and
+  Evolutionary Computation}, ACM, pp 583--590
+
+\bibitem[{Woodward and Swan(2012)}]{woodward2012mutationGeneration}
+Woodward JR, Swan J (2012) {The Automatic Generation of Mutation Operators for
+  Genetic Algorithms}. In: {Proceedings of the 14th Annual Conference Companion
+  on Genetic and Evolutionary Computation}, ACM, pp 67--74
+
+\end{thebibliography}
