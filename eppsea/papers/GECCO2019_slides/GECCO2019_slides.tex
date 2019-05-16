@@ -12,8 +12,8 @@
 \title[Evolving Mean-Update Selection Methods for CMA-ES]
 {Evolving Mean-Update Selection Methods for CMA-ES}
  
-\author[Richter, Samuel \& Tauritz, Daniel] % (optional, for multiple authors)
-{Samuel Richter (snr359@mst.edu) \\Daniel Tauritz (dtauritz@acm.org)}
+\author[Richter, Samuel et al.] % (optional, for multiple authors)
+{Samuel Richter (snr359@mst.edu) \\Daniel Tauritz (dtauritz@acm.org) \\Michael Schoen (ms778@mst.edu)}
  
 \institute % (optional)
 {
@@ -65,7 +65,7 @@
 		
 		\begin{itemize}
 			 \item<1-|alert@1> We use a two-part structure to represent a selection function
-			 \item<2-|alert@2> The first part is a GP-Tree encoding a real-valued function of each point's fitness, fitness ranking, and other metrics, returning a "desirability" score for each point
+			 \item<2-|alert@2> The first part is a GP-Tree encoding a real-valued function of each point's fitness, fitness ranking, and other metrics, returning a ``desirability'' score for each point
 			 \item<3-|alert@3> The second part is a final selection step that selects points based on their desirability scores
 			 
 		
@@ -79,6 +79,156 @@
 			\includegraphics[height=0.6\textheight]{example_eppsea_nolabel}
 		\end{center}
 	\end{frame}
+
+	\begin{frame}
+	\frametitle{GP-Tree Operators}
+	\begin{table}
+		\centering
+		\label{tab:gp-operators}
+		\small
+		\begin{tabular}{cc|p{6cm}}
+			\hline
+			Operator & Operands & Description\\
+			\hline
+			$+$ & 2 & Adds the left and right operands. \\
+			\hline
+			$-$ & 2 & Subtracts the right operand from the left operand.\\    
+			\hline
+			$\times$ & 2 & Multiplies the left and right operands.\\  
+			\hline
+			$/$ & 2 & Divides the left operand by the right operand. If the right operand is 0, the left operand is instead divided by a very small number, returning a large number while preserving the sign of the left operand.\\      
+			\hline
+			Min & 2 & Returns the minimum of the left and right operands.\\
+			\hline
+			Max & 2 & Returns the maximum of the left and right operands.\\  
+			
+			\hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{GP-Tree Operators}
+\begin{table}
+	\centering
+	\label{tab:gp-operators}
+	\small
+	\begin{tabular}{cc|p{6cm}}
+		\hline
+		Operator & Operands & Description\\
+		\hline
+		Step & 2 & Returns 1 if the left operand is greater than or equal to the right operand, and 0 otherwise.\\
+		\hline
+		Absolute Value & 1 & Returns the absolute value of the operand.\\    
+		
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}
+	
+\begin{frame}
+\frametitle{GP-Tree Terminals}
+
+\begin{table}
+	\centering
+	\label{tab:gp-terminals}
+	\begin{tabular}{c|p{6cm}}
+		\hline
+		Terminal & Description\\
+		\hline
+		Fitness &  The individual's fitness value. \\
+		\hline
+		Fitness Rank &  The individual's index in a list of the population members sorted by fitness, increasing. \\    
+		\hline
+		Relative Fitness &  The individual's fitness value divided by the sum of all fitness values in the population. \\
+		\hline
+		Birth Generation &  The generation number that the individual first appeared in the population. \\    
+		\hline
+		Relative Uniqueness &  The Cartesian distance between the individual's genome and the centroid of all genomes in the population. \\             
+		\hline
+		\end{tabular}
+\end{table}
+\end{frame}	
+	
+\begin{frame}
+\frametitle{GP-Tree Terminals}
+
+\begin{table}
+	\centering
+	\label{tab:gp-terminals}
+	\begin{tabular}{c|p{6cm}}
+		\hline
+		Terminal & Description\\
+		\hline
+		Population Size &  The number of individuals in the population. \\
+		\hline
+		Min Fitness &  The smallest fitness value in the population. \\
+		\hline
+		Max Fitness &  The largest fitness value in the population. \\ 
+		\hline
+		Sum Fitness &  The sum of all fitness values in the population. \\
+		\hline
+		Generation Number &  The number of generations of individuals that have been evaluated since the beginning of evolution. \\
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}		
+
+\begin{frame}
+\frametitle{GP-Tree Terminals}
+\begin{table}
+	\centering
+	\label{tab:gp-terminals}
+	\begin{tabular}{c|p{6cm}}
+		\hline
+		Terminal & Description\\
+		\hline
+		Constant &  A constant number, which is generated from a uniform selection within a configured range when the selection function is generated and held constant for the entire lifetime of the selection function. \\
+		\hline
+		Random &  A random number, which is generated from a uniform selection within a configured range every time selection is performed. \\                
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}
+	
+\begin{frame}
+\frametitle{Selection Methods}
+\begin{table}
+	\centering
+	\label{tab:selection_methods}
+	\begin{tabular}{c|p{5cm}}
+		\hline
+		Method & Description\\
+		\hline
+		Proportional-Replacement & A weighted random selection, with each individual's weight equal to its desirability score. \\
+		\hline
+		Proportional-No-Replacement & As with Proportional-Replacement, but an individual is removed from the selection pool after being selected.\\
+		\hline
+		\textit{k}-Tournament-Replacement& A random subset of \textit{k} individuals is considered, and the individual with the highest desirability score in the subset is selected. \\
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Selection Methods}
+\begin{table}
+	\centering
+	\label{tab:selection_methods}
+	\begin{tabular}{c|p{5cm}}
+		\hline
+		Method & Description\\
+		\hline
+		\textit{k}-Tournament-No-Replacement & As with \textit{k}-Tournament-Replacement, but an individual is removed from the selection pool after being selected.\\
+		\hline
+		Truncation & Individuals with the highest desirability score are selected, with no individual being selected more than once. \\
+		\hline
+		Stochastic-Universal-Sampling & Individuals are chosen at evenly spaced intervals of their desirability scores. \\
+		
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}	
 	
 	\begin{frame}
 		\frametitle{Meta-EA}
@@ -86,10 +236,31 @@
 		\begin{itemize}
 			 \item<1-|alert@1> We use a meta-EA to search through the space of possible mean-update selection functions
 			 \item<2-|alert@2> Koza-style GP is used to evolve the trees, with an extra gene encoding the final selection step and any parameters to it	 
-			 \item<3-|alert@3> Each run of the meta-EA targets one of the 24 noiseless test functions in the Comparing Continuous Optimizers function set
+			 \item<3-|alert@3> Each run of the meta-EA targets one of the 24 noiseless test function classes in the Comparing Continuous Optimizers (COCO) function set
  			 \item<4-|alert@4> Dimensions of 2, 3, 5, and 10 are used, each with their own meta-EA
 		\end{itemize}
 	\end{frame}
+
+	\begin{frame}
+\frametitle{Meta-EA}
+\centering
+COCO Function Class \#15: Rastrigin Function
+\includegraphics[height=0.8\textheight]{rastrigin_landscape}
+\end{frame}	
+
+\begin{frame}
+\centering	
+\frametitle{Meta-EA}
+COCO F. C. \#21: Gallagher's Gaussian 101-me Peaks Function
+\includegraphics[height=0.8\textheight]{gallagher_landscape}
+\end{frame}		
+
+\begin{frame}
+\centering	
+\frametitle{Meta-EA}
+COCO F. C. \#23: Katsuura Function
+\includegraphics[height=0.8\textheight]{katsuura_landscape}
+\end{frame}	
 
 	\begin{frame}
 		\frametitle{Meta-EA}
@@ -107,8 +278,8 @@
 		\frametitle{Meta-EA Parameters}
 		\begin{table}
 			\small
-			\begin{tabular}{ c | c | }
-			
+			\begin{tabular}{ c | c }
+				\hline
 				Parameter& Value\\
 				\hline
 				Population Size & 40 \\
@@ -137,7 +308,8 @@
 				\hline
 				Number of Runs (Training) & 5 \\
 				\hline
-				Number of Runs (Testing) & 200\\	
+				Number of Runs (Testing) & 200\\
+				\hline	
 			\end{tabular}
 		\end{table}
 	\end{frame}
@@ -150,6 +322,58 @@
 			\item<3-|alert@3> For function class 12, success rate increased from $44\%$ to $100\%$ 
 			\item<4-|alert@4> Very few cases where the tuned CMA-ES performs worse, and only $7.4\%$ worse at worst			
 			\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Results: Selected Examples}
+		\begin{table}
+			\centering
+			Percentage of Runs Solved By Unmodified CMA-ES/Modified CMA-ES, averaged over all instances (selected examples)
+			\label{tab:experiment3Results}
+			\small
+			\begin{tabular}{c|c|c}
+				\hline
+				F. C. & D=2 & D=3\\
+				\hline
+				\hline
+				4 &  3.3\% $\rightarrow$ 32.15\%  &  0.25\% $\rightarrow$ 0.15\% \\
+				\hline	
+				6 &  100.0\% $\rightarrow$ 100.0\%  &  100.0\% $\rightarrow$ 100.0\%  \\
+				\hline					
+				12 &  100.0\% $\rightarrow$ 99.55\%  &  100.0\% $\rightarrow$ 99.5\%  \\
+				\hline
+				14 &  100.0\% $\rightarrow$ 100.0\%  &  100.0\% $\rightarrow$ 100.0\%   \\
+				\hline				
+				21 &  27.65\% $\rightarrow$ 56.8\%  &  28.7\% $\rightarrow$ 55.4\%  \\
+				\hline
+				24 &  1.45\% $\rightarrow$ 1.6\%  &  0.3\% $\rightarrow$ 0.1\%  \\
+				
+				\hline
+			\end{tabular}
+		\end{table}
+		\begin{table}
+	\small
+	\begin{tabular}{c|c|c}
+		\hline
+		F. C. & D=5 & D=10\\
+		\hline
+		\hline
+		4 &  0.0\% $\rightarrow$ 0.0\%  &  0.0\% $\rightarrow$ 0.0\% \\
+		\hline	
+		6 & 100.0\% $\rightarrow$ 99.1\%  &  0.0\% $\rightarrow$ 96.0\% \\
+		\hline					
+		12  &  100.0\% $\rightarrow$ 99.85\%  &  44.05\% $\rightarrow$ 44.05\% \\
+		\hline
+		14 &  100.0\% $\rightarrow$ 100.0\%  &  100.0\% $\rightarrow$ 100.0\% \\
+		\hline				
+		21 &  3.3\% $\rightarrow$ 36.05\%  &  36.0\% $\rightarrow$ 28.6\% \\
+		\hline
+		24 & 0.0\% $\rightarrow$ 0.0\%  &  0.0\% $\rightarrow$ 0.0\% \\
+		
+		\hline
+	\end{tabular}
+\end{table}	
+	
 	\end{frame}
 	
 	\begin{frame}
