@@ -770,7 +770,7 @@ if __name__ == '__main__':
     config_paths = sys.argv[1:]
 
     for config_path in config_paths:
-        for i in range(10):
+        for i in range(30):
             try:
                 main(config_path)
             except Exception as e:
