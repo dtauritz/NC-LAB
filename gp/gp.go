@@ -205,7 +205,7 @@ func NodeGrowConstructor(depth, size, numinputs int, keywords []string) (*Node) 
 //GP variables for population sizes and modifier chances
 var mu = 100
 var lamda = 50
-var recombRate = .3
+var recombRate = 1.0
 var mutateRate = .2
 
 

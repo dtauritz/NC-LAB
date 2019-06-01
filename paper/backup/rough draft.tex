@@ -8,7 +8,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 \title{The Automated Modeling and Optimization of Part DNA Substructures Employing Evolutionary Computation (May 2019)}
-\author{Daniel Tauritz, Bailey Eversmeyer, KC-NSC Lab}
+\author{Daniel Tauritz, Jagannathan Sarangapani, Bailey Eversmeyer, National Security Campus}
 
 \maketitle
 
@@ -23,8 +23,12 @@ Evolutionary computation, Genetic algorithms, Part DNA, Product DNA
 \section{Introduction}
 The goal of a Part DNA system is to model and map the flow of goods and products through an area and track the changes as each component moves through the system. The Part DNA system allows the user to identify relationships between components, to conduct analyses on the system: how changes affect the quality or cost of the system \cite{b1}. Our goal in this project is to break down a Part DNA model into key substructures, and optimize the input-output relationship based on quality and cost. We will be using Evolutionary Computation (EC) strategies to help with modeling and optimizing the substructures.
 
+[NSC or Jag explanation of part DNA]
+
 \section{Modeling the Problem}
 Given a Part DNA substructure (e.g., a production line), the process of composing products with desired characteristics (e.g., thickness with target tolerance) from source components can be represented as a set of functions that take the input component attributes and their tolerances and produce the output product attributes with their tolerances. Assuming we have perfectly accurate sets of functions, we can simulate using different components to predict the final output component attributes and compare them to the desired results.
+
+[NSC or Jag explanation of the real world modeling]
 
 \section{Computational Challenges}
 In order to provide the Decision Maker (DM) with a Pareto-optimal trade-off surface, the Part DNA components to be optimized need to be modeled appropriately for the application of a multi-objective optimizer. An example is trading off cost for output component attribute variation (e.g., cheaper input components may be expected to generally lead to higher variation in the attributes of the output component). A sufficiently high fidelity model is needed in order to accurately test new input component combinations without disrupting the current production lines. The computational challenges are:
@@ -44,6 +48,14 @@ We propose the following computational approaches to address the computational c
 \caption{The above diagram illustrates our modeling approach. Imagine for instance that this example is for creating two types of electrical wire. Red indicates the general durability attribute, green for conductivity, and blue for malleability. The hue indicates a user-defined aspect of a particular component attribute, for instance variation. A darker color designates a lower value, for instance less variation, which is typically associated with higher quality. The different color hues in the diagram demonstrate some of the possible attribute-transformation-interactions, where nonlinear effects between input attributes may translate to the output attributes.}
 \label{fig1}
 \end{figure}
+
+\section{EC Background}
+\subsection{GP Background}
+
+\subsection{EA Background}
+
+\subsection{MOEA Background}
+
 \section{Methodology}
 \subsection{Part-DNA Model}
 We designed our Part-DNA Model on the principle of taking input components and performing some form of transformation on the input components' attributes and producing an output component. The whole process consisting of a set of transformations based on the list of input and intermediate components leading to a final set of output components. For the purposes of testing, we created two subsets of data for the input component attributes and transformation functions:
@@ -61,7 +73,10 @@ As for the MOEA portion, in a real world scenario; the input parameters, as well
 \subsection{GP}
 For this problem, we used a binary tree representation to generate our goal functions and to evolve approximations to those functions. We generated leaf nodes from one of the following groups: one of the attributes from any input component, or a constant number, real valued or discrete. Non-leaf nodes used the addition, subtraction, and multiplication operands. For testing the accuracy of the evolved solutions, the fitness was calculated as the sum squared error (SSE) across 64 combinations of input components with an addition of max tree depth to encourage consice representations.
 \begin{equation} \label{eq:1}
-fitness=(penaltyfactor)*treedepth + \sum (expected-result)^{2}
+\begin{split}
+fitness=(penaltyfactor)*treedepth \\
++ \sum (expected-result)^{2}
+\end{split}
 \end{equation}
 %Equation \ref{eq:1} shows the fitness function written out.
 
