@@ -125,6 +125,17 @@ class GPNode:
                 nodes.extend(c.get_all_nodes())
         return nodes
 
+    def get_rest_of_edit_distance(self, depth):
+        # returns the edit distance assuming all all nodes do not match
+        nodes = []
+        nodes.append(self)
+        child_sum = 0
+        if self.children is not None:
+            for c in self.children:
+                child_sum = child_sum + c.get_rest_of_edit_distance(depth + 1)
+
+        return child_sum + 1
+
     def get_all_nodes_depth_limited(self, depth_limit):
         # returns a list of all nodes down to a certain depth limit
         nodes = []
@@ -508,6 +519,8 @@ class GPTree:
             self.tournament_size = min(self.tournament_size, self.selection_parameters['maximum_tournament_size'])
         else:
             self.tournament_size = min(self.tournament_size, self.selection_parameters['maximum_tournament_no_replacement_size'])
+
+
 
     def get(self, terminal_values):
         # evaluates the entire GP tree for an entire array of inputs
