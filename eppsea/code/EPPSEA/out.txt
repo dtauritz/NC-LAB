@@ -1,0 +1,85 @@
+Now starting EPPSEA
+2019/06/29 20:49:52| INFO: Using config file config/base_config/cmaes_d2.cfg
+2019/06/29 20:49:52| INFO: Using random seed 1561859392
+2019/06/29 20:49:52| INFO: Starting evolution
+Reporting results from EPPSEA generation 0
+	Fitness assigned to EPPSEA member: 1.0
+0.0
+	Fitness assigned to EPPSEA member: 0.0
+5.75
+	Fitness assigned to EPPSEA member: 1.0
+6.0
+	Fitness assigned to EPPSEA member: 0.4
+2.25
+	Fitness assigned to EPPSEA member: 1.0
+6.1875
+	Fitness assigned to EPPSEA member: 1.0
+6.125
+	Fitness assigned to EPPSEA member: 1.0
+6.3125
+	Fitness assigned to EPPSEA member: 0.68
+7.5
+	Fitness assigned to EPPSEA member: 1.0
+6.9375
+	Fitness assigned to EPPSEA member: 1.0
+6.75
+	Fitness assigned to EPPSEA member: 0.96
+5.8125
+	Fitness assigned to EPPSEA member: 0.0
+4.25
+	Fitness assigned to EPPSEA member: 1.0
+7.75
+	Fitness assigned to EPPSEA member: 1.0
+4.25
+	Fitness assigned to EPPSEA member: 0.0
+7.25
+	Fitness assigned to EPPSEA member: 1.0
+4.3125
+	Fitness assigned to EPPSEA member: 0.0
+5.75
+	Fitness assigned to EPPSEA member: 0.6
+7.5
+	Fitness assigned to EPPSEA member: 0.0
+7.4375
+	Fitness assigned to EPPSEA member: 0.4
+7.0
+	Fitness assigned to EPPSEA member: 1.0
+5.5
+	Fitness assigned to EPPSEA member: 1.0
+6.75
+	Fitness assigned to EPPSEA member: 1.0
+7.25
+	Fitness assigned to EPPSEA member: 0.08
+7.125
+	Fitness assigned to EPPSEA member: 1.0
+1.375
+	Fitness assigned to EPPSEA member: 1.0
+4.25
+	Fitness assigned to EPPSEA member: 0.0
+7.125
+	Fitness assigned to EPPSEA member: 1.0
+6.75
+	Fitness assigned to EPPSEA member: 0.0
+6.3125
+	Fitness assigned to EPPSEA member: 1.0
+6.9375
+	Fitness assigned to EPPSEA member: 1.0
+7.25
+	Fitness assigned to EPPSEA member: 0.0
+2.125
+	Fitness assigned to EPPSEA member: 1.0
+4.25
+	Fitness assigned to EPPSEA member: 0.0
+7.0
+	Fitness assigned to EPPSEA member: 1.0
+6.75
+	Fitness assigned to EPPSEA member: 1.0
+7.625
+	Fitness assigned to EPPSEA member: 1.0
+1.3125
+	Fitness assigned to EPPSEA member: 0.0
+7.125
+	Fitness assigned to EPPSEA member: 1.0
+6.25
+	Fitness assigned to EPPSEA member: 0.0
+7.25

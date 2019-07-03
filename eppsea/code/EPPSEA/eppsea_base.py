@@ -125,16 +125,63 @@ class GPNode:
                 nodes.extend(c.get_all_nodes())
         return nodes
 
-    def get_rest_of_edit_distance(self, depth):
+    def get_operation(self):
+        return self.operation
+        
+    @staticmethod
+    def get_edit_distance(node1, node2, k):
+        return_val = 0
+        if node1 != None and node2 != None:
+            if node1.operation != node2.get_operation():
+                return_val = 1
+            elif node1.operation == 'constant' and node1.data != node2.data:
+                return_val = 1
+
+            num_children1 = 0
+            num_children2 = 0
+
+            if node1.children != None:
+                num_children1 = len(node1.children)
+            if node2.children != None:
+                num_children2 = len(node2.children)
+
+            max_num_children = max(num_children1, num_children2)
+
+            for idx in range(max_num_children):
+                if idx >= num_children1:
+                    child1 = None
+                else:
+                    child1 = node1.children[idx]
+                if idx >= num_children2:
+                    child2 = None
+                else:
+                    child2 = node2.children[idx]
+
+                return_val = return_val + k*GPNode.get_edit_distance(child1, child2, k)
+        else:
+            return_val = 1
+
+            if node1 != None:
+                tree_with_data = node1
+            else:
+                tree_with_data = node2
+
+            if tree_with_data.children != None:
+                for idx in range(len(tree_with_data.children)):
+                    return_val = return_val + k*GPNode.get_edit_distance(tree_with_data.children[idx], None, k)
+        
+        return return_val
+        
+            
+
+    def get_rest_of_edit_distance(self, k):
         # returns the edit distance assuming all all nodes do not match
-        nodes = []
-        nodes.append(self)
         child_sum = 0
         if self.children is not None:
             for c in self.children:
-                child_sum = child_sum + c.get_rest_of_edit_distance(depth + 1)
+                child_sum = child_sum + c.get_rest_of_edit_distance(k)
 
-        return child_sum + 1
+        return k * child_sum + 1
 
     def get_all_nodes_depth_limited(self, depth_limit):
         # returns a list of all nodes down to a certain depth limit
@@ -201,9 +248,16 @@ class GPTree:
 
         self.id = None
 
+    def get_root(self):
+        return self.root
+
     def assign_id(self):
         # assigns a random id to self. Every unique GP Tree should call this once
         self.id = self.id = '{0}_{1}_{2}'.format('GPTree', str(id(self)), str(uuid.uuid4()))
+
+    @staticmethod
+    def get_edit_distance( tree1, tree2, k):
+        return GPNode.get_edit_distance(tree1.get_root(), tree2.get_root(), k)
 
     def proportional_selection(self, population, weights):
         # makes a random weighted selection from the population
@@ -892,6 +946,9 @@ class EppseaSelectionFunction:
         new_selection_function.mo_fitnesses = None
         return new_selection_function
 
+    def get_gp_tree(self, selector=0):
+        return self.gp_trees[selector]
+
     def select(self, population, n=1, selector=0, generation_number=None, best_ever_genome=None, average_fitness_last_generation=None):
         # selects n individuals from the population. generation_number may need to be passed in if generation_number
         # is a possible terminal in the GP Tree
@@ -1019,6 +1076,7 @@ class Eppsea:
         self.results['eval_counts'] = []
         self.results['average_fitness'] = []
         self.results['best_fitness'] = []
+        self.results['avg_edit_dist'] = []
 
         # setup evolution data structures
         self.population = None
@@ -1049,7 +1107,7 @@ class Eppsea:
         random.seed(seed)
         self.log('Using random seed {0}'.format(seed), 'INFO')
 
-    def log(self, message, message_type):
+    def log(self, message, message_type, file_name_extension=''):
         # Builds a log message out of a timestamp, the passed message, and a message type, then prints the message and
         # writes it in the log_file
 
@@ -1064,6 +1122,12 @@ class Eppsea:
         with open(self.log_file_path, 'a') as log_file:
             log_file.write(full_message)
             log_file.write('\n')
+
+    def writeToFile(self, message, fileName):
+        with open(self.results_directory + fileName, 'a') as file:
+            file.write(str(message))
+            file.write('\n')
+
 
     def randomize_population(self):
         # Fills the population with "mu" randomized individuals, including initial population members
@@ -1142,6 +1206,7 @@ class Eppsea:
         # record fitness assignments
         for p in self.new_population:
             self.fitness_assignments[p.get_string()] = p.fitness
+            
 
         # kill bad population members, if configured to
         # bad population members are those with a fitness less than the first quartile minus 3 * the interquartile range
@@ -1179,6 +1244,20 @@ class Eppsea:
                 else:
                     p.fitness -= self.gp_parsimony_pressure * p.gp_trees_size()
 
+        
+        num_selection_functions = len(self.new_population)
+        edit_distance_bonus = [0]*num_selection_functions
+        for idx, s in enumerate(self.new_population):
+            for idx2 in range(idx+1, num_selection_functions):
+                edit_dist = GPTree.get_edit_distance(self.new_population[idx].get_gp_tree(), self.new_population[idx2].get_gp_tree(), 0.5)
+                edit_distance_bonus[idx] = edit_distance_bonus[idx] + edit_dist
+                edit_distance_bonus[idx2] = edit_distance_bonus[idx2] + edit_dist
+
+        edit_distance_bonus = [x / (num_selection_functions-1) for x in edit_distance_bonus]
+        edit_distance_bonus = [x / max(edit_distance_bonus) for x in edit_distance_bonus]
+        # for idx, s in enumerate(self.new_population):
+        #     s.fitness = s.fitness + 0.1*edit_distance_bonus[idx]
+
         # Update results
         self.results['eval_counts'].append(self.gp_evals)
         if self.multiobjective:
@@ -1189,8 +1268,10 @@ class Eppsea:
         else:
             average_fitness = statistics.mean(p.fitness for p in self.population)
             best_fitness = max(p.fitness for p in self.population)
+            avg_edit_dist = statistics.mean(ed for ed in edit_distance_bonus)
             self.results['average_fitness'].append(average_fitness)
             self.results['best_fitness'].append(best_fitness)
+            self.results['avg_edit_dist'].append(avg_edit_dist)
 
         # pickle the population, if configured to
         if self.pickle_every_population:
@@ -1292,10 +1373,11 @@ class Eppsea:
 
                 result_writer = csv.writer(resultFile)
 
-                result_writer.writerow(['evals', 'average fitness', 'best fitness'])
+                result_writer.writerow(['evals', 'average fitness', 'best fitness', 'average edit distance'])
                 result_writer.writerow(self.results['eval_counts'])
                 result_writer.writerow(self.results['average_fitness'])
                 result_writer.writerow(self.results['best_fitness'])
+                result_writer.writerow(self.results['avg_edit_dist'])
 
             # find the best population member(s), log its string, and expose it/them
             if self.multiobjective:

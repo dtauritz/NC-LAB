@@ -1,6 +1,5 @@
 # This file includes the code that uses EPPSEA to evolve a new mean-update selection scheme for CMA-ES
 
-
 from eppsea_basicEA import SelectionFunction
 
 import math
@@ -531,8 +530,8 @@ class EppseaCMAES:
         self.assign_eppsea_fitness(selection_functions, ea_results)
 
         self.log('Reporting results from EPPSEA generation {0}'.format(self.eppsea.gen_number), 2)
+
         for s in selection_functions:
-            self.log('Testing HERERHERHERHERHERHERHERHERHERH: {0}'.format(s.get.get_rest_of_edit_distance(0)), 2)
             self.log('Results for EPPSEA member: {0}'.format(s.eppsea_selection_function.get_string()), 2)
             e_results = list(r for r in ea_results if r.selection_function_id == s.id)
             for f in fitness_functions:
@@ -771,7 +770,10 @@ if __name__ == '__main__':
     config_paths = sys.argv[1:]
 
     for config_path in config_paths:
-        try:
-            main(config_path)
-        except Exception as e:
-            print(str(e))
+        main(config_path)
+
+    # for config_path in config_paths:
+    #     try:
+    #         main(config_path)
+    #     except Exception as e:
+    #         print(str(e))
